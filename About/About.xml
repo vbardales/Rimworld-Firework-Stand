@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Firework Stand</name>
+  <author>nelim</author>
+  <packageId>nelim.fireworkstand</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Turns telardo's Fireworks into a real recreation source, with a recreation type of its own.
+
+In the original mod, fireworks are either an Ideology ritual or a one-use item you set off by hand — and with Ideology installed the manual button is not even created, so the ritual is the only way.
+
+This adds a firework stand: a building loaded with firework launchers that colonists walk over to and watch of their own accord, as recreation. The stand only fires while somebody is actually watching, so it never wastes a rocket on an empty field, and it must be built under open sky.
+
+The show itself — the bursts, the trails, the sounds, the mood memories — is telardo's, called as it is. What this adds is the recreation type. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
+
+Both mods are soft dependencies. Without Fireworks nothing is patched and nothing errors.
+
+No save data of its own beyond the stand's own reload timer.</description>
+  <modDependencies>
+    <li>
+      <packageId>telardo.Fireworks</packageId>
+      <displayName>Fireworks</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2922179297</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>telardo.Fireworks</li>
+  </loadAfter>
+</ModMetaData>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Une rampe de tir qui transforme les feux d'artifice de telardo en VRAIE source de loisir.
+       Chez lui, ce sont soit un rituel Ideology, soit un objet a usage unique qu'on declenche au
+       gizmo - et avec Ideology actif, le gizmo n'est meme pas cree :
+
+           if (ModsConfig.IdeologyActive) yield break;   // CompLaunchFireworks
+
+       Ici, les colons y vont d'eux-memes, en recreation, et la rampe tire pendant qu'ils
+       regardent.
+
+       POURQUOI TOUT EST DANS UN PATCH GARDE. Ces defs citent `FireworkLauncher` et la classe
+       `Fireworks.CompLaunchFireworks` : sans le mod d'origine, une `<li Class="...">` non resolue
+       ferait echouer la def ENTIERE, et le filtre de carburant pointerait dans le vide. On garde
+       donc sur l'existence de son objet, le test le plus direct qui soit.
+
+       CE QUI EST NOTRE APPORT, et le seul : un nouveau TYPE de loisir. C'est la denree rare - les
+       attentes en reclament jusqu'a six, le jeu de base n'en offre que huit dont quatre issus de
+       batiments. Tout le spectacle lui-meme (gerbes, trainees, sous-emetteurs, sons) reste celui
+       de telardo, appele tel quel. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="FireworkLauncher"]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+
+        <JoyKindDef>
+          <defName>FS_Fireworks</defName>
+          <label>fireworks</label>
+        </JoyKindDef>
+
+        <ThingDef ParentName="BuildingBase">
+          <defName>FS_FireworkStand</defName>
+          <label>firework stand</label>
+          <description>A braced rack that holds a stack of firework launchers and sets them off one at a time. Colonists gather at a distance to watch, and the show only runs while somebody is there to see it.\n\nMust be built under open sky.</description>
+          <thingClass>Building</thingClass>
+          <graphicData>
+            <texPath>Things/Item/FireworkLauncher</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.6,1.6)</drawSize>
+            <shadowData>
+              <volume>(0.4, 0.5, 0.4)</volume>
+            </shadowData>
+          </graphicData>
+          <size>(1,1)</size>
+          <altitudeLayer>Building</altitudeLayer>
+          <rotatable>false</rotatable>
+          <passability>PassThroughOnly</passability>
+          <pathCost>40</pathCost>
+          <fillPercent>0.35</fillPercent>
+          <tickerType>Normal</tickerType>
+          <minifiedDef>MinifiedThing</minifiedDef>
+          <thingCategories>
+            <li>BuildingsJoy</li>
+          </thingCategories>
+          <socialPropernessMatters>true</socialPropernessMatters>
+          <building>
+            <joyKind>FS_Fireworks</joyKind>
+            <!-- On regarde un feu d'artifice de loin et de face, comme un televiseur. La portee
+                 est plus large : ca se voit de l'autre bout de la colonie. -->
+            <watchBuildingStandDistanceRange>4~12</watchBuildingStandDistanceRange>
+            <watchBuildingStandRectWidth>5</watchBuildingStandRectWidth>
+          </building>
+          <statBases>
+            <MaxHitPoints>120</MaxHitPoints>
+            <WorkToBuild>4000</WorkToBuild>
+            <Mass>15</Mass>
+            <Flammability>1.0</Flammability>
+            <Beauty>4</Beauty>
+            <JoyGainFactor>1.4</JoyGainFactor>
+          </statBases>
+          <costList>
+            <Steel>40</Steel>
+            <WoodLog>20</WoodLog>
+          </costList>
+          <researchPrerequisites>
+            <li>IEDs</li>
+          </researchPrerequisites>
+          <comps>
+            <li Class="CompProperties_Refuelable">
+              <!-- Le carburant, ce sont ses lance-feux. fuelConsumptionRate a 0 : rien ne se
+                   consomme tout seul, c'est notre composant qui retire une fusee par salve. -->
+              <fuelConsumptionRate>0</fuelConsumptionRate>
+              <fuelCapacity>10</fuelCapacity>
+              <fuelFilter>
+                <thingDefs>
+                  <li>FireworkLauncher</li>
+                </thingDefs>
+              </fuelFilter>
+              <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+              <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+              <showFuelGizmo>true</showFuelGizmo>
+              <atomicFueling>false</atomicFueling>
+              <fuelLabel>fireworks loaded</fuelLabel>
+              <outOfFuelMessage>No fireworks loaded</outOfFuelMessage>
+            </li>
+            <!-- Le composant de telardo, pose sur un batiment. Verifie par decompilation : sa
+                 methode Launch ne lit que la position et la carte de son porteur, et ne le detruit
+                 pas. Notre composant remet son champ `launched` a faux avant chaque salve, ce qui
+                 transforme un tir unique en rampe reutilisable. -->
+            <li>
+              <compClass>Fireworks.CompLaunchFireworks</compClass>
+            </li>
+            <li Class="FireworkStand.CompProperties_FireworkStand">
+              <shotInterval>900</shotInterval>
+              <launchDelay>60</launchDelay>
+              <moodRadius>20</moodRadius>
+            </li>
+          </comps>
+          <placeWorkers>
+            <li>PlaceWorker_WatchArea</li>
+          </placeWorkers>
+          <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+          <designationCategory>Joy</designationCategory>
+        </ThingDef>
+
+        <JobDef>
+          <defName>FS_WatchFireworks</defName>
+          <driverClass>FireworkStand.JobDriver_WatchFireworks</driverClass>
+          <reportString>watching fireworks.</reportString>
+          <joyDuration>4000</joyDuration>
+          <joyMaxParticipants>10</joyMaxParticipants>
+          <joyKind>FS_Fireworks</joyKind>
+        </JobDef>
+
+        <JoyGiverDef>
+          <defName>FS_WatchFireworks</defName>
+          <giverClass>JoyGiver_WatchBuilding</giverClass>
+          <baseChance>3</baseChance>
+          <!-- unroofedOnly : `JoyGiver_InteractBuilding.CanInteractWith` refuse un batiment sous
+               toit quand ce champ est vrai. C'est ce que le telescope vanilla utilise, et ca vaut
+               au moins autant pour un feu d'artifice. -->
+          <unroofedOnly>true</unroofedOnly>
+          <!-- desireSit a false : on se leve pour regarder un feu d'artifice, on ne va pas
+               chercher une chaise. Sans ca, une rampe en plein champ resterait inutilisee. -->
+          <desireSit>false</desireSit>
+          <thingDefs>
+            <li>FS_FireworkStand</li>
+          </thingDefs>
+          <jobDef>FS_WatchFireworks</jobDef>
+          <joyKind>FS_Fireworks</joyKind>
+          <requiredCapacities>
+            <li>Sight</li>
+          </requiredCapacities>
+        </JoyGiverDef>
+
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
