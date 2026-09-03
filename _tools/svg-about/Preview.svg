@@ -5,14 +5,14 @@
       <stop offset="1" stop-color="#161920"/>
     </linearGradient>
 
-    <!-- La lueur jetee au sol par un depart : l'effet que le mod ajoute, la rampe
-         etant noire le reste du temps. -->
+    <!-- The light thrown on the ground by a launch: the effect the mod adds, the stand being
+     dark the rest of the time. -->
     <radialGradient id="glow">
       <stop offset="0" stop-color="#F5E6A8" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#F5E6A8" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Un rayon de gerbe : le trait, puis l'etincelle au bout. -->
+    <!-- One ray of the burst: the stroke, then the spark at its tip. -->
     <g id="ray">
       <line x1="0" y1="-13" x2="0" y2="-52" stroke-width="3" stroke-linecap="round"/>
       <circle cx="0" cy="-60" r="3.5" stroke="none"/>
@@ -21,7 +21,7 @@
 
   <rect width="640" height="640" fill="url(#bg)"/>
 
-  <!-- Gerbe principale -->
+  <!-- Main burst -->
   <g transform="translate(320 168) scale(1.55)" stroke="#F5E6A8" fill="#F5E6A8">
     <use href="#ray" transform="rotate(0)"/>
     <use href="#ray" transform="rotate(22.5)"/>
@@ -42,7 +42,7 @@
     <circle cx="0" cy="0" r="7" stroke="none"/>
   </g>
 
-  <!-- Deux gerbes secondaires, plus loin et plus petites -->
+  <!-- Two secondary bursts, further off and smaller -->
   <g transform="translate(168 122) scale(0.72)" stroke="#E0705F" fill="#E0705F" opacity="0.9">
     <use href="#ray" transform="rotate(0)"/>
     <use href="#ray" transform="rotate(45)"/>
@@ -66,26 +66,26 @@
     <circle cx="0" cy="0" r="4" stroke="none"/>
   </g>
 
-  <!-- Trainees : de la bouche des tubes jusqu'aux gerbes -->
+  <!-- Trails: from the muzzles up to the bursts -->
   <g fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" opacity="0.45">
     <path d="M320 356 Q312 280 320 246"/>
     <path d="M296 362 Q236 268 178 178"/>
     <path d="M344 362 Q412 262 468 140"/>
   </g>
 
-  <!-- La rampe : bati, tubes, fumee de meche, lueur au sol -->
+  <!-- The stand: frame, tubes, fuse smoke, light on the ground -->
   <g transform="translate(320 430)">
     <ellipse cx="0" cy="10" rx="128" ry="16" fill="url(#glow)"/>
     <ellipse cx="0" cy="12" rx="96" ry="9" fill="#000000" opacity="0.28"/>
 
-    <!-- Pieds -->
+    <!-- Legs -->
     <path d="M-84 -52 h13 l9 52 h-13 z" fill="#6B5238"/>
     <path d="M84 -52 h-13 l-9 52 h13 z" fill="#6B5238"/>
-    <!-- Traverse basse et rail haut -->
+    <!-- Low crossbar and top rail -->
     <rect x="-72" y="-18" width="144" height="9" rx="3" fill="#5A452F"/>
     <rect x="-92" y="-58" width="184" height="14" rx="4" fill="#7A5E40"/>
 
-    <!-- Tubes en eventail : celui du milieu vient de partir -->
+    <!-- Tubes fanned out: the middle one has just fired -->
     <g transform="rotate(-15)">
       <rect x="-70" y="-124" width="21" height="72" rx="4" fill="#B4453C"/>
       <rect x="-70" y="-104" width="21" height="7" fill="#E6DCC6"/>
@@ -101,7 +101,7 @@
     <rect x="-11" y="-134" width="22" height="7" rx="2" fill="#3D4049"/>
     <circle cx="0" cy="-134" r="15" fill="url(#glow)"/>
 
-    <!-- Fumee de meche au pied du bati -->
+    <!-- Fuse smoke at the foot of the frame -->
     <g fill="#9AA0AC" opacity="0.28">
       <circle cx="-104" cy="-6" r="9"/>
       <circle cx="-114" cy="-20" r="7"/>

@@ -6,6 +6,7 @@
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
+  <url>https://github.com/vbardales/Rimworld-Firework-Stand</url>
   <description>Turns telardo's Fireworks into a real recreation source, with a recreation type of its own.
 
 In the original mod, fireworks are either an Ideology ritual or a one-use item you set off by hand — and with Ideology installed the manual button is not even created, so the ritual is the only way.
@@ -14,9 +15,22 @@ This adds a firework stand: a building loaded with firework launchers that colon
 
 The show itself — the bursts, the trails, the sounds, the mood memories — is telardo's, called as it is. What this adds is the recreation type, plus the two effects his mod has no reason to provide: the fuse smoking at the foot of the rack, and real light thrown across the ground for a few seconds as each rocket leaves. The stand is dark the rest of the time; it is not a lamp. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
 
-Both mods are soft dependencies. Without Fireworks nothing is patched and nothing errors.
+Fireworks is declared as a dependency, because the stand does nothing at all without it. The link itself is made at runtime by reflection, and the defs sit inside a guarded patch: if the mod is absent, nothing is patched and nothing errors. Ideology is not required either way.
 
-No save data of its own beyond the stand's own reload timer.</description>
+No save data of its own beyond the stand's own reload timer.
+
+IF I GO QUIET
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+AI-GENERATED
+
+This mod's code was written with Claude Code (Anthropic) and its images generated with DALL-E (OpenAI), under human direction, review and testing. Stated openly: designing with these tools is my job.
+
+THANKS
+
+telardo for Fireworks, whose show this mod calls rather than reimplements.
+Claude Code (Anthropic) and DALL-E (OpenAI).</description>
   <modDependencies>
     <li>
       <packageId>telardo.Fireworks</packageId>

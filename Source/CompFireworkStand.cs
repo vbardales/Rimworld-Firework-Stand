@@ -6,19 +6,19 @@ namespace FireworkStand
 {
     public class CompProperties_FireworkStand : CompProperties
     {
-        /// <summary>Ticks entre deux salves tant qu'un colon regarde. 900 = un quart d'heure.</summary>
+        /// <summary>Ticks between two salvoes while a colonist is watching. 900 = a quarter hour.</summary>
         public int shotInterval = 900;
 
-        /// <summary>Delai avant que la salve ne parte, pour laisser au colon le temps de lever la tete.</summary>
+        /// <summary>Delay before the salvo leaves, to give the colonist time to look up.</summary>
         public int launchDelay = 60;
 
-        /// <summary>Portee du souvenir laisse par une salve, en cases.</summary>
+        /// <summary>Range of the memory a salvo leaves, in cells.</summary>
         public float moodRadius = 20f;
 
-        /// <summary>Duree de la lueur reelle projetee au sol apres le depart de la fusee.</summary>
+        /// <summary>How long the real light thrown on the ground lasts after the rocket leaves.</summary>
         public int flashTicks = 240;
 
-        /// <summary>Un flocon de fumee tous les N ticks pendant que la meche brule.</summary>
+        /// <summary>One puff of smoke every N ticks while the fuse burns.</summary>
         public int smokeInterval = 12;
 
         public CompProperties_FireworkStand()
@@ -28,29 +28,28 @@ namespace FireworkStand
     }
 
     /// <summary>
-    /// Fait tirer la rampe pendant qu'un colon la regarde, distribue le souvenir, et fournit les
-    /// effets que le mod d'origine ne produit pas : la fumee au pied de la rampe et la lumiere
-    /// projetee au sol.
+    /// Makes the stand fire while a colonist watches it, hands out the memory, and provides the
+    /// effects the original mod does not produce: the smoke at the foot of the stand and the light
+    /// thrown across the ground.
     ///
-    /// POURQUOI DECLENCHER DEPUIS LE REGARD. Une rampe qui tire toute seule sur minuterie
-    /// gaspillerait ses munitions la nuit, sous la pluie, et quand personne ne regarde. Ici c'est
-    /// le pilote de la tache qui previent a chaque tick : pas de salve sans spectateur, et la
-    /// consommation suit exactement l'usage.
+    /// WHY FIRING IS DRIVEN BY THE WATCHING. A stand firing on its own timer would waste its
+    /// rockets at night, in the rain, and when nobody is looking. Here the job driver tells it on
+    /// every tick: no salvo without an audience, and consumption follows use exactly.
     ///
-    /// Le tir lui-meme est delegue au mod d'origine via <see cref="FireworksBridge"/> : on ne
-    /// reimplemente ni les gerbes, ni les trainees, ni les sous-emetteurs, ni les sons.
+    /// The shot itself is delegated to the original mod through <see cref="FireworksBridge"/>: the
+    /// bursts, the trails, the sub-emitters and the sounds are not reimplemented here.
     ///
-    /// LE SON N'EST PAS DE NOTRE RESSORT, ET C'EST VERIFIE. `FireworkSpawner.TrySpawnFleck` joue
-    /// deja le `launchSound` porte par le FleckDef tire au sort (`Fireworks_RocketLaunch` ou
-    /// `Fireworks_SmallRocketLaunch`), et chaque sous-emetteur joue son `emitSound` a
-    /// l'eclatement. En ajouter un ici ne ferait que doubler ce qui se joue deja.
+    /// SOUND IS NOT OURS TO ADD, AND THAT IS CHECKED. `FireworkSpawner.TrySpawnFleck` already
+    /// plays the `launchSound` carried by the FleckDef it rolls (`Fireworks_RocketLaunch` or
+    /// `Fireworks_SmallRocketLaunch`), and every sub-emitter plays its `emitSound` as it bursts.
+    /// Adding one here would only double what already plays.
     ///
-    /// LA LUMIERE EST UNE VRAIE LUMIERE, pas un fleck lumineux. `CompGlower.ShouldBeLitNow`
-    /// interroge tous les composants du batiment qui implementent <see cref="IThingGlower"/> et
-    /// s'eteint des que l'un d'eux dit non - c'est le crochet prevu par le jeu, et il ne consulte
-    /// ni carburant ni courant. Ce composant repond donc « oui » pendant les quelques secondes qui
-    /// suivent le depart de la fusee, et « non » le reste du temps : la rampe illumine le sol le
-    /// temps de la gerbe au lieu de rester allumee comme une lampe.
+    /// THE LIGHT IS A REAL LIGHT, not a glowing fleck. `CompGlower.ShouldBeLitNow` asks every comp
+    /// on the building that implements <see cref="IThingGlower"/> and gives up as soon as one says
+    /// no - that is the hook the game provides, and it consults neither fuel nor power. So this
+    /// comp answers "yes" for the few seconds after the rocket leaves, and "no" the rest of the
+    /// time: the stand lights the ground for the length of the burst instead of staying on like a
+    /// lamp.
     /// </summary>
     public class CompFireworkStand : ThingComp, IThingGlower
     {
@@ -65,7 +64,7 @@ namespace FireworkStand
 
         public bool ShouldBeLitNow() => lit;
 
-        /// <summary>Appele a chaque tick par le pilote, tant qu'un colon regarde.</summary>
+        /// <summary>Called on every tick by the job driver, as long as a colonist is watching.</summary>
         public void Notify_Watched()
         {
             if (!FireworksBridge.Available) return;
@@ -75,14 +74,14 @@ namespace FireworkStand
             var fuel = Fuel;
             if (fuel == null || !fuel.HasFuel) return;
 
-            // On consomme d'abord : si le tir echoue pour une raison quelconque, mieux vaut une
-            // fusee perdue qu'une rampe qui tire indefiniment sans rien depenser.
+            // Consume first: if the shot fails for any reason, one lost rocket is better than a
+            // stand that fires forever without spending anything.
             fuel.ConsumeFuel(1f);
             lastShotTick = Find.TickManager.TicksGame;
 
             if (FireworksBridge.Fire(parent as ThingWithComps, Props.launchDelay))
             {
-                // La meche est allumee : elle fumera jusqu'au depart, gere au tick.
+                // The fuse is lit: it will smoke until the rocket leaves, handled on tick.
                 departed = false;
                 ApplyMemory();
             }
@@ -99,19 +98,18 @@ namespace FireworkStand
             var now = Find.TickManager.TicksGame;
             var sinceShot = now - lastShotTick;
 
-            // 1. La meche brule : un filet de fumee au pied de la rampe.
+            // 1. The fuse is burning: a thread of smoke at the foot of the stand.
             if (!departed && sinceShot >= 0 && sinceShot < Props.launchDelay)
             {
-                // `% interval < delta` et non `% interval == 0` : en 1.6 le jeu peut sauter
-                // plusieurs ticks d'un coup, un test d'egalite raterait purement et simplement
-                // la fenetre.
+                // `% interval < delta` and not `% interval == 0`: in 1.6 the game can skip several
+                // ticks at once, and an equality test would miss the window outright.
                 if (Props.smokeInterval > 0 && now % Props.smokeInterval < delta)
                 {
                     FleckMaker.ThrowSmoke(parent.DrawPos, map, 0.7f);
                 }
             }
 
-            // 2. Le depart : bouffee epaisse, etincelles, et la lumiere s'allume.
+            // 2. The launch: thick puff, sparks, and the light comes on.
             if (!departed && sinceShot >= Props.launchDelay)
             {
                 departed = true;
@@ -125,7 +123,7 @@ namespace FireworkStand
                 SetLit(true, map);
             }
 
-            // 3. Extinction.
+            // 3. Going dark again.
             if (lit && now >= litUntilTick)
             {
                 SetLit(false, map);
@@ -133,9 +131,9 @@ namespace FireworkStand
         }
 
         /// <summary>
-        /// `UpdateLit` compare l'etat voulu a l'etat courant et n'inscrit ou ne retire le glower
-        /// de la grille de lumiere que s'ils different. On ne l'appelle donc qu'aux deux instants
-        /// ou notre reponse change, et jamais a chaque tick.
+        /// `UpdateLit` compares the wanted state to the current one and only adds or removes the
+        /// glower from the light grid when they differ. So it is called at the two instants our
+        /// answer changes, and never on every tick.
         /// </summary>
         private void SetLit(bool value, Map map)
         {
@@ -145,10 +143,10 @@ namespace FireworkStand
         }
 
         /// <summary>
-        /// Reproduit la distribution de souvenirs du mod d'origine, dont la methode est privee.
-        /// Memes probabilites et memes ThoughtDef : 5 % rate, 15 % quelconque, 70 % beau,
-        /// 10 % inoubliable. La portee est plus large que la sienne, parce qu'on tire depuis une
-        /// rampe fixe que la colonie entiere peut voir, et non depuis une fusee tenue a la main.
+        /// Reproduces the original mod's memory roll, whose method is private. Same odds and same
+        /// ThoughtDefs: 5% a dud, 15% unimpressive, 70% beautiful, 10% unforgettable. The range is
+        /// wider than its own, because this fires from a fixed stand the whole colony can see, not
+        /// from a rocket held in one hand.
         /// </summary>
         private void ApplyMemory()
         {

@@ -6,19 +6,19 @@ using Verse;
 namespace FireworkStand
 {
     /// <summary>
-    /// Pont vers le mod Fireworks de telardo, entierement par reflexion.
+    /// Bridge to telardo's Fireworks mod, entirely through reflection.
     ///
-    /// Pourquoi pas une reference directe : notre assembly doit se charger meme si le mod
-    /// d'origine est absent. Une reference dure ferait echouer le chargement du type entier.
+    /// Why not a direct reference: this assembly has to load even when the original mod is
+    /// absent. A hard reference would fail the load of the whole type.
     ///
-    /// Ce qu'on lui emprunte est deliberement minimal - une methode et un champ :
-    ///   <c>CompLaunchFireworks.Launch(int delayTick)</c> tire une salve. Verifie par
-    ///   decompilation : elle ne lit que <c>parent.DrawPos</c> et <c>parent.Map</c>, enregistre
-    ///   la salve aupres du MapComponent du mod, et **ne detruit pas son porteur**. Rien n'y
-    ///   suppose que le porteur soit l'objet consommable d'origine : un batiment fait l'affaire.
-    ///   <c>CompLaunchFireworks.launched</c> est un champ public que la methode met a vrai pour
-    ///   ne tirer qu'une fois. Le remettre a faux rearme le composant - c'est ce qui transforme
-    ///   un lance-feux a usage unique en rampe reutilisable.
+    /// What is borrowed is deliberately minimal - one method and one field:
+    ///   <c>CompLaunchFireworks.Launch(int delayTick)</c> fires one salvo. Checked by
+    ///   decompilation: it only reads <c>parent.DrawPos</c> and <c>parent.Map</c>, registers the
+    ///   salvo with the mod's own MapComponent, and **does not destroy its holder**. Nothing in
+    ///   it assumes the holder is the original single-use item: a building will do.
+    ///   <c>CompLaunchFireworks.launched</c> is a public field the method sets to true so it only
+    ///   fires once. Setting it back to false rearms the comp - that is what turns a single-use
+    ///   launcher into a reusable stand.
     /// </summary>
     public static class FireworksBridge
     {
@@ -86,8 +86,9 @@ namespace FireworkStand
         }
 
         /// <summary>
-        /// Rearme le composant et tire une salve. Renvoie faux si le mod n'est pas la, ou si le
-        /// batiment ne porte pas le composant - auquel cas il n'y a rien a faire et rien a dire.
+        /// Rearms the comp and fires one salvo. Returns false if the mod is not there, or if the
+        /// building does not carry the comp - in which case there is nothing to do and nothing
+        /// to report.
         /// </summary>
         public static bool Fire(ThingWithComps building, int delayTicks)
         {

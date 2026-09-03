@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <!-- Une rampe de tir qui transforme les feux d'artifice de telardo en VRAIE source de loisir.
-       Chez lui, ce sont soit un rituel Ideology, soit un objet a usage unique qu'on declenche au
-       gizmo - et avec Ideology actif, le gizmo n'est meme pas cree :
+  <!-- A launch stand that turns telardo's fireworks into a REAL recreation source. In his mod
+       they are either an Ideology ritual or a single-use item set off from a gizmo - and with
+       Ideology active the gizmo is not even created:
 
            if (ModsConfig.IdeologyActive) yield break;   // CompLaunchFireworks
 
-       Ici, les colons y vont d'eux-memes, en recreation, et la rampe tire pendant qu'ils
-       regardent.
+       Here colonists go of their own accord, as recreation, and the stand fires while they watch.
 
-       POURQUOI TOUT EST DANS UN PATCH GARDE. Ces defs citent `FireworkLauncher` et la classe
-       `Fireworks.CompLaunchFireworks` : sans le mod d'origine, une `<li Class="...">` non resolue
-       ferait echouer la def ENTIERE, et le filtre de carburant pointerait dans le vide. On garde
-       donc sur l'existence de son objet, le test le plus direct qui soit.
+       WHY EVERYTHING SITS INSIDE A GUARDED PATCH. These defs name `FireworkLauncher` and the class
+       `Fireworks.CompLaunchFireworks`: without the original mod, an unresolved `<li Class="...">`
+       would fail the ENTIRE def, and the fuel filter would point at nothing. So the guard is on
+       the existence of his item, the most direct test there is.
 
-       CE QUI EST NOTRE APPORT, et le seul : un nouveau TYPE de loisir. C'est la denree rare - les
-       attentes en reclament jusqu'a six, le jeu de base n'en offre que huit dont quatre issus de
-       batiments. Tout le spectacle lui-meme (gerbes, trainees, sous-emetteurs, sons) reste celui
-       de telardo, appele tel quel. -->
+       WHAT IS OURS, AND THE ONLY THING THAT IS: a new KIND of recreation. That is the scarce
+       commodity - expectations ask for up to six, and the base game offers only eight, four of
+       which come from buildings. The show itself (bursts, trails, sub-emitters, sounds) stays
+       telardo's, called as it is. -->
 
   <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingDef[defName="FireworkLauncher"]</xpath>
@@ -58,8 +57,8 @@
           <socialPropernessMatters>true</socialPropernessMatters>
           <building>
             <joyKind>FS_Fireworks</joyKind>
-            <!-- On regarde un feu d'artifice de loin et de face, comme un televiseur. La portee
-                 est plus large : ca se voit de l'autre bout de la colonie. -->
+            <!-- Fireworks are watched from far away and face on, like a television. The range is
+                 wider: it can be seen from the other end of the colony. -->
             <watchBuildingStandDistanceRange>4~12</watchBuildingStandDistanceRange>
             <watchBuildingStandRectWidth>5</watchBuildingStandRectWidth>
           </building>
@@ -80,8 +79,8 @@
           </researchPrerequisites>
           <comps>
             <li Class="CompProperties_Refuelable">
-              <!-- Le carburant, ce sont ses lance-feux. fuelConsumptionRate a 0 : rien ne se
-                   consomme tout seul, c'est notre composant qui retire une fusee par salve. -->
+              <!-- The fuel is its firework launchers. fuelConsumptionRate at 0: nothing burns on
+                   its own, our comp removes one rocket per salvo. -->
               <fuelConsumptionRate>0</fuelConsumptionRate>
               <fuelCapacity>10</fuelCapacity>
               <fuelFilter>
@@ -96,20 +95,19 @@
               <fuelLabel>fireworks loaded</fuelLabel>
               <outOfFuelMessage>No fireworks loaded</outOfFuelMessage>
             </li>
-            <!-- Le composant de telardo, pose sur un batiment. Verifie par decompilation : sa
-                 methode Launch ne lit que la position et la carte de son porteur, et ne le detruit
-                 pas. Notre composant remet son champ `launched` a faux avant chaque salve, ce qui
-                 transforme un tir unique en rampe reutilisable. -->
+            <!-- telardo's comp, put on a building. Checked by decompilation: its Launch method
+                 only reads the position and map of its holder, and does not destroy it. Our comp
+                 sets its `launched` field back to false before each salvo, which turns a one-shot
+                 launcher into a reusable stand. -->
             <li>
               <compClass>Fireworks.CompLaunchFireworks</compClass>
             </li>
-            <!-- La lumiere. Elle est ETEINTE par defaut, et c'est tout l'interet :
-                 `CompGlower.ShouldBeLitNow` interroge chaque composant du batiment qui implemente
-                 `IThingGlower` et renonce des que l'un d'eux dit non. Notre composant en est un,
-                 et ne dit oui que pendant les quatre secondes qui suivent le depart d'une fusee.
-                 Sans ce veto, une rampe chargee resterait allumee en permanence comme une lampe -
-                 `ShouldBeLitNow` ne consulte ni le carburant ni le courant, verifie par
-                 decompilation. -->
+            <!-- The light. It is OFF by default, and that is the whole point:
+                 `CompGlower.ShouldBeLitNow` asks every comp on the building that implements
+                 `IThingGlower` and gives up as soon as one says no. Ours is one of them, and only
+                 says yes for the four seconds following a rocket's departure. Without that veto a
+                 loaded stand would stay lit permanently like a lamp - `ShouldBeLitNow` consults
+                 neither fuel nor power, checked by decompilation. -->
             <li Class="CompProperties_Glower">
               <glowRadius>9</glowRadius>
               <glowColor>(255,220,150,0)</glowColor>
@@ -142,12 +140,12 @@
           <defName>FS_WatchFireworks</defName>
           <giverClass>JoyGiver_WatchBuilding</giverClass>
           <baseChance>3</baseChance>
-          <!-- unroofedOnly : `JoyGiver_InteractBuilding.CanInteractWith` refuse un batiment sous
-               toit quand ce champ est vrai. C'est ce que le telescope vanilla utilise, et ca vaut
-               au moins autant pour un feu d'artifice. -->
+          <!-- unroofedOnly: `JoyGiver_InteractBuilding.CanInteractWith` refuses a roofed building
+               when this field is true. That is what the vanilla telescope uses, and it applies at
+               least as much to fireworks. -->
           <unroofedOnly>true</unroofedOnly>
-          <!-- desireSit a false : on se leve pour regarder un feu d'artifice, on ne va pas
-               chercher une chaise. Sans ca, une rampe en plein champ resterait inutilisee. -->
+          <!-- desireSit false: you stand up to watch fireworks, you do not go looking for a chair.
+               Without this, a stand out in a field would sit unused. -->
           <desireSit>false</desireSit>
           <thingDefs>
             <li>FS_FireworkStand</li>
