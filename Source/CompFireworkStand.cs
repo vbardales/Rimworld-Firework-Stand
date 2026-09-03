@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -16,6 +15,12 @@ namespace FireworkStand
         /// <summary>Portee du souvenir laisse par une salve, en cases.</summary>
         public float moodRadius = 20f;
 
+        /// <summary>Duree de la lueur reelle projetee au sol apres le depart de la fusee.</summary>
+        public int flashTicks = 240;
+
+        /// <summary>Un flocon de fumee tous les N ticks pendant que la meche brule.</summary>
+        public int smokeInterval = 12;
+
         public CompProperties_FireworkStand()
         {
             compClass = typeof(CompFireworkStand);
@@ -23,7 +28,9 @@ namespace FireworkStand
     }
 
     /// <summary>
-    /// Fait tirer la rampe pendant qu'un colon la regarde, et distribue le souvenir.
+    /// Fait tirer la rampe pendant qu'un colon la regarde, distribue le souvenir, et fournit les
+    /// effets que le mod d'origine ne produit pas : la fumee au pied de la rampe et la lumiere
+    /// projetee au sol.
     ///
     /// POURQUOI DECLENCHER DEPUIS LE REGARD. Une rampe qui tire toute seule sur minuterie
     /// gaspillerait ses munitions la nuit, sous la pluie, et quand personne ne regarde. Ici c'est
@@ -32,13 +39,31 @@ namespace FireworkStand
     ///
     /// Le tir lui-meme est delegue au mod d'origine via <see cref="FireworksBridge"/> : on ne
     /// reimplemente ni les gerbes, ni les trainees, ni les sous-emetteurs, ni les sons.
+    ///
+    /// LE SON N'EST PAS DE NOTRE RESSORT, ET C'EST VERIFIE. `FireworkSpawner.TrySpawnFleck` joue
+    /// deja le `launchSound` porte par le FleckDef tire au sort (`Fireworks_RocketLaunch` ou
+    /// `Fireworks_SmallRocketLaunch`), et chaque sous-emetteur joue son `emitSound` a
+    /// l'eclatement. En ajouter un ici ne ferait que doubler ce qui se joue deja.
+    ///
+    /// LA LUMIERE EST UNE VRAIE LUMIERE, pas un fleck lumineux. `CompGlower.ShouldBeLitNow`
+    /// interroge tous les composants du batiment qui implementent <see cref="IThingGlower"/> et
+    /// s'eteint des que l'un d'eux dit non - c'est le crochet prevu par le jeu, et il ne consulte
+    /// ni carburant ni courant. Ce composant repond donc « oui » pendant les quelques secondes qui
+    /// suivent le depart de la fusee, et « non » le reste du temps : la rampe illumine le sol le
+    /// temps de la gerbe au lieu de rester allumee comme une lampe.
     /// </summary>
-    public class CompFireworkStand : ThingComp
+    public class CompFireworkStand : ThingComp, IThingGlower
     {
         private int lastShotTick = -99999;
+        private int litUntilTick = -99999;
+        private bool departed = true;
+        private bool lit;
 
         private CompProperties_FireworkStand Props => (CompProperties_FireworkStand)props;
         private CompRefuelable Fuel => parent.GetComp<CompRefuelable>();
+        private CompGlower Glower => parent.GetComp<CompGlower>();
+
+        public bool ShouldBeLitNow() => lit;
 
         /// <summary>Appele a chaque tick par le pilote, tant qu'un colon regarde.</summary>
         public void Notify_Watched()
@@ -57,8 +82,66 @@ namespace FireworkStand
 
             if (FireworksBridge.Fire(parent as ThingWithComps, Props.launchDelay))
             {
+                // La meche est allumee : elle fumera jusqu'au depart, gere au tick.
+                departed = false;
                 ApplyMemory();
             }
+        }
+
+        public override void CompTickInterval(int delta)
+        {
+            base.CompTickInterval(delta);
+
+            if (!parent.Spawned) return;
+            var map = parent.Map;
+            if (map == null) return;
+
+            var now = Find.TickManager.TicksGame;
+            var sinceShot = now - lastShotTick;
+
+            // 1. La meche brule : un filet de fumee au pied de la rampe.
+            if (!departed && sinceShot >= 0 && sinceShot < Props.launchDelay)
+            {
+                // `% interval < delta` et non `% interval == 0` : en 1.6 le jeu peut sauter
+                // plusieurs ticks d'un coup, un test d'egalite raterait purement et simplement
+                // la fenetre.
+                if (Props.smokeInterval > 0 && now % Props.smokeInterval < delta)
+                {
+                    FleckMaker.ThrowSmoke(parent.DrawPos, map, 0.7f);
+                }
+            }
+
+            // 2. Le depart : bouffee epaisse, etincelles, et la lumiere s'allume.
+            if (!departed && sinceShot >= Props.launchDelay)
+            {
+                departed = true;
+                litUntilTick = now + Props.flashTicks;
+
+                FleckMaker.ThrowDustPuffThick(parent.DrawPos, map, 2.2f, new Color(0.85f, 0.85f, 0.85f, 0.6f));
+                FleckMaker.ThrowSmoke(parent.DrawPos, map, 1.6f);
+                FleckMaker.ThrowMicroSparks(parent.DrawPos, map);
+                FleckMaker.ThrowLightningGlow(parent.DrawPos, map, 1.4f);
+
+                SetLit(true, map);
+            }
+
+            // 3. Extinction.
+            if (lit && now >= litUntilTick)
+            {
+                SetLit(false, map);
+            }
+        }
+
+        /// <summary>
+        /// `UpdateLit` compare l'etat voulu a l'etat courant et n'inscrit ou ne retire le glower
+        /// de la grille de lumiere que s'ils different. On ne l'appelle donc qu'aux deux instants
+        /// ou notre reponse change, et jamais a chaque tick.
+        /// </summary>
+        private void SetLit(bool value, Map map)
+        {
+            if (lit == value) return;
+            lit = value;
+            Glower?.UpdateLit(map);
         }
 
         /// <summary>
@@ -104,6 +187,9 @@ namespace FireworkStand
         {
             base.PostExposeData();
             Scribe_Values.Look(ref lastShotTick, "lastShotTick", -99999);
+            Scribe_Values.Look(ref litUntilTick, "litUntilTick", -99999);
+            Scribe_Values.Look(ref departed, "departed", true);
+            Scribe_Values.Look(ref lit, "lit", false);
         }
     }
 }

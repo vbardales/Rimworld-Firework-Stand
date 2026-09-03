@@ -103,10 +103,23 @@
             <li>
               <compClass>Fireworks.CompLaunchFireworks</compClass>
             </li>
+            <!-- La lumiere. Elle est ETEINTE par defaut, et c'est tout l'interet :
+                 `CompGlower.ShouldBeLitNow` interroge chaque composant du batiment qui implemente
+                 `IThingGlower` et renonce des que l'un d'eux dit non. Notre composant en est un,
+                 et ne dit oui que pendant les quatre secondes qui suivent le depart d'une fusee.
+                 Sans ce veto, une rampe chargee resterait allumee en permanence comme une lampe -
+                 `ShouldBeLitNow` ne consulte ni le carburant ni le courant, verifie par
+                 decompilation. -->
+            <li Class="CompProperties_Glower">
+              <glowRadius>9</glowRadius>
+              <glowColor>(255,220,150,0)</glowColor>
+            </li>
             <li Class="FireworkStand.CompProperties_FireworkStand">
               <shotInterval>900</shotInterval>
               <launchDelay>60</launchDelay>
               <moodRadius>20</moodRadius>
+              <flashTicks>240</flashTicks>
+              <smokeInterval>12</smokeInterval>
             </li>
           </comps>
           <placeWorkers>
