@@ -25,6 +25,7 @@ First version, not yet published. RimWorld 1.6.
   made by reflection: without Fireworks, nothing is patched and nothing errors.
 - No Harmony patch. The watching job subclasses `JobDriver_WatchBuilding`, whose
   `WatchTickAction` is `protected virtual`.
-- `About/Preview.png` is generated key art, resized to the 896x504 the Workshop pages use; the
-  full-size original is kept in `Art/`, outside the published folder. The vector placeholder it
-  replaced still builds from `_tools/svg-about/`, as a fallback.
+- `About/Preview.png` is generated key art carrying the mod's name and one summary line, rendered
+  at the 896x504 the Workshop pages use, in the treatment shared by every showcase in this
+  collection. The full-size original is kept in `Art/`, outside the published folder. The vector
+  placeholder it replaced still builds from `_tools/svg-about/`, as a fallback.
