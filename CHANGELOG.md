@@ -25,6 +25,6 @@ First version, not yet published. RimWorld 1.6.
   made by reflection: without Fireworks, nothing is patched and nothing errors.
 - No Harmony patch. The watching job subclasses `JobDriver_WatchBuilding`, whose
   `WatchTickAction` is `protected virtual`.
-- The `About/Preview.png` shipped here is a placeholder rendered from `_tools/svg-about/`. It
-  draws a braced rack, while the building reuses telardo's `FireworkLauncher` texture and appears
-  in game as a single tube on the ground.
+- `About/Preview.png` is generated key art, resized to the 896x504 the Workshop pages use; the
+  full-size original is kept in `Art/`, outside the published folder. The vector placeholder it
+  replaced still builds from `_tools/svg-about/`, as a fallback.
