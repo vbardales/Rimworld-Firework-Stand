@@ -90,7 +90,9 @@
               </fuelFilter>
               <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
               <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-              <showFuelGizmo>true</showFuelGizmo>
+              <!-- No showFuelGizmo here: the field still exists on CompProperties_Refuelable in
+                   1.6, and nothing in the game reads it any more. Writing it would be writing a
+                   comment. The gauge shows regardless. -->
               <atomicFueling>false</atomicFueling>
               <fuelLabel>fireworks loaded</fuelLabel>
               <outOfFuelMessage>No fireworks loaded</outOfFuelMessage>

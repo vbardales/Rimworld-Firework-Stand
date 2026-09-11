@@ -7,6 +7,19 @@ is an assumption until a colonist stands in a field and watches a rocket go up.
 This file is the list of what to look at, in the order that finds problems fastest. Each scenario
 says what it proves, because a test whose failure you cannot interpret is not worth running.
 
+It is one half of the testing. The other half needs no colony and runs in fifteen seconds:
+
+```
+powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+```
+
+Those 25 tests read off the compiled game, and off telardo's assembly, that the things this mod
+delegates to still do what it delegates them for - the virtual slot the job driver grafts onto,
+the `IThingGlower` veto the light rests on, the method and field the bridge reaches for by name.
+Run that first: it is faster than building a stand, and a failure there explains a scenario below
+before you ever see it fail. What it cannot tell you is whether a colonist walks over and looks
+up, which is what everything after this line is for.
+
 ## Before anything
 
 1. Fireworks (telardo, `2922179297`) must be subscribed and active, and this mod must load after

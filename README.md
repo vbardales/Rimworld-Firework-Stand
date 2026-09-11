@@ -40,9 +40,24 @@ telardo's, called as it is. See [ATTRIBUTION.md](ATTRIBUTION.md).
 ```
 Mod/       published to the Workshop, and the junction target for RimWorld/Mods
 Source/    never published
-_tools/    SVG sources for the About images, and their rasteriser
+_tools/    the functional test suite, and the SVG sources for the About images
 .build/    build intermediates, outside the mod folder and ignored by git
 ```
+
+## Testing
+
+Two halves, and only the second needs a colony.
+
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+```
+
+25 tests, fifteen seconds, no game launched. They read off the compiled game and off telardo's
+assembly that the things this mod delegates to still do what it delegates them for: the virtual
+slot the job driver grafts onto, the `IThingGlower` veto the light rests on, and the method and
+field the bridge reaches for by name. A RimWorld installation and a subscription to Fireworks are
+needed, since both are read from disk. The other half is [TESTING.md](TESTING.md), nine scenarios
+for a running colony.
 
 ## Building
 

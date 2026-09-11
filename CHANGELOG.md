@@ -25,11 +25,19 @@ First version, not yet published. RimWorld 1.6.
   included. It now asks for the three things the defs already ask of the watcher: awake, under
   open sky, capable of sight. No ground line-of-sight test, since the burst is in the air and a
   wall does not hide it.
+- The stand was setting `showFuelGizmo` on its refuelable comp. The field still exists in 1.6 and
+  nothing in the game reads it any more, so the line was a comment. Removed, with a note where it
+  was. The fuel gauge shows either way. Found by the functional suite on its first run.
 
 ### Notes
 
 - Nothing here has been observed running yet. `TESTING.md` lists the nine scenarios that would
   settle it, and says which five gate publishing.
+- `_tools/Run-Functional-Tests.ps1` settles what a colony is not needed for: 25 tests, fifteen
+  seconds, no game launched. It reads off the compiled game that the hooks this mod grafts onto
+  still do what it grafts onto them for, and off telardo's assembly that the three things reached
+  by reflection are still there under those names. Twenty of the tests have been seen to fail on
+  purpose; the five that could not be are named in the file.
 - The defs sit inside a patch guarded on `FireworkLauncher`, and the link to telardo's comp is
   made by reflection: without Fireworks, nothing is patched and nothing errors.
 - No Harmony patch. The watching job subclasses `JobDriver_WatchBuilding`, whose
