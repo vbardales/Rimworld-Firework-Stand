@@ -1,0 +1,29 @@
+# Build intermediates. Source/Directory.Build.props sends them to ../.build/, outside Mod/: the
+# Workshop uploader takes that folder as it stands on disk, with no filtering, so an obj/ left
+# inside it would redistribute the publicised Assembly-CSharp.dll to every subscriber. The two
+# in-place entries are belt and braces, for a build run with the props file bypassed.
+.build/
+Source/obj/
+Source/bin/
+
+# Claude Code session worktrees and local settings. A session creates its worktree in the current
+# directory, so sometimes inside this one, and each is a full copy of the repository. Until this
+# mod was detached, only the machine-wide ignore rule covered this - a property of the machine,
+# not of the repository, which is why it is written here now.
+.claude/
+
+# Development environments.
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.csproj.user
+
+# Windows shortcuts dropped in the mod folder, never content.
+*.lnk
+
+# System.
+Thumbs.db
+desktop.ini
+.DS_Store
