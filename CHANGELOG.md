@@ -19,8 +19,17 @@ First version, not yet published. RimWorld 1.6.
 - Watched from 4 to 12 cells away, standing, up to ten colonists at once, under open sky only.
 - 40 steel and 20 wood, behind the IEDs research. English and French.
 
+### Fixed
+
+- The mood memory after a show went to every free colonist within twenty cells, asleep or indoors
+  included. It now asks for the three things the defs already ask of the watcher: awake, under
+  open sky, capable of sight. No ground line-of-sight test, since the burst is in the air and a
+  wall does not hide it.
+
 ### Notes
 
+- Nothing here has been observed running yet. `TESTING.md` lists the nine scenarios that would
+  settle it, and says which five gate publishing.
 - The defs sit inside a patch guarded on `FireworkLauncher`, and the link to telardo's comp is
   made by reflection: without Fireworks, nothing is patched and nothing errors.
 - No Harmony patch. The watching job subclasses `JobDriver_WatchBuilding`, whose

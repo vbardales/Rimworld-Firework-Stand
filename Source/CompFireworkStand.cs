@@ -6,7 +6,11 @@ namespace FireworkStand
 {
     public class CompProperties_FireworkStand : CompProperties
     {
-        /// <summary>Ticks between two salvoes while a colonist is watching. 900 = a quarter hour.</summary>
+        /// <summary>
+        /// Ticks between two salvoes while a colonist is watching. An in-game hour is 2500 ticks,
+        /// so 900 is about twenty-two in-game minutes: a watching session of 4000 ticks sees four
+        /// or five rockets go up.
+        /// </summary>
         public int shotInterval = 900;
 
         /// <summary>Delay before the salvo leaves, to give the colonist time to look up.</summary>
@@ -147,6 +151,17 @@ namespace FireworkStand
         /// ThoughtDefs: 5% a dud, 15% unimpressive, 70% beautiful, 10% unforgettable. The range is
         /// wider than its own, because this fires from a fixed stand the whole colony can see, not
         /// from a rocket held in one hand.
+        ///
+        /// WHO COUNTS AS HAVING SEEN IT. Range alone is not enough: it would hand "beautiful
+        /// fireworks" to a colonist asleep in a bedroom twelve cells away, which is the opposite of
+        /// what this mod claims to be about. The three filters below are the ones the defs already
+        /// impose on the watcher, applied to the audience:
+        ///   - awake, because a sleeping pawn sees nothing;
+        ///   - under open sky, the same test `unroofedOnly` puts on the stand itself - a rocket
+        ///     bursts overhead, so a roof between pawn and sky hides it;
+        ///   - capable of sight, the same capacity the JoyGiverDef requires.
+        /// No line-of-sight check on the ground: the burst is in the air, and a wall between the
+        /// colonist and the stand does not hide it.
         /// </summary>
         private void ApplyMemory()
         {
@@ -159,8 +174,18 @@ namespace FireworkStand
             foreach (var pawn in map.mapPawns.FreeColonists)
             {
                 if (pawn.Position.DistanceTo(parent.Position) > Props.moodRadius) continue;
+                if (!CanSeeTheShow(pawn, map)) continue;
                 pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(def);
             }
+        }
+
+        private static bool CanSeeTheShow(Pawn pawn, Map map)
+        {
+            if (pawn == null || !pawn.Spawned) return false;
+            if (!pawn.Awake()) return false;
+            if (pawn.Position.Roofed(map)) return false;
+            return pawn.health != null
+                && pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight);
         }
 
         private static ThoughtDef PickOutcome()
