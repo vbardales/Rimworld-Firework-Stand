@@ -1,0 +1,151 @@
+# Testing Firework Stand in game
+
+Nothing in this mod has ever been observed running. It is written against three things read by
+decompiling telardo's assembly and two hooks read in the game's own source, and every one of them
+is an assumption until a colonist stands in a field and watches a rocket go up.
+
+This file is the list of what to look at, in the order that finds problems fastest. Each scenario
+says what it proves, because a test whose failure you cannot interpret is not worth running.
+
+## Before anything
+
+1. Fireworks (telardo, `2922179297`) must be subscribed and active, and this mod must load after
+   it. Both conditions are already declared in `About.xml`; the mod list will say so.
+2. **The stand is hidden until `IEDs` is researched.** RimWorld does not grey out a building whose
+   research is unfinished, it omits it from the Architect menu entirely. On a fresh colony the
+   menu will look empty and nothing is wrong. Dev mode → `Finish all research`, or play until
+   Electricity then IEDs.
+3. Build one stand **under open sky**, and load it with firework launchers. It takes ten, and it
+   will not fire on an empty rack.
+4. The Architect category is **Recreation**.
+5. Keep `Player.log` after the session. Anything this mod complains about is prefixed
+   `[Firework Stand]`.
+
+A salvo goes up every 900 ticks, about twenty-two in-game minutes. At normal speed that is a long
+wait for one data point; run at speed 3.
+
+## 1 — The defs exist at all
+
+**Proves** the guarded patch matched, which is the precondition for every other scenario.
+
+Open the Architect menu, Recreation. The firework stand is listed, 40 steel and 20 wood.
+Then check that the recreation type itself arrived: a colonist's Needs tab, recreation tolerance,
+should show a `fireworks` entry once they have watched once.
+
+**If it fails**, the patch never applied and nothing else in this file can pass. The guard is
+`Defs/ThingDef[defName="FireworkLauncher"]`, so the cause is Fireworks not loading rather than
+anything here.
+
+## 2 — The bridge resolves
+
+**Proves** that `Fireworks.CompLaunchFireworks`, its `Launch` method and its `launched` field were
+all found by reflection.
+
+Search `Player.log` for `[Firework Stand]`. **Silence is the pass.** Two failures are possible and
+they say different things:
+
+- *"Fireworks found, but CompLaunchFireworks.Launch or its launched field could not be resolved"* —
+  telardo changed his class since it was read. The names to re-check are in `FireworksBridge.cs`.
+- *"could not bridge to Fireworks"* — the lookup itself threw, and the message carries the reason.
+
+**The negative test matters as much.** Disable Fireworks, start again: the mod must load in
+silence, add no building, and produce no red error. That is the whole point of the guard.
+
+## 3 — The stand fires more than once
+
+**Proves** the rearming, which is the single mechanism this mod is built on: telardo's comp sets
+its own `launched` field to true so it only ever fires once, and this mod sets it back to false
+before each salvo. If it does not work, the stand is a very expensive one-shot.
+
+Send a colonist to watch, wait out two full intervals, and count the rockets. **Two or more is the
+pass.** One rocket and then nothing, while fuel remains and a colonist is still watching, is the
+failure — and it means the field is no longer public, no longer named `launched`, or no longer
+what gates the shot.
+
+## 4 — The light comes on, and goes off again
+
+**Proves** the `IThingGlower` veto, and this is the failure a player would notice first.
+
+Test at night, indoors lights off, camera on the stand.
+
+- The loaded, idle stand throws **no light at all**.
+- At the instant a rocket leaves, the ground around it lights warm for about four seconds.
+- Then it goes dark again.
+
+**If the stand glows permanently**, the veto is not being consulted: `CompGlower.ShouldBeLitNow`
+is meant to poll every comp implementing `IThingGlower` and give up when one says no. That is the
+assumption to re-check first, because nothing else in the mod depends on it and it is the most
+visible possible defect.
+
+**If it never lights**, `UpdateLit` is not reaching the light grid, or `flashTicks` elapsed before
+the light was registered.
+
+## 5 — Fuse smoke, then the launch
+
+**Proves** the two effects that are this mod's own contribution rather than telardo's.
+
+Watch the foot of the stand in the second between the order and the rocket. A thin trail of smoke
+should rise from it, then a thick puff, sparks and a flash as the rocket leaves.
+
+A failure here is cosmetic and does not block publishing. Note it and move on.
+
+## 6 — Colonists go on their own
+
+**Proves** the `JoyGiverDef`, and the parts of it that differ from vanilla watching.
+
+Leave a colony idle with recreation need falling and do not order anything.
+
+- A colonist walks to the stand by themselves, as recreation.
+- They stop **4 to 12 cells away**, not next to it.
+- They **stand**. They must not drag a chair out or look for one: `desireSit` is false.
+- Several can watch at once, up to ten.
+
+Then build a second stand **under a roof** and confirm it is never used: `unroofedOnly` is what
+refuses it, the same field the vanilla telescope uses.
+
+## 7 — Fuel, and what the inspect line says
+
+**Proves** the refuelable wiring, where the mod deliberately departs from the usual setup:
+`fuelConsumptionRate` is zero and the comp removes one rocket per salvo instead.
+
+Count rockets against the fuel gauge: **one launcher per salvo, no drain while idle.** Run it down
+to zero and confirm the stand stops firing and says `No fireworks loaded`.
+
+Read the inspect line between salvoes. It should count down (`Reloading: …`) and then read
+`Ready to fire`.
+
+> Known rough edge, not a blocker: the line reads `Ready to fire` even on an empty rack, because
+> it reports the interval and not the fuel. The refuelable gauge says the truth right beside it.
+
+## 8 — Save and reload mid-cycle
+
+**Proves** `PostExposeData`, four fields.
+
+Save while the light is on, or just after a salvo. Reload.
+
+- The stand does not fire again immediately: the reload timer survived.
+- The light is not stuck on.
+- No error on load about a missing comp.
+
+## 9 — Only those who could see it get the memory
+
+**Proves** the filter added on 2026-09-11, and this is the one scenario where the correct result is
+that *nothing* happens.
+
+Set up three colonists while a salvo goes off: one outdoors near the stand, one **asleep in a
+roofed bedroom** within twelve cells, one awake but indoors under a roof.
+
+**Only the colonist outdoors gains the memory.** Check each one's Needs tab, mood, for
+`beautiful fireworks` or whichever outcome was rolled.
+
+Before this change, all three received it, which contradicted the mod's own claim that the show
+exists only for whoever is watching. The three filters are: awake, under open sky, capable of
+sight. There is deliberately **no ground line-of-sight test** — the burst is in the air, so a wall
+between colonist and stand does not hide it, and a colonist standing behind that wall should still
+get the memory. If that colonist gets nothing, the check has become too strict.
+
+## What a pass means
+
+Scenarios 1 to 4 and 8 are the ones that gate publishing: they cover the patch, the bridge, the
+rearming, the light and the save. 5, 6, 7 and 9 are behaviour worth getting right but a defect in
+them is a patch note, not a blocker.
