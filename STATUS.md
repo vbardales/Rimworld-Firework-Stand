@@ -1,90 +1,93 @@
 ---
 mod:        Firework Stand
 packageId:  nelim.fireworkstand
-depot:      Rimworld-Firework-Stand
-visibilite: public
-detache:    oui
-etape:      preTest
+repo:       Rimworld-Firework-Stand
+visibility: public
+detached:   yes
+stage:      done
 licence:    alive
-licence_ou: Fireworks ne livre aucun fichier de licence, et telardo est vivant ; rien de lui n'est redistribue ici
-vitrine:    complete
-teste_le:
-workshop:   
-reste:
-  - non_verifie: jamais vu tourner en jeu ; TESTING.md pose 9 scenarios, dont 5 bloquent la publication
-  - non_verifie: cinq des 25 tests hors jeu portent sur Assembly-CSharp lui-meme et n'ont pas pu etre vus rouges ; ce sont ceux du crochet du driver et du veto de lumiere, les plus importants
-  - defaut: la ligne d'inspection dit "Ready to fire" meme sur une rampe vide, parce qu'elle rend l'intervalle et non le carburant ; la jauge dit le vrai a cote
-  - defaut: le ModIcon est la frimousse orange, qui ne represente pas le batiment et se lit mal a 32 px ; ecart accepte le 2026-09-04, ne pas rouvrir
+licence_at: Fireworks ships no licence file, and telardo is alive; nothing of his is redistributed here
+showcase:   complete
+tested_on:
+workshop:
+remaining:
+  - unverified: never seen running in game; TESTING.md sets out nine scenarios, five of which gate publishing
+  - unverified: five of the 25 out-of-game tests are claims about Assembly-CSharp itself and could not be seen to fail; they are the driver hook and the light veto, the two that matter most
+  - defect: the inspect line reads "Ready to fire" on an empty rack, because it reports the interval and not the fuel; the gauge beside it says the truth
+  - defect: the mod icon is the orange face, which does not depict the building and reads poorly at 32 px; deviation accepted on 2026-09-04, not to be reopened
 session:    local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
-maj:        2026-09-12, session du mod
+updated:    2026-09-12, the mod's own session
 ---
 
-# Firework Stand — etat
+# Firework Stand — status
 
-Fiche d'etat, lue par une passe sur tous les mods plutot qu'en interrogeant les fils un a un.
-Elle vit a la racine, jamais dans `Mod/`, donc Steam ne la recoit pas.
+Read by a sweep across every mod, rather than by asking each thread in turn. It lives at the root,
+never inside `Mod/`, so Steam never receives it.
 
-Les champs ci-dessus ont ete deduits du disque le 2026-09-12 par cette passe, puis repris le meme
-jour par la session qui tient ce mod. Deux de ses deductions etaient fausses :
+The fields above were deduced from disk on 2026-09-12 by that sweep, then taken in hand the same
+day by the session that holds this mod. One of its deductions was wrong, and one of the
+corrections made on top of it was wrong in turn and has been undone.
 
-- **`etape`** — `preTest` et non `done`. Le contenu, les images, la documentation et le jeu de
-  tests hors jeu sont faits, mais le `CHANGELOG` porte toujours `[Unreleased]` et rien n'a jamais
-  ete publie. Il ne reste que l'essai en jeu, et c'est lui qui separe les deux valeurs.
-- **`licence`** — `alive` et non `silent`. La passe avait raison sur le fait, Fireworks ne livre
-  aucun fichier de licence, et tort sur ce qu'il implique : `silent` suppose une source morte,
-  alors que telardo tient toujours son mod, mis a jour pour 1.6. La nuance compte, parce qu'une
-  source vivante peut etre contactee.
-- **`teste_le`** — vide, et exact. Personne n'a jamais vu ce mod tourner. Le `packageId` n'est
-  dans aucun `ModsConfig.xml`.
-- **`workshop`** — vide, et exact. Pas de `PublishedFileId.txt` dans `Mod/`, donc rien n'a jamais
-  ete televerse. La vitrine est prete pour autant.
-- **`reste`** — la ligne posee d'office est remplacee par quatre, deux inconnues et deux defauts
-  connus.
+- **`stage`** — `done` confirmed, and the changelog reading `[Unreleased]` does not argue against
+  it. A mod never played can be `done`: the trial is what `tested_on` and `remaining` are for, and
+  being on the Workshop is its own value, `published`. What `done` says is that the content, the
+  images, the documentation and the out-of-game suite are finished, which they are.
+- **`licence`** — `alive`, not `silent`. The sweep was right about the fact, Fireworks ships no
+  licence file, and wrong about what it implies: `silent` is for a source that is also dead, and
+  telardo still maintains his, updated for 1.6. The difference is not cosmetic, because a living
+  author can be asked.
+- **`tested_on`** — empty, and correct. Nobody has ever seen this mod run. The packageId appears
+  in no `ModsConfig.xml`.
+- **`workshop`** — empty, and correct. There is no `PublishedFileId.txt` in `Mod/`, so nothing has
+  ever been uploaded. The showcase is ready regardless.
+- **`remaining`** — the line posted by default gives way to four: two unknowns and two known
+  defects.
 
-Vocabulaire de `licence` : `open` licence explicite, `silent` aucune licence et source morte,
-`alive` aucune licence mais source vivante, `forbidden` refus ecrit, `original` rien de repris.
+`licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source, `alive` no
+licence but a living source, `forbidden` a written refusal, `original` nothing reused.
 
-## Ce que veut dire `alive` ici
+## What `alive` means here
 
-Ce mod n'etend pas une source morte, il etend un mod vivant dont il se declare dependant et dans
-lequel il appelle a l'execution. Rien de telardo n'est recopie : ni texture, ni son, ni fichier de
-def. Le batiment se dessine avec sa propre texture `Things/Item/FireworkLauncher`, chargee depuis
-son dossier a lui. Une seule chose est reproduite plutot qu'appelee, parce que sa methode est
-privee, le tirage des souvenirs d'humeur, et `ATTRIBUTION.md` le dit ligne par ligne.
+This mod does not extend a dead source. It extends a living one, declares it as a dependency and
+calls into it at run time. Nothing of telardo's is copied: no texture, no sound, no def file. The
+building draws itself with his own `Things/Item/FireworkLauncher` texture, loaded from his folder.
+One thing is reproduced rather than called, because its method is private, the roll that hands out
+the mood memories, and `ATTRIBUTION.md` says so line by line.
 
-La consequence pratique : si telardo prefere que ce mod n'existe pas sous cette forme, il suffit
-qu'il le dise. C'est ecrit dans `ATTRIBUTION.md`.
+What that means in practice: if telardo would rather this mod did not exist in its current form,
+saying so is enough. That is written into `ATTRIBUTION.md`.
 
-## Ce qui reste, en clair
+## What is left, plainly
 
-L'essai en jeu, et rien d'autre cote developpement. `TESTING.md` le decoupe en neuf scenarios et
-dit lesquels bloquent la publication. Les deux qui comptent sont le **3**, le rearmement, qui est
-le seul mecanisme sur lequel tout le mod repose, et le **4**, le veto du lueur, dont l'echec donne
-une rampe chargee allumee en permanence comme une lampe.
+The in-game trial, and nothing else on the development side. `TESTING.md` cuts it into nine
+scenarios and says which ones gate publishing. The two that count are **3**, the rearming, which is
+the single mechanism the whole mod rests on, and **4**, the glower veto, whose failure leaves a
+loaded stand lit permanently like a lamp.
 
-L'autre moitie du test ne demande pas de colonie et tourne en quinze secondes :
+The other half of the testing needs no colony and runs in fifteen seconds:
 
 ```
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
 ```
 
-Elle a deja trouve un defaut reel, `showFuelGizmo` qui n'a plus de lecteur en 1.6. Mais cinq de
-ses 25 tests portent sur `Assembly-CSharp` lui-meme et n'ont pas pu etre vus rouges, faute de
-pouvoir muter le jeu : ce sont justement ceux du crochet du driver et du veto de lumiere. D'ou la
-deuxieme ligne de `reste`, que seul un essai en jeu fera tomber.
+It has already found one real defect, `showFuelGizmo`, which has no reader left in 1.6. But five of
+its 25 tests are claims about `Assembly-CSharp` itself and could not be seen to fail, since proving
+them would mean rewriting the game's IL. They are precisely the driver hook and the light veto,
+which is why the second `remaining` line exists and why only a colony will clear it.
 
-Attention en le jouant : le batiment est **absent du menu Architecte** tant que `IEDs` n'est pas
-recherche, et non grise. Une colonie neuve donne donc l'impression d'un mod casse.
+One thing to know before playing it: the building is **absent from the Architect menu** until
+`IEDs` is researched, not greyed out. A fresh colony therefore looks like a broken mod.
 
-## Comment cette fiche se tient a jour
+## How this sheet is kept up to date
 
-Apres tout changement du mod, relire les champs, et trois d'entre eux surtout :
+After any change to the mod, reread the fields, and three of them above all:
 
-- `etape` passe a `done` le jour ou le mod sort, pas avant.
-- `teste_le` prend la date du jour ou un essai en jeu s'est bien passe, avec ce qui a ete verifie
-  dit dans `reste` si l'essai etait partiel.
-- `reste` perd sa ligne des qu'elle cesse d'etre vraie, et n'en gagne une que pour quelque chose
-  qu'on saurait nommer a quelqu'un d'autre.
+- `stage` is about fabrication, not about play or release: `tested` and `published` are the values
+  for those, and neither is reached yet.
+- `tested_on` takes the date of a trial that went well, with whatever was only partly covered said
+  in `remaining`.
+- `remaining` loses a line as soon as it stops being true, and gains one only for something you
+  could name to somebody else.
 
-Le reste se deduit du disque et la passe automatique le refera. `session` est sa comptabilite a
-elle : cette fiche ne le touche pas.
+The rest is deduced from disk and the sweep will redo it. `session` is the sweep's own bookkeeping:
+this sheet does not touch it.
