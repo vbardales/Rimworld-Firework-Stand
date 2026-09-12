@@ -1,13 +1,14 @@
 ---
-mod:        Firework Stand
-packageId:  nelim.fireworkstand
-repo:       Rimworld-Firework-Stand
-visibility: public
-detached:   yes
-stage:      done
-licence:    alive
-licence_at: Fireworks ships no licence file, and telardo is alive; nothing of his is redistributed here
-showcase:   complete
+mod:          Firework Stand
+packageId:    nelim.fireworkstand
+repo:         Rimworld-Firework-Stand
+visibility:   public
+detached:     yes
+stage:        done
+licence:      alive
+licence_at:   Fireworks ships no licence file, and telardo is alive; nothing of his is redistributed here
+dependencies: declared
+showcase:     complete
 tested_on:
 workshop:
 remaining:
@@ -15,8 +16,8 @@ remaining:
   - unverified: five of the 25 out-of-game tests are claims about Assembly-CSharp itself and could not be seen to fail; they are the driver hook and the light veto, the two that matter most
   - defect: the inspect line reads "Ready to fire" on an empty rack, because it reports the interval and not the fuel; the gauge beside it says the truth
   - defect: the mod icon is the orange face, which does not depict the building and reads poorly at 32 px; deviation accepted on 2026-09-04, not to be reopened
-session:    local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
-updated:    2026-09-12, the mod's own session
+session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
+updated:      2026-09-12, the mod's own session
 ---
 
 # Firework Stand — status
@@ -37,14 +38,20 @@ corrections made on top of it was wrong in turn and has been undone.
   telardo still maintains his, updated for 1.6. The difference is not cosmetic, because a living
   author can be asked.
 - **`tested_on`** — empty, and correct. Nobody has ever seen this mod run. The packageId appears
+- **`dependencies`** — `declared` when every mod this one needs is named in the About's
+  `modDependencies`, `to check` when a non-vanilla `loadAfter` suggests a dependency that is not
+  declared, `none` when the mod needs nothing. An undeclared dependency is not cosmetic: on
+  2026-09-11 Reequilibrage animaux took 47 vanilla animals down with it, Muffalo included, because
+  the class it injects belongs to a mod that was not declared and not loaded.
   in no `ModsConfig.xml`.
 - **`workshop`** — empty, and correct. There is no `PublishedFileId.txt` in `Mod/`, so nothing has
   ever been uploaded. The showcase is ready regardless.
 - **`remaining`** — the line posted by default gives way to four: two unknowns and two known
   defects.
 
-`licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source, `alive` no
-licence but a living source, `forbidden` a written refusal, `original` nothing reused.
+`licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source,
+`alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
+to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.
 
 ## What `alive` means here
 
