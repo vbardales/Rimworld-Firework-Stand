@@ -7,7 +7,9 @@
     <li>1.6</li>
   </supportedVersions>
   <url>https://github.com/vbardales/Rimworld-Firework-Stand</url>
-  <description>Turns telardo's Fireworks into a real recreation source, with a recreation type of its own.
+  <description>If the original author contacts me to request its removal, I undertake to take it down promptly.
+
+Turns telardo's Fireworks into a real recreation source, with a recreation type of its own.
 
 In the original mod, fireworks are either an Ideology ritual or a one-use item you set off by hand — and with Ideology installed the manual button is not even created, so the ritual is the only way.
 
@@ -30,7 +32,9 @@ This mod's code was written with Claude Code (Anthropic) and its images generate
 THANKS
 
 telardo for Fireworks, whose show this mod calls rather than reimplements.
-Claude Code (Anthropic) and DALL-E (OpenAI).</description>
+Claude Code (Anthropic) and DALL-E (OpenAI).
+
+[url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>
       <packageId>telardo.Fireworks</packageId>

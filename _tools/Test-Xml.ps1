@@ -13,6 +13,10 @@ foreach ($file in $files) {
         }
     }
 }
+[xml]$about = Get-Content (Join-Path $ModRoot 'Mod/About/About.xml') -Raw
+if ($about.ModMetaData.description -notmatch [regex]::Escape($about.ModMetaData.url)) {
+    throw 'The description must include the GitHub source URL.'
+}
 [xml]$en = Get-Content (Join-Path $ModRoot 'Mod/Languages/English/Keyed/FireworkStand.xml') -Raw
 [xml]$fr = Get-Content (Join-Path $ModRoot 'Mod/Languages/French/Keyed/FireworkStand.xml') -Raw
 $keys = @($en.LanguageData.ChildNodes | Where-Object NodeType -eq Element | ForEach-Object Name)
@@ -27,4 +31,4 @@ foreach ($key in $keys) {
     $b = @([regex]::Matches($fr.LanguageData[$key].InnerText, '\{\d+\}') | ForEach-Object Value)
     if (($a -join ',') -cne ($b -join ',')) { throw "Translation placeholders differ: $key" }
 }
-Write-Output "$($files.Count) XML files parsed; EN/FR keys/placeholders valid."
+Write-Output "$($files.Count) XML files parsed; GitHub description link and EN/FR keys/placeholders valid."

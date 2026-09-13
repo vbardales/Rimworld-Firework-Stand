@@ -22,6 +22,16 @@ up, which is what everything after this line is for.
 
 ## Before anything
 
+Audit 2026-09-13: the existing 25 automated tests passed against the shipped DLL and installed
+game/dependency. All four mod XML files also passed `_tools/Test-Xml.ps1`, including the GitHub
+description link and EN/FR translation keys/placeholders. Run that additional check with:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Test-Xml.ps1
+```
+
+The nine scenarios below have not yet been executed in game.
+
 1. Fireworks (telardo, `2922179297`) must be subscribed and active, and this mod must load after
    it. Both conditions are already declared in `About.xml`; the mod list will say so.
 2. **The stand is hidden until `IEDs` is researched.** RimWorld does not grey out a building whose

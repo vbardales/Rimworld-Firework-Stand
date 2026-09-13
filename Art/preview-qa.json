@@ -1,0 +1,61 @@
+{
+  "dimensions": [
+    896,
+    504
+  ],
+  "thumbnailWidth": 268,
+  "bytes": 564219,
+  "fonts": {
+    "h1": [
+      {
+        "familyName": "Segoe UI Semibold",
+        "postScriptName": "SegoeUI-Semibold",
+        "isCustomFont": false,
+        "glyphCount": 14
+      }
+    ],
+    "p": [
+      {
+        "familyName": "Segoe UI",
+        "postScriptName": "SegoeUI",
+        "isCustomFont": false,
+        "glyphCount": 58
+      }
+    ],
+    ".version": [
+      {
+        "familyName": "Segoe UI",
+        "postScriptName": "SegoeUI-Bold",
+        "isCustomFont": false,
+        "glyphCount": 3
+      }
+    ]
+  },
+  "boxes": {
+    "h1": {
+      "x": 50,
+      "y": 54,
+      "width": 430,
+      "height": 50.59375
+    },
+    "p": {
+      "x": 50,
+      "y": 143.59375,
+      "width": 430,
+      "height": 60.875
+    },
+    ".version": {
+      "x": 846.7371826171875,
+      "y": 4.737185001373291,
+      "width": 44.525634765625,
+      "height": 44.52562713623047
+    }
+  },
+  "contrasts": {
+    "h1": 12.658403682178179,
+    "p": 12.415463930317767,
+    "badge": 9.013121968306734
+  },
+  "tag": "absent by recorded decision",
+  "version": "1.6"
+}

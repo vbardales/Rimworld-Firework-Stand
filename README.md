@@ -1,5 +1,7 @@
 # Firework Stand
 
+If the original author contacts me to request its removal, I undertake to take it down promptly.
+
 A RimWorld 1.6 mod. Turns [telardo's Fireworks](https://steamcommunity.com/sharedfiles/filedetails/?id=2922179297)
 into a real recreation source, with a recreation type of its own.
 
