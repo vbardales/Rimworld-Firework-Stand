@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FS_FireworkStand.label>rampe de feux d'artifice</FS_FireworkStand.label>
+  <FS_FireworkStand.description>Une rampe renforcée qui accueille plusieurs lanceurs de feux d'artifice et les déclenche un par un. Les colons se rassemblent à distance pour regarder le spectacle, qui ne commence que si quelqu'un est là pour y assister.\n\nDoit être construite à ciel ouvert.</FS_FireworkStand.description>
+  <FS_FireworkStand.comps.CompRefuelable.fuelLabel>feux d'artifice chargés</FS_FireworkStand.comps.CompRefuelable.fuelLabel>
+  <FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage>Aucun feu d'artifice chargé</FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage>
+</LanguageData>

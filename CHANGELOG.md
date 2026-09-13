@@ -21,6 +21,8 @@ First version, not yet published. RimWorld 1.6.
 
 ### Fixed
 
+- Completed French translations for the stand, recreation type, job and fuel messages,
+  plus the reused Fireworks launcher, launch command and four mood memories.
 - The mood memory after a show went to every free colonist within twenty cells, asleep or indoors
   included. It now asks for the three things the defs already ask of the watcher: awake, under
   open sky, capable of sight. No ground line-of-sight test, since the burst is in the air and a

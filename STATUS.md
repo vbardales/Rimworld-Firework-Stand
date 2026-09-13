@@ -1,4 +1,7 @@
 ---
+localization: complete
+translation_en: complete
+translation_fr: complete
 mod:          Firework Stand
 packageId:    nelim.fireworkstand
 repo:         Rimworld-Firework-Stand
@@ -12,6 +15,7 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
+  - unverified: English/French in-game translation checks in TESTING.md, including dependency absence and launch gizmo with/without Ideology
   - unverified: never seen running in game; TESTING.md sets out nine scenarios, five of which gate publishing
   - unverified: five of the 25 out-of-game tests are claims about Assembly-CSharp itself and could not be seen to fail; they are the driver hook and the light veto, the two that matter most
   - defect: the inspect line reads "Ready to fire" on an empty rack, because it reports the interval and not the fuel; the gauge beside it says the truth
@@ -98,3 +102,52 @@ After any change to the mod, reread the fields, and three of them above all:
 
 The rest is deduced from disk and the sweep will redo it. `session` is the sweep's own bookkeeping:
 this sheet does not touch it.
+
+## Translation audit — 2026-09-13
+
+Applied the translation gate from the parent PUBLISHING.md and TRANSLATIONS.md to the
+current working-tree files. Static readiness is complete; no in-game translation pass
+is claimed. The historical fabrication stage above is preserved.
+
+Inventory: all three Source/*.cs files, Mod/Patches/Stand.xml and all Mod/Languages resources.
+This mod has one unversioned content root, no LoadFolders.xml, settings UI or grammar files.
+Its sole patch is conditional on FireworkLauncher. Owned text consists of two Keyed inspect
+messages and six Def fields: stand label/description, recreation label, job report, and the
+CompRefuelable fuel label/out-of-fuel message. English comes from the existing Keyed file
+and patch values; French now supplies all six DefInjected paths as well as both Keyed entries.
+The reloading message preserves {0}; the description preserves literal paragraph escapes.
+Technical logs, reflection names, serialized field names and metadata are excluded.
+
+Dependency scope: installed Fireworks Workshop 2922179297, active 1.6 content selected by
+its LoadFolders.xml. Read the launcher and four ThoughtDefs and decompiled
+Fireworks.CompLaunchFireworks: its inherited gizmo uses LaunchFirework and LaunchFireworkDesc,
+and is hidden with Ideology active. Those two English keys exist in the dependency; no French
+resources are shipped there. Added French entries for both keys, the launcher label/description
+and eight mood-stage fields. These shared translations also affect the original items and
+memories outside the stand. Unrelated dependency rituals are outside this mod's audit.
+Base-game UI and time formatting remain delegated to RimWorld's language resources.
+
+Validation:
+
+- `_tools/Test-Xml.ps1`: exit 0, 10 XML files parsed; nonempty entries and per-file duplicates
+  checked, owned Keyed entries matched against actual Translate calls, EN/FR parameters equal.
+- Parent `scripts/Check-DefInjected.ps1`: exit 0, 16 keys checked, 0 errors, no unresolved
+  targets reported, against installed RimWorld 1.6 types, this mod and Fireworks 1.6.
+- Reviewed the English/French wording, source fields, thought-stage handles and CompRefuelable
+  handles. No duplicate English DefInjected resources are needed.
+- `git diff --check`: passed. No C# or gameplay definition changes; no rebuild required.
+
+Reproduce the injection check from the repository root (the shared script lives outside
+this standalone repository):
+
+```powershell
+& ../scripts/Check-DefInjected.ps1 -TransMod ./Mod -Targets @(
+    './Mod',
+    'C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/2922179297/1.6'
+)
+```
+
+The English/French screens, clipping, dependency-absence behaviour and Ideology variants
+remain unverified in game; the procedure is in TESTING.md and tracked in remaining.
+Reset affected translation fields to unchecked after changing UI code, text, Defs,
+patches or language resources, then repeat this audit before entering preTest.

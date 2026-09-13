@@ -157,7 +157,19 @@ sight. There is deliberately **no ground line-of-sight test** — the burst is i
 between colonist and stand does not hide it, and a colonist standing behind that wall should still
 get the memory. If that colonist gets nothing, the check has become too strict.
 
-## What a pass means
+## Translation checks (English and French)
+
+Repeat the UI checks in both languages, restarting after changing language. Inspect the
+Architect entry and description, recreation tolerance entry, watching job report, loaded
+and empty fuel messages, and ready/reloading inspect lines (including the formatted time).
+Check the launcher name and description and all four mood memories and their descriptions.
+Without Ideology, check the inherited launch gizmo label and tooltip; with Ideology it is
+absent by design. Check for raw keys, English fallback in French, broken accents, paragraph
+breaks and clipped text. Also load without Fireworks and check for translation load errors.
+Record the languages, dependency version, observed screens and log results in STATUS.md.
+These checks have not yet been performed in game.
+
+## Publishing gate
 
 Scenarios 1 to 4 and 8 are the ones that gate publishing: they cover the patch, the bridge, the
 rearming, the light and the save. 5, 6, 7 and 9 are behaviour worth getting right but a defect in

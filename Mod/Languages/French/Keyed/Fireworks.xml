@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Reused dependency keys; English is supplied by Fireworks 1.6. -->
+  <LaunchFirework>Lancer les feux d'artifice</LaunchFirework>
+  <LaunchFireworkDesc>Déclencher un éblouissant spectacle pyrotechnique dans le ciel. L'humeur des spectateurs sera améliorée.</LaunchFireworkDesc>
+</LanguageData>

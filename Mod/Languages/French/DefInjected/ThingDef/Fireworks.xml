@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Dependency item used as fuel; these translations also apply outside the stand. -->
+  <FireworkLauncher.label>lanceur de feux d'artifice</FireworkLauncher.label>
+  <FireworkLauncher.description>Un lanceur de feux d'artifice à usage unique pour les célébrations. Une fois allumé, il projette dans le ciel des gerbes d'étincelles et des effets colorés qui améliorent l'humeur des spectateurs.</FireworkLauncher.description>
+</LanguageData>
