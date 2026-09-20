@@ -48,7 +48,7 @@ The origin fetch and push URLs match the remote above. GitHub's repository API c
 ## Mod licence and visibility
 
 **This mod: `open` / MIT; repository visibility: `public`.** Both licence files contain the
-MIT licence, copyright 2026 nelim. This describes the licence supplied for this mod's own work;
+MIT licence, copyright 2026 Nelim. This describes the licence supplied for this mod's own work;
 it does not grant rights over telardo's Fireworks or certify permission for reproduced material.
 
 **Upstream permission: `silent`**, used here strictly for no explicit licence or permission
