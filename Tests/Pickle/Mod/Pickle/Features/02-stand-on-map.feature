@@ -48,14 +48,12 @@ Feature: a stand on the map runs, saves and reloads without a complaint
   # the only readers are Notify_Watched (a colonist watching) and CompInspectStringExtra (the
   # inspect pane). Nothing in the scenarios above does either, so the bridge was probably never
   # asked and "no warning" was vacuous there. Selecting the stand opens the inspect pane, which
-  # asks. Never played: written after the run, and `I select` on a building by its label is
-  # modelled on Adaptive Storage's blueprint scenario, not on a played run of this mod.
+  # asks. Selected by where it stands and not by its label, so the scenario runs in either language.
   @review
   Scenario: selecting the stand reads its inspect line, which resolves the bridge
     Given a "FS_FireworkStand" is built at (140, 150)
-    When I select "firework stand"
+    When Firework Stand: I select the stand at x=140 z=150
     And I wait 60 ticks
-    Then the inspect pane shows "firework stand"
     And no errors were logged
     And no warning matching "Firework Stand]" was logged
     And I take a screenshot "firework stand, selected, with its inspect line"

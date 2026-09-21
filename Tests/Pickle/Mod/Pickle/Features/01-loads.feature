@@ -7,8 +7,8 @@
 # is a hard dependency, so the game refuses to load this mod without it and there is nothing to
 # play. It stays a manual check in TESTING.md.
 #
-# The English label is only true in an English game: it belongs to the default pass, and the French
-# pass is aimed at 04-french-names.feature by file name.
+# No label is asserted here: this suite runs unchanged in English and in French, and what the
+# player reads is looked at on the captures of 11-inspect-pane.feature in both languages.
 Feature: Firework Stand loads after Fireworks and its guarded patch matches
 
   Scenario: the mod is active and loads after Fireworks
@@ -25,10 +25,6 @@ Feature: Firework Stand loads after Fireworks and its guarded patch matches
 
   Scenario: the stand is tied to its own recreation type
     Then def "FS_FireworkStand" field "building.joyKind.defName" is "FS_Fireworks"
-
-  Scenario: the stand reads in English
-    Then def "FS_FireworkStand" field "label" is "firework stand"
-    And def "FS_Fireworks" field "label" is "fireworks"
 
   Scenario: loading a game with the mod raises no error and no warning of its own
     Given the save "test-colony" is loaded

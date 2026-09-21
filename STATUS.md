@@ -26,9 +26,11 @@ audit_revision: 3fa32521e3de47ce73ecc372e1809794d7de9f05
 remaining:
   - resolved 2026-09-21 (preTest -> done): Pickle suite written in Tests/Pickle (four features, companion mod, wsl-ids.map, README with scope and reasons), and TESTING.md states the two passes the mod needs. Written, never run.
   - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Report in Tests/Pickle/runs/2026-09-21-english/. Fireworks staged and loaded, so the WSL staging does find it.
-  - unverified: Pickle French pass (`-Language French -Filter '04-french-names.feature' -IncludeWip`) has not run; it is required for done -> tested.
-  - defect (in the test, not the mod): the English run did not exercise the FireworksBridge. It resolves lazily (`Available`), read only by a watching colonist or the inspect pane, and no played scenario did either, so its "no Firework Stand] warning" assertions are vacuous about the bridge. A scenario that selects the stand was added to 02-stand-on-map.feature after the run and is unplayed, as is its `I select "firework stand"` step form. TESTING.md scenario 2 stays open.
-  - unverified: feature 03 (`@wip`) is a hypothesis: whether an empty stand is offered as recreation has not been read in the vanilla joy giver, and it has never been played.
+  - unverified: Pickle French pass (`-Language French -IncludeWip`, the whole suite plus feature 04) has not run; it is required for done -> tested.
+  - defect (in the test, not the mod): the English run did not exercise the FireworksBridge. It resolves lazily (`Available`), read only by a watching colonist or the inspect pane, and no played scenario did either, so its "no Firework Stand] warning" assertions are vacuous about the bridge. A scenario that selects the stand (by its cell, through a custom step, so it runs in both languages) was added to 02-stand-on-map.feature after the run and is unplayed. TESTING.md scenario 2 stays open until it has.
+  - resolved 2026-09-21: the vanilla joy giver was read (JoyGiver_WatchBuilding, JoyGiver_InteractBuilding, JobDriver_WatchBuilding, decompiled from the installed game). It never looks at fuel, so an empty stand IS offered as recreation.
+  - defect (design, found by reading the source, unplayed): because the giver ignores fuel and the driver's joy tick is vanilla's, a colonist who watches an EMPTY stand gains full fireworks recreation and no rocket goes up. The stand's guard is on firing, not on the joy. The mod's description says the stand "never wastes a rocket on an empty field"; it does not say an empty stand yields nothing, so this may be intended, but it is a cheap source of recreation. Not changed by this audit (no development); decision for the maintainer.
+  - unverified: the widened Pickle suite (features 03 and 05 to 11 plus the step assembly, 19 scenarios in the English pass, 21 in the French one) has never been run. It parses, the assembly builds, and each generic step exists in Pickle's catalogue; nothing more is established. The scenarios that stage a colonist's own choice (07), the sleeper (10) and the cells chosen (140,150 and the roofed patch) are guesses about the fixture colony until a run.
   - note: the run's log holds one ERROR ("Firework Stand - Pickle tests did not load any content") and one dependency-URL warning; both come from the content-less companion mod and appear the same way in the Adaptive Storage companion's log. Not the mod under test.
   - accepted: current Preview including its camera explicitly approved by the user on 2026-09-13; no camera revision required
   - unverified: English/French in-game translation checks in TESTING.md, including dependency absence and launch gizmo with/without Ideology
@@ -456,3 +458,29 @@ and all nine manual scenarios are unplayed. Report copy: `Tests/Pickle/runs/2026
 
 Stage stays `done`. Unchanged and still uncommitted on HEAD `3fa3252`: STATUS.md, TESTING.md and
 `Tests/`.
+
+## Manual scenarios written as Pickle scenarios — 2026-09-21
+
+Request: write the manual tests with Pickle so that the maintainer only validates captures or
+films. Done, not run. `Tests/Pickle` now holds eleven features and a step assembly
+(`Source/FireworkStandSteps.cs`, built into `Mod/Pickle/Assemblies/`, committed because the staging
+mirrors that folder). It references the game and Pickle only, and every step text starts with
+"Firework Stand:" to avoid collisions with other suites.
+
+Mapping to TESTING.md, in TESTING.md and in `Tests/Pickle/README.md`: scenarios 1, 3, 4, 5, 6, 7, 8
+and 9 each have a feature with assertions before the capture (`@film` on five of them), and a
+French-and-English inspect-pane capture covers the translation checks. The English label check was
+removed from `01-loads` so that the whole suite runs unchanged in French. `03-watching` (`@wip`) was
+replaced by `07-on-their-own`, the vanilla joy giver having answered its first guess.
+
+Staying manual, with the reason in the README: scenario 2's negative half (hard dependency), the
+Ideology gizmo variants (the WSL mounts every DLC), the Architect menu entry, and the missing
+line-of-sight test in the audience filter.
+
+Checks made: the eleven features parse with Pickle's own Gherkin parser; the step assembly builds
+(0 warnings, 0 errors); each generic step used was matched against the expressions compiled into the
+installed Pickle. Not made: any run of the widened suite. One ticket for it (pid 36520,
+`-MaxWaitMinutes 480`) was queued before the suite was finished and survived a session restart; it
+plays whatever is on disk when its turn comes, and its result is not yet read.
+
+Stage stays `done`.

@@ -179,29 +179,43 @@ breaks and clipped text. Also load without Fireworks and check for translation l
 Record the languages, dependency version, observed screens and log results in STATUS.md.
 These checks have not yet been performed in game.
 
-## Pickle (Gherkin) suite
+## Pickle (Gherkin) suite: the scenarios above, played by the game, for a person to validate
 
-Written on 2026-09-21. The English pass has run once (8 of 8 non-`@wip` scenarios passed,
-`exitReason: passed`, report in `Tests/Pickle/runs/2026-09-21-english/`); the French pass has not.
-That run did not exercise the bridge (it resolves lazily), so scenario 2 is still open: see the
-README. It lives in `Tests/Pickle/` and is described there, feature by
-feature, with what stays out of Gherkin and why: [Tests/Pickle/README.md](Tests/Pickle/README.md).
-In short, it keeps only what a running game alone can show and the 25 tests above cannot: the
-guarded patch matching in the real patch pipeline (scenario 1), the bridge staying silent with a
-stand on a map (2), the save and reload of a stand (8, without its timer), a colonist walking to
-it (6, `@wip`, a hypothesis) and the French names. Scenarios 3, 4, 5, 7 and 9 stay manual: no
-generic Pickle step loads a stand with launchers or reads its comp, and a custom step assembly
-would be written against guesses.
+Written on 2026-09-21 in `Tests/Pickle/`, so that scenarios 1 to 9 can be validated by looking at
+captures and films instead of playing them. Each stages the situation with the game's real jobs and
+comps, asserts what it can before each capture, and records the capture; the README there says what
+a person looks at for each one, and what stays out of Gherkin and why. Read the tag before the
+colour: `@review` asserts nothing about an image.
+
+| Scenario above | Pickle feature | What a person validates |
+| --- | --- | --- |
+| 1 defs exist | `01-loads` | nothing to look at: asserted |
+| 2 the bridge resolves | `02-stand-on-map` | asserted (no warning once the inspect pane asked); the negative half, Fireworks absent, stays manual |
+| 3 fires more than once | `03-firing` | film: two rockets, a watcher standing back |
+| 4 the light | `05-light` | film and stills: dark, warm for a few seconds, dark |
+| 5 fuse smoke, then the launch | `06-fuse-and-launch` | film and stills (cosmetic) |
+| 6 goes on their own | `07-on-their-own` | film: unprompted, standing; a roofed stand is refused (asserted) |
+| 7 fuel and the inspect line | `08-fuel` | still: what the empty stand's inspect line says beside its gauge |
+| 8 save and reload mid-cycle | `09-save-reload` | film; count, timer and light asserted |
+| 9 who gets the memory | `10-audience` | still of the layout; who has the memory asserted |
+| translation checks | `11-inspect-pane`, `04-french-names` | stills in each language; three French labels asserted |
 
 **Passes the mod needs: two.** It declares no optional mod and no incompatibility, so there is no
-"with optional mods" pass and none per incompatibility. Both passes run on the minimal WSL set
-(Core, the DLC, Harmony, RimLogging, Pickle, Fireworks, the mod): one in English (features 01 and 02,
-plus 03 once it has been reviewed) and one in French for feature 04
-(`-Language French -Filter '04-french-names.feature' -IncludeWip`). The commands are in the README
-above. A green English pass says nothing about French and the reverse.
+"with optional mods" pass and none per incompatibility. Both run on the minimal WSL set (Core, the
+DLC, Harmony, RimLogging, Pickle, Fireworks, the mod). English:
+`Run-PickleWsl.ps1 -Mod FireworkStand` (19 scenarios). French, the whole suite plus the French-only
+feature: `Run-PickleWsl.ps1 -Mod FireworkStand -Language French -IncludeWip` (21 scenarios). No step
+names a translated word, so a green English pass says nothing about French and the reverse: the
+captures are what differ.
 
-A Pickle run only shows that the path ran. It does not replace the nine scenarios, and the capture
-of feature 02 is opened and looked at, not counted as a check.
+**What stays manual.** Scenario 2's negative half (Fireworks is a hard dependency, so there is no game
+to play without it); the inherited launch gizmo with and without Ideology (the WSL staging mounts every
+DLC); the Architect menu entry; the absence of a line-of-sight test in the audience filter.
+
+**Status.** The English pass ran once on 2026-09-21 on the first four features (8 of 8 passed). The
+suite as widened has never been run, and the French pass has not. A Pickle run only shows that the
+path ran: it does not replace looking.
+
 
 ## Publishing gate
 
