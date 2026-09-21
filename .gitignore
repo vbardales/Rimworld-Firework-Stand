@@ -32,3 +32,9 @@ desktop.ini
 # une fois Preview.png et ModIcon.png faits. A tout niveau, pas seulement a la racine.
 PROMPT_*.md
 **/PROMPT_*.md
+
+# Pickle run captures are large and not evidence by themselves: the summary, the junit report, the
+# log and the (small) films of a run are kept, the full-size stills stay on the machine.
+Tests/Pickle/runs/*/captures/
+Tests/Pickle/runs/*/small/
+Tests/Pickle/runs/*/sheets/

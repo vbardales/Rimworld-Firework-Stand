@@ -17,12 +17,20 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
   8 of 8 non-`@wip` scenarios passed, `exitReason: passed`. Report in
   [`runs/2026-09-21-english/`](runs/2026-09-21-english/). That run did not exercise the bridge to
   Fireworks (it resolves lazily and nothing read it); `02-stand-on-map` now selects the stand, which does.
-- **The widened suite has never been run.** Features `03` and `05` to `11` and the step assembly were
-  written afterwards. Each step was matched against the expressions compiled into Pickle, the
-  features parse with Pickle's own Gherkin parser and the assembly builds, and that is all that can be
-  said before a run: a first run may find an undefined step, a wrong cell, or a colonist who chooses
-  another recreation.
-- The French pass has not run.
+- **The widened suite ran twice on 2026-09-21, and the two runs disagree.**
+  - *English*, 20:28 to 20:38: 21 scenarios discovered, 18 passed, **1 failed**, 2 skipped,
+    `exitReason: failed`. **The report was lost**: it was archived and then pruned by later runs before
+    it was read, so which scenario failed, its message, its captures and its films are unknown. Only the
+    totals survive, from the launcher's output.
+  - *French* (`-Language French -IncludeWip`), 22:28 to 22:38: **21 of 21 passed, 0 failed, 0
+    skipped, `exitReason: passed`.** Report, films and summary in
+    [`runs/2026-09-21-french-full/`](runs/2026-09-21-french-full/); the full-size stills are kept on the
+    machine, not in git. All 16 stills and the 5 films were opened.
+  - So the English failure is either language-dependent or intermittent, and only a second English run
+    can say which. It is the open item of this suite.
+- **Since that run the suite was changed, and the change is unplayed:** the film scenarios of `03`,
+  `05`, `06`, `07` and `09` lost their stills (see below), and `05` and `06` gained a non-filmed twin that
+  takes the stills. The suite is now 23 scenarios, 21 in the English pass.
 
 ## The features
 
@@ -30,13 +38,13 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
 | --- | --- | --- | --- |
 | `01-loads` | the game's real patch pipeline | the stand, recreation type, job and joy giver exist; the stand points at its recreation type; a save loads with no error or `Firework Stand]` warning | none |
 | `02-stand-on-map` | a stand built on the map | ticks 300 without error, survives a save and reload; selecting it resolves the bridge without a warning | 2 stills |
-| `03-firing` | a real watcher, 3 launchers | watching, 4 to 12 cells away, no chair; count goes 3 → 2 → 1, one salvo each, at the stand's own interval | **film**, 2 stills |
+| `03-firing` | a real watcher, 3 launchers | watching, 4 to 12 cells away, no chair; count goes 3 → 2 → 1, one salvo each, at the stand's own interval | **film** |
 | `04-french-names` (`@wip`) | a French game | the stand, its recreation type and the reused launcher read in French | none |
-| `05-light` | night, a loaded stand, a watcher | light off before, on when the rocket leaves, off again | **film**, 3 stills |
-| `06-fuse-and-launch` | closest zoom on the stand | a launcher was spent (the fuse was lit) | **film**, 2 stills |
-| `07-on-their-own` | a bored colonist, no order | picks the stand by themselves, watches it standing, 4 to 12 cells away; a roofed stand is never used | **film**, 1 still |
+| `05-light` | night, a loaded stand, a watcher | light off before, on when the rocket leaves, off again | **film**, and a non-filmed twin with 3 stills |
+| `06-fuse-and-launch` | closest zoom on the stand | a launcher was spent (the fuse was lit) | **film**, and a non-filmed twin with 2 stills |
+| `07-on-their-own` | a bored colonist, no order | picks the stand by themselves, watches it standing, 4 to 12 cells away; a roofed stand is never used | **film** |
 | `08-fuel` | a stand nobody watches; a last launcher | nothing drains while idle; the last launcher is spent and nothing more happens | 1 still |
-| `09-save-reload` | a save taken while the light is on | count and timer survive (no refire for 300 ticks), the light does not stay on, no error | **film**, 1 still |
+| `09-save-reload` | a save taken while the light is on | count and timer survive (no refire for 300 ticks), the light does not stay on, no error | **film** |
 | `10-audience` | four colonists: a watcher, one outdoors, one asleep under a roof, one awake under a roof | the outdoor one gains a fireworks memory, the other two do not; all in their intended state first | 1 still |
 | `11-inspect-pane` | the stand loaded, then reloading; a blueprint | none on wording | 3 stills, in the language of the pass |
 
@@ -55,7 +63,7 @@ captures show, which is what a person looks at (a raw key, English left in Frenc
 | `08-fuel` still | On the empty stand, what does the inspect line say beside the gauge? (Known rough edge, see STATUS.md.) |
 | `09-save-reload` film | Is the stand, right after the reload, as the save left it? |
 | `10-audience` still | Is the layout what the scenario says: the stand, one colonist in the open, the roofed patch with the other two? |
-| `11-inspect-pane` stills, both languages | Any raw key, fallback, broken accent, clipped line, wrong paragraph break, badly formed time in the reload line? Does the blueprint show its watching area? |
+| `11-inspect-pane` stills, both languages | Any raw key, fallback, broken accent, clipped line, wrong paragraph break, badly formed time in the reload line? Is the blueprint the stand, and named in the language of the pass? |
 
 ## Scope: what stays out of Gherkin, and why
 
@@ -92,8 +100,8 @@ Harmony, RimLogging, Pickle, Fireworks, the mod and its companion):
 
 | Pass | Command | Plays |
 | --- | --- | --- |
-| English, `sans-facultatifs` | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand` | features 01, 02, 03, 05 to 11 (19 scenarios); `04` is `@wip` and skipped |
-| French | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -Language French -IncludeWip` | the same 19 plus feature 04 (2 more), all in French |
+| English, `sans-facultatifs` | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand` | features 01, 02, 03, 05 to 11 (21 scenarios); `04` is `@wip` and skipped |
+| French | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -Language French -IncludeWip` | the same 21 plus feature 04 (2 more), all in French |
 
 `wsl-ids.map` gives the staging Fireworks' Workshop id (2922179297); the English run of 2026-09-21
 showed the staging finds it.
@@ -111,3 +119,18 @@ dotnet build Tests/Pickle/Source/FireworkStand.PickleSteps.csproj -c Release
 
 The output goes to `Mod/Pickle/Assemblies/` and is committed: the staging mirrors that folder as it
 is. The assembly references the game and Pickle only, not the mod under test.
+
+## What the first two runs taught about captures
+
+- **A screenshot taken while a film is recording is polluted.** The film's own 480x270 frame lands in
+  the bottom-left corner of the still, over the real picture. Six of the sixteen stills of the French
+  run were spoilt that way (the ones taken inside filmed scenarios). The suite now films without
+  stills and takes the stills in a twin scenario that is not filmed.
+- **Each film opens with about five seconds of the main menu**, the save loading, then the game at
+  the closest zoom, which at the film's 960x540 makes the stand small. The stills are the better
+  evidence for detail; the films are for movement.
+- **In a French game, the inspect pane of the empty stand reads "Prête à tirer" beside a gauge at
+  0 / 10**: the known rough edge, confirmed on a capture.
+- **The blueprint capture shows the ghost of the stand, not its watching area.** The area is drawn
+  while placing or selecting, not around a blueprint that is already down; the scenario title no
+  longer claims otherwise.

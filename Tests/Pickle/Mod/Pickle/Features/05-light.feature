@@ -21,8 +21,31 @@ Feature: the light comes on for the length of a salvo
   Background:
     Given the save "test-colony" is loaded
 
+  # The film has no stills in it, and the stills have no film: a screenshot taken while a film is
+  # recording is polluted by the film's own 480x270 frame in the corner (seen on the first run,
+  # 2026-09-21, on every still of a filmed scenario). The same staging is played twice.
   @film @timeout:300
-  Scenario: dark, then warm for a few seconds as the rocket leaves, then dark again
+  Scenario: filmed: dark, then warm for a few seconds as the rocket leaves, then dark again
+    Given a colonist "Watcher" exists
+    And a "FS_FireworkStand" is built at (140, 150)
+    And Firework Stand: the stand at x=140 z=150 is loaded with 2 launchers
+    And Firework Stand: "Watcher" is bored
+    And I set the weather to "Clear"
+    And I set the hour to 23
+    And game speed is fast
+    When I zoom all the way in
+    And I move the camera to (140, 150)
+    And I wait 60 ticks
+    Then Firework Stand: the light of the stand at x=140 z=150 is off
+    When Firework Stand: "Watcher" is ordered to watch the stand at x=140 z=150
+    Then Firework Stand: the light of the stand at x=140 z=150 comes on within 90 seconds
+    And Firework Stand: the light of the stand at x=140 z=150 goes off within 60 seconds
+    When I wait 120 ticks
+    Then Firework Stand: the stand at x=140 z=150 holds 1 launchers
+    And no errors were logged
+
+  @timeout:300
+  Scenario: stills: the loaded stand is dark, lit as the rocket leaves, dark again
     Given a colonist "Watcher" exists
     And a "FS_FireworkStand" is built at (140, 150)
     And Firework Stand: the stand at x=140 z=150 is loaded with 2 launchers

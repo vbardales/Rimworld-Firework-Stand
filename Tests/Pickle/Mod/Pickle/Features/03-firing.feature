@@ -14,6 +14,10 @@
 # directly, so a driver graft that no longer binds shows here as a stand that never fires.
 #
 # No step spells a translated word: the suite runs unchanged in English and in French.
+#
+# NO STILLS IN A FILMED SCENARIO. The first run (2026-09-21) showed that a screenshot taken while a
+# film is recording is polluted: the film's own 480x270 frame lands in the corner of the still. The
+# film is the evidence here; the stills that matter are taken in scenarios that are not filmed.
 @review
 Feature: the stand fires, and fires again
 
@@ -33,13 +37,10 @@ Feature: the stand fires, and fires again
     And Firework Stand: "Watcher" stands between 4 and 12 cells from the stand at x=140 z=150, with no chair
     # The first salvo leaves as soon as the watcher is in place: the timer starts far in the past.
     And Firework Stand: the stand at x=140 z=150 comes to hold 2 launchers within 90 seconds
-    When I wait 90 ticks
-    Then I take a screenshot "first salvo"
     # The second one is 900 ticks later, at the stand's own interval. Two or more is the pass; one
     # rocket and then nothing, fuel still there, is the failure this scenario exists to catch.
     And Firework Stand: the stand at x=140 z=150 comes to hold 1 launchers within 180 seconds
-    When I wait 90 ticks
-    Then I take a screenshot "second salvo"
-    And Firework Stand: "Watcher" is watching the stand at x=140 z=150
+    When I wait 150 ticks
+    Then Firework Stand: "Watcher" is watching the stand at x=140 z=150
     And no errors were logged
     And no warning matching "Firework Stand]" was logged

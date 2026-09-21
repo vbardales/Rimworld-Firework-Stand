@@ -33,8 +33,7 @@ Feature: a bored colonist goes to the stand by themselves
     And I wait for "Idle" to have job "FS_WatchFireworks"
     Then Firework Stand: "Idle" is watching the stand at x=140 z=150
     And Firework Stand: "Idle" stands between 4 and 12 cells from the stand at x=140 z=150, with no chair
-    When I wait 120 ticks
-    Then I take a screenshot "an idle colonist watching, standing, from a distance"
+    When I wait 240 ticks
     And no errors were logged
 
   Scenario: a stand under a roof is never used

@@ -10,7 +10,7 @@
 #
 # Two states of the same stand, because the inspect line differs between them: a stand that has just
 # fired (counting down its reload) and one that has never fired. Then the blueprint, placed through
-# the game's own designator, which draws the watching area around it. Nothing asserts a word.
+# the game's own designator. Nothing asserts a word.
 @review
 Feature: what the player reads about the stand, in the language of the pass
 
@@ -37,7 +37,7 @@ Feature: what the player reads about the stand, in the language of the pass
     Then I take a screenshot "the same stand counting down its reload"
     And no errors were logged
 
-  Scenario: the blueprint, placed through the designator, with its watching area
+  Scenario: the blueprint, placed through the designator
     Given research "IEDs" is finished
     And 60 "Steel" is spawned at the stockpile
     And 30 "WoodLog" is spawned at the stockpile

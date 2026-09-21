@@ -36,7 +36,6 @@ Feature: a stand saved in the middle of a salvo comes back in the same state
     And Firework Stand: the stand at x=140 z=150 holds 2 launchers
     When I move the camera to (140, 150)
     And I wait 30 ticks
-    Then I take a screenshot "just after the reload: the stand as the save left it"
     And Firework Stand: the light of the stand at x=140 z=150 goes off within 60 seconds
     When I wait 300 ticks
     Then Firework Stand: the stand at x=140 z=150 holds 2 launchers

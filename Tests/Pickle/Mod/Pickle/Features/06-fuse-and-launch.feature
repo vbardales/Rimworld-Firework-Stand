@@ -14,8 +14,24 @@ Feature: the fuse smokes, then the rocket leaves
   Background:
     Given the save "test-colony" is loaded
 
+  # Filmed with no stills, then the same staging again with the stills and no film: a screenshot taken
+  # while a film is recording can be polluted by the film's own 480x270 frame (first run, 2026-09-21).
   @film @timeout:240
-  Scenario: a thread of smoke at the foot of the stand, then a thick puff and sparks
+  Scenario: filmed: a thread of smoke at the foot of the stand, then a thick puff and sparks
+    Given a colonist "Watcher" exists
+    And a "FS_FireworkStand" is built at (140, 150)
+    And Firework Stand: the stand at x=140 z=150 is loaded with 1 launchers
+    And Firework Stand: "Watcher" is bored
+    And game speed is normal
+    When I zoom all the way in
+    And I move the camera to (140, 150)
+    And Firework Stand: "Watcher" is ordered to watch the stand at x=140 z=150
+    Then Firework Stand: the stand at x=140 z=150 comes to hold 0 launchers within 120 seconds
+    When I wait 150 ticks
+    Then no errors were logged
+
+  @timeout:240
+  Scenario: stills: a thread of smoke at the foot of the stand, then a thick puff and sparks
     Given a colonist "Watcher" exists
     And a "FS_FireworkStand" is built at (140, 150)
     And Firework Stand: the stand at x=140 z=150 is loaded with 1 launchers

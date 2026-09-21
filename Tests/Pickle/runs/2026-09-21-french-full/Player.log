@@ -1,0 +1,1404 @@
+Mono path[0] = '/home/nelim/rimworld/RimWorldLinux_Data/Managed'
+Mono config path = '/home/nelim/rimworld/RimWorldLinux_Data/MonoBleedingEdge/etc'
+Preloaded 'lib_burst_generated.so'
+Preloaded 'libsteam_api.so'
+Display 0 'screen': 1920x1080 (primary device).
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+Desktop is 1920 x 1080 @ 0 Hz
+Initialize engine version: 2022.3.35f1 (011206c7a712)
+[Subsystems] Discovering subsystems at path /home/nelim/rimworld/RimWorldLinux_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1; jobified=0
+Renderer: llvmpipe (LLVM 20.1.2, 256 bits)
+Vendor:   Mesa
+Version:  4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2
+GLES:     0
+ GL_3DFX_texture_compression_FXT1 GL_AMD_conservative_depth GL_AMD_draw_buffers_blend GL_AMD_gpu_shader_int64 GL_AMD_multi_draw_indirect GL_AMD_pinned_memory GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_A
+RB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL
+_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_A
+RB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_filter_minmax GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARM_shader_framebuffer_fetch_depth_stencil GL_ATI_blend
+_equation_separate GL_ATI_meminfo GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_image_storage_compression GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_clock GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_image_load_formatted GL_EXT_shader_integer_mix GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_mirror_clamp GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT
+_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_shader_atomic_float_minmax GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NVX_gpu_memory_info GL_NV_alpha_to_coverage_dither_control GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_packed_depth_stencil GL_NV_shader_atomic_float GL_NV_texture_barrier GL_OES_EGL_image GL_OVR_multiview GL_OVR_multiview2 GL_S3_s3tc
+OPENGL LOG: Creating OpenGL 4.5 graphics device ; Context level  <OpenGL 4.5> ; Context handle 321314864
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.525 seconds
+- Finished resetting the current domain, in  0.001 seconds
+Default vsync count 1
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 1.861234 ms
+Command line arguments: -pickle-run=Firework Stand - Pickle tests -pickle-no-browser -pickle-http-port=27750 -pickle-run-timeout=45 -pickle-set-name=sans-facultatifs -pickle-report-dir=/mnt/c/Users/nelim/Documents/rimworld/pickle-reports -logfile /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/Player.log -pickle-include-wip
+[S_API] SteamAPI_Init(): SteamAPI_IsSteamRunning() did not locate a running instance of Steam.
+dlopen failed trying to load:
+/home/nelim/.steam/sdk64/steamclient.so
+with error:
+/home/nelim/.steam/sdk64/steamclient.so: cannot open shared object file: No such file or directory
+[S_API] SteamAPI_Init(): Sys_LoadModule failed to load: /home/nelim/.steam/sdk64/steamclient.so
+[Steamworks.NET] SteamAPI.Init() failed. Possible causes: Steam client not running, launched from outside Steam without steam_appid.txt in place, running with different privileges than Steam client (e.g. "as administrator")
+RimWorld 1.6.4871 rev600
+Mod Firework Stand - Pickle tests dependency (nelim.fireworkstand) needs to have <downloadUrl> and/or <steamWorkshopUrl> specified.
+Fallback handler could not load library /home/nelim/rimworld/RimWorldLinux_Data/MonoBleedingEdge/x86_64/data-0x7303fc7df870.so
+Fallback handler could not load library /home/nelim/rimworld/RimWorldLinux_Data/MonoBleedingEdge/x86_64/data-0x7303fc959810.so
+<color=#B2B2B2>[2026-09-21 20:28:53.472] [INFO] [Vanilla] </color>Command line arguments: -pickle-run=Firework Stand - Pickle tests -pickle-no-browser -pickle-http-port=27750 -pickle-run-timeout=45 -pickle-set-name=sans-facultatifs -pickle-report-dir=/mnt/c/Users/nelim/Documents/rimworld/pickle-reports -logfile /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/Player.log -pickle-include-wip
+<color=#B2B2B2>[2026-09-21 20:28:53.474] [WARN] [Vanilla] </color>[Steamworks.NET] SteamAPI.Init() failed. Possible causes: Steam client not running, launched from outside Steam without steam_appid.txt in place, running with different privileges than Steam client (e.g. "as administrator")
+<color=#B2B2B2>[2026-09-21 20:28:53.474] [INFO] [Vanilla] </color>RimWorld 1.6.4871 rev600
+<color=#B2B2B2>[2026-09-21 20:28:53.474] [WARN] [Vanilla] </color>Mod Firework Stand - Pickle tests dependency (nelim.fireworkstand) needs to have <downloadUrl> and/or <steamWorkshopUrl> specified.
+<color=#A5C2A5>[2026-09-21 20:28:54.012] [INFO] [RimWorks.RimLogging] [Patching/PatchBackends:49] </color>patched via Harmony {mod_id=rimworks.rimlogging}
+<color=#A5C2A5>[2026-09-21 20:28:54.016] [INFO] [RimWorks.RimLogging] [Bootstrap/EarlyInit:28] </color>RimLogging initialized {mod_id=rimworks.rimlogging}
+<color=#A5C2A5>[2026-09-21 20:28:54.025] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/PickleMod:21] </color>loaded {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:28:54.215] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Patching/PatchBackends:66] </color>early hooks applied via Harmony {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:28:54.245] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/SuiteScanner:46] </color>suite Pickle: 27 features [bill-steps.feature, construction-steps.feature, debug-menu.feature, def-steps.feature, devmode-steps.feature, dlc-steps.feature, engine-smoke.feature, entry-flow.feature, gear-steps.feature, map-steps.feature, mod-steps.feature, notification-steps.feature, patch-attribution.feature, pawn-steps.feature, save-reload.feature, sim-steps.feature, stat-steps.feature, storyteller-steps.feature, surgery-steps.feature, thought-steps.feature, ui-steps.feature, vanilla-smoke.feature, warning-steps.feature, watch-steps.feature, wip-tag.feature, world-condition-steps.feature, world-steps.feature] 1 fixture(s) 0 steps dll(s) {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:28:54.247] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/SuiteScanner:46] </color>suite Firework Stand - Pickle tests: 11 features [01-loads.feature, 02-stand-on-map.feature, 03-firing.feature, 04-french-names.feature, 05-light.feature, 06-fuse-and-launch.feature, 07-on-their-own.feature, 08-fuel.feature, 09-save-reload.feature, 10-audience.feature, 11-inspect-pane.feature] 0 fixture(s) 1 steps dll(s) {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:28:54.363] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Web/PickleHttpServer:100] </color>dashboard on http://0.0.0.0:27750/ {mod_id=rimworks.pickle}
+<color=#B2B2B2>[2026-09-21 20:29:25.860] [ERROR] [Vanilla] </color>Mod Firework Stand - Pickle tests did not load any content. Following load folders were used:
+  - /home/nelim/rimworld/Mods/FireworkStandPickleTests
+<color=#A5C2A5>[2026-09-21 20:29:25.905] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Patching/PatchBackends:102] </color>patched via Harmony {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:29:44.044] [INFO] [RimWorks.RimLogging] [Viewer/LogViewerBoot:35] </color>Log viewer sink registered {mod_id=rimworks.rimlogging}
+Unloading 5 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 97 unused Assets to reduce memory usage. Loaded Objects now: 26517.
+Total: 4676.107915 ms (FindLiveObjects: 1241.440403 ms CreateObjectMapping: 89.925392 ms MarkObjects: 3263.635890 ms  DeleteObjects: 81.104407 ms)
+
+<color=#A5C2A5>[2026-09-21 20:30:04.155] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:82] </color>autorun report dir = /mnt/c/Users/nelim/Documents/rimworld/pickle-reports {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:30:04.158] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:83] </color>autorun seed = 42 {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:30:04.158] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:84] </color>autorun retries = 0 {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:30:08.166] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 1236ms: Firework Stand loads after Fireworks and its guarded patch matches: the mod is active and loads after Fireworks {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:30:09.122] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 943ms: Firework Stand loads after Fireworks and its guarded patch matches: the guarded patch added the stand, the recreation type, the job and the joy giver {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:30:09.264] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 133ms: Firework Stand loads after Fireworks and its guarded patch matches: the stand is tied to its own recreation type {mod_id=rimworks.pickle}
+Unloading 3 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 159.788343 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 26715.
+Total: 333.045379 ms (FindLiveObjects: 2.725325 ms CreateObjectMapping: 3.319981 ms MarkObjects: 326.881397 ms  DeleteObjects: 0.117293 ms)
+
+<color=#B2B2B2>[2026-09-21 20:30:15.150] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:30:16.003] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:30:25.201] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.207] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.212] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.214] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.217] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.224] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.239] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.242] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.244] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.246] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.254] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.274] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:25.631] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:25.664] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:25.666] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:30:25.689] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:25.792] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:25.799] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:25.806] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:25.808] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 32137.
+Total: 440.160944 ms (FindLiveObjects: 10.447337 ms CreateObjectMapping: 13.038634 ms MarkObjects: 416.371087 ms  DeleteObjects: 0.302423 ms)
+
+<color=#A5C2A5>[2026-09-21 20:30:35.991] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 26376ms: Firework Stand loads after Fireworks and its guarded patch matches: loading a game with the mod raises no error and no warning of its own {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:30:35.993] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 4 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27755.
+Total: 343.873486 ms (FindLiveObjects: 2.897321 ms CreateObjectMapping: 3.384780 ms MarkObjects: 337.440179 ms  DeleteObjects: 0.149563 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 40.137240 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27724.
+Total: 233.005731 ms (FindLiveObjects: 1.544709 ms CreateObjectMapping: 1.371228 ms MarkObjects: 229.980186 ms  DeleteObjects: 0.108566 ms)
+
+<color=#B2B2B2>[2026-09-21 20:30:38.238] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:30:38.390] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:30:42.381] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.383] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.385] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.389] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.390] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.392] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.394] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.395] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.397] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.398] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.400] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.402] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:42.454] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:42.456] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:42.458] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:30:42.460] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:42.470] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:42.473] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:42.475] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:42.476] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 32966.
+Total: 407.992187 ms (FindLiveObjects: 4.703924 ms CreateObjectMapping: 6.389558 ms MarkObjects: 396.865813 ms  DeleteObjects: 0.031781 ms)
+
+<color=#A5C2A5>[2026-09-21 20:30:48.215] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 11902ms: a stand on the map runs, saves and reloads without a complaint: a stand can be built and left running {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27768.
+Total: 387.974406 ms (FindLiveObjects: 17.736521 ms CreateObjectMapping: 3.300114 ms MarkObjects: 366.906251 ms  DeleteObjects: 0.029836 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 6.759677 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27737.
+Total: 234.261100 ms (FindLiveObjects: 1.667441 ms CreateObjectMapping: 1.424439 ms MarkObjects: 231.043902 ms  DeleteObjects: 0.124226 ms)
+
+<color=#B2B2B2>[2026-09-21 20:30:50.316] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:30:50.487] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:30:54.682] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.688] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.690] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.692] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.694] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.699] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.711] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.713] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.721] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.727] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.730] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.743] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:30:54.833] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:54.846] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:54.849] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:30:54.857] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:30:54.907] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:54.909] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:54.911] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:30:54.916] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 32978.
+Total: 448.995778 ms (FindLiveObjects: 5.016484 ms CreateObjectMapping: 3.195633 ms MarkObjects: 440.691436 ms  DeleteObjects: 0.090933 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27774.
+Total: 412.473949 ms (FindLiveObjects: 2.534242 ms CreateObjectMapping: 3.523086 ms MarkObjects: 406.386854 ms  DeleteObjects: 0.028374 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 8.087696 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27743.
+Total: 287.333276 ms (FindLiveObjects: 1.456240 ms CreateObjectMapping: 1.359376 ms MarkObjects: 283.756368 ms  DeleteObjects: 0.759960 ms)
+
+<color=#B2B2B2>[2026-09-21 20:31:01.628] [INFO] [Vanilla] </color>Loading game from file __pickle_roundtrip with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 32986.
+Total: 455.844343 ms (FindLiveObjects: 11.657400 ms CreateObjectMapping: 3.196267 ms MarkObjects: 440.953626 ms  DeleteObjects: 0.035768 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27780.
+Total: 345.081394 ms (FindLiveObjects: 2.894214 ms CreateObjectMapping: 1.880393 ms MarkObjects: 340.243277 ms  DeleteObjects: 0.061126 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 3.843379 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27749.
+Total: 361.701670 ms (FindLiveObjects: 1.830108 ms CreateObjectMapping: 1.596785 ms MarkObjects: 358.155569 ms  DeleteObjects: 0.117963 ms)
+
+<color=#B2B2B2>[2026-09-21 20:31:11.553] [INFO] [Vanilla] </color>Loading game from file __pickle_roundtrip with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 32995.
+Total: 674.703296 ms (FindLiveObjects: 33.212295 ms CreateObjectMapping: 5.156992 ms MarkObjects: 636.297900 ms  DeleteObjects: 0.035007 ms)
+
+<color=#A5C2A5>[2026-09-21 20:31:19.943] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 31287ms: a stand on the map runs, saves and reloads without a complaint: a stand survives a save and a reload {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27786.
+Total: 322.157643 ms (FindLiveObjects: 3.112078 ms CreateObjectMapping: 3.246963 ms MarkObjects: 315.766532 ms  DeleteObjects: 0.030969 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 38.163358 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27755.
+Total: 253.663124 ms (FindLiveObjects: 1.724969 ms CreateObjectMapping: 1.639727 ms MarkObjects: 250.173261 ms  DeleteObjects: 0.123934 ms)
+
+<color=#B2B2B2>[2026-09-21 20:31:21.608] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:31:21.883] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:31:25.357] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.359] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.365] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.367] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.368] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.370] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.372] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.374] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.377] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.379] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.381] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.383] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:25.436] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:25.438] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:25.439] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:31:25.442] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:25.459] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:25.461] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:25.464] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:25.466] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 32998.
+Total: 432.449669 ms (FindLiveObjects: 4.959005 ms CreateObjectMapping: 3.584174 ms MarkObjects: 423.866725 ms  DeleteObjects: 0.038362 ms)
+
+<color=#A5C2A5>[2026-09-21 20:31:31.243] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 9567ms: a stand on the map runs, saves and reloads without a complaint: the stand as the player sees it, empty {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27792.
+Total: 426.340626 ms (FindLiveObjects: 18.410826 ms CreateObjectMapping: 3.070389 ms MarkObjects: 404.824845 ms  DeleteObjects: 0.032752 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 2.326939 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27761.
+Total: 277.941602 ms (FindLiveObjects: 2.712720 ms CreateObjectMapping: 1.743386 ms MarkObjects: 273.223850 ms  DeleteObjects: 0.260483 ms)
+
+<color=#B2B2B2>[2026-09-21 20:31:33.158] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:31:33.387] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:31:38.232] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.235] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.237] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.239] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.247] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.250] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.259] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.262] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.273] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.288] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.292] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.301] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:38.359] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:38.360] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:38.362] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:31:38.364] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:38.374] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:38.376] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:38.377] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:38.378] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33003.
+Total: 444.879213 ms (FindLiveObjects: 3.321304 ms CreateObjectMapping: 2.852576 ms MarkObjects: 438.668293 ms  DeleteObjects: 0.035877 ms)
+
+<color=#A5C2A5>[2026-09-21 20:31:44.446] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 11202ms: a stand on the map runs, saves and reloads without a complaint: selecting the stand reads its inspect line, which resolves the bridge {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:31:44.447] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 4 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 27813.
+Total: 268.725055 ms (FindLiveObjects: 1.561179 ms CreateObjectMapping: 0.906628 ms MarkObjects: 266.176596 ms  DeleteObjects: 0.079671 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 1.542252 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 27772.
+Total: 229.944911 ms (FindLiveObjects: 1.807326 ms CreateObjectMapping: 1.798999 ms MarkObjects: 226.196656 ms  DeleteObjects: 0.140436 ms)
+
+<color=#B2B2B2>[2026-09-21 20:31:46.490] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:31:46.690] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:31:50.070] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.071] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.075] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.077] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.081] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.083] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.084] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.085] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.087] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.088] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.094] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.097] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:31:50.150] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:50.152] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:50.153] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:31:50.157] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:31:50.174] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:50.181] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:50.183] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:31:50.184] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33015.
+Total: 395.712347 ms (FindLiveObjects: 3.478933 ms CreateObjectMapping: 3.386627 ms MarkObjects: 388.772837 ms  DeleteObjects: 0.071826 ms)
+
+<color=#A5C2A5>[2026-09-21 20:32:14.297] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 25753ms: the stand fires, and fires again: two salvoes go up from a loaded stand, one launcher each {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:32:14.317] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 1 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+<color=#D8C36C>[2026-09-21 20:32:14.479] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/the-stand-fires--and-fires-again--two-salvoes-go-up-from-a-loaded-stand--one-launcher-each/0140.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7]
+(wrapper managed-to-native) UnityEngine.Texture2D.get_isReadable(UnityEngine.Texture2D)
+  at UnityEngine.Texture2D.LoadRawTextureData[T] (Unity.Collections.NativeArray`1[T] data) [0x00001] in <b72b1d4458e04f57995367fd90296629>:0 
+  at RimWorks.Pickle.Runtime.PickleDriver+<>c__DisplayClass30_0.<ReadFrame>b__0 (UnityEngine.Rendering.AsyncGPUReadbackRequest request) [0x00027] in /home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver.cs:244 
+<color=#D8C36C>[2026-09-21 20:32:14.585] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/the-stand-fires--and-fires-again--two-salvoes-go-up-from-a-loaded-stand--one-launcher-each/0141.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7] Duplicate stacktrace, see ref for original
+<color=#A5C2A5>[2026-09-21 20:32:14.749] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 387ms: French names on the stand and the reused launcher: the stand and its recreation type are French {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:32:15.016] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 231ms: French names on the stand and the reused launcher: the dependency's launcher, translated by this mod, is French {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:32:15.018] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 2 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 27845.
+Total: 638.984390 ms (FindLiveObjects: 208.089762 ms CreateObjectMapping: 1.607516 ms MarkObjects: 429.133782 ms  DeleteObjects: 0.151928 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 29.154024 ms
+Releasing render texture that is set to be RenderTexture.active!
+<color=#80A6D9>[2026-09-21 20:32:17.411] [WARN] [Unity] </color>Releasing render texture that is set to be RenderTexture.active!
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27809.
+Total: 380.469994 ms (FindLiveObjects: 2.070533 ms CreateObjectMapping: 1.611865 ms MarkObjects: 376.678038 ms  DeleteObjects: 0.108074 ms)
+
+<color=#B2B2B2>[2026-09-21 20:32:18.255] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:32:18.526] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:32:23.335] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.338] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.340] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.345] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.347] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.349] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.351] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.354] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.359] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.364] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.366] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.368] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:32:23.432] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:32:23.434] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:32:23.435] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:32:23.437] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:32:23.466] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:32:23.470] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:32:23.472] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:32:23.474] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33052.
+Total: 433.031612 ms (FindLiveObjects: 8.551966 ms CreateObjectMapping: 3.604741 ms MarkObjects: 420.773063 ms  DeleteObjects: 0.099960 ms)
+
+<color=#A5C2A5>[2026-09-21 20:33:07.635] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 47146ms: the light comes on for the length of a salvo: dark, then warm for a few seconds as the rocket leaves, then dark again {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:33:07.637] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 1 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+<color=#D8C36C>[2026-09-21 20:33:08.959] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/the-light-comes-on-for-the-length-of-a-salvo--dark--then-warm-for-a-few-seconds-as-the-rocket-leaves--then-dark-again/0242.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7]
+(wrapper managed-to-native) UnityEngine.Texture2D.get_isReadable(UnityEngine.Texture2D)
+  at UnityEngine.Texture2D.LoadRawTextureData[T] (Unity.Collections.NativeArray`1[T] data) [0x00001] in <b72b1d4458e04f57995367fd90296629>:0 
+  at RimWorks.Pickle.Runtime.PickleDriver+<>c__DisplayClass30_0.<ReadFrame>b__0 (UnityEngine.Rendering.AsyncGPUReadbackRequest request) [0x00027] in /home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver.cs:244 
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+<color=#D8C36C>[2026-09-21 20:33:09.323] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/the-light-comes-on-for-the-length-of-a-salvo--dark--then-warm-for-a-few-seconds-as-the-rocket-leaves--then-dark-again/0243.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7] Duplicate stacktrace, see ref for original
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27873.
+Total: 465.160175 ms (FindLiveObjects: 34.482812 ms CreateObjectMapping: 1.404792 ms MarkObjects: 429.234900 ms  DeleteObjects: 0.036559 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 13.961174 ms
+Releasing render texture that is set to be RenderTexture.active!
+requesting resize 1920 x 1080
+<color=#80A6D9>[2026-09-21 20:33:10.305] [WARN] [Unity] </color>Releasing render texture that is set to be RenderTexture.active!
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27832.
+Total: 253.535672 ms (FindLiveObjects: 1.477028 ms CreateObjectMapping: 1.443856 ms MarkObjects: 250.497194 ms  DeleteObjects: 0.116200 ms)
+
+<color=#B2B2B2>[2026-09-21 20:33:11.217] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:33:11.436] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:33:15.339] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.341] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.342] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.344] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.345] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.347] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.348] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.349] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.350] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.352] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.353] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.354] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:33:15.413] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:33:15.416] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:33:15.421] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:33:15.423] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:33:15.440] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:33:15.443] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:33:15.445] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:33:15.448] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33070.
+Total: 303.846026 ms (FindLiveObjects: 9.460297 ms CreateObjectMapping: 3.390605 ms MarkObjects: 290.943507 ms  DeleteObjects: 0.049383 ms)
+
+<color=#D8C36C>[2026-09-21 20:34:08.853] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Evidence/FilmstripRecorder:109] </color>'a thread of smoke at the foot of the stand, then a thick puff and sparks' passed 60s, so its film stops there. Raise it with -pickle-max-film-seconds. {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:34:35.150] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 80518ms: the fuse smokes, then the rocket leaves: a thread of smoke at the foot of the stand, then a thick puff and sparks {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:34:35.151] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 1 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27876.
+Total: 341.045848 ms (FindLiveObjects: 14.754499 ms CreateObjectMapping: 2.405876 ms MarkObjects: 323.851850 ms  DeleteObjects: 0.032201 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 3.613969 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27840.
+Total: 231.965779 ms (FindLiveObjects: 1.382620 ms CreateObjectMapping: 1.225783 ms MarkObjects: 229.242949 ms  DeleteObjects: 0.113155 ms)
+
+<color=#B2B2B2>[2026-09-21 20:34:36.834] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:34:36.986] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:34:40.569] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.583] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.585] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.587] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.588] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.590] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.593] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.597] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.599] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.601] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.603] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.605] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:34:40.657] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:34:40.660] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:34:40.662] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:34:40.665] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:34:40.677] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:34:40.679] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:34:40.680] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:34:40.683] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33084.
+Total: 297.045371 ms (FindLiveObjects: 2.671593 ms CreateObjectMapping: 2.099187 ms MarkObjects: 292.242529 ms  DeleteObjects: 0.030669 ms)
+
+<color=#A5C2A5>[2026-09-21 20:34:57.728] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 14545ms: a bored colonist goes to the stand by themselves: an idle colonist with a low recreation need walks to an open stand and watches it standing {mod_id=rimworks.pickle}
+<color=#D8C36C>[2026-09-21 20:34:57.957] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/a-bored-colonist-goes-to-the-stand-by-themselves--an-idle-colonist-with-a-low-recreation-need-walks-to-an-open-stand-and-watches-it-standing/0061.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7]
+(wrapper managed-to-native) UnityEngine.Texture2D.get_isReadable(UnityEngine.Texture2D)
+  at UnityEngine.Texture2D.LoadRawTextureData[T] (Unity.Collections.NativeArray`1[T] data) [0x00001] in <b72b1d4458e04f57995367fd90296629>:0 
+  at RimWorks.Pickle.Runtime.PickleDriver+<>c__DisplayClass30_0.<ReadFrame>b__0 (UnityEngine.Rendering.AsyncGPUReadbackRequest request) [0x00027] in /home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver.cs:244 
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+<color=#D8C36C>[2026-09-21 20:34:58.063] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/a-bored-colonist-goes-to-the-stand-by-themselves--an-idle-colonist-with-a-low-recreation-need-walks-to-an-open-stand-and-watches-it-standing/0062.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7] Duplicate stacktrace, see ref for original
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27903.
+Total: 298.348749 ms (FindLiveObjects: 4.695774 ms CreateObjectMapping: 6.339096 ms MarkObjects: 287.278633 ms  DeleteObjects: 0.033884 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 1.958679 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27866.
+Total: 231.771938 ms (FindLiveObjects: 1.537985 ms CreateObjectMapping: 0.764248 ms MarkObjects: 229.330562 ms  DeleteObjects: 0.137921 ms)
+
+<color=#B2B2B2>[2026-09-21 20:34:59.729] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:34:59.910] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:35:02.951] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.953] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.954] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.956] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.957] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.962] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.965] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.966] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.968] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.969] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.970] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:02.972] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:03.010] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:03.012] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:03.014] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:35:03.015] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:03.025] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:03.028] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:03.030] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:03.032] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33105.
+Total: 397.890703 ms (FindLiveObjects: 2.853206 ms CreateObjectMapping: 2.572174 ms MarkObjects: 392.415568 ms  DeleteObjects: 0.047931 ms)
+
+<color=#A5C2A5>[2026-09-21 20:35:15.969] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 11934ms: a bored colonist goes to the stand by themselves: a stand under a roof is never used {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:35:15.971] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 2 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27903.
+Total: 320.713559 ms (FindLiveObjects: 4.156215 ms CreateObjectMapping: 6.299681 ms MarkObjects: 310.230974 ms  DeleteObjects: 0.025298 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 2.476773 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27872.
+Total: 239.453687 ms (FindLiveObjects: 3.598689 ms CreateObjectMapping: 1.608418 ms MarkObjects: 234.136953 ms  DeleteObjects: 0.108415 ms)
+
+<color=#B2B2B2>[2026-09-21 20:35:18.075] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:35:18.238] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:35:21.376] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.379] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.381] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.383] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.385] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.387] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.388] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.390] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.391] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.393] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.395] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.397] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:21.461] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:21.464] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:21.466] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:35:21.468] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:21.485] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:21.489] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:21.490] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:21.492] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33107.
+Total: 363.622249 ms (FindLiveObjects: 6.877639 ms CreateObjectMapping: 2.501230 ms MarkObjects: 354.209165 ms  DeleteObjects: 0.033173 ms)
+
+<color=#A5C2A5>[2026-09-21 20:35:34.456] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 11002ms: one launcher per salvo, nothing drained while idle, and an empty stand stops firing: a loaded stand nobody watches keeps every launcher {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 27916.
+Total: 304.871851 ms (FindLiveObjects: 6.520406 ms CreateObjectMapping: 2.432259 ms MarkObjects: 295.887276 ms  DeleteObjects: 0.030688 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 3.856888 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27880.
+Total: 286.838217 ms (FindLiveObjects: 3.225482 ms CreateObjectMapping: 1.888629 ms MarkObjects: 281.539295 ms  DeleteObjects: 0.183247 ms)
+
+<color=#B2B2B2>[2026-09-21 20:35:36.106] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:35:36.324] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:35:39.493] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.495] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.497] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.499] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.500] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.502] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.503] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.504] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.506] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.507] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.510] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.512] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:35:39.561] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:39.564] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:39.569] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:35:39.571] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:35:39.584] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:39.586] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:39.587] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:35:39.589] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33124.
+Total: 311.835076 ms (FindLiveObjects: 2.384258 ms CreateObjectMapping: 2.953407 ms MarkObjects: 306.462836 ms  DeleteObjects: 0.033334 ms)
+
+<color=#A5C2A5>[2026-09-21 20:35:57.515] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 16114ms: one launcher per salvo, nothing drained while idle, and an empty stand stops firing: the last launcher is spent, and the empty stand fires no more {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:35:57.516] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 2 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 28007.
+Total: 263.009979 ms (FindLiveObjects: 1.874942 ms CreateObjectMapping: 1.765696 ms MarkObjects: 259.268479 ms  DeleteObjects: 0.099258 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 3.590397 ms
+Releasing render texture that is set to be RenderTexture.active!
+requesting resize 1920 x 1080
+<color=#80A6D9>[2026-09-21 20:35:58.579] [WARN] [Unity] </color>Releasing render texture that is set to be RenderTexture.active!
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 27961.
+Total: 215.186674 ms (FindLiveObjects: 1.614640 ms CreateObjectMapping: 1.381458 ms MarkObjects: 212.058005 ms  DeleteObjects: 0.131288 ms)
+
+<color=#B2B2B2>[2026-09-21 20:35:59.150] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:35:59.299] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:36:02.433] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.435] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.436] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.437] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.438] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.440] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.441] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.444] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.446] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.448] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.449] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.451] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:02.520] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:36:02.522] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:36:02.524] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:36:02.526] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:36:02.538] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:36:02.542] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:36:02.544] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:36:02.546] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33205.
+Total: 306.340219 ms (FindLiveObjects: 9.300163 ms CreateObjectMapping: 12.038412 ms MarkObjects: 284.962951 ms  DeleteObjects: 0.037020 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 28007.
+Total: 263.729830 ms (FindLiveObjects: 1.478271 ms CreateObjectMapping: 1.121585 ms MarkObjects: 261.031376 ms  DeleteObjects: 0.097424 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 2.025072 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27966.
+Total: 226.743853 ms (FindLiveObjects: 1.517786 ms CreateObjectMapping: 1.325552 ms MarkObjects: 223.787050 ms  DeleteObjects: 0.111922 ms)
+
+<color=#B2B2B2>[2026-09-21 20:36:14.348] [INFO] [Vanilla] </color>Loading game from file __pickle_roundtrip with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33205.
+Total: 378.844106 ms (FindLiveObjects: 4.995374 ms CreateObjectMapping: 5.904360 ms MarkObjects: 367.894017 ms  DeleteObjects: 0.048292 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 28009.
+Total: 273.236887 ms (FindLiveObjects: 2.604517 ms CreateObjectMapping: 1.460768 ms MarkObjects: 269.141083 ms  DeleteObjects: 0.028985 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 2.494224 ms
+Releasing render texture that is set to be RenderTexture.active!
+<color=#80A6D9>[2026-09-21 20:36:21.433] [WARN] [Unity] </color>Releasing render texture that is set to be RenderTexture.active!
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27978.
+Total: 234.691774 ms (FindLiveObjects: 1.534097 ms CreateObjectMapping: 1.479240 ms MarkObjects: 231.566406 ms  DeleteObjects: 0.110700 ms)
+
+<color=#B2B2B2>[2026-09-21 20:36:22.066] [INFO] [Vanilla] </color>Loading game from file __pickle_roundtrip with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33212.
+Total: 319.166648 ms (FindLiveObjects: 3.533476 ms CreateObjectMapping: 13.248084 ms MarkObjects: 302.339813 ms  DeleteObjects: 0.043663 ms)
+
+<color=#A5C2A5>[2026-09-21 20:36:45.427] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 39792ms: a stand saved in the middle of a salvo comes back in the same state: the timer, the light and the count survive a save and a reload {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:36:45.428] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 1 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+<color=#D8C36C>[2026-09-21 20:36:45.825] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/a-stand-saved-in-the-middle-of-a-salvo-comes-back-in-the-same-state--the-timer--the-light-and-the-count-survive-a-save-and-a-reload/0197.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7]
+(wrapper managed-to-native) UnityEngine.Texture2D.get_isReadable(UnityEngine.Texture2D)
+  at UnityEngine.Texture2D.LoadRawTextureData[T] (Unity.Collections.NativeArray`1[T] data) [0x00001] in <b72b1d4458e04f57995367fd90296629>:0 
+  at RimWorks.Pickle.Runtime.PickleDriver+<>c__DisplayClass30_0.<ReadFrame>b__0 (UnityEngine.Rendering.AsyncGPUReadbackRequest request) [0x00027] in /home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver.cs:244 
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+<color=#D8C36C>[2026-09-21 20:36:45.949] [WARN] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/PickleDriver:248] </color>frame readback failed for /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/film/a-stand-saved-in-the-middle-of-a-salvo-comes-back-in-the-same-state--the-timer--the-light-and-the-count-survive-a-save-and-a-reload/0198.jpg {mod_id=rimworks.pickle}
+System.NullReferenceException
+[Ref E95566A7] Duplicate stacktrace, see ref for original
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 28015.
+Total: 369.069290 ms (FindLiveObjects: 5.453805 ms CreateObjectMapping: 7.613908 ms MarkObjects: 355.970028 ms  DeleteObjects: 0.029956 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 2.049032 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 27983.
+Total: 305.191015 ms (FindLiveObjects: 1.552452 ms CreateObjectMapping: 1.019362 ms MarkObjects: 302.511367 ms  DeleteObjects: 0.106542 ms)
+
+<color=#B2B2B2>[2026-09-21 20:36:47.777] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:36:47.975] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:36:51.758] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.760] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.774] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.776] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.782] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.787] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.789] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.792] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.800] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.805] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.808] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.811] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:36:51.863] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:36:51.865] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:36:51.866] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:36:51.872] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:36:51.885] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:36:51.886] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:36:51.890] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:36:51.892] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33221.
+Total: 350.440791 ms (FindLiveObjects: 2.437359 ms CreateObjectMapping: 4.387704 ms MarkObjects: 343.581082 ms  DeleteObjects: 0.033313 ms)
+
+<color=#A5C2A5>[2026-09-21 20:37:16.783] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 21262ms: the memory of the show goes only to those who could see it: the colonist outdoors gains it, the sleeper and the one under a roof do not {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:37:16.784] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 1 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 28145.
+Total: 323.297326 ms (FindLiveObjects: 4.500948 ms CreateObjectMapping: 3.054285 ms MarkObjects: 315.712807 ms  DeleteObjects: 0.027963 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 21.069695 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 28104.
+Total: 263.681599 ms (FindLiveObjects: 1.790724 ms CreateObjectMapping: 1.332115 ms MarkObjects: 260.442169 ms  DeleteObjects: 0.115439 ms)
+
+<color=#B2B2B2>[2026-09-21 20:37:18.476] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:37:18.627] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:37:21.637] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.640] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.642] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.644] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.646] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.648] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.657] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.661] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.663] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.665] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.679] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.682] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:21.734] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:37:21.736] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:37:21.737] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:37:21.739] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:37:21.748] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:37:21.749] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:37:21.751] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:37:21.752] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33346.
+Total: 397.745320 ms (FindLiveObjects: 1.812224 ms CreateObjectMapping: 5.818124 ms MarkObjects: 390.078242 ms  DeleteObjects: 0.035437 ms)
+
+<color=#A5C2A5>[2026-09-21 20:37:43.062] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 15488ms: what the player reads about the stand, in the language of the pass: the stand loaded and waiting, then reloading after a salvo {mod_id=rimworks.pickle}
+Unloading 1 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 28152.
+Total: 262.835635 ms (FindLiveObjects: 2.397463 ms CreateObjectMapping: 2.325417 ms MarkObjects: 258.042823 ms  DeleteObjects: 0.068380 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 5)
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+UnloadTime: 2.703998 ms
+requesting resize 1920 x 1080
+resizing window to 1920 x 1080
+Desktop is 1920 x 1080 @ 0 Hz
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 28111.
+Total: 247.870499 ms (FindLiveObjects: 1.639255 ms CreateObjectMapping: 1.734607 ms MarkObjects: 244.366551 ms  DeleteObjects: 0.128994 ms)
+
+<color=#B2B2B2>[2026-09-21 20:37:44.660] [INFO] [Vanilla] </color>Loading game from file __pickle_fixture with mods:
+  - brrainz.harmony
+  - Ludeon.RimWorld
+  - Ludeon.RimWorld.Royalty
+  - Ludeon.RimWorld.Ideology
+  - Ludeon.RimWorld.Biotech
+  - Ludeon.RimWorld.Anomaly
+  - Ludeon.RimWorld.Odyssey
+  - RimWorks.RimLogging
+  - rimworks.pickle
+  - telardo.Fireworks
+  - nelim.fireworkstand
+  - nelim.fireworkstand.pickletests
+<color=#B2B2B2>[2026-09-21 20:37:44.806] [WARN] [Vanilla] </color>Loaded file (Map) is from version 1.6.4633 rev1257, we are running version 1.6.4871 rev600.
+<color=#B2B2B2>[2026-09-21 20:37:47.331] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.332] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.342] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.345] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.351] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.352] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.356] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.358] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.360] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.368] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.371] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.373] [WARN] [Vanilla] </color>A hidden ritual precept was missing, adding: Funérailles (sans corps)
+<color=#B2B2B2>[2026-09-21 20:37:47.530] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:37:47.542] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:37:47.544] [WARN] [Vanilla] </color>Could not find think node with key 562724706
+<color=#B2B2B2>[2026-09-21 20:37:47.546] [WARN] [Vanilla] </color>Could not find think node with key 1995237484
+<color=#B2B2B2>[2026-09-21 20:37:47.579] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:37:47.581] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:37:47.582] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+<color=#B2B2B2>[2026-09-21 20:37:47.588] [WARN] [Vanilla] </color>Could not find think node with key 1465104375
+Unloading 0 Unused Serialized files (Serialized files now loaded: 5)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 33346.
+Total: 367.588014 ms (FindLiveObjects: 2.188377 ms CreateObjectMapping: 2.519985 ms MarkObjects: 362.842792 ms  DeleteObjects: 0.035618 ms)
+
+<color=#A5C2A5>[2026-09-21 20:38:04.258] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:264] </color>passed in 10857ms: what the player reads about the stand, in the language of the pass: the blueprint, placed through the designator, with its watching area {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:04.259] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Run/RunSession:246] </color>run finished: 2 passed, 0 failed, 0 skipped {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:04.287] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Runtime/SuiteRunner:81] </color>suite passed {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:04.316] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:164] </color>encoding 5 film(s) before exit {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:04.318] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:167] </color>encoding film 1/5 at 5.6 fps {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:10.938] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:167] </color>encoding film 2/5 at 5.2 fps {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:17.631] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:167] </color>encoding film 3/5 at 5.7 fps {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:26.937] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:167] </color>encoding film 4/5 at 4.4 fps {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:29.878] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:167] </color>encoding film 5/5 at 5 fps {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:38:36.755] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:173] </color>encoded 5 film(s) {mod_id=rimworks.pickle}
+<color=#A5C2A5>[2026-09-21 20:39:07.504] [INFO] [Pickle] [home/runner/work/Rimworld-Pickle/Rimworld-Pickle/Source/Pickle/Autorun/AutorunBootstrap:147] </color>autorun exit code = 0 {mod_id=rimworks.pickle}
+Memory Statistics:
+[ALLOC_TEMP_TLS] TLS Allocator
+  StackAllocators : 
+    [ALLOC_TEMP_MAIN]
+      Peak usage frame count: [0-1.0 KB]: 857 frames, [1.0 KB-2.0 KB]: 10 frames, [2.0 KB-4.0 KB]: 1045 frames, [4.0 KB-8.0 KB]: 6 frames, [8.0 KB-16.0 KB]: 30 frames, [16.0 KB-32.0 KB]: 12 frames, [32.0 KB-64.0 KB]: 776 frames, [64.0 KB-128.0 KB]: 187 frames, [256.0 KB-0.5 MB]: 1 frames, [1.0 MB-2.0 MB]: 3 frames, [2.0 MB-4.0 MB]: 54 frames, [4.0 MB-8.0 MB]: 21 frames
+      Initial Block Size 4.0 MB
+      Current Block Size 5.3 MB
+      Peak Allocated Bytes 5.3 MB
+      Overflow Count 3
+    [ALLOC_TEMP_Loading.AsyncRead]
+      Initial Block Size 64.0 KB
+      Current Block Size 120.0 KB
+      Peak Allocated Bytes 117.2 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Loading.PreloadManager]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 6.4 KB
+      Overflow Count 84
+    [ALLOC_TEMP_Background Job.Worker 8]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 6]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 0]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 10]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 9]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 5]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 14]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 6]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 4]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 14]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 3]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 13]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 12]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_EnlightenWorker] x 8
+      Initial Block Size 64.0 KB
+      Current Block Size 64.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 15]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 1]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 92 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 2]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 7]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_UnityGfxDeviceWorker]
+      Initial Block Size 256.0 KB
+      Current Block Size 260.0 KB
+      Peak Allocated Bytes 256.0 KB
+      Overflow Count 13
+    [ALLOC_TEMP_AssetGarbageCollectorHelper] x 15
+      Initial Block Size 64.0 KB
+      Current Block Size 64.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 5]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 9]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 13]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 8]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 7]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 1]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0.6 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 2]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 3]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 11]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 10]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 0]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 11]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.Worker 12]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.Worker 4]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+    [ALLOC_TEMP_BatchDeleteObjects]
+      Initial Block Size 64.0 KB
+      Current Block Size 64.0 KB
+      Peak Allocated Bytes 0 B
+      Overflow Count 0
+[ALLOC_DEFAULT] Dual Thread Allocator
+  Peak main deferred allocation count 71472
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 4.0 MB
+      Failed Allocations. Bucket layout:
+        16B: 4 Subsections = 4096 buckets. Failed count: 57729
+        32B: 30 Subsections = 15360 buckets. Failed count: 54692
+        48B: 34 Subsections = 11605 buckets. Failed count: 70186
+        64B: 89 Subsections = 22784 buckets. Failed count: 68928
+        80B: 82 Subsections = 16793 buckets. Failed count: 26925
+        96B: 6 Subsections = 1024 buckets. Failed count: 148933
+        112B: 7 Subsections = 1024 buckets. Failed count: 6514
+        128B: 4 Subsections = 512 buckets. Failed count: 9943
+    [ALLOC_DEFAULT_MAIN]
+      Peak usage frame count: [16.0 MB-32.0 MB]: 284 frames, [32.0 MB-64.0 MB]: 1 frames, [128.0 MB-256.0 MB]: 2717 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 14
+      Peak Allocated memory 219.9 MB
+      Peak Large allocation bytes 35.3 MB
+    [ALLOC_DEFAULT_THREAD]
+      Peak usage frame count: [4.0 MB-8.0 MB]: 338 frames, [8.0 MB-16.0 MB]: 315 frames, [16.0 MB-32.0 MB]: 61 frames, [32.0 MB-64.0 MB]: 166 frames, [64.0 MB-128.0 MB]: 2122 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 6
+      Peak Allocated memory 83.0 MB
+      Peak Large allocation bytes 16.0 MB
+[ALLOC_TEMP_JOB_1_FRAME]
+  Initial Block Size 2.0 MB
+  Used Block Count 0
+  Overflow Count (too large) 0
+  Overflow Count (full) 0
+[ALLOC_TEMP_JOB_2_FRAMES]
+  Initial Block Size 2.0 MB
+  Used Block Count 0
+  Overflow Count (too large) 0
+  Overflow Count (full) 0
+[ALLOC_TEMP_JOB_4_FRAMES (JobTemp)]
+  Initial Block Size 2.0 MB
+  Used Block Count 1
+  Overflow Count (too large) 2
+  Overflow Count (full) 0
+[ALLOC_TEMP_JOB_ASYNC (Background)]
+  Initial Block Size 1.0 MB
+  Used Block Count 1
+  Overflow Count (too large) 6
+  Overflow Count (full) 0
+[ALLOC_GFX] Dual Thread Allocator
+  Peak main deferred allocation count 12
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 4.0 MB
+      Failed Allocations. Bucket layout:
+        16B: 4 Subsections = 4096 buckets. Failed count: 57729
+        32B: 30 Subsections = 15360 buckets. Failed count: 54692
+        48B: 34 Subsections = 11605 buckets. Failed count: 70186
+        64B: 89 Subsections = 22784 buckets. Failed count: 68928
+        80B: 82 Subsections = 16793 buckets. Failed count: 26925
+        96B: 6 Subsections = 1024 buckets. Failed count: 148933
+        112B: 7 Subsections = 1024 buckets. Failed count: 6514
+        128B: 4 Subsections = 512 buckets. Failed count: 9943
+    [ALLOC_GFX_MAIN]
+      Peak usage frame count: [64.0 KB-128.0 KB]: 1 frames, [2.0 MB-4.0 MB]: 306 frames, [4.0 MB-8.0 MB]: 839 frames, [8.0 MB-16.0 MB]: 19 frames, [32.0 MB-64.0 MB]: 1836 frames, [256.0 MB-0.50 GB]: 1 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 5
+      Peak Allocated memory 344.4 MB
+      Peak Large allocation bytes 341.0 MB
+    [ALLOC_GFX_THREAD]
+      Peak usage frame count: [0-1.0 KB]: 293 frames, [1.0 KB-2.0 KB]: 70 frames, [2.0 KB-4.0 KB]: 546 frames, [4.0 KB-8.0 KB]: 277 frames, [16.0 KB-32.0 KB]: 1816 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 1
+      Peak Allocated memory 31.7 KB
+      Peak Large allocation bytes 0 B
+[ALLOC_CACHEOBJECTS] Dual Thread Allocator
+  Peak main deferred allocation count 94
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 4.0 MB
+      Failed Allocations. Bucket layout:
+        16B: 4 Subsections = 4096 buckets. Failed count: 57729
+        32B: 30 Subsections = 15360 buckets. Failed count: 54692
+        48B: 34 Subsections = 11605 buckets. Failed count: 70186
+        64B: 89 Subsections = 22784 buckets. Failed count: 68928
+        80B: 82 Subsections = 16793 buckets. Failed count: 26925
+        96B: 6 Subsections = 1024 buckets. Failed count: 148933
+        112B: 7 Subsections = 1024 buckets. Failed count: 6514
+        128B: 4 Subsections = 512 buckets. Failed count: 9943
+    [ALLOC_CACHEOBJECTS_MAIN]
+      Peak usage frame count: [4.0 MB-8.0 MB]: 1 frames, [8.0 MB-16.0 MB]: 284 frames, [16.0 MB-32.0 MB]: 2717 frames
+      Requested Block Size 4.0 MB
+      Peak Block count 5
+      Peak Allocated memory 18.0 MB
+      Peak Large allocation bytes 0 B
+    [ALLOC_CACHEOBJECTS_THREAD]
+      Peak usage frame count: [4.0 KB-8.0 KB]: 307 frames, [32.0 KB-64.0 KB]: 2633 frames, [64.0 KB-128.0 KB]: 40 frames, [256.0 KB-0.5 MB]: 21 frames, [0.5 MB-1.0 MB]: 1 frames
+      Requested Block Size 4.0 MB
+      Peak Block count 1
+      Peak Allocated memory 0.6 MB
+      Peak Large allocation bytes 0 B
+[ALLOC_TYPETREE] Dual Thread Allocator
+  Peak main deferred allocation count 0
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 4.0 MB
+      Failed Allocations. Bucket layout:
+        16B: 4 Subsections = 4096 buckets. Failed count: 57729
+        32B: 30 Subsections = 15360 buckets. Failed count: 54692
+        48B: 34 Subsections = 11605 buckets. Failed count: 70186
+        64B: 89 Subsections = 22784 buckets. Failed count: 68928
+        80B: 82 Subsections = 16793 buckets. Failed count: 26925
+        96B: 6 Subsections = 1024 buckets. Failed count: 148933
+        112B: 7 Subsections = 1024 buckets. Failed count: 6514
+        128B: 4 Subsections = 512 buckets. Failed count: 9943
+    [ALLOC_TYPETREE_MAIN]
+      Peak usage frame count: [0-1.0 KB]: 1 frames, [4.0 KB-8.0 KB]: 284 frames, [32.0 KB-64.0 KB]: 2717 frames
+      Requested Block Size 2.0 MB
+      Peak Block count 1
+      Peak Allocated memory 46.3 KB
+      Peak Large allocation bytes 0 B
+    [ALLOC_TYPETREE_THREAD]
+      Peak usage frame count: [0-1.0 KB]: 3002 frames
+      Requested Block Size 2.0 MB
+      Peak Block count 0
+      Peak Allocated memory 0 B
+      Peak Large allocation bytes 0 B

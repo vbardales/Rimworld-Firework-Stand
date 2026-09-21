@@ -203,8 +203,8 @@ colour: `@review` asserts nothing about an image.
 **Passes the mod needs: two.** It declares no optional mod and no incompatibility, so there is no
 "with optional mods" pass and none per incompatibility. Both run on the minimal WSL set (Core, the
 DLC, Harmony, RimLogging, Pickle, Fireworks, the mod). English:
-`Run-PickleWsl.ps1 -Mod FireworkStand` (19 scenarios). French, the whole suite plus the French-only
-feature: `Run-PickleWsl.ps1 -Mod FireworkStand -Language French -IncludeWip` (21 scenarios). No step
+`Run-PickleWsl.ps1 -Mod FireworkStand` (21 scenarios). French, the whole suite plus the French-only
+feature: `Run-PickleWsl.ps1 -Mod FireworkStand -Language French -IncludeWip` (23 scenarios). No step
 names a translated word, so a green English pass says nothing about French and the reverse: the
 captures are what differ.
 
@@ -212,9 +212,13 @@ captures are what differ.
 to play without it); the inherited launch gizmo with and without Ideology (the WSL staging mounts every
 DLC); the Architect menu entry; the absence of a line-of-sight test in the audience filter.
 
-**Status.** The English pass ran once on 2026-09-21 on the first four features (8 of 8 passed). The
-suite as widened has never been run, and the French pass has not. A Pickle run only shows that the
-path ran: it does not replace looking.
+**Status.** The widened suite ran twice on 2026-09-21. French (the whole suite, 21 scenarios): all
+passed, `exitReason: passed`, report and films in `Tests/Pickle/runs/2026-09-21-french-full/`, every
+still and film opened. English: 18 passed and **1 failed**, but that report was lost before it was
+read, so the failing scenario is unknown until the English pass is run again. Since those runs the
+filmed scenarios lost their stills (a screenshot taken during a film is polluted) and two scenarios
+gained a non-filmed twin: that change has not been played. A Pickle run only shows that the path
+ran: it does not replace looking.
 
 
 ## Publishing gate

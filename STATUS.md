@@ -26,7 +26,8 @@ audit_revision: 3fa32521e3de47ce73ecc372e1809794d7de9f05
 remaining:
   - resolved 2026-09-21 (preTest -> done): Pickle suite written in Tests/Pickle (four features, companion mod, wsl-ids.map, README with scope and reasons), and TESTING.md states the two passes the mod needs. Written, never run.
   - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Report in Tests/Pickle/runs/2026-09-21-english/. Fireworks staged and loaded, so the WSL staging does find it.
-  - unverified: Pickle French pass (`-Language French -IncludeWip`, the whole suite plus feature 04) has not run; it is required for done -> tested.
+  - done 2026-09-21 22:28: Pickle French pass, whole suite plus feature 04: 21 of 21 passed, exitReason passed; report, films and summary in Tests/Pickle/runs/2026-09-21-french-full/, all stills and films opened.
+  - unverified: Pickle English pass of the widened suite: 21 scenarios, 18 passed and 1 FAILED (20:28), report lost before it was read, so the failing scenario is unknown. It must be run again (features changed since: filmed scenarios lost their stills, 05 and 06 gained a twin, unplayed) and be green for done -> tested.
   - defect (in the test, not the mod): the English run did not exercise the FireworksBridge. It resolves lazily (`Available`), read only by a watching colonist or the inspect pane, and no played scenario did either, so its "no Firework Stand] warning" assertions are vacuous about the bridge. A scenario that selects the stand (by its cell, through a custom step, so it runs in both languages) was added to 02-stand-on-map.feature after the run and is unplayed. TESTING.md scenario 2 stays open until it has.
   - resolved 2026-09-21: the vanilla joy giver was read (JoyGiver_WatchBuilding, JoyGiver_InteractBuilding, JobDriver_WatchBuilding, decompiled from the installed game). It never looks at fuel, so an empty stand IS offered as recreation.
   - defect (design, found by reading the source, unplayed): because the giver ignores fuel and the driver's joy tick is vanilla's, a colonist who watches an EMPTY stand gains full fireworks recreation and no rocket goes up. The stand's guard is on firing, not on the joy. The mod's description says the stand "never wastes a rocket on an empty field"; it does not say an empty stand yields nothing, so this may be intended, but it is a cheap source of recreation. Not changed by this audit (no development); decision for the maintainer.
@@ -484,3 +485,40 @@ installed Pickle. Not made: any run of the widened suite. One ticket for it (pid
 plays whatever is on disk when its turn comes, and its result is not yet read.
 
 Stage stays `done`.
+
+## Widened Pickle suite, two runs — 2026-09-21
+
+Both runs are the suite of commit `49c36d8` (eleven features, the step assembly), through
+`scripts/Run-PickleWsl.ps1`, in the WSL under Xvfb, on the minimal set (12 staged mods, all loaded,
+Fireworks included). The game was identified as ours by `-pickle-run=Firework Stand - Pickle tests`.
+
+- **English, 20:28 to 20:38, ticket pid 36520:** 21 scenarios discovered, 18 passed, 1 failed, 2
+  skipped (feature 04, `@wip`), `exitReason: failed`, launcher exit 1. **Its report was lost:** it
+  was archived, then pruned by later runs (the archive keeps 15) before this session, which had not
+  been notified of the end of that ticket, went to read it. Which scenario failed, its message, its
+  captures and its films are unknown. The launcher's output kept only the totals.
+- **French, 22:28 to 22:38, ticket pid 29288:** 21 of 21 passed, 0 failed, 0 skipped, `exitReason:
+  passed`, exit 0. Report copied at once: `Tests/Pickle/runs/2026-09-21-french-full/` (summary, junit,
+  messages, Player.log, five films; the sixteen full-size stills stay on the machine and are ignored
+  by git). **All sixteen stills and the five films were opened.** The dashboard state was polled
+  during the run so that nothing else could be lost.
+
+What the captures show, read directly (French pass): the loaded stand at rest reads "feux d'artifice
+chargés : 4 / 10" and "Prête à tirer"; after a salvo "Rechargement : 0.3 heures" (decimal point as the game
+formats it); the empty stand reads "0 / 10", "Aucun feu d'artifice chargé (10x lanceur de feux
+d'artifice)" and, beside them, "Prête à tirer", **the known rough edge, confirmed in French**; no raw
+key, no English fallback, no clipped line, no broken accent in any of them. The night stills show the
+ground around the stand warmly lit as the rocket leaves and dark before and after. The audience
+capture matches its scenario: the stand, the colonist outdoors beside it, the roofed patch with the
+sleeper (Z icon) and the colonist under it, a burst overhead. The fuse and puff stills show sparks;
+the thread of smoke is not clearly visible at the stills' scale. The blueprint capture shows the
+ghost of the stand, not a watching area.
+
+Defects found in the suite, not in the mod: (1) six of the sixteen stills, all taken inside filmed
+scenarios, carry the film's own 480x270 frame in the bottom-left corner; the suite now films without
+stills and takes stills in a twin scenario (unplayed); (2) every film opens with about five seconds
+of the main menu and shows the stand small; (3) the blueprint scenario's title promised a watching
+area it does not show (title corrected).
+
+Open: the lost English failure. Only a second English run can say whether it depends on the language
+or is intermittent. A ticket for it is queued. Nothing here changes the stage: `done`.
