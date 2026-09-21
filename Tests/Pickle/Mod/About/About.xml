@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Firework Stand - Pickle tests</name>
+  <author>Nelim</author>
+  <packageId>nelim.fireworkstand.pickletests</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>In-game functional tests for Firework Stand, run by Pickle. Development only: never published.
+
+Written, never run. Every step is Pickle's own generic vocabulary, so there is no companion assembly. See TESTING.md in the repository root for the scenarios and Tests/Pickle/README.md for exactly what is and is not covered.</description>
+  <modDependencies>
+    <li>
+      <packageId>nelim.fireworkstand</packageId>
+      <displayName>Firework Stand</displayName>
+    </li>
+    <li>
+      <packageId>rimworks.pickle</packageId>
+      <displayName>Pickle</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>nelim.fireworkstand</li>
+    <li>rimworks.pickle</li>
+  </loadAfter>
+</ModMetaData>

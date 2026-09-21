@@ -9,7 +9,7 @@ remote:       https://github.com/vbardales/Rimworld-Firework-Stand.git
 local_path:   C:\Users\nelim\Documents\rimworld\FireworkStand
 visibility:   public
 detached:     yes
-stage:        done
+stage:        done   # workflow state names are used literally, no codes; see the 2026-09-21 audit
 licence:      open
 licence_at:   MIT in LICENSE and Mod/LICENSE for this mod; upstream permission is separate and not established
 upstream_permission: silent
@@ -17,13 +17,19 @@ upstream_permission_at: No licence file found in the installed Fireworks depende
 maintainer:   Codex, responsible for this repository and STATUS.md
 dependencies: declared
 showcase:     complete
-tested_on:
-automated_on: 2026-09-13
+tested_on:    partial only, 2026-09-21: Pickle English pass in the WSL, 8 of 8 non-wip scenarios passed (defs after the real patch pipeline, a stand on a map, save and reload, one capture). No manual scenario played, no French pass, no watching colonist, no salvo. Stage stays done.
+automated_on: 2026-09-21
 workshop:
 settings_audit: not_applicable
-audit_on:     2026-09-13
-audit_revision: 8ff9fdaca496e908e42bf0574a970d5a8b13e9f7
+audit_on:     2026-09-21
+audit_revision: 3fa32521e3de47ce73ecc372e1809794d7de9f05
 remaining:
+  - resolved 2026-09-21 (preTest -> done): Pickle suite written in Tests/Pickle (four features, companion mod, wsl-ids.map, README with scope and reasons), and TESTING.md states the two passes the mod needs. Written, never run.
+  - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Report in Tests/Pickle/runs/2026-09-21-english/. Fireworks staged and loaded, so the WSL staging does find it.
+  - unverified: Pickle French pass (`-Language French -Filter '04-french-names.feature' -IncludeWip`) has not run; it is required for done -> tested.
+  - defect (in the test, not the mod): the English run did not exercise the FireworksBridge. It resolves lazily (`Available`), read only by a watching colonist or the inspect pane, and no played scenario did either, so its "no Firework Stand] warning" assertions are vacuous about the bridge. A scenario that selects the stand was added to 02-stand-on-map.feature after the run and is unplayed, as is its `I select "firework stand"` step form. TESTING.md scenario 2 stays open.
+  - unverified: feature 03 (`@wip`) is a hypothesis: whether an empty stand is offered as recreation has not been read in the vanilla joy giver, and it has never been played.
+  - note: the run's log holds one ERROR ("Firework Stand - Pickle tests did not load any content") and one dependency-URL warning; both come from the content-less companion mod and appear the same way in the Adaptive Storage companion's log. Not the mod under test.
   - accepted: current Preview including its camera explicitly approved by the user on 2026-09-13; no camera revision required
   - unverified: English/French in-game translation checks in TESTING.md, including dependency absence and launch gizmo with/without Ideology
   - unverified: all nine manual scenarios and English/French UI/log checks remain required for tested; the historical publishing subset does not waive this gate
@@ -31,7 +37,7 @@ remaining:
   - defect: inspect line says Ready to fire on an empty rack; the fuel gauge remains accurate
   - accepted: orange-face mod icon deviation accepted on 2026-09-04
 session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
-updated:      2026-09-13
+updated:      2026-09-21
 ---
 
 # Firework Stand — status
@@ -332,3 +338,121 @@ All applicable in-game scenarios, FR/EN interface checks and logs remain unverif
 
 Audited HEAD is still 8ff9fdaca496e908e42bf0574a970d5a8b13e9f7 with existing local changes.
 This correction modifies only Mod/About/About.xml and STATUS.md and preserves prior evidence.
+
+## Ordered workflow audit — 2026-09-21
+
+Previous stage: `done`. Retained stage: **`preTest`**. Applies `rimworld/AUDIT.md` as revised on
+2026-09-21. The `stage` field uses the workflow's own state names, so no code table is needed.
+
+The step-down is not a regression of the mod: nothing validated on 2026-09-13 has changed. The
+revised workflow adds one criterion to `preTest -> done` that this repository has never been asked
+to meet: Pickle (Gherkin) tests **written**, with their scope justified. Their execution is not
+required for `done`; it belongs to `done -> tested`.
+
+### Audited tree
+
+Standalone repository `C:/Users/nelim/Documents/rimworld/FireworkStand`, distributed root `Mod/`.
+HEAD `3fa32521e3de47ce73ecc372e1809794d7de9f05`; `git status` clean, no local modification.
+`git ls-remote origin HEAD` returns the same SHA, so nothing is unpushed. Since the previous audit
+(`8ff9fda`) three commits touched only the copyright holder's and maintainer's spelling ("Nelim")
+and `.gitignore`. No tag and no release exist yet (they belong to `tested -> prepublished`).
+No RimWorld was launched, and none was running (`Get-Process RimWorldWin64`: 0).
+
+### Transition decisions (evaluated in order)
+
+| Destination | Finding |
+| --- | --- |
+| horsMonoRepo | Validated. Independent repository, origin `Rimworld-Firework-Stand` configured and pushed (remote HEAD = local HEAD). STATUS.md initialised. Public visibility and `open` / MIT with upstream `silent` are the recorded, user-approved decision of 2026-09-13; unchanged. packageId `nelim.fireworkstand`, name, repository and folder are coherent. README, ATTRIBUTION, CHANGELOG and LICENSE are in English; the distributed ATTRIBUTION.md and LICENSE are byte-identical to the root copies (SHA256 compared). |
+| ModIcon generated | Validated. Isolated rebuild of `Source/FireworkStand.csproj` exits 0 with 0 warnings and 0 errors, and its SHA256 equals the shipped `Mod/Assemblies/FireworkStand.dll` (`F1525A95…C62D`). `Mod/About/ModIcon.png` is PNG, 128 x 128, 24000 bytes, opened and looked at: the accepted mascot. |
+| Preview generated | Validated. `Mod/About/Preview.png` is PNG, 896 x 504, 564219 bytes (< 1 MB), SHA256 `5B41D328…4282`, identical to the image the user approved on 2026-09-13. Opened and looked at: title, rule, summary and version badge readable, no clipping. |
+| preOptions | Validated. Blue-black veil against an orange accent (`Art/preview-palette.json`), clearly distinct. English description present and ends with `[url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]`, matching `<url>` and the remote. No prefix, suffix or linking word to handle under the recorded title decision. |
+| options | Validated as `settings_audit: not_applicable`. Grep of `Source/*.cs` and `Mod/`: no `Verse.Mod` subclass, no `ModSettings`, no `MainButtonDef`, no settings window, so there is neither an empty page nor a shortcut. Rationale unchanged from the 2026-09-13 section. No in-game check was required or claimed. |
+| l10n | Validated statically. `Test-Xml.ps1`: 10 XML files parsed, EN/FR keys and placeholders match. `Check-DefInjected.ps1`: 30 patch operations, 11625 defs indexed, 16 keys checked, 0 errors. Both Translate calls (`FireworkStand.Ready`, `FireworkStand.Reloading`) have EN and FR entries; the only other player-facing strings are Def fields (English source in the patch, French in DefInjected). The `Log.Warning` texts are technical logs and stay English. |
+| preTest | Validated. Only `telardo.Fireworks` is declared as `modDependencies` and it is what the code and the guarded patch reach for; `loadAfter` lists Ludeon.RimWorld and it. Only RimWorld 1.6 is supported and no `LoadFolders.xml` is needed. Ideology is not required. |
+| done | **Defect: not met.** Met: written scenarios (nine, with setup, expected result and failure reading, in TESTING.md), automated tests green, XML tests green, results tied to the shipped DLL. Not met: there is no `Tests/` folder, no Pickle feature, and neither TESTING.md nor this file gives a justification of the Pickle scope or the number of passes the mod needs. The audit does not write tests or invent that justification. |
+| tested | Not reached. Unverified: nothing has been played in game. |
+
+### Checks executed on 2026-09-21
+
+- `dotnet build Source/FireworkStand.csproj --no-restore -t:Rebuild -p:OutputPath=<temp>`: exit 0, 0 warnings, 0 errors; DLL hash equal to the shipped one.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`: exit 0, **25/25 passing**, 16130 game types scanned. It reads the compiled game and Fireworks assemblies; it does not run a colony.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Test-Xml.ps1`: exit 0, 10 files.
+- `& ../scripts/Check-DefInjected.ps1 -TransMod ./Mod -Targets @('./Mod','C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/2922179297/1.6')`: exit 0, 16 keys, 0 errors.
+- Direct opening of `Preview.png` and `ModIcon.png`; SHA256 comparison of the distributed licence and attribution copies.
+- Not run, and not claimed: any test in game, any Pickle run, the FR/EN interface, the logs, save/reload.
+
+### Next transition and separate follow-up
+
+Strictly necessary for `preTest -> done`: write the Pickle suites for what only a running game can
+show, or record why none applies, and state in TESTING.md how many passes the mod needs (bare set,
+plus one with Fireworks' optional Ideology data if that is judged to change anything). Keep the
+scope small: the 25 outside-the-game tests already prove the contracts, and a scenario that repeats
+one of them does not belong in Gherkin. Running the suites is not required for this step.
+
+Everything validated above stays valid; a change to `Source/`, `Mod/Patches/`, the language
+resources or the About description would reset only the checks that read them.
+
+Optional, not blocking: the description opens with only the second half of the removal notice
+("… request its removal …"), so "its" has no antecedent; the recorded 2026-09-13 decision drops the
+`(unofficial)` suffix but says to keep the commitment, and it may read better with its first
+sentence. Remove the unused `Lib.Harmony` PackageReference from `Source/FireworkStand.csproj`.
+Correct the CHANGELOG's "every quarter hour" (900 ticks is about 21.6 in-game minutes). The
+"Ready to fire" inspect line on an empty rack stays a known rough edge.
+
+## Pickle suite written — 2026-09-21 (preTest -> done)
+
+Stage advances from `preTest` to **`done`**. The only blocker of the audit above was the missing
+Pickle (Gherkin) suite with a justified scope; it is now written. Nothing else changed: no source,
+patch, language resource or About description was touched, so the earlier validations stand.
+Nothing was run in RimWorld and no Pickle run was started (running is a `done -> tested` criterion,
+and would need the machine lock and `scripts/Run-PickleWsl.ps1`).
+
+Added: `Tests/Pickle/Mod` (companion mod "Firework Stand - Pickle tests", packageId
+`nelim.fireworkstand.pickletests`, never published), four features, `Tests/Pickle/wsl-ids.map`
+(Fireworks' Workshop id for the staging), `Tests/Pickle/README.md`, and a "Pickle (Gherkin) suite"
+section in TESTING.md.
+
+- `01-loads`: mod loaded and after Fireworks; the guarded patch added the ThingDef, JoyKindDef, JobDef and JoyGiverDef; the stand's joyKind; English labels; a save loads with no error and no `Firework Stand]` warning.
+- `02-stand-on-map`: a built stand ticks 300 ticks without error or bridge warning; save round trip and reload; one `@review` capture.
+- `03-watching` (`@wip`): a colonist with low Joy is expected to take `FS_WatchFireworks`. A hypothesis, flagged as such in the file.
+- `04-french-names` (`@wip`): French stand, recreation type and launcher labels, for a French pass.
+
+Scope justification, in Tests/Pickle/README.md and TESTING.md: what the 25 outside-the-game tests
+prove is not repeated; Fireworks absent (hard dependency, nothing to play), repeat firing, light,
+smoke, fuel count, the mood audience filter, the reload timer and the Ideology gizmo variants stay
+manual, because no generic Pickle step loads a stand with launchers or reads its comp and a custom
+step assembly would rest on guesses. **Passes needed: two** (English without optional mods, French
+for feature 04): no optional mod and no incompatibility is declared, so no further pass applies.
+
+Checks after the change: `_tools/Test-Xml.ps1` exit 0 (10 files); `_tools/Run-Functional-Tests.ps1`
+exit 0, 25/25. Each step used in the features was matched against the expressions compiled into the
+installed Pickle (`RimWorks.Pickle.Vanilla.dll`); that is a comparison, not a run.
+
+Next transition (`done -> tested`): play the scenarios in game, the nine of TESTING.md and the two
+Pickle passes, read `exitReason` first, open the capture, check the logs and FR/EN interface. The
+Pickle suite is committed with this change only if the user asks; at the time of writing it is an
+uncommitted working-tree addition on HEAD `3fa3252`.
+
+## First Pickle run — 2026-09-21 (English pass)
+
+Run through `scripts/Run-PickleWsl.ps1 -Mod FireworkStand` after queueing (two earlier tickets were
+lost: the first to a `Indexation impossible dans un tableau Null` error in the shared script during
+the wait, the second to the default 90-minute `-MaxWaitMinutes`; nothing ran on either). The lock
+was taken by this session, the game ran in the WSL under Xvfb, the lock was released. The game was
+identified as ours by `-pickle-run=Firework Stand - Pickle tests`. No Windows RimWorld was touched.
+
+Read in this order: `exitReason: passed` (before the counts), then 4 features discovered
+(`01-loads`, `02-stand-on-map`, `03-watching`, `04-french-names`), 11 scenarios: 8 passed, 0 failed,
+3 skipped (the three `@wip`, as designed), 0 flaky; report time 19:08, after the run's start.
+"Les 12 mods mis en scene sont tous charges", Fireworks included. The `@review` capture
+`firework-stand-empty.png` was opened: the stand sits on the map in daylight, drawn from Fireworks'
+launcher texture, interface visible. It shows the stand exists and draws; it says nothing about the
+light, the smoke or a salvo.
+
+Limits of this run, none of them a defect of the mod: the stand was never loaded with launchers,
+never watched, never fired; the bridge was probably never asked (see `remaining`); the French pass
+and all nine manual scenarios are unplayed. Report copy: `Tests/Pickle/runs/2026-09-21-english/`
+(summary, junit, the capture); the archive in `pickle-reports-archive/` will be pruned.
+
+Stage stays `done`. Unchanged and still uncommitted on HEAD `3fa3252`: STATUS.md, TESTING.md and
+`Tests/`.

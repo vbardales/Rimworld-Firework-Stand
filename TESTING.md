@@ -179,6 +179,30 @@ breaks and clipped text. Also load without Fireworks and check for translation l
 Record the languages, dependency version, observed screens and log results in STATUS.md.
 These checks have not yet been performed in game.
 
+## Pickle (Gherkin) suite
+
+Written on 2026-09-21. The English pass has run once (8 of 8 non-`@wip` scenarios passed,
+`exitReason: passed`, report in `Tests/Pickle/runs/2026-09-21-english/`); the French pass has not.
+That run did not exercise the bridge (it resolves lazily), so scenario 2 is still open: see the
+README. It lives in `Tests/Pickle/` and is described there, feature by
+feature, with what stays out of Gherkin and why: [Tests/Pickle/README.md](Tests/Pickle/README.md).
+In short, it keeps only what a running game alone can show and the 25 tests above cannot: the
+guarded patch matching in the real patch pipeline (scenario 1), the bridge staying silent with a
+stand on a map (2), the save and reload of a stand (8, without its timer), a colonist walking to
+it (6, `@wip`, a hypothesis) and the French names. Scenarios 3, 4, 5, 7 and 9 stay manual: no
+generic Pickle step loads a stand with launchers or reads its comp, and a custom step assembly
+would be written against guesses.
+
+**Passes the mod needs: two.** It declares no optional mod and no incompatibility, so there is no
+"with optional mods" pass and none per incompatibility. Both passes run on the minimal WSL set
+(Core, the DLC, Harmony, RimLogging, Pickle, Fireworks, the mod): one in English (features 01 and 02,
+plus 03 once it has been reviewed) and one in French for feature 04
+(`-Language French -Filter '04-french-names.feature' -IncludeWip`). The commands are in the README
+above. A green English pass says nothing about French and the reverse.
+
+A Pickle run only shows that the path ran. It does not replace the nine scenarios, and the capture
+of feature 02 is opened and looked at, not counted as a check.
+
 ## Publishing gate
 
 Scenarios 1 to 4 and 8 are the ones that gate publishing: they cover the patch, the bridge, the

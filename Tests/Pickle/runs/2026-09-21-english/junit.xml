@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+  <testsuite name="Firework Stand loads after Fireworks and its guarded patch matches" tests="5" failures="0" skipped="0" flakes="0" time="12.871">
+    <testcase name="the mod is active and loads after Fireworks" classname="Firework Stand loads after Fireworks and its guarded patch matches" time="0.433">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+</system-out>
+    </testcase>
+    <testcase name="the guarded patch added the stand, the recreation type, the job and the joy giver" classname="Firework Stand loads after Fireworks and its guarded patch matches" time="0.341">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+</system-out>
+    </testcase>
+    <testcase name="the stand is tied to its own recreation type" classname="Firework Stand loads after Fireworks and its guarded patch matches" time="0.099">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+</system-out>
+    </testcase>
+    <testcase name="the stand reads in English" classname="Firework Stand loads after Fireworks and its guarded patch matches" time="0.174">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+</system-out>
+    </testcase>
+    <testcase name="loading a game with the mod raises no error and no warning of its own" classname="Firework Stand loads after Fireworks and its guarded patch matches" time="11.824">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite name="a stand on the map runs, saves and reloads without a complaint" tests="3" failures="0" skipped="0" flakes="0" time="40.233">
+    <testcase name="a stand can be built and left running" classname="a stand on the map runs, saves and reloads without a complaint" time="8.825">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+</system-out>
+    </testcase>
+    <testcase name="a stand survives a save and a reload" classname="a stand on the map runs, saves and reloads without a complaint" time="24.016">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+</system-out>
+    </testcase>
+    <testcase name="the stand as the player sees it, empty" classname="a stand on the map runs, saves and reloads without a complaint" time="7.392">
+      <system-out>Attachment: smoke-attachment -&gt; smoke test attachment content
+Attachment: firework stand, empty -&gt; /mnt/c/Users/nelim/Documents/rimworld/pickle-reports/screenshots/manual--firework-stand--empty--step0.png
+</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite name="a colonist walks to the stand on their own" tests="1" failures="0" skipped="1" flakes="0" time="0.000">
+    <testcase name="an idle colonist with a low recreation need watches the stand" classname="a colonist walks to the stand on their own" time="0.000">
+      <skipped />
+    </testcase>
+  </testsuite>
+  <testsuite name="French names on the stand and the reused launcher" tests="2" failures="0" skipped="2" flakes="0" time="0.000">
+    <testcase name="the stand and its recreation type are French" classname="French names on the stand and the reused launcher" time="0.000">
+      <skipped />
+    </testcase>
+    <testcase name="the dependency's launcher, translated by this mod, is French" classname="French names on the stand and the reused launcher" time="0.000">
+      <skipped />
+    </testcase>
+  </testsuite>
+</testsuites>
