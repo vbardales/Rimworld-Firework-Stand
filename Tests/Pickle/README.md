@@ -25,7 +25,7 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
   - *French* (`-Language French -IncludeWip`), 22:28 to 22:38: **21 of 21 passed, 0 failed, 0
     skipped, `exitReason: passed`.** Report, films and summary in
     [`docs/runs/2026-09-21-french-full.md`](../../docs/runs/2026-09-21-french-full.md); the evidence (stills, films, log) is on disk and ignored by git, not in the repository; the full-size stills are kept on the
-    machine, not in git. All 16 stills and the 5 films were opened.
+    machine, not in git. All 16 stills and the 5 films were opened; the evidence was then trimmed to 10 clean stills, 5 films, summary.json and junit.xml (see the docs/runs summary).
   - So the English failure is either language-dependent or intermittent, and only a second English run
     can say which. It is the open item of this suite.
 - **Since those runs the suite was changed, and none of the change has been played:** the filmed scenarios of

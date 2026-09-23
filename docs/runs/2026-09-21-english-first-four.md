@@ -3,7 +3,7 @@
 - **exitReason:** `passed`. Launcher exit code: 0.
 - **Scenarios:** 11 discovered, 8 passed, 0 failed, 3 skipped (the three `@wip` ones, since removed), 0 flaky.
 - **Set name:** `sans-facultatifs`.
-- **Evidence, on disk and ignored by git:** `Tests/Pickle/runs/2026-09-21-english/` (summary, junit, one capture).
+- **Evidence:** deleted on 2026-09-23, superseded: the suite was reshaped, and its one capture (the empty stand) is also in the French run. It remains in git history, commits 9e7718b to db09abe.
 - **Validated by a person:** the one capture, `firework-stand-empty.png`, was opened by the session that ran it: the stand
   is on the map in daylight, drawn from Fireworks' launcher texture. Not validated by the owner.
 
