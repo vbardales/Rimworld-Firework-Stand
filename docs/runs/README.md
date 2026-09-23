@@ -19,7 +19,7 @@ before anyone read it, and only the totals survive from the launcher's output. T
 exists.
 
 **Keep only what matters.** After a run has been read, the evidence on disk is trimmed to the most relevant: the raw
-`summary.json` and `junit.xml`, the images and films that show something, and nothing derived (contact sheets,
+`summary.json` and `junit.xml`, the images (minified to jpeg by `Run-Passes.ps1`) and films that show something, and nothing derived (contact sheets,
 half-size copies), no log or messages file, no image that a later change of the suite makes obsolete or that carries
 the film's corner frame. The trim is written in the run's summary, with what was deleted.
 

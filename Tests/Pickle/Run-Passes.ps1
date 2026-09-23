@@ -89,7 +89,12 @@ function Save-Evidence($dir, $target) {
             Where-Object { $_.LastWriteTime -ge $notBefore } |
             ForEach-Object {
                 New-Item -ItemType Directory -Force -Path $stills | Out-Null
-                Copy-Item -LiteralPath $_.FullName -Destination $stills -Force
+                # A 1920x1080 png is about 3.5 MB; a jpeg at this quality is about 0.2 MB and just as readable. The disk
+                # is short of space, so a still is minified as it is kept (the original stays in the shared report).
+                if (Get-Command ffmpeg -ErrorAction SilentlyContinue) {
+                    & ffmpeg -loglevel error -y -i $_.FullName -q:v 5 (Join-Path $stills ($_.BaseName + '.jpg'))
+                }
+                else { Copy-Item -LiteralPath $_.FullName -Destination $stills -Force }
             }
     }
     $prefixes = @(Get-OurFilmPrefixes)
