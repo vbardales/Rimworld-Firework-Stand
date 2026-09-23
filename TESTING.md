@@ -212,7 +212,7 @@ incompatibility. All on the minimal WSL set (Core, the DLC, Harmony, RimLogging,
 | French | `Run-PickleWsl.ps1 -Mod FireworkStand -Language French` |
 | Without Ideology | `Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map` |
 
-`Tests/Pickle/Run-Passes.ps1` plays the three in turn and keeps each report under `Tests/Pickle/runs/`. Two
+`Tests/Pickle/Run-Passes.ps1` plays the three in turn and keeps the evidence of each run on disk under `Tests/Pickle/runs/` (ignored by git) and writes a text summary of it in `docs/runs/`. Two
 scenarios read the game to know what to assert in a pass (`04-labels` reads the active language, `12-launch-gizmo`
 whether Ideology is active), so each is green in every pass and none is skipped.
 

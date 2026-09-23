@@ -1,0 +1,45 @@
+# Pickle run: French, the suite of commit 49c36d8, 2026-09-21 22:28
+
+- **exitReason:** `passed`. Launcher exit code: 0.
+- **Scenarios:** 21 discovered, 21 passed, 0 failed, 0 skipped, 0 flaky. Played with `-Language French -IncludeWip`.
+- **Set name:** `sans-facultatifs`.
+- **Evidence, on disk and ignored by git:** `Tests/Pickle/runs/2026-09-21-french-full/` (summary, junit, messages, log,
+  16 full-size stills, 5 films).
+- **Validated by a person:** the session that ran it opened all 16 stills and the 5 films. **Not validated by the owner.**
+
+What the captures showed, read directly: the loaded stand reads "feux d'artifice chargés : 4 / 10" and "Prête à
+tirer"; after a salvo "Rechargement : 0.3 heures"; the empty stand reads "0 / 10", "Aucun feu d'artifice chargé" and,
+beside them, "Prête à tirer" (the known rough edge, confirmed in French); no raw key, English fallback, clipped line or
+broken accent. Night stills show the ground around the stand lit as the rocket leaves and dark before and after. The
+audience capture matches its scenario. The fuse capture shows sparks but no clear thread of smoke at that scale. The
+blueprint capture shows the ghost of the stand and no watching area.
+
+Defects of the suite, not the mod: six of the sixteen stills, all taken inside filmed scenarios, carry the film's own
+480x270 frame in the bottom-left corner (the suite now films without stills); every film opens with about five seconds
+of the main menu and shows the stand small.
+
+This run predates the suite as it is now (26 scenarios, no `@wip`, three passes): it says nothing about it.
+
+| Scenario | Outcome | Duration (ms) | Attempts | Mean tick (ms) |
+|---|---|---|---|---|
+| the mod is active and loads after Fireworks | Passed | 1236 | 1 |  |
+| the guarded patch added the stand, the recreation type, the job and the joy giver | Passed | 943 | 1 |  |
+| the stand is tied to its own recreation type | Passed | 133 | 1 |  |
+| loading a game with the mod raises no error and no warning of its own | Passed | 26376 | 1 |  |
+| a stand can be built and left running | Passed | 11902 | 1 | 1.403 |
+| a stand survives a save and a reload | Passed | 31287 | 1 | 0.892 |
+| the stand as the player sees it, empty | Passed | 9567 | 1 | 0.754 |
+| selecting the stand reads its inspect line, which resolves the bridge | Passed | 11202 | 1 | 0.639 |
+| two salvoes go up from a loaded stand, one launcher each | Passed | 25753 | 1 | 1.211 |
+| the stand and its recreation type are French | Passed | 387 | 1 |  |
+| the dependency's launcher, translated by this mod, is French | Passed | 231 | 1 |  |
+| dark, then warm for a few seconds as the rocket leaves, then dark again | Passed | 47146 | 1 | 1.108 |
+| a thread of smoke at the foot of the stand, then a thick puff and sparks | Passed | 80518 | 1 | 5.372 |
+| an idle colonist with a low recreation need walks to an open stand and watches it standing | Passed | 14545 | 1 | 0.754 |
+| a stand under a roof is never used | Passed | 11934 | 1 | 0.702 |
+| a loaded stand nobody watches keeps every launcher | Passed | 11002 | 1 | 0.971 |
+| the last launcher is spent, and the empty stand fires no more | Passed | 16114 | 1 | 0.824 |
+| the timer, the light and the count survive a save and a reload | Passed | 39792 | 1 | 1.441 |
+| the colonist outdoors gains it, the sleeper and the one under a roof do not | Passed | 21262 | 1 | 0.381 |
+| the stand loaded and waiting, then reloading after a salvo | Passed | 15488 | 1 | 0.457 |
+| the blueprint, placed through the designator, with its watching area | Passed | 10857 | 1 | 0.449 |

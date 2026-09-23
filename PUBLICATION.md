@@ -1,8 +1,9 @@
 # Publication sheet
 
-**Draft, 2026-09-21. The mod is at `done`; this sheet is prepared ahead of `prepublished` and nothing on it has been
-done.** It holds what the Workshop page asks for and the repository holds nowhere else, so that it can be used at the
-first upload and again by whoever picks the mod up. Nothing here is uploaded, tagged or posted.
+**Updated 2026-09-23. The mod is at `done`. The owner prepublished 0.1.0 by hand on 2026-09-23: the Workshop item exists
+(`3806767445`, private) and `Mod/About/PublishedFileId.txt` is committed. What is still ahead: `tested`, the tag and
+release, the switch to public and the message to telardo.** This sheet holds what the Workshop page asks for and the
+repository holds nowhere else, so that it can be used again at the next update and by whoever picks the mod up.
 
 ## Before the first upload
 
@@ -37,7 +38,7 @@ first upload and again by whoever picks the mod up. Nothing here is uploaded, ta
 ## Captures for the Workshop page
 
 Steam shows the first one large: put the most demonstrative there, not the prettiest. **Take them from the English
-pass** (the Workshop text is English); the French pass captures in `Tests/Pickle/runs/2026-09-21-french-full/` show
+pass** (the Workshop text is English); the French pass captures (on disk in `Tests/Pickle/runs/2026-09-21-french-full/`, ignored by git) show
 what to expect. Proposed order, to be confirmed once the English pass has produced its own:
 
 1. **The audience** (`10-audience`): the stand, a colonist beside it, the roofed patch with the two who did not see
@@ -77,7 +78,7 @@ licence or permission found for Fireworks, the takedown commitment stands, and t
 
 ## Right after the upload, and it cannot be undone
 
-- **Commit `Mod/About/PublishedFileId.txt` at once.** Lost, the next upload creates a second item.
+- **`Mod/About/PublishedFileId.txt` is committed** (done 2026-09-23, item 3806767445). Lost, the next upload would create a second item.
 - **Steam creates every item private**; RimWorld never calls `SetItemVisibility`. Subscribe to your own item, test it,
   then switch it to public by hand.
 - Record the Workshop id in `STATUS.md`, then post the message above.

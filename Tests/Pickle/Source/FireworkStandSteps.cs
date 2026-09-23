@@ -181,11 +181,8 @@ namespace FireworkStand.PickleSteps
         [When("Firework Stand: I select the stand at x={int} z={int}")]
         public void SelectStand(PickleContext ctx, int x, int z)
         {
-            Thing stand = StandAt(ctx, x, z);
-            Find.Selector.ClearSelection();
-            Find.Selector.Select(stand, false, false);
-            Find.MainTabsRoot.SetCurrentTab(MainButtonDefOf.Inspect, false);
-            ctx.Assert(Find.Selector.IsSelected(stand), "the stand is not selected after being selected");
+            StandAt(ctx, x, z);   // the clearer failure, naming what the cell holds
+            SelectThing(ctx, StandDef, x, z);
         }
 
         [Given("Firework Stand: a bed stands at x={int} z={int}")]
@@ -368,6 +365,15 @@ namespace FireworkStand.PickleSteps
         private static string ActiveLanguage() => LanguageDatabase.activeLanguage?.folderName ?? "unknown";
 
         /// <summary>
+        /// Core names its language folders "English" and "French (Français)": the English name, then the
+        /// native one in brackets, except for English itself. Comparing the folder name with "French" never
+        /// matched, and the first version of this suite did exactly that. The launcher prints the same
+        /// full name ("French (Français)") when it stages a French pass.
+        /// </summary>
+        private static bool LanguageIs(string language, string englishName)
+            => language == englishName || language.StartsWith(englishName + " (", StringComparison.Ordinal);
+
+        /// <summary>
         /// The label a def carries in the language the pass was staged with, asserted against the value
         /// written here for that language. The step is what lets ONE scenario run in both passes without
         /// being tagged for either: it reads the active language and compares with the value for it, and
@@ -385,7 +391,7 @@ namespace FireworkStand.PickleSteps
             Def def = GenDefDatabase.GetDef(type, defName, false);
             ctx.Assert(def != null, $"no {typeName} \"{defName}\" in this game");
             string language = ActiveLanguage();
-            string expected = language == "English" ? english : language == "French" ? french : null;
+            string expected = LanguageIs(language, "English") ? english : LanguageIs(language, "French") ? french : null;
             ctx.Assert(expected != null,
                 $"the game runs in \"{language}\", and this scenario has a value for English and French only");
             ctx.Assert(def.label == expected,

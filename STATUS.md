@@ -25,8 +25,8 @@ audit_on:     2026-09-21
 audit_revision: 3fa32521e3de47ce73ecc372e1809794d7de9f05
 remaining:
   - resolved 2026-09-21 (preTest -> done): Pickle suite written in Tests/Pickle (four features, companion mod, wsl-ids.map, README with scope and reasons), and TESTING.md states the two passes the mod needs. Written, never run.
-  - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Report in Tests/Pickle/runs/2026-09-21-english/. Fireworks staged and loaded, so the WSL staging does find it.
-  - done 2026-09-21 22:28: Pickle French pass, whole suite plus feature 04: 21 of 21 passed, exitReason passed; report, films and summary in Tests/Pickle/runs/2026-09-21-french-full/, all stills and films opened.
+  - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Text summary in docs/runs/2026-09-21-english-first-four.md, evidence on disk and ignored by git. Fireworks staged and loaded, so the WSL staging does find it.
+  - done 2026-09-21 22:28: Pickle French pass, whole suite plus feature 04: 21 of 21 passed, exitReason passed; text summary in docs/runs/2026-09-21-french-full.md, evidence (films, stills, log) on disk under Tests/Pickle/runs/ and ignored by git; all stills and films opened by the session.
   - blocking (done -> tested), gates set by the owner on 2026-09-23: (1) no scenario left in @wip: met by construction, 04-labels replaced the French-only @wip feature and runs in every pass, unplayed; (2) every conditional scenario has run: none is conditional on a tag, but the three passes (English, French, without Ideology) must all run green, none has yet on the suite as it stands (a 21-scenario version ran 2026-09-21, French 21/21, English 18 passed and 1 failed with its report lost); (3) no manual test left to validate, all green: nothing is manual any more (Fireworks absent is not applicable, justified in TESTING.md), so what remains is the owner validating the captures and films of the three passes.
   - defect (in the test, not the mod): the English run did not exercise the FireworksBridge. It resolves lazily (`Available`), read only by a watching colonist or the inspect pane, and no played scenario did either, so its "no Firework Stand] warning" assertions are vacuous about the bridge. A scenario that selects the stand (by its cell, through a custom step, so it runs in both languages) was added to 02-stand-on-map.feature after the run and is unplayed. TESTING.md scenario 2 stays open until it has.
   - resolved 2026-09-21: the vanilla joy giver was read (JoyGiver_WatchBuilding, JoyGiver_InteractBuilding, JobDriver_WatchBuilding, decompiled from the installed game). It never looks at fuel, so an empty stand IS offered as recreation.
@@ -454,7 +454,7 @@ light, the smoke or a salvo.
 
 Limits of this run, none of them a defect of the mod: the stand was never loaded with launchers,
 never watched, never fired; the bridge was probably never asked (see `remaining`); the French pass
-and all nine manual scenarios are unplayed. Report copy: `Tests/Pickle/runs/2026-09-21-english/`
+and all nine manual scenarios are unplayed. Text summary: `docs/runs/2026-09-21-english-first-four.md` (evidence on disk, ignored by git)
 (summary, junit, the capture); the archive in `pickle-reports-archive/` will be pruned.
 
 Stage stays `done`. Unchanged and still uncommitted on HEAD `3fa3252`: STATUS.md, TESTING.md and
@@ -498,7 +498,7 @@ Fireworks included). The game was identified as ours by `-pickle-run=Firework St
   been notified of the end of that ticket, went to read it. Which scenario failed, its message, its
   captures and its films are unknown. The launcher's output kept only the totals.
 - **French, 22:28 to 22:38, ticket pid 29288:** 21 of 21 passed, 0 failed, 0 skipped, `exitReason:
-  passed`, exit 0. Report copied at once: `Tests/Pickle/runs/2026-09-21-french-full/` (summary, junit,
+  passed`, exit 0. Report copied at once, evidence on disk in `Tests/Pickle/runs/2026-09-21-french-full/` (ignored by git), text summary in `docs/runs/2026-09-21-french-full.md` (summary, junit,
   messages, Player.log, five films; the sixteen full-size stills stay on the machine and are ignored
   by git). **All sixteen stills and the five films were opened.** The dashboard state was polled
   during the run so that nothing else could be lost.
@@ -569,3 +569,21 @@ conditional scenario played, no manual test left to validate (all green).** Stag
 
 The audit's rule holds: a green scenario shows the trajectory ran, not that an image shows anything. `tested` waits
 for the runs and for the owner's validation of what they produced.
+
+## Review of the suite, and where the evidence lives — 2026-09-23
+
+A code review of the Pickle work found five things, all fixed before any run:
+
+- **Language step (would have failed the French pass):** `04-labels` compared the active language's folder name with
+  "French", but Core names it "French (Français)". The step now matches the English name or the English name followed
+  by " (". Caught before the pass ran.
+- **Evidence copy took other mods' captures:** `Run-Passes.ps1` selected stills and films by "newer than the moment the
+  pass queued", in a screenshots folder every mod writes to. It now takes only names this suite's features give
+  (`I take a screenshot "..."`, the feature titles for films) and only within the hour before the run ended.
+- **One failed copy stopped the next passes:** each pass is now wrapped and the error said out loud.
+- **`SelectStand` duplicated `SelectThing`:** it now calls it.
+- **Evidence was in git.** Rule from the owner: evidence stays on disk and out of git, a text summary goes in
+  `docs/runs/`. `Tests/Pickle/runs/` is untracked and in `.gitignore` (the files stay on disk), the two earlier runs have
+  text summaries in `docs/runs/`, and `Run-Passes.ps1` writes both from now on.
+
+The assembly was rebuilt (27 steps, 0 warnings). Nothing has been played in the reshaped suite. Stage stays `done`.

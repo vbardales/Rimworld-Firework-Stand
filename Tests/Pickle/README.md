@@ -15,7 +15,7 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
 
 - **English pass, 2026-09-21 19:07** (the first four features only, before this suite was widened):
   8 of 8 non-`@wip` scenarios passed, `exitReason: passed`. Report in
-  [`runs/2026-09-21-english/`](runs/2026-09-21-english/). That run did not exercise the bridge to
+  [`docs/runs/2026-09-21-english-first-four.md`](../../docs/runs/2026-09-21-english-first-four.md). That run did not exercise the bridge to
   Fireworks (it resolves lazily and nothing read it); `02-stand-on-map` now selects the stand, which does.
 - **The widened suite ran twice on 2026-09-21, and the two runs disagree.**
   - *English*, 20:28 to 20:38: 21 scenarios discovered, 18 passed, **1 failed**, 2 skipped,
@@ -24,7 +24,7 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
     totals survive, from the launcher's output.
   - *French* (`-Language French -IncludeWip`), 22:28 to 22:38: **21 of 21 passed, 0 failed, 0
     skipped, `exitReason: passed`.** Report, films and summary in
-    [`runs/2026-09-21-french-full/`](runs/2026-09-21-french-full/); the full-size stills are kept on the
+    [`docs/runs/2026-09-21-french-full.md`](../../docs/runs/2026-09-21-french-full.md); the evidence (stills, films, log) is on disk and ignored by git, not in the repository; the full-size stills are kept on the
     machine, not in git. All 16 stills and the 5 films were opened.
   - So the English failure is either language-dependent or intermittent, and only a second English run
     can say which. It is the open item of this suite.
@@ -118,7 +118,9 @@ is green in every pass and none is skipped.
 
 **`Run-Passes.ps1` plays the three in turn** (`powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Run-Passes.ps1`).
 It goes through the launcher for each (ticket, lock, staging, release) and, the moment the launcher returns, copies
-what the run wrote into `runs/<date>-<pass>/`: summary, junit, log, this suite's films and stills. The first English
+what the run wrote into `runs/<date>-<pass>/` (summary, junit, log, this suite's films and stills), **on disk and ignored by git**, and
+writes a text summary of the run in `docs/runs/<date>-<pass>.md`, which is what is committed. It keeps only files this suite
+names (the screenshots folder is shared and accumulates) and does not stop the next pass if one copy fails. The first English
 run of this suite lost its report because nobody was there to copy it; this is there.
 
 `wsl-ids.map` gives the staging Fireworks' Workshop id (2922179297); the run of 2026-09-21 showed the staging finds it.
