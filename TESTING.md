@@ -226,6 +226,33 @@ The audience filter has no line-of-sight test on purpose, so there is nothing to
 2026-09-21: French all green, English 18 passed and 1 failed with the report lost. A Pickle run only shows that the
 path ran: it does not replace looking.
 
+
+## Evidence to keep
+
+The disk is short of space, so a run's evidence is kept small and only while it still proves something (root
+`AGENTS.md`, "Test evidence"). It lives on disk in `Tests/Pickle/runs/<date>-<pass>/`, ignored by git; what is
+committed is a text summary in `docs/runs/`, one file per run and one line per run in `docs/runs/README.md`, never
+folders.
+
+**Keep, once a run has been read:**
+
+- `summary.json` and `junit.xml`: the raw result, tiny. Read `exitReason` before the counts.
+- The stills that show something a person validates, **minified to jpeg** (`Run-Passes.ps1` does it with ffmpeg: about
+  0.2 MB instead of 3.5 MB, still readable at 1920x1080): the audience, the stand loaded and reloading, the empty stand
+  beside its gauge, the fuse and the puff, the night stills, the blueprint, the Architect menu, the launch gizmo.
+- The films of the filmed scenarios (`03-firing`, `05-light`, `06-fuse-and-launch`, `07-on-their-own`,
+  `09-save-reload`): already small.
+- For a pass in a second language or without Ideology, the captures that differ from the first pass, and only those.
+
+**Delete:** the log and the messages file (a failure's message is in `junit.xml` and in the summary), contact sheets and
+half-size copies, any still that carries the film's corner frame or that a later change of the suite makes obsolete, a
+still that repeats another, and every report for a build or a suite revision that a newer run has replaced.
+
+**Per scenario, keep the latest report for the revision now in the repository**, plus an older one only if it is the
+sole proof of a check the latest run did not repeat. Delete the superseded evidence as soon as a newer report has been
+read, and write in the run's `docs/runs/` summary what was kept and what was deleted. Never delete a report a
+`STATUS.md` field still points to: repoint it first (STATUS points at the `docs/runs/` summaries, not at the folders).
+
 ## Publishing gate
 
 Scenarios 1 to 4 and 8 are the ones that gate publishing: they cover the patch, the bridge, the

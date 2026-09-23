@@ -153,3 +153,9 @@ is. The assembly references the game and Pickle only, not the mod under test.
 - **The blueprint capture shows the ghost of the stand, not its watching area.** The area is drawn
   while placing or selecting, not around a blueprint that is already down; the scenario title no
   longer claims otherwise.
+
+## Evidence
+
+What to keep after a run, and what to delete, is in [`TESTING.md`](../../TESTING.md), "Evidence to keep": the raw result
+and the stills and films that show something, minified, on disk and out of git; a text summary in `docs/runs/`; the rest
+deleted as soon as a newer report replaces it.
