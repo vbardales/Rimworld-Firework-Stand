@@ -34,6 +34,8 @@ THANKS
 telardo for Fireworks, whose show this mod calls rather than reimplements.
 Claude Code (Anthropic) and DALL-E (OpenAI).
 
+What this mod studied and what it reproduced is listed in ATTRIBUTION.md, and it is released under the MIT licence (LICENSE); both are in the repository linked below.
+
 [url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>

@@ -184,13 +184,13 @@ These checks have not yet been performed in game.
 Written on 2026-09-21 in `Tests/Pickle/`, so that scenarios 1 to 9 can be validated by looking at
 captures and films instead of playing them. Each stages the situation with the game's real jobs and
 comps, asserts what it can before each capture, and records the capture; the README there says what
-a person looks at for each one, and what stays out of Gherkin and why. Read the tag before the
-colour: `@review` asserts nothing about an image.
+a person looks at for each one. Read the tag before the colour: `@review` asserts nothing about an image.
 
 | Scenario above | Pickle feature | What a person validates |
 | --- | --- | --- |
 | 1 defs exist | `01-loads` | nothing to look at: asserted |
-| 2 the bridge resolves | `02-stand-on-map` | asserted (no warning once the inspect pane asked); the negative half, Fireworks absent, stays manual |
+| 2 the bridge resolves | `02-stand-on-map` | asserted (no warning once the inspect pane asked) |
+| 2 negative half, Fireworks absent | none | **not applicable, and why:** a hard dependency, so the game never activates the mod without it; the guard is proved outside the game (see below) |
 | 3 fires more than once | `03-firing` | film: two rockets, a watcher standing back |
 | 4 the light | `05-light` | film and stills: dark, warm for a few seconds, dark |
 | 5 fuse smoke, then the launch | `06-fuse-and-launch` | film and stills (cosmetic) |
@@ -198,28 +198,33 @@ colour: `@review` asserts nothing about an image.
 | 7 fuel and the inspect line | `08-fuel` | still: what the empty stand's inspect line says beside its gauge |
 | 8 save and reload mid-cycle | `09-save-reload` | film; count, timer and light asserted |
 | 9 who gets the memory | `10-audience` | still of the layout; who has the memory asserted |
-| translation checks | `11-inspect-pane`, `04-french-names` | stills in each language; three French labels asserted |
+| "before anything" 2, the stand is hidden until IEDs | `13-architect-menu` | stills of the Recreation category before and after; visibility asserted |
+| translation checks | `04-labels`, `11-inspect-pane` | asserted labels in each language; stills of the inspect pane in each |
+| launch gizmo with and without Ideology | `12-launch-gizmo` | still in the pass without Ideology; presence asserted in every pass |
 
-**Passes the mod needs: two.** It declares no optional mod and no incompatibility, so there is no
-"with optional mods" pass and none per incompatibility. Both run on the minimal WSL set (Core, the
-DLC, Harmony, RimLogging, Pickle, Fireworks, the mod). English:
-`Run-PickleWsl.ps1 -Mod FireworkStand` (21 scenarios). French, the whole suite plus the French-only
-feature: `Run-PickleWsl.ps1 -Mod FireworkStand -Language French -IncludeWip` (23 scenarios). No step
-names a translated word, so a green English pass says nothing about French and the reverse: the
-captures are what differ.
+**Passes the mod needs: three,** each playing the whole suite (26 scenarios, none `@wip`, none conditional on a
+tag). It declares no optional mod and no incompatibility, so there is no "with optional mods" pass and none per
+incompatibility. All on the minimal WSL set (Core, the DLC, Harmony, RimLogging, Pickle, Fireworks, the mod):
 
-**What stays manual.** Scenario 2's negative half (Fireworks is a hard dependency, so there is no game
-to play without it); the inherited launch gizmo with and without Ideology (the WSL staging mounts every
-DLC); the Architect menu entry; the absence of a line-of-sight test in the audience filter.
+| Pass | Command |
+| --- | --- |
+| English, every DLC | `Run-PickleWsl.ps1 -Mod FireworkStand` |
+| French | `Run-PickleWsl.ps1 -Mod FireworkStand -Language French` |
+| Without Ideology | `Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map` |
 
-**Status.** The widened suite ran twice on 2026-09-21. French (the whole suite, 21 scenarios): all
-passed, `exitReason: passed`, report and films in `Tests/Pickle/runs/2026-09-21-french-full/`, every
-still and film opened. English: 18 passed and **1 failed**, but that report was lost before it was
-read, so the failing scenario is unknown until the English pass is run again. Since those runs the
-filmed scenarios lost their stills (a screenshot taken during a film is polluted) and two scenarios
-gained a non-filmed twin: that change has not been played. A Pickle run only shows that the path
-ran: it does not replace looking.
+`Tests/Pickle/Run-Passes.ps1` plays the three in turn and keeps each report under `Tests/Pickle/runs/`. Two
+scenarios read the game to know what to assert in a pass (`04-labels` reads the active language, `12-launch-gizmo`
+whether Ideology is active), so each is green in every pass and none is skipped.
 
+**Nothing is left manual.** The one case that cannot be played, Fireworks absent, is not a missing test: the mod
+declares Fireworks in `modDependencies`, so no game exists in which the stand is loaded without it. The guard is
+proved where it can be: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Test-Xml.ps1`,
+`Check-DefInjected.ps1`) and the reflection bridge is read off the compiled assembly (`Run-Functional-Tests.ps1`).
+The audience filter has no line-of-sight test on purpose, so there is nothing to test.
+
+**Status.** The suite as it stands has never run. Before this shape, a 21-scenario version ran twice on
+2026-09-21: French all green, English 18 passed and 1 failed with the report lost. A Pickle run only shows that the
+path ran: it does not replace looking.
 
 ## Publishing gate
 

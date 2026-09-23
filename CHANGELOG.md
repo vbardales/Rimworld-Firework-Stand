@@ -1,16 +1,12 @@
-# Changelog
+# 0.1.0
 
-Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
-This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
-
-## [Unreleased]
-
-First version, not yet published. RimWorld 1.6.
+First version. RimWorld 1.6. Creation of the `PublishedFileId.txt` file (`Mod/About/PublishedFileId.txt`): the
+Workshop item, 3806767445, was created by the first upload and is private until it is switched to public by hand.
 
 ### Added
 
 - A firework stand: a building loaded with up to ten of telardo's firework launchers, watched as
-  recreation. It fires one rocket per salvo, every quarter hour of game time, and only while a
+  recreation. It fires one rocket per salvo, every 900 ticks (about twenty-two in-game minutes), and only while a
   colonist is watching it.
 - A recreation type of its own (`FS_Fireworks`), which is the point of the mod: expectations ask
   for up to six different types and the base game only offers eight.
@@ -33,8 +29,8 @@ First version, not yet published. RimWorld 1.6.
 
 ### Notes
 
-- Nothing here has been observed running yet. `TESTING.md` lists the nine scenarios that would
-  settle it, and says which five gate publishing.
+- The scenarios of `TESTING.md` are played by Pickle in a real game (`Tests/Pickle/`), which records captures and
+  films for a person to validate. `TESTING.md` and `STATUS.md` say what has run and what has not.
 - `_tools/Run-Functional-Tests.ps1` settles what a colony is not needed for: 25 tests, fifteen
   seconds, no game launched. It reads off the compiled game that the hooks this mod grafts onto
   still do what it grafts onto them for, and off telardo's assembly that the three things reached

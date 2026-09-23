@@ -1,0 +1,7 @@
+# The pass without Ideology. Nothing is added to the staged set: the line below leaves the DLC out of it
+# (only a DLC can be named, and the staging refuses a typo). It exists for 12-launch-gizmo.feature, which
+# asserts that Fireworks' own launch gizmo is offered exactly when Ideology is inactive: the default pass
+# (every DLC) proves it is absent, this pass proves it is there.
+#
+# Run: powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map
+!ludeon.rimworld.ideology

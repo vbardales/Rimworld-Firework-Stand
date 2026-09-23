@@ -28,9 +28,11 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
     machine, not in git. All 16 stills and the 5 films were opened.
   - So the English failure is either language-dependent or intermittent, and only a second English run
     can say which. It is the open item of this suite.
-- **Since that run the suite was changed, and the change is unplayed:** the film scenarios of `03`,
-  `05`, `06`, `07` and `09` lost their stills (see below), and `05` and `06` gained a non-filmed twin that
-  takes the stills. The suite is now 23 scenarios, 21 in the English pass.
+- **Since those runs the suite was changed, and none of the change has been played:** the filmed scenarios of
+  `03`, `05`, `06`, `07` and `09` lost their stills and `05` and `06` gained a non-filmed twin that takes them; the
+  French-only `@wip` feature became `04-labels`, which runs in every pass; the two remaining manual checks became
+  `12-launch-gizmo` and `13-architect-menu`, with a third pass without Ideology. **26 scenarios, no `@wip`, three
+  passes, none played yet.** `Run-Passes.ps1` will play them and keep each report.
 
 ## The features
 
@@ -39,7 +41,9 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
 | `01-loads` | the game's real patch pipeline | the stand, recreation type, job and joy giver exist; the stand points at its recreation type; a save loads with no error or `Firework Stand]` warning | none |
 | `02-stand-on-map` | a stand built on the map | ticks 300 without error, survives a save and reload; selecting it resolves the bridge without a warning | 2 stills |
 | `03-firing` | a real watcher, 3 launchers | watching, 4 to 12 cells away, no chair; count goes 3 → 2 → 1, one salvo each, at the stand's own interval | **film** |
-| `04-french-names` (`@wip`) | a French game | the stand, its recreation type and the reused launcher read in French | none |
+| `04-labels` | the active language | the stand, its recreation type and the reused launcher carry the labels of the language of the pass (English or French) | none |
+| `12-launch-gizmo` | a launcher on the ground | Fireworks' launch gizmo is offered exactly when Ideology is inactive | 1 still |
+| `13-architect-menu` | the research IEDs unfinished, then finished | the Recreation category hides the stand, then lists it | 2 stills |
 | `05-light` | night, a loaded stand, a watcher | light off before, on when the rocket leaves, off again | **film**, and a non-filmed twin with 3 stills |
 | `06-fuse-and-launch` | closest zoom on the stand | a launcher was spent (the fuse was lit) | **film**, and a non-filmed twin with 2 stills |
 | `07-on-their-own` | a bored colonist, no order | picks the stand by themselves, watches it standing, 4 to 12 cells away; a roofed stand is never used | **film** |
@@ -64,22 +68,27 @@ captures show, which is what a person looks at (a raw key, English left in Frenc
 | `09-save-reload` film | Is the stand, right after the reload, as the save left it? |
 | `10-audience` still | Is the layout what the scenario says: the stand, one colonist in the open, the roofed patch with the other two? |
 | `11-inspect-pane` stills, both languages | Any raw key, fallback, broken accent, clipped line, wrong paragraph break, badly formed time in the reload line? Is the blueprint the stand, and named in the language of the pass? |
+| `12-launch-gizmo` still, in the pass without Ideology | Is the launch gizmo there beside the selected launcher, with a label and a tooltip in the language of the pass? (Absent, as designed, in the other two passes.) |
+| `13-architect-menu` stills | Does the Recreation category show no stand before IEDs and the stand after it? Is the entry named in the language of the pass? |
 
 ## Scope: what stays out of Gherkin, and why
 
 Everything provable outside the game is proved outside it, by `_tools/Run-Functional-Tests.ps1`
-(25 tests) and `_tools/Test-Xml.ps1`. None of that is repeated here.
+(25 tests) and `_tools/Test-Xml.ps1`. None of that is repeated here. **No scenario is `@wip`, no test is left
+for a person to play**: what a person does is validate captures and films.
 
-- **Scenario 2, Fireworks absent.** A hard dependency: the game will not load this mod without it,
-  so there is no game to play. Manual.
-- **The inherited launch gizmo with and without Ideology.** The WSL staging mounts every DLC, so a
-  no-Ideology pass cannot be staged. Manual.
-- **The Architect menu entry.** No step opens a menu category without naming a translated button.
-  The blueprint scenario proves the stand can be placed through the game's own designator, not that
-  the menu lists it.
-- **No line-of-sight test in the audience filter.** Deliberate in the mod; proving it needs a wall
-  and a pawn behind it. Not written.
+- **Fireworks absent (TESTING.md scenario 2, negative half): not applicable, and why.** Fireworks is a hard
+  dependency declared in `About.xml`, so the game does not activate this mod without it; there is no running game
+  in which the stand is loaded and Fireworks is not. What remains true of that case is the guard itself, and it is
+  proved outside the game: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Test-Xml.ps1` and
+  `Check-DefInjected.ps1`), and the reflection bridge is read off the compiled assembly (`Run-Functional-Tests.ps1`).
+- **No line-of-sight test in the audience filter.** Deliberate in the mod, so there is nothing to test; proving its
+  absence would need a wall and a pawn behind it and would assert what the mod chose not to do.
 - **The mood tab of a colonist.** The memory is asserted by def, not read off the tab.
+
+Two things that were manual are now scenarios: the inherited launch gizmo with and without Ideology
+(`12-launch-gizmo`, played in the pass that leaves the DLC out) and the Architect menu entry, hidden until IEDs is
+researched (`13-architect-menu`).
 
 ## What the vanilla joy giver was read to say
 
@@ -95,16 +104,24 @@ asserts.
 
 The mod declares no optional mod (`loadAfter` names only RimWorld and Fireworks) and no
 incompatibility, so there is no pass with optional mods and none per incompatibility. It needs
-**two passes**, both on the minimal set that `scripts/stage-pickle-wsl.sh` mounts (Core, the DLC,
-Harmony, RimLogging, Pickle, Fireworks, the mod and its companion):
+**three passes**, each playing the **whole suite** (26 scenarios), on the minimal set that
+`scripts/stage-pickle-wsl.sh` mounts (Core, the DLC, Harmony, RimLogging, Pickle, Fireworks, the mod and its
+companion). No scenario is conditional on a tag: the two that depend on the pass read the game and assert the
+value for it (`04-labels` reads the active language, `12-launch-gizmo` reads whether Ideology is active), so each
+is green in every pass and none is skipped.
 
-| Pass | Command | Plays |
+| Pass | Command | What differs |
 | --- | --- | --- |
-| English, `sans-facultatifs` | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand` | features 01, 02, 03, 05 to 11 (21 scenarios); `04` is `@wip` and skipped |
-| French | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -Language French -IncludeWip` | the same 21 plus feature 04 (2 more), all in French |
+| English, `sans-facultatifs` | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand` | every DLC active, Ideology included: the launch gizmo must be absent |
+| French | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -Language French` | the labels are French, and the captures show the French interface |
+| Without Ideology | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map` | `!ludeon.rimworld.ideology` leaves the DLC out: the launch gizmo must be there |
 
-`wsl-ids.map` gives the staging Fireworks' Workshop id (2922179297); the English run of 2026-09-21
-showed the staging finds it.
+**`Run-Passes.ps1` plays the three in turn** (`powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Run-Passes.ps1`).
+It goes through the launcher for each (ticket, lock, staging, release) and, the moment the launcher returns, copies
+what the run wrote into `runs/<date>-<pass>/`: summary, junit, log, this suite's films and stills. The first English
+run of this suite lost its report because nobody was there to copy it; this is there.
+
+`wsl-ids.map` gives the staging Fireworks' Workshop id (2922179297); the run of 2026-09-21 showed the staging finds it.
 
 Running takes the machine lock and is done only through `scripts/Run-PickleWsl.ps1`; see
 `scripts/PICKLE-WSL.md`. Read `exitReason` before the counts, compare the scenarios played with the

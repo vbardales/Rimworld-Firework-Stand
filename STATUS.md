@@ -19,7 +19,7 @@ dependencies: declared
 showcase:     complete
 tested_on:    partial only, 2026-09-21: Pickle English pass in the WSL, 8 of 8 non-wip scenarios passed (defs after the real patch pipeline, a stand on a map, save and reload, one capture). No manual scenario played, no French pass, no watching colonist, no salvo. Stage stays done.
 automated_on: 2026-09-21
-workshop:
+workshop:     3806767445, created by the owner's first upload of 0.1.0 on 2026-09-23, private. The item went up ahead of the chain (stage is done, not tested), the owner's choice and not an oversight. Mod/About/PublishedFileId.txt holds the id and is committed. The description as sent carries the ATTRIBUTION and licence line.
 settings_audit: not_applicable
 audit_on:     2026-09-21
 audit_revision: 3fa32521e3de47ce73ecc372e1809794d7de9f05
@@ -27,20 +27,20 @@ remaining:
   - resolved 2026-09-21 (preTest -> done): Pickle suite written in Tests/Pickle (four features, companion mod, wsl-ids.map, README with scope and reasons), and TESTING.md states the two passes the mod needs. Written, never run.
   - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Report in Tests/Pickle/runs/2026-09-21-english/. Fireworks staged and loaded, so the WSL staging does find it.
   - done 2026-09-21 22:28: Pickle French pass, whole suite plus feature 04: 21 of 21 passed, exitReason passed; report, films and summary in Tests/Pickle/runs/2026-09-21-french-full/, all stills and films opened.
-  - unverified: Pickle English pass of the widened suite: 21 scenarios, 18 passed and 1 FAILED (20:28), report lost before it was read, so the failing scenario is unknown. It must be run again (features changed since: filmed scenarios lost their stills, 05 and 06 gained a twin, unplayed) and be green for done -> tested.
+  - blocking (done -> tested), gates set by the owner on 2026-09-23: (1) no scenario left in @wip: met by construction, 04-labels replaced the French-only @wip feature and runs in every pass, unplayed; (2) every conditional scenario has run: none is conditional on a tag, but the three passes (English, French, without Ideology) must all run green, none has yet on the suite as it stands (a 21-scenario version ran 2026-09-21, French 21/21, English 18 passed and 1 failed with its report lost); (3) no manual test left to validate, all green: nothing is manual any more (Fireworks absent is not applicable, justified in TESTING.md), so what remains is the owner validating the captures and films of the three passes.
   - defect (in the test, not the mod): the English run did not exercise the FireworksBridge. It resolves lazily (`Available`), read only by a watching colonist or the inspect pane, and no played scenario did either, so its "no Firework Stand] warning" assertions are vacuous about the bridge. A scenario that selects the stand (by its cell, through a custom step, so it runs in both languages) was added to 02-stand-on-map.feature after the run and is unplayed. TESTING.md scenario 2 stays open until it has.
   - resolved 2026-09-21: the vanilla joy giver was read (JoyGiver_WatchBuilding, JoyGiver_InteractBuilding, JobDriver_WatchBuilding, decompiled from the installed game). It never looks at fuel, so an empty stand IS offered as recreation.
   - defect (design, found by reading the source, unplayed): because the giver ignores fuel and the driver's joy tick is vanilla's, a colonist who watches an EMPTY stand gains full fireworks recreation and no rocket goes up. The stand's guard is on firing, not on the joy. The mod's description says the stand "never wastes a rocket on an empty field"; it does not say an empty stand yields nothing, so this may be intended, but it is a cheap source of recreation. Not changed by this audit (no development); decision for the maintainer.
-  - unverified: the widened Pickle suite (features 03 and 05 to 11 plus the step assembly, 19 scenarios in the English pass, 21 in the French one) has never been run. It parses, the assembly builds, and each generic step exists in Pickle's catalogue; nothing more is established. The scenarios that stage a colonist's own choice (07), the sleeper (10) and the cells chosen (140,150 and the roofed patch) are guesses about the fixture colony until a run.
+  - superseded 2026-09-23: the suite is now 26 scenarios in 13 features, none @wip, played by three passes (see the blocking item and the section at the end); none of it has been run in this shape. The scenarios that stage a colonist's own choice (07), the sleeper (10) and the cells chosen (140,150 and the roofed patch) are guesses about the fixture colony until a run.
   - note: the run's log holds one ERROR ("Firework Stand - Pickle tests did not load any content") and one dependency-URL warning; both come from the content-less companion mod and appear the same way in the Adaptive Storage companion's log. Not the mod under test.
   - accepted: current Preview including its camera explicitly approved by the user on 2026-09-13; no camera revision required
-  - unverified: English/French in-game translation checks in TESTING.md, including dependency absence and launch gizmo with/without Ideology
+  - unverified: English/French in-game translation checks: now scenarios (04-labels, 11-inspect-pane, 12-launch-gizmo in the pass without Ideology), unplayed in their current shape; dependency absence is not applicable, see TESTING.md
   - unverified: all nine manual scenarios and English/French UI/log checks remain required for tested; the historical publishing subset does not waive this gate
   - limitation: five existing assembly contract tests have no recorded mutation test; passing outside the game does not establish runtime behaviour
   - defect: inspect line says Ready to fire on an empty rack; the fuel gauge remains accurate
   - accepted: orange-face mod icon deviation accepted on 2026-09-04
 session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
-updated:      2026-09-21
+updated:      2026-09-23
 ---
 
 # Firework Stand — status
@@ -522,3 +522,50 @@ area it does not show (title corrected).
 
 Open: the lost English failure. Only a second English run can say whether it depends on the language
 or is intermittent. A ticket for it is queued. Nothing here changes the stage: `done`.
+
+## Groundwork for prepublished — 2026-09-21
+
+Stage stays `done`; `tested` is not reached (the English Pickle pass has to run again and be green, and the captures
+and films have to be validated by a person). Prepared meanwhile, documents only, no source or Preview change:
+
+- `Mod/About/About.xml`: the description lacked the line pointing to `ATTRIBUTION.md` and the licence that the
+  prepublished checklist puts between `THANKS` and the source link. Added; the description still ends with the
+  `[url=...]Source code on GitHub[/url]` link. `_tools/Test-Xml.ps1` still exits 0. **The shipped DLL is unchanged**,
+  so the build, the 25 functional tests and the Pickle runs are not invalidated by this. The Steam description is
+  sent only at creation, so nothing to correct there yet.
+- `CHANGELOG.md`: "every quarter hour" corrected to 900 ticks, about twenty-two in-game minutes (the optional point
+  noted in the audit).
+- `PUBLICATION.md` (new, draft): release notes, dependencies and DLC, the order of the Workshop captures and what to
+  check on each (a corpse of the test colony sits beside the stand in almost every capture), the content boxes, one
+  thank-you message for telardo under 1000 characters, and what to do right after the upload.
+
+Not done and not to be done without the owner: tag `v1.0.0`, the GitHub release, the Steam upload, the message to
+telardo. All uncommitted at the time of writing.
+
+## New gates for tested, and what was done about them — 2026-09-23
+
+The owner prepublished 0.1.0 (Workshop item 3806767445, private; recorded in `workshop:`), created the
+`PublishedFileId.txt`, and asked for three new verifications before `tested`: **no scenario in `@wip`, every
+conditional scenario played, no manual test left to validate (all green).** Stage stays `done`.
+
+- **No `@wip`.** The only one was the French-only feature. It is replaced by `04-labels`, which reads the active
+  language (a new step) and asserts the label written for it, so the same scenario is green in the English pass and
+  in the French pass and fails, naming the language, in a pass it has no value for. No scenario carries a tag that
+  skips it.
+- **No manual test left.** The four that were manual: Fireworks absent (declared not applicable, the mod cannot be
+  active without its hard dependency; the guard is proved outside the game), the Ideology launch gizmo (now
+  `12-launch-gizmo`, one scenario that asserts the gizmo is offered exactly when Ideology is inactive, played in a
+  third pass whose map `wsl-deps.sans-ideology.map` leaves the DLC out), the Architect menu (now `13-architect-menu`,
+  reading `Designator_Build.Visible` before and after IEDs), and the line-of-sight test (not a test: the mod
+  deliberately has none). What is left is the owner validating captures and films.
+- **Every conditional scenario played.** Nothing is conditional on a tag, so this comes down to: the three passes
+  must all run, on the suite as it stands, and be green.
+- New steps in `FireworkStandSteps.cs` (now 27): the label by language, the launcher gizmo, select-by-def-and-cell,
+  the research unfinished, the Architect menu lists or hides the stand, open the Architect category. The assembly
+  builds with 0 warnings; the 13 features (26 scenarios) parse with Pickle's own parser; nothing has been played.
+- `Tests/Pickle/Run-Passes.ps1` plays the three passes in turn through the launcher and copies each report into
+  `Tests/Pickle/runs/` as soon as the launcher returns, because the first English run was lost for want of that.
+- `CHANGELOG.md` now starts with `# 0.1.0`, the creation of the `PublishedFileId.txt` and the item.
+
+The audit's rule holds: a green scenario shows the trajectory ran, not that an image shows anything. `tested` waits
+for the runs and for the owner's validation of what they produced.

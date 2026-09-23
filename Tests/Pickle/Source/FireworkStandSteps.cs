@@ -363,6 +363,155 @@ namespace FireworkStand.PickleSteps
             ctx.Assert(!glower.Glows, $"after {seconds} s the stand's light is still on");
         }
 
+        // ------------------------------------------------------------------ the language
+
+        private static string ActiveLanguage() => LanguageDatabase.activeLanguage?.folderName ?? "unknown";
+
+        /// <summary>
+        /// The label a def carries in the language the pass was staged with, asserted against the value
+        /// written here for that language. The step is what lets ONE scenario run in both passes without
+        /// being tagged for either: it reads the active language and compares with the value for it, and
+        /// fails, naming the language, if the pass runs in a language it was not given a value for. A
+        /// scenario that silently passed in a language it did not cover would prove nothing, and one
+        /// marked `@wip` and played by hand is exactly what the workflow no longer accepts.
+        /// In developer mode, which every Pickle run is, a missing key in the active language shows as
+        /// accented gibberish rather than clean English, so both failures are visible here.
+        /// </summary>
+        [Then("Firework Stand: the label of the {word} {string} reads {string} in English and {string} in French")]
+        public void LabelByLanguage(PickleContext ctx, string typeName, string defName, string english, string french)
+        {
+            Type type = GenTypes.GetTypeInAnyAssembly(typeName);
+            ctx.Assert(type != null, $"no type \"{typeName}\" in any loaded assembly");
+            Def def = GenDefDatabase.GetDef(type, defName, false);
+            ctx.Assert(def != null, $"no {typeName} \"{defName}\" in this game");
+            string language = ActiveLanguage();
+            string expected = language == "English" ? english : language == "French" ? french : null;
+            ctx.Assert(expected != null,
+                $"the game runs in \"{language}\", and this scenario has a value for English and French only");
+            ctx.Assert(def.label == expected,
+                $"in {language} the label of {typeName} {defName} reads \"{def.label}\", not \"{expected}\"");
+        }
+
+        // ------------------------------------------------------------------ the inherited launch gizmo
+
+        /// <summary>
+        /// The dependency hides its own launch gizmo when Ideology is active, which is the reason a stand is
+        /// worth having at all. Read from the item's own comp, the way the game asks for gizmos, and
+        /// asserted against the game's own answer about Ideology, so it is one scenario for two passes
+        /// (with and without the DLC) and each pass asserts the opposite of the other.
+        /// </summary>
+        [Then("Firework Stand: the launcher at x={int} z={int} offers its launch gizmo exactly when Ideology is inactive")]
+        public void LauncherGizmo(PickleContext ctx, int x, int z)
+        {
+            Map map = CurrentMap(ctx);
+            var cell = new IntVec3(x, 0, z);
+            Thing launcher = cell.GetThingList(map).FirstOrDefault(t => t.def.defName == "FireworkLauncher");
+            ctx.Assert(launcher != null,
+                $"no FireworkLauncher at x={x} z={z}; the cell holds: "
+                + string.Join(", ", cell.GetThingList(map).Select(t => t.def.defName)));
+            ThingComp comp = (launcher as ThingWithComps)?.AllComps.FirstOrDefault(c => c.GetType().FullName == "Fireworks.CompLaunchFireworks");
+            ctx.Assert(comp != null, "the launcher carries no Fireworks.CompLaunchFireworks");
+
+            string label = "LaunchFirework".Translate().ToString();
+            bool offered = comp.CompGetGizmosExtra().OfType<Command_Action>().Any(g => g.defaultLabel == label);
+            bool ideology = ModsConfig.IdeologyActive;
+            ctx.Assert(offered == !ideology,
+                $"Ideology is {(ideology ? "active" : "inactive")} and the launch gizmo is {(offered ? "offered" : "not offered")}: "
+                + "it should be offered exactly when Ideology is inactive");
+        }
+
+        /// <summary>Selects a spawned thing by def name and where it lies, in any language.</summary>
+        [When("Firework Stand: I select the {string} at x={int} z={int}")]
+        public void SelectThing(PickleContext ctx, string defName, int x, int z)
+        {
+            Map map = CurrentMap(ctx);
+            Thing thing = new IntVec3(x, 0, z).GetThingList(map).FirstOrDefault(t => t.def.defName == defName);
+            ctx.Assert(thing != null, $"no {defName} at x={x} z={z}");
+            Find.Selector.ClearSelection();
+            Find.Selector.Select(thing, false, false);
+            Find.MainTabsRoot.SetCurrentTab(MainButtonDefOf.Inspect, false);
+            ctx.Assert(Find.Selector.IsSelected(thing), $"the {defName} is not selected after being selected");
+        }
+
+        // ------------------------------------------------------------------ the Architect menu
+
+        private static ThingDef StandThingDef(PickleContext ctx)
+        {
+            ThingDef def = DefDatabase<ThingDef>.GetNamedSilentFail(StandDef);
+            ctx.Assert(def != null, $"no ThingDef \"{StandDef}\": the stand's guarded patch did not apply");
+            return def;
+        }
+
+        private static Designator_Build StandDesignator(PickleContext ctx)
+        {
+            ThingDef def = StandThingDef(ctx);
+            ctx.Assert(def.designationCategory != null, "the stand has no designation category, so it is in no Architect menu");
+            Designator_Build designator = def.designationCategory.AllResolvedDesignators
+                .OfType<Designator_Build>().FirstOrDefault(d => d.PlacingDef == def);
+            ctx.Assert(designator != null,
+                $"the {def.designationCategory.defName} category holds no build designator for the stand");
+            return designator;
+        }
+
+        /// <summary>
+        /// Puts the research back to nothing, so the "hidden until IEDs" half of the menu is asserted on
+        /// a colony that really has not finished it, not on whatever the fixture happened to hold. The
+        /// game keeps progress in a private dictionary; the same reset the debug menu has.
+        /// </summary>
+        [Given("Firework Stand: the research {string} is unfinished")]
+        public void Unfinish(PickleContext ctx, string projectName)
+        {
+            ResearchProjectDef project = DefDatabase<ResearchProjectDef>.GetNamedSilentFail(projectName);
+            ctx.Require(project != null, $"no research project \"{projectName}\"");
+            var field = typeof(ResearchManager).GetField("progress",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            ctx.Require(field != null, "ResearchManager no longer has a private `progress` field");
+            var progress = (Dictionary<ResearchProjectDef, float>)field.GetValue(Find.ResearchManager);
+            progress[project] = 0f;
+            ctx.Assert(!project.IsFinished, $"{projectName} still reads as finished after its progress was reset");
+        }
+
+        [Then("Firework Stand: the Architect menu lists the stand")]
+        public void ArchitectLists(PickleContext ctx)
+        {
+            Designator_Build designator = StandDesignator(ctx);
+            ctx.Assert(designator.Visible,
+                $"the stand is in the {StandThingDef(ctx).designationCategory.defName} category but its designator is hidden "
+                + $"(research finished: {StandThingDef(ctx).IsResearchFinished}, god mode: {DebugSettings.godMode})");
+        }
+
+        [Then("Firework Stand: the Architect menu hides the stand")]
+        public void ArchitectHides(PickleContext ctx)
+        {
+            Designator_Build designator = StandDesignator(ctx);
+            ctx.Assert(!DebugSettings.godMode, "god mode is on, which shows every designator");
+            ctx.Assert(!designator.Visible,
+                "the stand's designator is visible although its research is unfinished "
+                + $"(research finished: {StandThingDef(ctx).IsResearchFinished})");
+        }
+
+        /// <summary>
+        /// Opens the Architect tab on the category that holds the stand, as a click on its button would,
+        /// found by the category's def and not by its translated label.
+        /// </summary>
+        [When("Firework Stand: I open the Architect category of the stand")]
+        public void OpenArchitectCategory(PickleContext ctx)
+        {
+            ThingDef def = StandThingDef(ctx);
+            Find.MainTabsRoot.SetCurrentTab(MainButtonDefOf.Architect, false);
+            var window = MainButtonDefOf.Architect.TabWindow as MainTabWindow_Architect;
+            ctx.Assert(window != null, "the Architect tab did not open");
+            var field = typeof(MainTabWindow_Architect).GetField("desPanelsCached",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            ctx.Require(field != null, "MainTabWindow_Architect no longer has a private `desPanelsCached` field");
+            var panels = (List<ArchitectCategoryTab>)field.GetValue(window);
+            ArchitectCategoryTab panel = panels.FirstOrDefault(p => p.def == def.designationCategory);
+            ctx.Assert(panel != null,
+                $"the Architect tab lists no {def.designationCategory?.defName} category; it lists: "
+                + string.Join(", ", panels.Select(p => p.def.defName)));
+            window.selectedDesPanel = panel;
+        }
+
         // ------------------------------------------------------------------ the memory
 
         private static List<string> MemoriesOf(Pawn pawn)
