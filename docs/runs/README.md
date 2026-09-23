@@ -22,3 +22,7 @@ exists.
 `summary.json` and `junit.xml`, the images and films that show something, and nothing derived (contact sheets,
 half-size copies), no log or messages file, no image that a later change of the suite makes obsolete or that carries
 the film's corner frame. The trim is written in the run's summary, with what was deleted.
+
+**Superseded evidence goes as soon as a newer report replaces it** (root `AGENTS.md`, "Test evidence"). The evidence of
+`2026-09-21-french-full` is the only proof of its scenarios until a pass of the reshaped suite has been read; then it is
+deleted and its summary stays as one line above.
