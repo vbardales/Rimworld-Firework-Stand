@@ -17,7 +17,7 @@ upstream_permission_at: No licence file found in the installed Fireworks depende
 maintainer:   Codex, responsible for this repository and STATUS.md
 dependencies: declared
 showcase:     complete
-tested_on:    partial only, 2026-09-21: Pickle English pass in the WSL, 8 of 8 non-wip scenarios passed (defs after the real patch pipeline, a stand on a map, save and reload, one capture). No manual scenario played, no French pass, no watching colonist, no salvo. Stage stays done.
+tested_on:    partial, 2026-09-23 and 24, in game through Pickle in the WSL: the English pass and the French pass of the reshaped suite, 26 of 26 scenarios each, exitReason passed. The pass without Ideology has not run yet. Nothing has been played by a person, and the owner has not yet validated the captures and films. Stage stays done.
 automated_on: 2026-09-21
 workshop:     3806767445, created by the owner's first upload of 0.1.0 on 2026-09-23, private. The item went up ahead of the chain (stage is done, not tested), the owner's choice and not an oversight. Mod/About/PublishedFileId.txt holds the id and is committed. The description as sent carries the ATTRIBUTION and licence line.
 settings_audit: not_applicable
@@ -27,14 +27,14 @@ remaining:
   - resolved 2026-09-21 (preTest -> done): Pickle suite written in Tests/Pickle (four features, companion mod, wsl-ids.map, README with scope and reasons), and TESTING.md states the two passes the mod needs. Written, never run.
   - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Text summary in docs/runs/2026-09-21-english-first-four.md, evidence on disk and ignored by git. Fireworks staged and loaded, so the WSL staging does find it.
   - done 2026-09-21 22:28: Pickle French pass, whole suite plus feature 04: 21 of 21 passed, exitReason passed; text summary in docs/runs/2026-09-21-french-full.md, evidence (films, stills, log) on disk under Tests/Pickle/runs/ and ignored by git; all stills and films opened by the session.
-  - blocking (done -> tested), gates set by the owner on 2026-09-23: (1) no scenario left in @wip: met by construction, 04-labels replaced the French-only @wip feature and runs in every pass, unplayed; (2) every conditional scenario has run: none is conditional on a tag, but the three passes (English, French, without Ideology) must all run green, none has yet on the suite as it stands (a 21-scenario version ran 2026-09-21, French 21/21, English 18 passed and 1 failed with its report lost); (3) no manual test left to validate, all green: nothing is manual any more (Fireworks absent is not applicable, justified in TESTING.md), so what remains is the owner validating the captures and films of the three passes.
-  - defect (in the test, not the mod): the English run did not exercise the FireworksBridge. It resolves lazily (`Available`), read only by a watching colonist or the inspect pane, and no played scenario did either, so its "no Firework Stand] warning" assertions are vacuous about the bridge. A scenario that selects the stand (by its cell, through a custom step, so it runs in both languages) was added to 02-stand-on-map.feature after the run and is unplayed. TESTING.md scenario 2 stays open until it has.
+  - blocking (done -> tested), gates set by the owner on 2026-09-23: (1) no scenario left in @wip: met, none in the suite; (2) every conditional scenario has run: none is conditional on a tag; the three passes must run green: English 26/26 (2026-09-23) and French 26/26 (2026-09-24) are green, the pass without Ideology is still to run (its first attempt died in the launcher after 7 hours in the queue, the ticket file having vanished, an infrastructure failure and not a test result; requeued 2026-09-24); (3) no manual test left to validate, all green: nothing is manual any more (Fireworks absent is not applicable, justified in TESTING.md), so what remains is the owner validating the captures and films, opened so far only by the session that ran them (docs/runs/2026-09-23-english.md and 2026-09-24-french.md say which).
+  - resolved 2026-09-23: the bridge is now exercised: the stand's inspect line ("Ready to fire", which CompInspectStringExtra only returns once FireworksBridge.Available is true) appears on the captures of both passes, and the selecting scenario passed with no Firework Stand warning. The earlier vacuity defect of the test is closed.
   - resolved 2026-09-21: the vanilla joy giver was read (JoyGiver_WatchBuilding, JoyGiver_InteractBuilding, JobDriver_WatchBuilding, decompiled from the installed game). It never looks at fuel, so an empty stand IS offered as recreation.
   - defect (design, found by reading the source, unplayed): because the giver ignores fuel and the driver's joy tick is vanilla's, a colonist who watches an EMPTY stand gains full fireworks recreation and no rocket goes up. The stand's guard is on firing, not on the joy. The mod's description says the stand "never wastes a rocket on an empty field"; it does not say an empty stand yields nothing, so this may be intended, but it is a cheap source of recreation. Not changed by this audit (no development); decision for the maintainer.
   - superseded 2026-09-23: the suite is now 26 scenarios in 13 features, none @wip, played by three passes (see the blocking item and the section at the end); none of it has been run in this shape. The scenarios that stage a colonist's own choice (07), the sleeper (10) and the cells chosen (140,150 and the roofed patch) are guesses about the fixture colony until a run.
   - note: the run's log holds one ERROR ("Firework Stand - Pickle tests did not load any content") and one dependency-URL warning; both come from the content-less companion mod and appear the same way in the Adaptive Storage companion's log. Not the mod under test.
   - accepted: current Preview including its camera explicitly approved by the user on 2026-09-13; no camera revision required
-  - unverified: English/French in-game translation checks: now scenarios (04-labels, 11-inspect-pane, 12-launch-gizmo in the pass without Ideology), unplayed in their current shape; dependency absence is not applicable, see TESTING.md
+  - done 2026-09-23 and 24: English and French in-game checks ran as scenarios (04-labels green in both languages, the inspect pane, the blueprint and the Architect menu captured in each language, none showing a raw key, an English fallback or a clipped line in the captures opened); the launch gizmo with Ideology is asserted absent in both passes, its presence without Ideology waits for the third pass. The owner's validation of the captures is still to come.
   - unverified: all nine manual scenarios and English/French UI/log checks remain required for tested; the historical publishing subset does not waive this gate
   - limitation: five existing assembly contract tests have no recorded mutation test; passing outside the game does not establish runtime behaviour
   - defect: inspect line says Ready to fire on an empty rack; the fuel gauge remains accurate
@@ -587,3 +587,26 @@ A code review of the Pickle work found five things, all fixed before any run:
   text summaries in `docs/runs/`, and `Run-Passes.ps1` writes both from now on.
 
 The assembly was rebuilt (27 steps, 0 warnings). Nothing has been played in the reshaped suite. Stage stays `done`.
+
+## The two passes of the reshaped suite — 2026-09-23 and 24
+
+Through `Tests/Pickle/Run-Passes.ps1`, in the WSL under Xvfb, on the suite of commit `29b2f2d` (26 scenarios in 13 features,
+27 custom steps, none `@wip`):
+
+- **English (2026-09-23, 19:28 to 22:21 with the wait): 26 scenarios, 26 passed, 0 failed, 0 skipped, `exitReason: passed`.**
+- **French (2026-09-24, to 00:14): 26 passed, 0 failed, `exitReason: passed`.** The game exited with 137 after writing a
+  complete report, which the launcher kept. The language step that a review had corrected before the run (Core's
+  "French (Français)" folder name) did its job: `04-labels` is green in both languages.
+- **Without Ideology: not played.** The launcher died after about seven hours in the queue on a ticket file that had been
+  deleted under it. The pass was requeued.
+
+What the captures opened by the session show (English pass unless said): at night the ground around the stand reads
+"Dark (0%)" before the salvo, "Lit (50%)" with a warm halo and a rocket trail as it leaves, in a clean image with no film
+frame in the corner; the Recreation category lists Chess, Poker, Billiards and Horseshoes before IEDs and adds the
+"Firework stand" entry after it (and "Rampe de feux d'artifice" among the Loisirs in French); a selected launcher shows
+only the "Allow" gizmo with Ideology active; the audience capture shows the stand, the colonist outdoors beside it, and the
+sleeper and the colonist under the roofed patch, with a burst overhead; the puff capture shows a rocket trail and sparks;
+the empty stand still reads "Ready to fire" beside a 0 / 10 gauge (the known rough edge). Nothing was validated by the owner.
+
+Evidence trimmed under the root rule: the first French run's folder was deleted as superseded, the new runs keep only their
+raw result, minified stills and the films (English only); see `docs/runs/`. Stage stays `done`.
