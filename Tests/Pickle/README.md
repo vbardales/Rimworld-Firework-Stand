@@ -176,10 +176,10 @@ every tick, so every scenario that ran the clock failed and the launcher killed 
 runs no tick (nothing waits), so it is the one feature played there, and `Run-Passes.ps1` names it with `-Filter`. This is
 not a conditional scenario: the whole suite is played, with Ideology, by the first two passes.
 
-## Waiting on the queue: one heartbeat, one look
+## Queue: hand it to the TicketDispatcher, follow nothing
 
-A pass can wait hours for its ticket, and a session that follows each ticket with its own background task loses them
-when it restarts. `Check-Tickets.ps1` is the single look at everything this suite has in the queue: whether the passes'
-watcher (`Run-Passes.ps1`) is alive, which tickets of ours are queued and how many stand ahead of each, who holds the
-lock, and which text summaries appeared in `docs/runs/` in the last day. It is read-only: it takes no ticket, launches
-nothing and kills nothing. A session keeps one recurring heartbeat that runs it, and never one task per ticket.
+The Pickle queue is followed by the TicketDispatcher, not by this suite: no monitor, heartbeat, cron or loop of ours. A pass is
+submitted with `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1` (one request per pass, `-EvidenceDir` under
+`Tests/Pickle/runs`), and the dispatcher wakes the session with START, END and RUN_DONE; see
+`Rimworld-Ticket-Dispatcher/docs/WELCOME.md`. `Run-Passes.ps1` is the direct route, kept as one background process for all the
+passes only until the dispatcher invites the session to submit instead.
