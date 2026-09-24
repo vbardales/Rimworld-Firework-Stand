@@ -1,4 +1,4 @@
----
+﻿---
 localization: complete
 translation_en: complete
 translation_fr: complete
@@ -17,7 +17,7 @@ upstream_permission_at: No licence file found in the installed Fireworks depende
 maintainer:   Codex, responsible for this repository and STATUS.md
 dependencies: declared
 showcase:     complete
-tested_on:    partial, 2026-09-23 and 24, in game through Pickle in the WSL: the English pass and the French pass of the reshaped suite, 26 of 26 scenarios each, exitReason passed. The pass without Ideology has not run yet. Nothing has been played by a person, and the owner has not yet validated the captures and films. Stage stays done.
+tested_on:    partial, 2026-09-23 and 24, in game through Pickle in the WSL: the reshaped suite passed 26 of 26 in English and in French on the 0.1.0 build; on the 0.1.1 build the English pass ran 26 of 27 (exitReason failed, the one failure a bug of the smoke step, fixed), the French and the without-Ideology passes are queued. The 0.1.1 fixes (empty stand, smoke) are not yet confirmed in game. Nothing has been played by a person, and the owner has not yet validated the captures and films. Stage stays done.
 automated_on: 2026-09-21
 workshop:     3806767445, created by the owner's first upload of 0.1.0 on 2026-09-23, private. The item went up ahead of the chain (stage is done, not tested), the owner's choice and not an oversight. Mod/About/PublishedFileId.txt holds the id and is committed. The description as sent carries the ATTRIBUTION and licence line.
 settings_audit: not_applicable
@@ -45,7 +45,7 @@ session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
 updated:      2026-09-23
 ---
 
-# Firework Stand — status
+# Firework Stand â€” status
 
 ## Repository ownership and identity
 
@@ -70,7 +70,7 @@ and ATTRIBUTION.md documents a reproduced mood-outcome roll. No upstream asset f
 No licence file was found in the installed Fireworks tree during this audit; this is a local
 finding, not a verification of every statement the author may have published elsewhere.
 
-## Title decision — 2026-09-13
+## Title decision â€” 2026-09-13
 
 User-approved decision: the title is **Firework Stand**, without `(unofficial)`. The user
 conceived the recreation-object functionality; this mod has its own distinct title and does
@@ -104,7 +104,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Test-Xml.ps1
 ```
 
-## Translation audit — 2026-09-13
+## Translation audit â€” 2026-09-13
 
 Applied the translation gate from the parent PUBLISHING.md and TRANSLATIONS.md to the
 current working-tree files. Static readiness is complete; no in-game translation pass
@@ -163,7 +163,7 @@ legacy session identifier as bookkeeping, not as the identity of the current age
 
 Before manual testing, research IEDs: the building is absent from the Architect menu until then.
 
-## Preview overlay — 2026-09-13
+## Preview overlay â€” 2026-09-13
 
 Recomposed with HTML/CSS at 896 x 504 following ../STYLE_RIMWORLD.md. The existing
 illustration is retained: Art/Preview-source.png remains the original, copied unchanged to
@@ -195,7 +195,7 @@ identifiable, no clipping or overlap, rule visible, launch stand retained on the
 No reduced title words apply to Firework Stand. Summary is for full-size reading as the guide
 specifies. Initial overlay PNG was 433789 bytes, below 900 KB; see the revision below for current evidence. Nothing published.
 
-### Preview illustration revision — 2026-09-13
+### Preview illustration revision â€” 2026-09-13
 
 User found the launch-only composition ambiguous, resembling a mortar. Replaced Art/Preview.png
 with a built-in imagegen edit: a large fully opened orange-gold firework now fills the right
@@ -215,11 +215,11 @@ Visually inspected the source and final composition at full size and 268 px: the
 firework is immediately recognisable, title and badge are clear, no text overlap or clipping.
 Nothing published.
 
-## Ordered workflow audit — 2026-09-13
+## Ordered workflow audit â€” 2026-09-13
 
 This section supersedes historical global-stage claims without deleting their evidence.
 Previous stage: `done`. Retained stage: `modIcon`, meaning **ModIcon generated**
-(`ModIcon générée` in the requested workflow). `done` means ready for final game validation;
+(`ModIcon gÃ©nÃ©rÃ©e` in the requested workflow). `done` means ready for final game validation;
 `tested` means all applicable functional scenarios actually passed in game.
 The user's supplied workflow takes precedence over the parent guides, including the rule
 that the options gate does not require in-game testing.
@@ -300,7 +300,7 @@ Optional/non-blocking: remove unused Lib.Harmony build reference; correct the CH
 "Ready to fire" inspect issue for triage. Missing mutation runs are a test-method limitation,
 not a required extra gate. No publication, source change or history rewrite was performed.
 
-## Preview acceptance — 2026-09-13
+## Preview acceptance â€” 2026-09-13
 
 The user explicitly approved the current Preview ("je valide cette preview"). This decision
 supersedes the camera blocker and camera-revision requirement in the historical audit above.
@@ -321,7 +321,7 @@ local modifications. Only STATUS.md was changed for this approval; the image, so
 metadata and historical audit results were preserved. No build or gameplay retest is
 needed for this decision-only update.
 
-## Source-link correction — 2026-09-13
+## Source-link correction â€” 2026-09-13
 
 Replaced the bare SOURCE CODE block in Mod/About/About.xml with the prescribed
 [url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]
@@ -344,7 +344,7 @@ All applicable in-game scenarios, FR/EN interface checks and logs remain unverif
 Audited HEAD is still 8ff9fdaca496e908e42bf0574a970d5a8b13e9f7 with existing local changes.
 This correction modifies only Mod/About/About.xml and STATUS.md and preserves prior evidence.
 
-## Ordered workflow audit — 2026-09-21
+## Ordered workflow audit â€” 2026-09-21
 
 Previous stage: `done`. Retained stage: **`preTest`**. Applies `rimworld/AUDIT.md` as revised on
 2026-09-21. The `stage` field uses the workflow's own state names, so no code table is needed.
@@ -368,8 +368,8 @@ No RimWorld was launched, and none was running (`Get-Process RimWorldWin64`: 0).
 | Destination | Finding |
 | --- | --- |
 | horsMonoRepo | Validated. Independent repository, origin `Rimworld-Firework-Stand` configured and pushed (remote HEAD = local HEAD). STATUS.md initialised. Public visibility and `open` / MIT with upstream `silent` are the recorded, user-approved decision of 2026-09-13; unchanged. packageId `nelim.fireworkstand`, name, repository and folder are coherent. README, ATTRIBUTION, CHANGELOG and LICENSE are in English; the distributed ATTRIBUTION.md and LICENSE are byte-identical to the root copies (SHA256 compared). |
-| ModIcon generated | Validated. Isolated rebuild of `Source/FireworkStand.csproj` exits 0 with 0 warnings and 0 errors, and its SHA256 equals the shipped `Mod/Assemblies/FireworkStand.dll` (`F1525A95…C62D`). `Mod/About/ModIcon.png` is PNG, 128 x 128, 24000 bytes, opened and looked at: the accepted mascot. |
-| Preview generated | Validated. `Mod/About/Preview.png` is PNG, 896 x 504, 564219 bytes (< 1 MB), SHA256 `5B41D328…4282`, identical to the image the user approved on 2026-09-13. Opened and looked at: title, rule, summary and version badge readable, no clipping. |
+| ModIcon generated | Validated. Isolated rebuild of `Source/FireworkStand.csproj` exits 0 with 0 warnings and 0 errors, and its SHA256 equals the shipped `Mod/Assemblies/FireworkStand.dll` (`F1525A95â€¦C62D`). `Mod/About/ModIcon.png` is PNG, 128 x 128, 24000 bytes, opened and looked at: the accepted mascot. |
+| Preview generated | Validated. `Mod/About/Preview.png` is PNG, 896 x 504, 564219 bytes (< 1 MB), SHA256 `5B41D328â€¦4282`, identical to the image the user approved on 2026-09-13. Opened and looked at: title, rule, summary and version badge readable, no clipping. |
 | preOptions | Validated. Blue-black veil against an orange accent (`Art/preview-palette.json`), clearly distinct. English description present and ends with `[url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]`, matching `<url>` and the remote. No prefix, suffix or linking word to handle under the recorded title decision. |
 | options | Validated as `settings_audit: not_applicable`. Grep of `Source/*.cs` and `Mod/`: no `Verse.Mod` subclass, no `ModSettings`, no `MainButtonDef`, no settings window, so there is neither an empty page nor a shortcut. Rationale unchanged from the 2026-09-13 section. No in-game check was required or claimed. |
 | l10n | Validated statically. `Test-Xml.ps1`: 10 XML files parsed, EN/FR keys and placeholders match. `Check-DefInjected.ps1`: 30 patch operations, 11625 defs indexed, 16 keys checked, 0 errors. Both Translate calls (`FireworkStand.Ready`, `FireworkStand.Reloading`) have EN and FR entries; the only other player-facing strings are Def fields (English source in the patch, French in DefInjected). The `Log.Warning` texts are technical logs and stay English. |
@@ -398,13 +398,13 @@ Everything validated above stays valid; a change to `Source/`, `Mod/Patches/`, t
 resources or the About description would reset only the checks that read them.
 
 Optional, not blocking: the description opens with only the second half of the removal notice
-("… request its removal …"), so "its" has no antecedent; the recorded 2026-09-13 decision drops the
+("â€¦ request its removal â€¦"), so "its" has no antecedent; the recorded 2026-09-13 decision drops the
 `(unofficial)` suffix but says to keep the commitment, and it may read better with its first
 sentence. Remove the unused `Lib.Harmony` PackageReference from `Source/FireworkStand.csproj`.
 Correct the CHANGELOG's "every quarter hour" (900 ticks is about 21.6 in-game minutes). The
 "Ready to fire" inspect line on an empty rack stays a known rough edge.
 
-## Pickle suite written — 2026-09-21 (preTest -> done)
+## Pickle suite written â€” 2026-09-21 (preTest -> done)
 
 Stage advances from `preTest` to **`done`**. The only blocker of the audit above was the missing
 Pickle (Gherkin) suite with a justified scope; it is now written. Nothing else changed: no source,
@@ -438,7 +438,7 @@ Pickle passes, read `exitReason` first, open the capture, check the logs and FR/
 Pickle suite is committed with this change only if the user asks; at the time of writing it is an
 uncommitted working-tree addition on HEAD `3fa3252`.
 
-## First Pickle run — 2026-09-21 (English pass)
+## First Pickle run â€” 2026-09-21 (English pass)
 
 Run through `scripts/Run-PickleWsl.ps1 -Mod FireworkStand` after queueing (two earlier tickets were
 lost: the first to a `Indexation impossible dans un tableau Null` error in the shared script during
@@ -462,7 +462,7 @@ and all nine manual scenarios are unplayed. Text summary: `docs/runs/2026-09-21-
 Stage stays `done`. Unchanged and still uncommitted on HEAD `3fa3252`: STATUS.md, TESTING.md and
 `Tests/`.
 
-## Manual scenarios written as Pickle scenarios — 2026-09-21
+## Manual scenarios written as Pickle scenarios â€” 2026-09-21
 
 Request: write the manual tests with Pickle so that the maintainer only validates captures or
 films. Done, not run. `Tests/Pickle` now holds eleven features and a step assembly
@@ -488,7 +488,7 @@ plays whatever is on disk when its turn comes, and its result is not yet read.
 
 Stage stays `done`.
 
-## Widened Pickle suite, two runs — 2026-09-21
+## Widened Pickle suite, two runs â€” 2026-09-21
 
 Both runs are the suite of commit `49c36d8` (eleven features, the step assembly), through
 `scripts/Run-PickleWsl.ps1`, in the WSL under Xvfb, on the minimal set (12 staged mods, all loaded,
@@ -506,9 +506,9 @@ Fireworks included). The game was identified as ours by `-pickle-run=Firework St
   during the run so that nothing else could be lost.
 
 What the captures show, read directly (French pass): the loaded stand at rest reads "feux d'artifice
-chargés : 4 / 10" and "Prête à tirer"; after a salvo "Rechargement : 0.3 heures" (decimal point as the game
-formats it); the empty stand reads "0 / 10", "Aucun feu d'artifice chargé (10x lanceur de feux
-d'artifice)" and, beside them, "Prête à tirer", **the known rough edge, confirmed in French**; no raw
+chargÃ©s : 4 / 10" and "PrÃªte Ã  tirer"; after a salvo "Rechargement : 0.3 heures" (decimal point as the game
+formats it); the empty stand reads "0 / 10", "Aucun feu d'artifice chargÃ© (10x lanceur de feux
+d'artifice)" and, beside them, "PrÃªte Ã  tirer", **the known rough edge, confirmed in French**; no raw
 key, no English fallback, no clipped line, no broken accent in any of them. The night stills show the
 ground around the stand warmly lit as the rocket leaves and dark before and after. The audience
 capture matches its scenario: the stand, the colonist outdoors beside it, the roofed patch with the
@@ -525,7 +525,7 @@ area it does not show (title corrected).
 Open: the lost English failure. Only a second English run can say whether it depends on the language
 or is intermittent. A ticket for it is queued. Nothing here changes the stage: `done`.
 
-## Groundwork for prepublished — 2026-09-21
+## Groundwork for prepublished â€” 2026-09-21
 
 Stage stays `done`; `tested` is not reached (the English Pickle pass has to run again and be green, and the captures
 and films have to be validated by a person). Prepared meanwhile, documents only, no source or Preview change:
@@ -544,7 +544,7 @@ and films have to be validated by a person). Prepared meanwhile, documents only,
 Not done and not to be done without the owner: tag `v1.0.0`, the GitHub release, the Steam upload, the message to
 telardo. All uncommitted at the time of writing.
 
-## New gates for tested, and what was done about them — 2026-09-23
+## New gates for tested, and what was done about them â€” 2026-09-23
 
 The owner prepublished 0.1.0 (Workshop item 3806767445, private; recorded in `workshop:`), created the
 `PublishedFileId.txt`, and asked for three new verifications before `tested`: **no scenario in `@wip`, every
@@ -572,12 +572,12 @@ conditional scenario played, no manual test left to validate (all green).** Stag
 The audit's rule holds: a green scenario shows the trajectory ran, not that an image shows anything. `tested` waits
 for the runs and for the owner's validation of what they produced.
 
-## Review of the suite, and where the evidence lives — 2026-09-23
+## Review of the suite, and where the evidence lives â€” 2026-09-23
 
 A code review of the Pickle work found five things, all fixed before any run:
 
 - **Language step (would have failed the French pass):** `04-labels` compared the active language's folder name with
-  "French", but Core names it "French (Français)". The step now matches the English name or the English name followed
+  "French", but Core names it "French (FranÃ§ais)". The step now matches the English name or the English name followed
   by " (". Caught before the pass ran.
 - **Evidence copy took other mods' captures:** `Run-Passes.ps1` selected stills and films by "newer than the moment the
   pass queued", in a screenshots folder every mod writes to. It now takes only names this suite's features give
@@ -590,7 +590,7 @@ A code review of the Pickle work found five things, all fixed before any run:
 
 The assembly was rebuilt (27 steps, 0 warnings). Nothing has been played in the reshaped suite. Stage stays `done`.
 
-## The two passes of the reshaped suite — 2026-09-23 and 24
+## The two passes of the reshaped suite â€” 2026-09-23 and 24
 
 Through `Tests/Pickle/Run-Passes.ps1`, in the WSL under Xvfb, on the suite of commit `29b2f2d` (26 scenarios in 13 features,
 27 custom steps, none `@wip`):
@@ -598,7 +598,7 @@ Through `Tests/Pickle/Run-Passes.ps1`, in the WSL under Xvfb, on the suite of co
 - **English (2026-09-23, 19:28 to 22:21 with the wait): 26 scenarios, 26 passed, 0 failed, 0 skipped, `exitReason: passed`.**
 - **French (2026-09-24, to 00:14): 26 passed, 0 failed, `exitReason: passed`.** The game exited with 137 after writing a
   complete report, which the launcher kept. The language step that a review had corrected before the run (Core's
-  "French (Français)" folder name) did its job: `04-labels` is green in both languages.
+  "French (FranÃ§ais)" folder name) did its job: `04-labels` is green in both languages.
 - **Without Ideology: not played.** The launcher died after about seven hours in the queue on a ticket file that had been
   deleted under it. The pass was requeued.
 
@@ -613,7 +613,7 @@ the empty stand still reads "Ready to fire" beside a 0 / 10 gauge (the known rou
 Evidence trimmed under the root rule: the first French run's folder was deleted as superseded, the new runs keep only their
 raw result, minified stills and the films (English only); see `docs/runs/`. Stage stays `done`.
 
-## Version 0.1.1: three defects fixed at the root — 2026-09-24
+## Version 0.1.1: three defects fixed at the root â€” 2026-09-24
 
 Decided with the owner after the first full in-game runs: fix the fuse smoke, the "Ready to fire" line on an empty stand,
 and make an empty stand give no recreation. Source changes (the mod's DLL is new, `Mod/Assemblies/FireworkStand.dll`):

@@ -1,4 +1,4 @@
-# Pickle runs: text summaries
+﻿# Pickle runs: text summaries
 
 Evidence of a Pickle run (the report, the captures and the films) **stays on disk and out of git**, under
 `Tests/Pickle/runs/<date>-<pass>/`, which `.gitignore` ignores. What is committed is a **text summary** of each run,
@@ -13,8 +13,10 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 
 | Run | Suite | Result | Evidence |
 | --- | --- | --- | --- |
-| [`2026-09-24-french.md`](2026-09-24-french.md) | 26 scenarios, reshaped suite | 26 passed, `passed` | kept, 7 stills |
-| [`2026-09-23-english.md`](2026-09-23-english.md) | 26 scenarios, reshaped suite | 26 passed, `passed` | kept, 13 stills, 5 films |
+| [`2026-09-24-english-0-1-1.md`](2026-09-24-english-0-1-1.md) | 27 scenarios, 0.1.1 build | 26 passed, **1 failed**, `failed`: the smoke step of the test was wrong, not the mod | kept, 11 stills, 4 films |
+| [`2026-09-24-english-hang.md`](2026-09-24-english-hang.md) | 27 scenarios, first 0.1.1 attempt | stalled at save/reload, killed by the watchdog; not reproduced | none |
+| [`2026-09-24-french.md`](2026-09-24-french.md) | 26 scenarios, reshaped suite (previous build) | 26 passed, `passed` | kept, 7 stills; superseded by the 0.1.1 French pass |
+| [`2026-09-23-english.md`](2026-09-23-english.md) | 26 scenarios, reshaped suite (previous build) | 26 passed, `passed` | deleted 2026-09-24, superseded by the 0.1.1 English pass |
 | [`2026-09-24-sans-ideology.md`](2026-09-24-sans-ideology.md) | first attempt, whole suite | killed as stalled: the fixture throws every tick without Ideology; not a result about the mod | deleted |
 | 2026-09-21 20:28, English, **report lost** | 21 scenarios, earlier shape | 18 passed, **1 failed**, 2 skipped, `failed`; which scenario failed is unknown | none |
 | [`2026-09-21-french-full.md`](2026-09-21-french-full.md) | 21 scenarios, earlier shape | 21 passed, `passed` | deleted 2026-09-24, superseded |
