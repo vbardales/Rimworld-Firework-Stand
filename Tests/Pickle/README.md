@@ -31,7 +31,7 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
 - **Since those runs the suite was changed, and none of the change has been played:** the filmed scenarios of
   `03`, `05`, `06`, `07` and `09` lost their stills and `05` and `06` gained a non-filmed twin that takes them; the
   French-only `@wip` feature became `04-labels`, which runs in every pass; the two remaining manual checks became
-  `12-launch-gizmo` and `13-architect-menu`, with a third pass without Ideology. **26 scenarios, no `@wip`, three
+  `12-launch-gizmo` and `13-architect-menu`, with a third pass without Ideology. **27 scenarios (26 at that time), no `@wip`, three
   passes, none played yet.** `Run-Passes.ps1` will play them and keep each report.
 
 ## The features
@@ -45,9 +45,9 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
 | `12-launch-gizmo` | a launcher on the ground | Fireworks' launch gizmo is offered exactly when Ideology is inactive | 1 still |
 | `13-architect-menu` | the research IEDs unfinished, then finished | the Recreation category hides the stand, then lists it | 2 stills |
 | `05-light` | night, a loaded stand, a watcher | light off before, on when the rocket leaves, off again | **film**, and a non-filmed twin with 3 stills |
-| `06-fuse-and-launch` | closest zoom on the stand | a launcher was spent (the fuse was lit) | **film**, and a non-filmed twin with 2 stills |
-| `07-on-their-own` | a bored colonist, no order | picks the stand by themselves, watches it standing, 4 to 12 cells away; a roofed stand is never used | **film** |
-| `08-fuel` | a stand nobody watches; a last launcher | nothing drains while idle; the last launcher is spent and nothing more happens | 1 still |
+| `06-fuse-and-launch` | closest zoom on the stand | a launcher was spent (the fuse was lit); at least 2 smoke puffs are near the stand 25 ticks in | **film**, and a non-filmed twin with 2 stills |
+| `07-on-their-own` | a bored colonist, no order | picks the stand by themselves, watches it standing, 4 to 12 cells away; a roofed stand and a stand with nothing loaded are never used | **film** |
+| `08-fuel` | a stand nobody watches; a last launcher | nothing drains while idle; the last launcher is spent, nothing more happens, and the watcher has stopped watching | 1 still |
 | `09-save-reload` | a save taken while the light is on | count and timer survive (no refire for 300 ticks), the light does not stay on, no error | **film** |
 | `10-audience` | four colonists: a watcher, one outdoors, one asleep under a roof, one awake under a roof | the outdoor one gains a fireworks memory, the other two do not; all in their intended state first | 1 still |
 | `11-inspect-pane` | the stand loaded, then reloading; a blueprint | none on wording | 3 stills, in the language of the pass |
@@ -74,7 +74,7 @@ captures show, which is what a person looks at (a raw key, English left in Frenc
 ## Scope: what stays out of Gherkin, and why
 
 Everything provable outside the game is proved outside it, by `_tools/Run-Functional-Tests.ps1`
-(25 tests) and `_tools/Test-Xml.ps1`. None of that is repeated here. **No scenario is `@wip`, no test is left
+(31 tests) and `_tools/Test-Xml.ps1`. None of that is repeated here. **No scenario is `@wip`, no test is left
 for a person to play**: what a person does is validate captures and films.
 
 - **Fireworks absent (TESTING.md scenario 2, negative half): not applicable, and why.** Fireworks is a hard
@@ -104,7 +104,7 @@ asserts.
 
 The mod declares no optional mod (`loadAfter` names only RimWorld and Fireworks) and no
 incompatibility, so there is no pass with optional mods and none per incompatibility. It needs
-**three passes**, each playing the **whole suite** (26 scenarios), on the minimal set that
+**three passes**, the first two playing the **whole suite** (27 scenarios) and the third one feature (`12-launch-gizmo`, see below), on the minimal set that
 `scripts/stage-pickle-wsl.sh` mounts (Core, the DLC, Harmony, RimLogging, Pickle, Fireworks, the mod and its
 companion). No scenario is conditional on a tag: the two that depend on the pass read the game and assert the
 value for it (`04-labels` reads the active language, `12-launch-gizmo` reads whether Ideology is active), so each
@@ -114,7 +114,7 @@ is green in every pass and none is skipped.
 | --- | --- | --- |
 | English, `sans-facultatifs` | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand` | every DLC active, Ideology included: the launch gizmo must be absent |
 | French | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -Language French` | the labels are French, and the captures show the French interface |
-| Without Ideology | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map` | `!ludeon.rimworld.ideology` leaves the DLC out: the launch gizmo must be there |
+| Without Ideology | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature` | `!ludeon.rimworld.ideology` leaves the DLC out: the launch gizmo must be there |
 
 **`Run-Passes.ps1` plays the three in turn** (`powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Run-Passes.ps1`).
 It goes through the launcher for each (ticket, lock, staging, release) and, the moment the launcher returns, copies
@@ -159,3 +159,19 @@ is. The assembly references the game and Pickle only, not the mod under test.
 What to keep after a run, and what to delete, is in [`TESTING.md`](../../TESTING.md), "Evidence to keep": the raw result
 and the stills and films that show something, minified, on disk and out of git; a text summary in `docs/runs/`; the rest
 deleted as soon as a newer report replaces it.
+
+## Why the pass without Ideology plays one feature
+
+The first attempt (2026-09-24) played the whole suite without the DLC and died: the fixture save's colonists carry state
+that needs Ideology, and without it the game throws a `NullReferenceException` in `Pawn_AgeTracker.AgeTickInterval` on
+every tick, so every scenario that ran the clock failed and the launcher killed the run as stalled. `12-launch-gizmo`
+runs no tick (nothing waits), so it is the one feature played there, and `Run-Passes.ps1` names it with `-Filter`. This is
+not a conditional scenario: the whole suite is played, with Ideology, by the first two passes.
+
+## Why the pass without Ideology plays one feature
+
+The first attempt (2026-09-24) played the whole suite without the DLC and died: the fixture save's colonists carry state
+that needs Ideology, and without it the game throws a `NullReferenceException` in `Pawn_AgeTracker.AgeTickInterval` on
+every tick, so every scenario that ran the clock failed and the launcher killed the run as stalled. `12-launch-gizmo`
+runs no tick (nothing waits), so it is the one feature played there, and `Run-Passes.ps1` names it with `-Filter`. This is
+not a conditional scenario: the whole suite is played, with Ideology, by the first two passes.

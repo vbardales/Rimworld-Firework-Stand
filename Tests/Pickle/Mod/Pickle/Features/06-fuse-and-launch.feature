@@ -43,8 +43,12 @@ Feature: the fuse smokes, then the rocket leaves
     Then Firework Stand: the stand at x=140 z=150 comes to hold 0 launchers within 120 seconds
     # The launcher is spent the instant the fuse is lit. Twenty ticks in, the thread of smoke is
     # rising; seventy ticks in, the fuse is done and the puff, the sparks and the flash are out.
-    When I wait 20 ticks
-    Then I take a screenshot "the fuse smoking at the foot of the stand"
-    When I wait 50 ticks
+    When I wait 25 ticks
+    # The count is what tells "thrown and too faint" from "never thrown": the first full run showed no smoke on any
+    # capture, and the cause was the comp's timing (see CompFireworkStand.CompTick). Whether the smoke is visible enough
+    # is the owner's call; whether it exists is asserted here, at the moment of the still.
+    Then Firework Stand: at least 2 smoke puffs are near the stand at x=140 z=150 now
+    And I take a screenshot "the fuse smoking at the foot of the stand"
+    When I wait 45 ticks
     Then I take a screenshot "the puff and the sparks as the rocket leaves"
     And no errors were logged

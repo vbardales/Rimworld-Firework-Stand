@@ -119,7 +119,7 @@
               <launchDelay>60</launchDelay>
               <moodRadius>20</moodRadius>
               <flashTicks>240</flashTicks>
-              <smokeInterval>12</smokeInterval>
+              <smokeInterval>8</smokeInterval>
             </li>
           </comps>
           <placeWorkers>
@@ -140,7 +140,7 @@
 
         <JoyGiverDef>
           <defName>FS_WatchFireworks</defName>
-          <giverClass>JoyGiver_WatchBuilding</giverClass>
+          <giverClass>FireworkStand.JoyGiver_WatchFireworkStand</giverClass>
           <baseChance>3</baseChance>
           <!-- unroofedOnly: `JoyGiver_InteractBuilding.CanInteractWith` refuses a roofed building
                when this field is true. That is what the vanilla telescope uses, and it applies at

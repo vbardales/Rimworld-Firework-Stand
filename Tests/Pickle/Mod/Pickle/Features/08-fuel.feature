@@ -30,11 +30,13 @@ Feature: one launcher per salvo, nothing drained while idle, and an empty stand 
     And game speed is ultrafast
     When Firework Stand: "Watcher" is ordered to watch the stand at x=140 z=150
     Then Firework Stand: the stand at x=140 z=150 comes to hold 0 launchers within 120 seconds
-    # Well past the next interval of 900 ticks, with the watcher still there: nothing more to spend,
-    # so nothing more may happen, and the light must have gone out.
+    # Well past the next interval of 900 ticks: nothing more to spend, so nothing more may happen, the light must
+    # have gone out, and the watcher must have stopped watching. The vanilla joy tick does not ask the stand, so
+    # without the driver ending the job a colonist would go on gaining recreation in front of an empty stand.
     When I wait 1200 ticks
     Then Firework Stand: the stand at x=140 z=150 holds 0 launchers
     And Firework Stand: the light of the stand at x=140 z=150 is off
+    And Firework Stand: "Watcher" does not watch any stand
     When I move the camera to (140, 150)
     And Firework Stand: I select the stand at x=140 z=150
     And I wait 30 ticks

@@ -65,6 +65,10 @@
     baseChance at 40                     -> the chance comparison
     the watch range at 4~60              -> the distance comparison
 
+  SIX MORE were added on 2026-09-24 with the empty-stand rules and the move of the effects to CompTick,
+  and all six were seen to fail against the previous version of the mod (its DLL and its patch, taken
+  from HEAD).
+
   FIVE COULD NOT BE, and the file says so rather than letting the count imply otherwise: the three
   about CompGlower and the two about JobDriver_WatchBuilding are claims about Assembly-CSharp
   itself, and mutating the game to prove a test would mean rewriting its IL. They are the tests
@@ -255,6 +259,16 @@ function Get-Text($node, [string]$xpath) {
 $giverClassName  = Get-Text $giverNode 'giverClass'
 $driverClassName = Get-Text $jobNode   'driverClass'
 
+# The giver class is this mod's own (a subclass of the vanilla watch-building giver that refuses an empty
+# stand), so it is looked up in the mod's assembly first and in the game's after. `$giverVanillaName` is
+# the nearest class the game itself declares, which is what the vanilla defs are compared through.
+$giverType = $modAsm.GetType($giverClassName)
+if (-not $giverType) { $giverType = $byName[$giverClassName] }
+$giverVanillaName = $null
+for ($gt = $giverType; $gt -and -not $giverVanillaName; $gt = $gt.BaseType) {
+    if ($byName.ContainsKey($gt.Name) -and $byName[$gt.Name].Assembly -eq $gameAsm) { $giverVanillaName = $gt.Name }
+}
+
 $written = @{}      # metadata token -> "Type.field"
 function Collect-Written($node, [Type]$t) {
     if (-not $t) { return }
@@ -395,6 +409,7 @@ It 'every class the defs name is in this assembly, and can be built' {
     foreach ($name in 'FireworkStand.CompProperties_FireworkStand',
                       'FireworkStand.CompFireworkStand',
                       'FireworkStand.JobDriver_WatchFireworks',
+                      'FireworkStand.JoyGiver_WatchFireworkStand',
                       'FireworkStand.FireworksBridge') {
         $t = $modAsm.GetType($name)
         if (-not $t) { "$name is not in the assembly"; continue }
@@ -523,6 +538,112 @@ It 'the vanilla driver binds that method virtually, which is the whole graft' {
         }
     }
     if (-not $onTick) { 'the toil no longer takes a pre-tick action, so nothing would drive the stand' }
+}
+
+# =============================================================================================
+Section 'An empty stand: not offered, not watched, not "ready", and timed on every tick'
+# =============================================================================================
+
+It 'the joy giver takes the vanilla slot that decides whether a building is offered' {
+    # An empty stand used to be offered as recreation and, watched, paid the whole recreation without a
+    # rocket going up: the vanilla giver never looks at fuel. The mod's own giver refuses an empty stand
+    # by overriding CanInteractWith. Like the driver's, the override is declared public where the game
+    # declares it protected, so it has to be checked that it is still an override and not a new slot.
+    $t = $modAsm.GetType('FireworkStand.JoyGiver_WatchFireworkStand')
+    if (-not $t) { 'the mod has no JoyGiver_WatchFireworkStand'; return }
+    $m = $t.GetMethod('CanInteractWith', $BFid)
+    if (-not $m) { 'the mod no longer declares CanInteractWith'; return }
+    $base = $m.GetBaseDefinition()
+    if ($base.DeclaringType.Name -ne 'JoyGiver_InteractBuilding') {
+        "its base definition is $($base.DeclaringType.FullName).$($base.Name), not the vanilla giver's"
+    }
+    if ($m.Attributes.HasFlag([System.Reflection.MethodAttributes]::NewSlot)) {
+        'the override is marked NewSlot, so the game would go on asking the vanilla method'
+    }
+    if ($t.BaseType.Name -ne 'JoyGiver_WatchBuilding') {
+        "the giver derives from $($t.BaseType.Name), not from the vanilla watch-building giver"
+    }
+}
+
+It 'the vanilla giver decides through that method, so a refusal there keeps the colonist away' {
+    # FindBestGame builds a predicate around CanInteractWith and hands it to the closest-thing search.
+    # If the game stopped calling it virtually, the override would be dead code and an empty stand would
+    # be offered again, in silence.
+    $ib = $byName['JoyGiver_InteractBuilding']
+    if (-not $ib) { 'the game has no JoyGiver_InteractBuilding any more'; return }
+    $tok = $ib.GetMethod('CanInteractWith', $BFi).MetadataToken
+    $how = @()
+    foreach ($m in (Get-AllMethods $ib $true)) {
+        foreach ($r in (Get-Refs $m)) {
+            if ($r.Kind -eq 'fld' -or $r.Kind -eq 'type') { continue }
+            if ($r.Member.MetadataToken -ne $tok) { continue }
+            $how += $r.Kind
+        }
+    }
+    if ($how.Count -eq 0) { 'nothing in the vanilla giver calls CanInteractWith any more'; return }
+    # 'call' covers callvirt here: Get-Refs does not tell the opcodes apart, as in the driver test above.
+    if ($how -notcontains 'call' -and $how -notcontains 'ldvirtftn') {
+        "it reaches it only by $(($how | Sort-Object -Unique) -join ', '), which does not dispatch to an override"
+    }
+}
+
+It 'the giver refuses a stand with nothing loaded, and the vanilla one asks nothing about fuel' {
+    # The reason the override exists. Read off both: the mod's method asks CompRefuelable for HasFuel, and
+    # the vanilla giver, its ancestors' CanInteractWith and the driver's joy tick name no CompRefuelable.
+    $t = $modAsm.GetType('FireworkStand.JoyGiver_WatchFireworkStand')
+    if (-not $t) { 'the mod has no JoyGiver_WatchFireworkStand'; return }
+    $refs = Get-Refs ($t.GetMethod('CanInteractWith', $BFid))
+    if (-not (Test-Calls $refs 'CompRefuelable' 'get_HasFuel')) { 'the giver no longer asks CompRefuelable.HasFuel' }
+    foreach ($vt in 'JoyGiver_InteractBuilding', 'JoyGiver_WatchBuilding') {
+        $g = $byName[$vt]
+        $m = $g.GetMethod('CanInteractWith', $BFid)
+        if (-not $m) { continue }
+        $vr = Get-Refs $m
+        if (@($vr | Where-Object { $_.Member.DeclaringType -and $_.Member.DeclaringType.Name -eq 'CompRefuelable' }).Count -gt 0) {
+            "the vanilla $vt.CanInteractWith now asks about fuel, so the mod's refusal may be redundant"
+        }
+    }
+}
+
+It 'the watching job ends when the show is over, and the joy tick is still vanilla''s' {
+    # The vanilla joy tick does not ask the stand, so without this the colonist would go on gaining
+    # recreation in front of a stand that has fired its last rocket.
+    $t = $modAsm.GetType('FireworkStand.JobDriver_WatchFireworks')
+    $refs = Get-Refs ($t.GetMethod('WatchTickAction', $BFid))
+    if (-not (Test-Calls $refs 'CompFireworkStand' 'ShowIsOn')) { 'the driver no longer asks the stand whether the show is on' }
+    if (-not (Test-Calls $refs 'JobDriver' 'EndJobWith')) { 'the driver never ends the job' }
+    if (-not (Test-Calls $refs 'JobDriver_WatchBuilding' 'WatchTickAction')) { 'the driver no longer calls the vanilla tick, so nothing would be inherited' }
+}
+
+It 'the inspect line says nothing when nothing is loaded' {
+    $t = $modAsm.GetType('FireworkStand.CompFireworkStand')
+    $refs = Get-Refs ($t.GetMethod('CompInspectStringExtra', $BFid))
+    if (-not (Test-Calls $refs 'CompRefuelable' 'get_HasFuel')) {
+        'the inspect line no longer looks at the fuel, so an empty stand would read "ready to fire" again'
+    }
+}
+
+It 'the comp times its effects in CompTick, which the game runs on every tick' {
+    # For a building whose ticker is Normal the game runs CompTick on every tick and CompTickInterval only
+    # every UpdateRateTicks ticks (Thing.DoTick). The effects lived in CompTickInterval: a sixty-tick fuse
+    # smoking every twelve ticks fell between two calls, and on the first full Pickle run the smoke could
+    # not be seen at all. Read off both sides.
+    $t = $modAsm.GetType('FireworkStand.CompFireworkStand')
+    if (-not $t.GetMethod('CompTick', $BFid)) { 'the comp no longer declares CompTick' }
+    if ($t.GetMethod('CompTickInterval', $BFid)) { 'the comp declares CompTickInterval again, which the game calls only every few ticks' }
+    $twc = $byName['ThingWithComps']
+    $tick = $twc.GetMethod('Tick', $BFid)
+    if (-not $tick) { 'the game has no ThingWithComps.Tick any more'; return }
+    if (-not (Test-Calls (Get-Refs $tick) 'ThingComp' 'CompTick')) { 'ThingWithComps.Tick no longer runs CompTick on every tick' }
+    $th = $gameAsm.GetType('Verse.Thing')
+    $doTick = $th.GetMethod('DoTick', $BFi)
+    # Tick and TickInterval are declared on Entity, the base of Thing. DoTick calls Tick on every tick, and
+    # reaches TickInterval only through the update rate: that is the throttle the effects fell victim to.
+    $doRefs = Get-Refs $doTick
+    if (-not (Test-Calls $doRefs 'Entity' 'Tick')) { 'Thing.DoTick no longer calls Tick on every tick for a Normal ticker' }
+    if (-not (Test-Calls $doRefs 'GenTicks' 'IsTickInterval')) {
+        'Thing.DoTick no longer throttles TickInterval: CompTickInterval may now be fine, and this test can be relaxed'
+    }
 }
 
 # =============================================================================================
@@ -709,7 +830,9 @@ It 'every setting on the joy giver is read by the giver class the def names' {
     # unroofedOnly and desireSit belong to one particular giver. Point the def at another class
     # and they stay in the XML, stay unread, and the stand gets used under a roof by colonists
     # dragging chairs about.
-    $t = $byName[$giverClassName]
+    # The def now names this mod's own giver, a subclass of the vanilla one: the settings are still read
+    # by the vanilla ancestors, so the family is walked from the mod's class upwards.
+    $t = $giverType
     if (-not $t) { "no class named $giverClassName"; return }
     $family = Get-Ancestry $t
     $family['JoyGiverDef'] = $true      # giverClass itself is read by JoyGiverDef.Worker
@@ -808,8 +931,9 @@ It 'the audience is bigger than vanilla''s, deliberately, and not by an order of
 It 'the stand is picked about as often as vanilla''s buildings on this giver' {
     $mine = Get-Text $giverNode 'baseChance'
     if (-not $mine) { 'the giver declares no baseChance'; return }
-    $cousins = @($vanillaGivers.GetEnumerator() | Where-Object { $_.Value.Giver -eq $giverClassName -and $_.Value.Chance })
-    if ($cousins.Count -eq 0) { "no vanilla giver uses $giverClassName, so there is nothing to compare with"; return }
+    # The giver is this mod's own subclass, so its cousins are the vanilla givers of the nearest vanilla class.
+    $cousins = @($vanillaGivers.GetEnumerator() | Where-Object { $_.Value.Giver -eq $giverVanillaName -and $_.Value.Chance })
+    if ($cousins.Count -eq 0) { "no vanilla giver uses $giverVanillaName, so there is nothing to compare with"; return }
     $values = @($cousins | ForEach-Object { [double]$_.Value.Chance } | Sort-Object -Unique)
     if ([double]$mine -lt $values[0] -or [double]$mine -gt $values[-1]) {
         "$mine, where the vanilla givers on this class use $($values -join ', ')"

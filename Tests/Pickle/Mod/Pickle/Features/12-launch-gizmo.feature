@@ -9,6 +9,13 @@
 # find no gizmo, and the pass without Ideology (`wsl-deps.sans-ideology.map`, which leaves the DLC out of
 # the staged set) must find one. The capture shows the selected launcher's gizmo bar for a person.
 #
+# NO TICK MAY RUN IN THIS SCENARIO. The first attempt at the pass without Ideology (2026-09-24) died: the
+# fixture save's colonists carry Ideology-related state, and without the DLC the game throws a
+# NullReferenceException in Pawn_AgeTracker on every tick, so every scenario that ran the clock failed and the
+# launcher killed the run. Nothing here waits for ticks, so nothing ticks: the launcher is spawned, read,
+# selected and photographed without the clock running. That is why the pass without Ideology plays this one
+# feature only (Run-Passes.ps1 names it), the other scenarios being played in full by the two passes with the DLC.
+#
 # The gizmo's label and tooltip are Fireworks' own keys (`LaunchFirework`, `LaunchFireworkDesc`) that this
 # mod translates into French; the capture of the without-Ideology pass, in each language, is where that
 # is read.
@@ -24,6 +31,5 @@ Feature: the inherited launch gizmo is there exactly when Ideology is not
     When I zoom all the way in
     And I move the camera to (140, 150)
     And Firework Stand: I select the "FireworkLauncher" at x=140 z=150
-    And I wait 30 ticks
     Then I take a screenshot "the selected launcher and the gizmos it offers"
     And no errors were logged

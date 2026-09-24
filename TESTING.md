@@ -13,7 +13,7 @@ It is one half of the testing. The other half needs no colony and runs in fiftee
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
 ```
 
-Those 25 tests read off the compiled game, and off telardo's assembly, that the things this mod
+Those 31 tests read off the compiled game, and off telardo's assembly, that the things this mod
 delegates to still do what it delegates them for - the virtual slot the job driver grafts onto,
 the `IThingGlower` veto the light rests on, the method and field the bridge reaches for by name.
 Run that first: it is faster than building a stand, and a failure there explains a scenario below
@@ -137,8 +137,8 @@ to zero and confirm the stand stops firing and says `No fireworks loaded`.
 Read the inspect line between salvoes. It should count down (`Reloading: …`) and then read
 `Ready to fire`.
 
-> Known rough edge, not a blocker: the line reads `Ready to fire` even on an empty rack, because
-> it reports the interval and not the fuel. The refuelable gauge says the truth right beside it.
+> Fixed in 0.1.1 (it read `Ready to fire` even on an empty rack, because
+> it reported the interval and not the fuel): the line now says nothing when nothing is loaded, and the refuelable gauge says so right beside it.
 
 ## 8 — Save and reload mid-cycle
 
@@ -202,7 +202,7 @@ a person looks at for each one. Read the tag before the colour: `@review` assert
 | translation checks | `04-labels`, `11-inspect-pane` | asserted labels in each language; stills of the inspect pane in each |
 | launch gizmo with and without Ideology | `12-launch-gizmo` | still in the pass without Ideology; presence asserted in every pass |
 
-**Passes the mod needs: three,** each playing the whole suite (26 scenarios, none `@wip`, none conditional on a
+**Passes the mod needs: three,** the first two playing the whole suite (27 scenarios, none `@wip`, none conditional on a
 tag). It declares no optional mod and no incompatibility, so there is no "with optional mods" pass and none per
 incompatibility. All on the minimal WSL set (Core, the DLC, Harmony, RimLogging, Pickle, Fireworks, the mod):
 
@@ -210,7 +210,9 @@ incompatibility. All on the minimal WSL set (Core, the DLC, Harmony, RimLogging,
 | --- | --- |
 | English, every DLC | `Run-PickleWsl.ps1 -Mod FireworkStand` |
 | French | `Run-PickleWsl.ps1 -Mod FireworkStand -Language French` |
-| Without Ideology | `Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map` |
+| Without Ideology, feature 12 only | `Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature` |
+
+**Why the third pass plays one feature only.** The fixture save's colonists carry state that needs the Ideology DLC: without it the game throws a NullReferenceException in `Pawn_AgeTracker` on every tick, so any scenario that runs the clock fails and the launcher kills the run (first attempt, 2026-09-24). `12-launch-gizmo` is written so that no tick runs. Everything else is played in full, with Ideology, by the first two passes.
 
 `Tests/Pickle/Run-Passes.ps1` plays the three in turn and keeps the evidence of each run on disk under `Tests/Pickle/runs/` (ignored by git) and writes a text summary of it in `docs/runs/`. Two
 scenarios read the game to know what to assert in a pass (`04-labels` reads the active language, `12-launch-gizmo`

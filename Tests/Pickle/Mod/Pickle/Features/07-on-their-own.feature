@@ -6,9 +6,10 @@
 # from the compiled game on 2026-09-21): it offers a building that can be reserved, is not
 # forbidden, is not fogged, is socially proper, is not under vacuum, has power if it has a power
 # comp, and, when the def says unroofedOnly, is not under a roof. It never looks at fuel: an EMPTY
-# stand is offered too, and watching one earns the colonist full recreation without a rocket going
-# up, because the driver's joy tick is vanilla's and does not ask the stand. That is a design
-# question rather than something to assert here; see STATUS.md.
+# stand was offered too, and watching one earned the colonist full recreation without a rocket going
+# up, because the driver's joy tick is vanilla's and does not ask the stand. The owner decided on
+# 2026-09-24 that an empty stand gives no recreation: the mod now has its own giver that refuses an
+# empty stand, and its driver ends the job once the show is over. The last scenario asserts it.
 #
 # WHAT THESE SCENARIOS CANNOT PROMISE. The colonist is bored, alone, and the stand is the only
 # recreation building this scenario puts on the map; the fixture colony may have others, and the
@@ -50,3 +51,21 @@ Feature: a bored colonist goes to the stand by themselves
     When I wait 600 ticks
     Then Firework Stand: "Idle" does not watch any stand
     And Firework Stand: the stand at x=140 z=150 holds 2 launchers
+
+  # The owner's rule of 2026-09-24: an empty stand gives no recreation. The colonist is as bored as in the two
+  # scenarios above and the stand is the only one on the map, but nothing is loaded, so the mod's giver must
+  # refuse it. Asserted three times over 1800 ticks, like the roofed control, and the count of launchers is
+  # still zero at the end (nothing was fired by anyone).
+  Scenario: a stand with nothing loaded is never used
+    Given a colonist "Idle" exists
+    And a "FS_FireworkStand" is built at (140, 150)
+    And Firework Stand: the stand at x=140 z=150 is loaded with 0 launchers
+    And Firework Stand: "Idle" is bored
+    And game speed is ultrafast
+    When I wait 600 ticks
+    Then Firework Stand: "Idle" does not watch any stand
+    When I wait 600 ticks
+    Then Firework Stand: "Idle" does not watch any stand
+    When I wait 600 ticks
+    Then Firework Stand: "Idle" does not watch any stand
+    And Firework Stand: the stand at x=140 z=150 holds 0 launchers

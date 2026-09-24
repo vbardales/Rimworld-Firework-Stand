@@ -46,7 +46,7 @@ $launcher = Join-Path $collection 'scripts\Run-PickleWsl.ps1'
 $live = Join-Path $collection 'pickle-reports'
 $archive = Join-Path $collection 'pickle-reports-archive'
 $features = Join-Path $PSScriptRoot 'Mod\Pickle\Features'
-$signature = 'the mod is active and loads after Fireworks'   # first scenario of this suite
+$script:ourScenarios = @()   # filled below, once the functions exist
 
 # Pickle names a still or a film folder from the words it was given, every character that is not a letter
 # or a digit becoming a hyphen: "before the salvo: the loaded stand" -> "before-the-salvo--the-loaded-stand".
@@ -66,10 +66,21 @@ function Get-OurFilmPrefixes {
     } | Sort-Object -Unique
 }
 
+function Get-OurScenarioNames {
+    Get-ChildItem -LiteralPath $features -Filter '*.feature' | ForEach-Object {
+        Select-String -LiteralPath $_.FullName -Pattern '^\s*Scenario:\s*(.+?)\s*$' |
+            ForEach-Object { $_.Matches[0].Groups[1].Value }
+    } | Sort-Object -Unique
+}
+
+# A report is this suite's if it names one of this suite's scenarios. Not a single fixed one: the pass without
+# Ideology plays one feature only, so the first scenario of the suite is not in its report.
 function Test-IsOurs($dir) {
     $f = Join-Path $dir 'summary.json'
     if (-not (Test-Path -LiteralPath $f)) { return $false }
-    return (Get-Content -LiteralPath $f -Raw).Contains($signature)
+    $text = Get-Content -LiteralPath $f -Raw
+    foreach ($name in $script:ourScenarios) { if ($text.Contains($name)) { return $true } }
+    return $false
 }
 
 function Save-Evidence($dir, $target) {
@@ -154,9 +165,10 @@ function Write-TextSummary($evidence, $pass, $launcherExit, $textFile) {
 $args_by_pass = @{
     'english'       = @()
     'french'        = @('-Language', 'French')
-    'sans-ideology' = @('-DepMap', 'wsl-deps.sans-ideology.map')
+    'sans-ideology' = @('-DepMap', 'wsl-deps.sans-ideology.map', '-Filter', '12-launch-gizmo.feature')
 }
 
+$script:ourScenarios = @(Get-OurScenarioNames)
 Push-Location $collection
 try {
     foreach ($pass in $Passes) {

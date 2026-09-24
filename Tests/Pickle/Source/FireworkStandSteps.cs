@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using RimWorks.Pickle;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -516,6 +517,41 @@ namespace FireworkStand.PickleSteps
                 $"the Architect tab lists no {def.designationCategory?.defName} category; it lists: "
                 + string.Join(", ", panels.Select(p => p.def.defName)));
             window.selectedDesPanel = panel;
+        }
+
+        // ------------------------------------------------------------------ the smoke
+
+        /// <summary>
+        /// Counts the game's own Smoke flecks within two and a half cells of the stand, by reading every
+        /// fleck system of the map: the one thing that tells "the puffs are thrown and too faint to see"
+        /// from "the puffs are never thrown". The first full run showed no smoke on any capture, and
+        /// nothing could say which of the two it was; the cause was the comp's timing (CompTickInterval
+        /// runs only every few ticks for a Normal ticker), and this step is what keeps it from returning
+        /// unseen. Asserts a count, not a picture: whether the smoke is visible enough is a person's call.
+        /// </summary>
+        [Then("Firework Stand: at least {int} smoke puffs are near the stand at x={int} z={int} now")]
+        public void SmokeNear(PickleContext ctx, int minimum, int x, int z)
+        {
+            Thing stand = StandAt(ctx, x, z);
+            Map map = CurrentMap(ctx);
+            Vector3 at = stand.DrawPos;
+            int near = 0;
+            int onMap = 0;
+            foreach (FleckSystem system in map.flecks.Systems)
+            {
+                foreach (IFleck fleck in system.EnumerateFlecks())
+                {
+                    var def = fleck.GetType().GetField("def")?.GetValue(fleck) as FleckDef;
+                    if (def == null || def.defName != "Smoke") continue;
+                    onMap++;
+                    Vector3 p = fleck.GetPosition();
+                    float dx = p.x - at.x, dz = p.z - at.z;
+                    if (dx * dx + dz * dz <= 2.5f * 2.5f) near++;
+                }
+            }
+            ctx.Assert(near >= minimum,
+                $"{near} smoke puffs within 2.5 cells of the stand at x={x} z={z}, not at least {minimum} "
+                + $"({onMap} smoke flecks on the whole map). The fuse throws one every smokeInterval ticks for launchDelay ticks.");
         }
 
         // ------------------------------------------------------------------ the memory

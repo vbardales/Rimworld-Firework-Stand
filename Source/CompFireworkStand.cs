@@ -91,9 +91,33 @@ namespace FireworkStand
             }
         }
 
-        public override void CompTickInterval(int delta)
+        /// <summary>
+        /// True while the show is worth watching: launchers are loaded, or the last rocket was fired
+        /// so recently that its fuse, its burst and its light are still going. Once it is over on an
+        /// empty stand, nobody has anything left to watch and the watching job ends.
+        /// </summary>
+        public bool ShowIsOn()
         {
-            base.CompTickInterval(delta);
+            var fuel = Fuel;
+            if (fuel != null && fuel.HasFuel) return true;
+            var sinceShot = Find.TickManager.TicksGame - lastShotTick;
+            return sinceShot >= 0 && sinceShot < Props.launchDelay + Props.flashTicks + AfterglowTicks;
+        }
+
+        /// <summary>How long a watcher stays on after the last rocket has left: the burst still hangs in the sky.</summary>
+        private const int AfterglowTicks = 180;
+
+        /// <summary>
+        /// The effects are timed in CompTick, which the game runs on EVERY tick, and not in
+        /// CompTickInterval. For a building whose ticker is Normal the game calls CompTickInterval
+        /// only every UpdateRateTicks ticks (Thing.DoTick: `tickDelta >= num || IsTickInterval(...)`),
+        /// so a fuse that lasts sixty ticks and a puff every twelve fell between two calls: on the
+        /// first full run of the Pickle suite the fuse smoke could not be seen at all, and the light
+        /// went out late. `now % smokeInterval == 0` is safe here because the tick is never skipped.
+        /// </summary>
+        public override void CompTick()
+        {
+            base.CompTick();
 
             if (!parent.Spawned) return;
             var map = parent.Map;
@@ -105,11 +129,9 @@ namespace FireworkStand
             // 1. The fuse is burning: a thread of smoke at the foot of the stand.
             if (!departed && sinceShot >= 0 && sinceShot < Props.launchDelay)
             {
-                // `% interval < delta` and not `% interval == 0`: in 1.6 the game can skip several
-                // ticks at once, and an equality test would miss the window outright.
-                if (Props.smokeInterval > 0 && now % Props.smokeInterval < delta)
+                if (Props.smokeInterval > 0 && now % Props.smokeInterval == 0)
                 {
-                    FleckMaker.ThrowSmoke(parent.DrawPos, map, 0.7f);
+                    FleckMaker.ThrowSmoke(parent.DrawPos, map, 1.0f);
                 }
             }
 
@@ -200,6 +222,11 @@ namespace FireworkStand
         public override string CompInspectStringExtra()
         {
             if (!FireworksBridge.Available) return null;
+
+            // An empty stand is not "ready to fire": the reload interval says nothing when there is
+            // nothing to fire, and the fuel gauge beside this line already says that nothing is loaded.
+            var fuel = Fuel;
+            if (fuel == null || !fuel.HasFuel) return null;
 
             var remaining = Props.shotInterval - (Find.TickManager.TicksGame - lastShotTick);
             if (remaining <= 0) return "FireworkStand.Ready".Translate();

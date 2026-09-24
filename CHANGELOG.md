@@ -1,3 +1,21 @@
+# 0.1.1
+
+Three defects found on the first full in-game run of the Pickle suite, and confirmed by the owner. The stand's saved
+data is unchanged, so a colony saved with 0.1.0 loads as it was.
+
+### Fixed
+
+- **The fuse smoke could not be seen.** The stand's effects (the fuse smoke, the launch puff and sparks, the light going
+  out) were timed in `CompTickInterval`, which the game runs only every few ticks for a building with a Normal ticker,
+  so a sixty-tick fuse smoking every twelve ticks fell between two calls. They are now timed in `CompTick`, which runs on
+  every tick, the puffs are a little larger and closer together, and the light goes out on time. A new functional test
+  reads the game to keep it from coming back.
+- **An empty stand no longer gives recreation.** The base game's watch-building giver never looks at fuel, so colonists
+  went to an empty stand and were paid the whole recreation without a rocket going up. The stand now has its own joy
+  giver that refuses an empty stand, and the watching job ends once the last rocket has gone and its burst has faded.
+- **An empty stand no longer reads "ready to fire".** The inspect line reported the reload interval and not the fuel; it
+  now says nothing when nothing is loaded, and the fuel gauge beside it says so.
+
 # 0.1.0
 
 First version. RimWorld 1.6. Creation of the `PublishedFileId.txt` file (`Mod/About/PublishedFileId.txt`): the
@@ -31,7 +49,7 @@ Workshop item, 3806767445, was created by the first upload and is private until 
 
 - The scenarios of `TESTING.md` are played by Pickle in a real game (`Tests/Pickle/`), which records captures and
   films for a person to validate. `TESTING.md` and `STATUS.md` say what has run and what has not.
-- `_tools/Run-Functional-Tests.ps1` settles what a colony is not needed for: 25 tests, fifteen
+- `_tools/Run-Functional-Tests.ps1` settles what a colony is not needed for: 31 tests, fifteen
   seconds, no game launched. It reads off the compiled game that the hooks this mod grafts onto
   still do what it grafts onto them for, and off telardo's assembly that the three things reached
   by reflection are still there under those names. Twenty of the tests have been seen to fail on

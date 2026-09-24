@@ -15,6 +15,7 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 | --- | --- | --- | --- |
 | [`2026-09-24-french.md`](2026-09-24-french.md) | 26 scenarios, reshaped suite | 26 passed, `passed` | kept, 7 stills |
 | [`2026-09-23-english.md`](2026-09-23-english.md) | 26 scenarios, reshaped suite | 26 passed, `passed` | kept, 13 stills, 5 films |
+| [`2026-09-24-sans-ideology.md`](2026-09-24-sans-ideology.md) | first attempt, whole suite | killed as stalled: the fixture throws every tick without Ideology; not a result about the mod | deleted |
 | 2026-09-21 20:28, English, **report lost** | 21 scenarios, earlier shape | 18 passed, **1 failed**, 2 skipped, `failed`; which scenario failed is unknown | none |
 | [`2026-09-21-french-full.md`](2026-09-21-french-full.md) | 21 scenarios, earlier shape | 21 passed, `passed` | deleted 2026-09-24, superseded |
 | [`2026-09-21-english-first-four.md`](2026-09-21-english-first-four.md) | first four features, 11 scenarios | 8 passed, 3 skipped, `passed` | deleted 2026-09-23, superseded |

@@ -30,15 +30,15 @@ remaining:
   - blocking (done -> tested), gates set by the owner on 2026-09-23: (1) no scenario left in @wip: met, none in the suite; (2) every conditional scenario has run: none is conditional on a tag; the three passes must run green: English 26/26 (2026-09-23) and French 26/26 (2026-09-24) are green, the pass without Ideology is still to run (its first attempt died in the launcher after 7 hours in the queue, the ticket file having vanished, an infrastructure failure and not a test result; requeued 2026-09-24); (3) no manual test left to validate, all green: nothing is manual any more (Fireworks absent is not applicable, justified in TESTING.md), so what remains is the owner validating the captures and films, opened so far only by the session that ran them (docs/runs/2026-09-23-english.md and 2026-09-24-french.md say which).
   - resolved 2026-09-23: the bridge is now exercised: the stand's inspect line ("Ready to fire", which CompInspectStringExtra only returns once FireworksBridge.Available is true) appears on the captures of both passes, and the selecting scenario passed with no Firework Stand warning. The earlier vacuity defect of the test is closed.
   - resolved 2026-09-21: the vanilla joy giver was read (JoyGiver_WatchBuilding, JoyGiver_InteractBuilding, JobDriver_WatchBuilding, decompiled from the installed game). It never looks at fuel, so an empty stand IS offered as recreation.
-  - defect (design, found by reading the source, unplayed): because the giver ignores fuel and the driver's joy tick is vanilla's, a colonist who watches an EMPTY stand gains full fireworks recreation and no rocket goes up. The stand's guard is on firing, not on the joy. The mod's description says the stand "never wastes a rocket on an empty field"; it does not say an empty stand yields nothing, so this may be intended, but it is a cheap source of recreation. Not changed by this audit (no development); decision for the maintainer.
+  - fixed 2026-09-24 in 0.1.1 (the owner decided an empty stand gives no recreation): the mod has its own joy giver (JoyGiver_WatchFireworkStand) that refuses an empty stand, and the watching driver ends the job once the show is over; pinned by functional tests and by 07-on-their-own and 08-fuel. Not yet played in game: needs the passes on the new build.
   - superseded 2026-09-23: the suite is now 26 scenarios in 13 features, none @wip, played by three passes (see the blocking item and the section at the end); none of it has been run in this shape. The scenarios that stage a colonist's own choice (07), the sleeper (10) and the cells chosen (140,150 and the roofed patch) are guesses about the fixture colony until a run.
   - note: the run's log holds one ERROR ("Firework Stand - Pickle tests did not load any content") and one dependency-URL warning; both come from the content-less companion mod and appear the same way in the Adaptive Storage companion's log. Not the mod under test.
   - accepted: current Preview including its camera explicitly approved by the user on 2026-09-13; no camera revision required
   - done 2026-09-23 and 24: English and French in-game checks ran as scenarios (04-labels green in both languages, the inspect pane, the blueprint and the Architect menu captured in each language, none showing a raw key, an English fallback or a clipped line in the captures opened); the launch gizmo with Ideology is asserted absent in both passes, its presence without Ideology waits for the third pass. The owner's validation of the captures is still to come.
   - unverified: all nine manual scenarios and English/French UI/log checks remain required for tested; the historical publishing subset does not waive this gate
   - limitation: five existing assembly contract tests have no recorded mutation test; passing outside the game does not establish runtime behaviour
-  - defect: inspect line says Ready to fire on an empty rack; the fuel gauge remains accurate (seen again on the 2026-09-23 captures, English and French)
-  - defect (cosmetic, confirmed by the owner 2026-09-24): the fuse smoke is not visible. On the fuse still and the launch still, enlarged, there is no smoke thread and no thick puff, only a faint haze and a few sparks. Cause unknown: FleckMaker.ThrowSmoke may be called and too faint against the sand, or not called. Nothing in the suite can assert a fleck; a step counting the flecks near the stand would tell which. TESTING.md scenario 5 says this does not gate publishing.
+  - fixed 2026-09-24 in 0.1.1: the inspect line says nothing when nothing is loaded (functional test; the empty-stand capture to be re-taken on the new build).
+  - fixed 2026-09-24 in 0.1.1, root cause found: the stand's effects were timed in CompTickInterval, which the game runs only every few ticks for a Normal ticker (Thing.DoTick), so the fuse smoke fell between two calls. Moved to CompTick (every tick), puffs a little larger and closer together (smokeInterval 12 to 8, size 0.7 to 1.0). A functional test pins the timing and a Pickle step counts the smoke puffs near the stand; whether the smoke is now visible enough is the owner's call on the new build.
   - confirmed by the owner 2026-09-24: the light is a flash at the rocket's departure, not a lamp (scenario 4).
   - accepted: orange-face mod icon deviation accepted on 2026-09-04
 session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
@@ -612,3 +612,29 @@ the empty stand still reads "Ready to fire" beside a 0 / 10 gauge (the known rou
 
 Evidence trimmed under the root rule: the first French run's folder was deleted as superseded, the new runs keep only their
 raw result, minified stills and the films (English only); see `docs/runs/`. Stage stays `done`.
+
+## Version 0.1.1: three defects fixed at the root — 2026-09-24
+
+Decided with the owner after the first full in-game runs: fix the fuse smoke, the "Ready to fire" line on an empty stand,
+and make an empty stand give no recreation. Source changes (the mod's DLL is new, `Mod/Assemblies/FireworkStand.dll`):
+
+- **Root cause of the invisible smoke, read from the game:** `Thing.DoTick` runs `Tick()` on every tick but `TickInterval()`
+  only every `UpdateRateTicks` ticks, and all the stand's effects were in `CompTickInterval`. The effects are now in
+  `CompTick`. Puffs: `smokeInterval` 12 to 8, size 0.7 to 1.0.
+- **Empty stand, no recreation:** `JoyGiver_WatchFireworkStand` (a subclass of the vanilla watch-building giver, no Harmony)
+  refuses a stand with nothing loaded; `JobDriver_WatchFireworks` ends the job once `CompFireworkStand.ShowIsOn()` is false
+  (no fuel and the last rocket long gone).
+- **"Ready to fire":** `CompInspectStringExtra` returns nothing when the stand has no fuel.
+- `Stand.xml`: `giverClass` names the new class, `smokeInterval` is 8. No change to saved fields.
+
+Checks made: the mod builds (0 warnings, 0 errors); `_tools/Run-Functional-Tests.ps1` now has **31 tests, all passing**,
+six of them new, and those six were seen to fail against the previous version (its DLL and patch taken from HEAD); the two
+existing tests that named the vanilla giver class were adapted (they now resolve the mod's giver and compare through its
+nearest vanilla class) without weakening them; `_tools/Test-Xml.ps1` and `Check-DefInjected.ps1` pass. Pickle side: a step
+that counts smoke puffs (28 steps), an assertion in `06-fuse-and-launch`, a scenario for the empty stand in
+`07-on-their-own`, the watcher having stopped in `08-fuel`, and the pass without Ideology reduced to `12-launch-gizmo` (the
+fixture throws on every tick without Ideology, see docs/runs/2026-09-24-sans-ideology.md).
+
+**Nothing has been played on the new build.** The runs of 2026-09-23 and 24 are for the previous DLL and prove nothing
+about this one; the three passes must be replayed, and the smoke, the empty-stand line and the empty-stand behaviour
+looked at again. The item on Steam has the old DLL: an update upload is needed. Stage stays `done`.
