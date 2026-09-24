@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using RimWorks.Pickle;
 using RimWorld;
@@ -537,12 +538,14 @@ namespace FireworkStand.PickleSteps
             Vector3 at = stand.DrawPos;
             int near = 0;
             int onMap = 0;
+            var seen = new Dictionary<string, int>();
             foreach (FleckSystem system in map.flecks.Systems)
             {
                 foreach (IFleck fleck in system.EnumerateFlecks())
                 {
-                    var def = fleck.GetType().GetField("def")?.GetValue(fleck) as FleckDef;
-                    if (def == null || def.defName != "Smoke") continue;
+                    string name = FleckDefName(fleck);
+                    seen[name] = seen.TryGetValue(name, out int n) ? n + 1 : 1;
+                    if (name != "Smoke") continue;
                     onMap++;
                     Vector3 p = fleck.GetPosition();
                     float dx = p.x - at.x, dz = p.z - at.z;
@@ -551,7 +554,30 @@ namespace FireworkStand.PickleSteps
             }
             ctx.Assert(near >= minimum,
                 $"{near} smoke puffs within 2.5 cells of the stand at x={x} z={z}, not at least {minimum} "
-                + $"({onMap} smoke flecks on the whole map). The fuse throws one every smokeInterval ticks for launchDelay ticks.");
+                + $"({onMap} smoke flecks on the whole map). The fuse throws one every smokeInterval ticks for launchDelay ticks. "
+                + "Flecks on the map by def: "
+                + (seen.Count == 0 ? "none at all" : string.Join(", ", seen.OrderByDescending(kv => kv.Value).Take(8).Select(kv => $"{kv.Key} x{kv.Value}"))));
+        }
+
+        /// <summary>
+        /// The def of a fleck, whatever kind it is. FleckStatic carries `def`; FleckThrown, which is what
+        /// smoke is, has none of its own and wraps a FleckStatic in `baseData`. The first version of the
+        /// smoke step read only `def`, saw no smoke on a stand that was smoking, and failed a green build:
+        /// it counted nothing, and the count it reported ("0 smoke flecks on the whole map") looked like
+        /// a finding about the mod.
+        /// </summary>
+        private static string FleckDefName(IFleck fleck)
+        {
+            object holder = fleck;
+            Type type = fleck.GetType();
+            FieldInfo baseData = type.GetField("baseData");
+            if (baseData != null)
+            {
+                holder = baseData.GetValue(fleck);
+                type = holder.GetType();
+            }
+            var def = type.GetField("def")?.GetValue(holder) as FleckDef;
+            return def?.defName ?? "(unreadable " + fleck.GetType().Name + ")";
         }
 
         // ------------------------------------------------------------------ the memory

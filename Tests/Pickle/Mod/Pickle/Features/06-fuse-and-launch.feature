@@ -22,6 +22,9 @@ Feature: the fuse smokes, then the rocket leaves
     And a "FS_FireworkStand" is built at (140, 150)
     And Firework Stand: the stand at x=140 z=150 is loaded with 1 launchers
     And Firework Stand: "Watcher" is bored
+    # Placed a few cells from the stand: at normal speed the walk from the fixture's colonists took the whole 60 seconds a
+    # film is allowed, and the first film of this scenario ended with the watcher still on the way, before any fuse.
+    And Firework Stand: "Watcher" is placed at x=135 z=150
     And game speed is normal
     When I zoom all the way in
     And I move the camera to (140, 150)
@@ -36,6 +39,9 @@ Feature: the fuse smokes, then the rocket leaves
     And a "FS_FireworkStand" is built at (140, 150)
     And Firework Stand: the stand at x=140 z=150 is loaded with 1 launchers
     And Firework Stand: "Watcher" is bored
+    # Placed a few cells from the stand: at normal speed the walk from the fixture's colonists took the whole 60 seconds a
+    # film is allowed, and the first film of this scenario ended with the watcher still on the way, before any fuse.
+    And Firework Stand: "Watcher" is placed at x=135 z=150
     And game speed is normal
     When I zoom all the way in
     And I move the camera to (140, 150)
