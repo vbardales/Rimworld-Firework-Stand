@@ -178,8 +178,10 @@ not a conditional scenario: the whole suite is played, with Ideology, by the fir
 
 ## Queue: hand it to the TicketDispatcher, follow nothing
 
-The Pickle queue is followed by the TicketDispatcher, not by this suite: no monitor, heartbeat, cron or loop of ours. A pass is
-submitted with `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1` (one request per pass, `-EvidenceDir` under
-`Tests/Pickle/runs`), and the dispatcher wakes the session with START, END and RUN_DONE; see
-`Rimworld-Ticket-Dispatcher/docs/WELCOME.md`. `Run-Passes.ps1` is the direct route, kept as one background process for all the
-passes only until the dispatcher invites the session to submit instead.
+The Pickle queue is followed by the TicketDispatcher, not by this suite: no monitor, heartbeat, cron or loop of ours. Since
+2026-09-24 the passes are submitted with `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1` (one request per pass,
+`-EvidenceDir` under `Tests/Pickle/runs`), and the dispatcher wakes the session with START, END and RUN_DONE; see
+`Rimworld-Ticket-Dispatcher/docs/WELCOME.md`. The three requests, all on the 0.1.1 build: English (whole suite), French (whole
+suite), and without Ideology (`-DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature`). `Run-Passes.ps1` is the
+direct route it replaced; it is kept only for what it knows about this suite's evidence (which stills and films are ours) and
+is not run any more.
