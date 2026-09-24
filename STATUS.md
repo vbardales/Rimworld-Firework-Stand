@@ -37,7 +37,9 @@ remaining:
   - done 2026-09-23 and 24: English and French in-game checks ran as scenarios (04-labels green in both languages, the inspect pane, the blueprint and the Architect menu captured in each language, none showing a raw key, an English fallback or a clipped line in the captures opened); the launch gizmo with Ideology is asserted absent in both passes, its presence without Ideology waits for the third pass. The owner's validation of the captures is still to come.
   - unverified: all nine manual scenarios and English/French UI/log checks remain required for tested; the historical publishing subset does not waive this gate
   - limitation: five existing assembly contract tests have no recorded mutation test; passing outside the game does not establish runtime behaviour
-  - defect: inspect line says Ready to fire on an empty rack; the fuel gauge remains accurate
+  - defect: inspect line says Ready to fire on an empty rack; the fuel gauge remains accurate (seen again on the 2026-09-23 captures, English and French)
+  - defect (cosmetic, confirmed by the owner 2026-09-24): the fuse smoke is not visible. On the fuse still and the launch still, enlarged, there is no smoke thread and no thick puff, only a faint haze and a few sparks. Cause unknown: FleckMaker.ThrowSmoke may be called and too faint against the sand, or not called. Nothing in the suite can assert a fleck; a step counting the flecks near the stand would tell which. TESTING.md scenario 5 says this does not gate publishing.
+  - confirmed by the owner 2026-09-24: the light is a flash at the rocket's departure, not a lamp (scenario 4).
   - accepted: orange-face mod icon deviation accepted on 2026-09-04
 session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
 updated:      2026-09-23
