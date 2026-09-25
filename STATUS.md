@@ -660,3 +660,6 @@ that produced the image is in `docs/runs/`.
 - **Capture 4, the stand counting down its reload, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the owner on
   2026-09-25.** "Reloading: 0.3 hours", the count and the gauge at 3 / 10, the watching areas drawn round the selected stand.
   The count's label was still lowercase on this image (fixed in `f2ccb52`).
+- **Capture 5, the blueprint of the stand, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the owner on 2026-09-25.**
+  The translucent ghost of the stand, "Firework stand (blueprint)". She asked what "IED" is: the vanilla research project IEDs
+  (improvised explosive devices), the stand's `researchPrerequisites`, which is why the Architect menu hides the stand until it is done.
