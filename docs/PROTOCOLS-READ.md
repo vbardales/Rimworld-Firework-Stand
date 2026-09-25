@@ -18,10 +18,10 @@ monorepo and the files stay where they were. Commands on them go through
 
 | Repository | Head |
 | --- | --- |
-| protocols (`Rimworld-protocols`) | **7546e86** |
+| protocols (`Rimworld-protocols`) | **16f3c59** (was 7546e86 at the refresh) |
 | monorepo (`Documents\rimworld`) | 99d91bba |
 | `PickleTools` | 2e68653 |
-| `Rimworld-Release-Admin` | 2ce34a3 |
+| `Rimworld-Release-Admin` | f196148 (was 2ce34a3) |
 | this mod | see `git log` (this file is committed in it) |
 
 ## Rules and protocols (protocols repository)
@@ -30,7 +30,7 @@ monorepo and the files stay where they were. Commands on them go through
 | --- | --- | --- | --- | --- | --- |
 | `AGENTS.md` | 46 | 3a1d2cb, 2026-09-24 | `bb4c08c1e41a` | `bb4c08c1e41a` | in full; unchanged |
 | `AUDIT.md` | 232 | 7546e86, 2026-09-25 | `78c72fd1d1d8` | `d1368fb9340f` | in full; since then (read as a diff) two changes: my rule that a failed 32 px legibility check of the delivered ModIcon is reported and put to the owner, who decides whether to override (transition 2); and, written by **another session** at the owner's request and **swept into the same commit by mine**, an exception for `PickleTools/SoundCapture`: those tests play alone, on the Windows install, only on the owner's explicit request, with their own launcher, under the lock |
-| `PUBLISHING.md` | 683 | 04aa365, 2026-09-25 | `595db194bd47` | `b9d6db1c075c` | in full; since then one paragraph that was written twice (the `get_session("self")` corollary) was dropped |
+| `PUBLISHING.md` | 715 | 16f3c59, 2026-09-25 | `595db194bd47` | `b09f556bfaa8` | in full; since then, read as a diff: a paragraph written twice dropped; **the Steam description has one Markdown source** (a fenced block under `## Steam description` of `PUBLICATION.md`, the CI generates the BBCode and the plain `About.xml` description from it, the last line `[Source code on GitHub](URL)`; owner's decision, adopted at the next publication and not forced); **a Steam change note starts with its version** (`[b]1.3.0[/b]`); `dispatch-publish.sh` also refuses without the environment, its reviewer and both secret names; the two CI paths and what each reads; secrets copied by the owner alone with `steam-secrets-codespace.sh` |
 | `TRANSLATIONS.md` | 100 | b83933b, 2026-09-23 | `8970fe6c4aab` | `8970fe6c4aab` | in full; unchanged |
 | `MOD_SETTINGS.md` | 107 | b83933b, 2026-09-23 | `a61cd541925d` | `a61cd541925d` | in full; unchanged |
 | `STYLE_RIMWORLD.md` | 484 | 7311308, 2026-09-25 | `a23c0cea817b` | `83c8a1412d89` | in full; since then **my own edit** (`7311308`, pushed): the ModIcon generation prompt and the mascot description removed, a section "ModIcon : contrôle, pas génération" added, with the rule that a failed 32 px legibility test goes to the owner, who decides whether to override |
@@ -46,7 +46,7 @@ monorepo and the files stay where they were. Commands on them go through
 | `PickleTools/README.md` | 83 | 2e68653 | `5f7e924522de` | `1956429538c9` | in full; since then the wording of the payload: `Mod/` is now the committed Workshop payload with fourteen step DLLs, synced by `Release/Prepare-Release.ps1 -SyncMod` |
 | `PickleTools/Headless/README.md` | 487 | 2e68653 | `0a9d177ded1b` | `9e4bf0ba9028` | in full; since then (read as a diff) the request route through `Submit-PickleRun.ps1` is written in, **exit code 3 also covers a game killed by Pickle's own watchdog inside a scenario** (`pickle: watchdog tripped after 120s`), a code 99 (the request worker's, "launcher threw"), the TicketDispatcher's rule on a dead holder, and the game's stderr is printed in the run log |
 | `PickleTools/Upstream/PENDING.md` | 47 | 2e68653 | `417c160c9ce4` | `417c160c9ce4` | in full; unchanged |
-| `Rimworld-Release-Admin/docs/OPERATIONS.md` | 207 | 2ce34a3 | `70c5fba3d1e7` | `70c5fba3d1e7` | in full; unchanged |
+| `Rimworld-Release-Admin/docs/OPERATIONS.md` | 246+ | f196148 | `70c5fba3d1e7` | `70316daa3abf` | in full; since then, read as a diff: "Changing where the Steam description comes from, in both directions" (the one Markdown source, `--description-markdown PUBLICATION.md --description-heading '^## Steam description$' --about-from-description`, the `sync-about-description.mjs` check, compare the text and not the hash), "Two things that catch a mod the day it moves to the CI", and the one-command secrets procedure (`steam-secrets-codespace.sh <owner/repo>`, run by the owner) |
 | Pickle `Docs/steps.md` | 577 | **tag v4.9.1** of `RimWorks/Rimworld-Pickle` (the release in use) | `0a868879f4fa` | (fixed by the tag) | in full. Not on this machine: fetched from GitHub. The file on `main` is another blob (`2de0dc179463`, 602 lines: it adds a "World camera" section); the tag's copy is the one read |
 | `BACKLOG.md` (monorepo) | 1510 | 99d91bba | `f5b28a5b0698` | `f5b28a5b0698` | **partly**: lines 1 to 150, 273 to 326 and 1435 to 1510, plus the 20 headings. None concerns this mod; the rest is other mods' ideas, not read |
 

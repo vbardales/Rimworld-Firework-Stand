@@ -24,14 +24,11 @@ Rules that apply, and where they are written: `PUBLISHING.md` and `AUDIT.md` (pr
     --workshop-id 3806767445 --package-id nelim.fireworkstand \
     --release-title "Firework Stand {version}" \
     --require Assemblies/FireworkStand.dll --require Defs --require Patches \
-    --gallery-dir Gallery ...
+    --gallery-dir Gallery --description-markdown PUBLICATION.md --description-heading '^## Steam description$' \
+    --about-from-description
   ```
 
-  (`--description-file` with a heading, or `--description-markdown`, is chosen when it is generated, from where the
-  description text ends up living: the generator takes the fenced block under a heading of a file. Nothing here is a fenced
-  description yet, and the description is not updated by default, so no choice is made in this sheet.)
-
-  then a dry-run on the exact commit (run id and SHA noted in `STATUS.md`), then
+  (the one Markdown source for the description, see "Steam description" below), then a dry-run on the exact commit (run id and SHA noted in `STATUS.md`), then
   `dispatch-publish.sh <owner/repo> publish-tag.yml <full SHA> 0.1.1`. Only the owner approves `steam-production`. The CI
   creates the tag `v0.1.1` and the GitHub release (the `## [0.1.1]` section of `CHANGELOG.md`, dated first) after a
   successful upload: not by hand. Options `update_preview`, `update_description`, `update_title` and `update_tags` are off
@@ -40,17 +37,53 @@ Rules that apply, and where they are written: `PUBLISHING.md` and `AUDIT.md` (pr
 - **Payload.** `Mod/` as committed, including the DLL built from `Source/` (the runner has no game assemblies to build
   with): `Assemblies/FireworkStand.dll`, `Defs/FuseSmoke.xml`, `Patches/Stand.xml`, `Languages/`, `About/`.
 
-## Description
+## Steam description
 
-Sent to Steam only when the item is created, or by a publish with `update_description`. `Mod/About/About.xml` is the
-source for the first, and this block for the second if it is used. It ends, in this order, with the removal commitment at
-the top, `IF I GO QUIET` (adoption clause verbatim), `AI-GENERATED`, `THANKS`, the line pointing to `ATTRIBUTION.md` and the
-licence, and `[url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]`. Read it one last time
-before sending: `Test-Xml.ps1` checks that it ends with the link, not that it reads well.
+**One source, decided by the owner on 2026-09-25** (`PUBLISHING.md`; `Rimworld-Release-Admin/docs/OPERATIONS.md`, "Changing
+where the Steam description comes from"): the description is written once, in Markdown, in the fenced block below. The CI
+converts it to Steam BBCode and generates the plain-text `<description>` of `Mod/About/About.xml` from it, and every dry-run and
+publish stops if `About.xml` differs from it. The block cannot contain a code fence, and its last line is the source link.
+Adopted at this publication, not before: until the workflow is generated with the options above, `About.xml` stays as it is, and
+the first `sync-about-description.mjs --write` rewrites its text (read the diff). The page still carries the 0.1.0 description,
+sent when the owner created the item, and a publish replaces it only with `update_description` on.
 
-THANKS names what really helped, people and tools, each as the owner's rules ask: **telardo** for Fireworks (linked to its
-Workshop page), **Claude Code (Anthropic)** and **DALL-E (OpenAI)**, and, as development tools that are never a dependency,
-**Pickle** (RimWorks) for the in-game tests. `About.xml` does not name Pickle yet (to add after the queued runs).
+Written from the current `About.xml`, with three changes to read: headings and links instead of plain capital lines, Pickle named
+as a development tool in THANKS, and Fireworks linked to its Workshop page. The item is private, so the dry-run cannot diff
+against the page: its printed text is read by hand.
+
+```markdown
+If the original author contacts me to request its removal, I undertake to take it down promptly.
+
+Turns [telardo's Fireworks](https://steamcommunity.com/sharedfiles/filedetails/?id=2922179297) into a real recreation source, with a recreation type of its own.
+
+In the original mod, fireworks are either an Ideology ritual or a one-use item you set off by hand, and with Ideology installed the manual button is not even created, so the ritual is the only way.
+
+This adds a firework stand: a building loaded with firework launchers that colonists watch of their own accord, as recreation. The stand only fires while somebody is actually watching, so it never wastes a rocket on an empty field, and it must be built under open sky. A stand with nothing loaded gives no recreation.
+
+The show itself (the bursts, the trails, the sounds, the mood memories) is telardo's, called as it is. What this adds is the recreation type, plus the two effects his mod has no reason to provide: the fuse smoking at the top of the rack, and real light thrown across the ground for a few seconds as each rocket leaves. The stand is dark the rest of the time; it is not a lamp. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
+
+Fireworks is declared as a dependency, because the stand does nothing at all without it. The link itself is made at runtime by reflection, and the defs sit inside a guarded patch: if the mod is absent, nothing is patched and nothing errors. Ideology is not required either way. The stand appears in the Recreation category of the Architect menu once IEDs is researched. English and French.
+
+No save data of its own beyond the stand's own reload timer.
+
+## IF I GO QUIET
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+## AI-GENERATED
+
+This mod's code was written with Claude Code (Anthropic) and its images generated with DALL-E (OpenAI), under human direction, review and testing. Stated openly: designing with these tools is my job.
+
+## THANKS
+
+- [telardo](https://steamcommunity.com/sharedfiles/filedetails/?id=2922179297), for Fireworks, whose show this mod calls rather than reimplements.
+- Claude Code (Anthropic) and DALL-E (OpenAI).
+- Pickle (RimWorks), used for the in-game tests: a development tool, never a dependency of the mod.
+
+What this mod studied and what it reproduced is listed in ATTRIBUTION.md, and it is released under the MIT licence (LICENSE); both are in the repository linked below.
+
+[Source code on GitHub](https://github.com/vbardales/Rimworld-Firework-Stand)
+```
 
 ## Change notes (Steam), one block per version
 
@@ -58,15 +91,19 @@ The CI reads the block under `### <version>`. They are sent again at every updat
 
 ### 0.1.1
 
-> Fixes. The fuse now smokes visibly at the foot of the stand before each launch (the smoke was there but too faint to
+> [b]0.1.1[/b]
+> Fixes. The fuse now smokes visibly at the top of the rack before each launch (the smoke was there but too faint to
 > see). A stand with nothing loaded no longer counts as recreation: colonists stop going to it, and its inspect line no
-> longer says "Ready to fire". Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
+> longer says "Ready to fire". The fuel line starts with a capital and the stand is drawn a little smaller, so its box stays
+> in its cell. Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
 
+The CI refuses a note whose first line does not carry the version (`[b]0.1.1[/b]` or a heading): each block starts with it.
 Confirm the first sentence against the last smoke pass before sending: it says what a person was shown, not what the
 counts say.
 
 ### 0.1.0 (prepublished by hand on 2026-09-23, kept for the record)
 
+> [b]0.1.0[/b]
 > First release. Adds a firework stand: a building loaded with up to ten Fireworks launchers that colonists walk over to and
 > watch as recreation, standing, from 4 to 12 cells away. It fires one rocket per salvo, only while somebody watches, and it
 > adds its own recreation type. The fuse smokes before the launch and the ground is lit for about four seconds as the rocket
