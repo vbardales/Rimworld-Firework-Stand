@@ -653,3 +653,7 @@ that produced the image is in `docs/runs/`.
 - **Capture 2, the ground lit at night as the rocket leaves, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the
   owner on 2026-09-25.** A warm pool of light around the stand on dark ground, "Lit (50%)", 23h, the interface visible with no
   film frame: the light is a flash and not a lamp.
+- **Capture 3, the audience, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the owner on 2026-09-25.** The stand
+  with the launch puff above it, the colonist outdoors, the roofed patch with the one under it and the sleeper (Z), the watcher at
+  the door. Her question, whether the show should wake the sleeper, goes to the backlog (monorepo `BACKLOG.md`, commit
+  `678722f6`): Firework Stand does nothing about sleep, and what vanilla or Fireworks do about noise was not read.
