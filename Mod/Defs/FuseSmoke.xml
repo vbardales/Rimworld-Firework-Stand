@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The smoke of the fuse. The game's own Smoke fleck fades in over half a second, and the fuse burns for
+       one second: by the time the first puff is visible the rocket is gone, and the thread of smoke the
+       player should see at the foot of the stand never shows (0.1.1 first pass: two puffs counted near the
+       stand at the still, none visible on it). Same texture, same drift, but it is there almost at once and
+       hangs on for the length of the fuse and a little after. It needs nothing from telardo's mod. -->
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>FS_FuseSmoke</defName>
+    <graphicData>
+      <texPath>Things/Mote/Smoke</texPath>
+      <renderInstanced>true</renderInstanced>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.08</fadeInTime>
+    <solidTime>1.4</solidTime>
+    <fadeOutTime>1.6</fadeOutTime>
+    <growthRate>0.005</growthRate>
+  </FleckDef>
+
+</Defs>

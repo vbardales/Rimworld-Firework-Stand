@@ -523,7 +523,7 @@ namespace FireworkStand.PickleSteps
         // ------------------------------------------------------------------ the smoke
 
         /// <summary>
-        /// Counts the game's own Smoke flecks within two and a half cells of the stand, by reading every
+        /// Counts the fuse's own smoke flecks (FS_FuseSmoke) within two and a half cells of the stand, by reading every
         /// fleck system of the map: the one thing that tells "the puffs are thrown and too faint to see"
         /// from "the puffs are never thrown". The first full run showed no smoke on any capture, and
         /// nothing could say which of the two it was; the cause was the comp's timing (CompTickInterval
@@ -545,7 +545,7 @@ namespace FireworkStand.PickleSteps
                 {
                     string name = FleckDefName(fleck);
                     seen[name] = seen.TryGetValue(name, out int n) ? n + 1 : 1;
-                    if (name != "Smoke") continue;
+                    if (name != "FS_FuseSmoke") continue;
                     onMap++;
                     Vector3 p = fleck.GetPosition();
                     float dx = p.x - at.x, dz = p.z - at.z;

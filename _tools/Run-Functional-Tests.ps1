@@ -646,6 +646,28 @@ It 'the comp times its effects in CompTick, which the game runs on every tick' {
     }
 }
 
+It 'the fuse throws its own smoke, which fades in inside the fuse, not the game''s half-second Smoke' {
+    # The fuse burns for launchDelay ticks (one second). The game's Smoke fleck fades in over half a second, so
+    # the thread never showed: on the 0.1.1 pass two puffs were counted at the still and none could be seen.
+    $t = $modAsm.GetType('FireworkStand.CompFireworkStand')
+    $m = $t.GetMethod('ThrowFuseSmoke', $BFi)
+    if (-not $m) { 'the comp has no ThrowFuseSmoke'; return }
+    $refs = Get-Refs $m
+    if (-not (Test-Calls $refs 'FleckMaker' 'GetDataStatic')) { 'ThrowFuseSmoke no longer builds its fleck through FleckMaker.GetDataStatic' }
+    if (-not (Test-Calls (Get-Refs $t.GetMethod('CompTick', $BFid)) 'CompFireworkStand' 'ThrowFuseSmoke')) { 'the fuse no longer throws its smoke from CompTick' }
+    $xml = New-Object System.Xml.XmlDocument
+    $xml.Load((Join-Path $ModRoot 'Mod\Defs\FuseSmoke.xml'))
+    $def = $xml.SelectSingleNode("//FleckDef[defName='FS_FuseSmoke']")
+    if (-not $def) { 'Mod/Defs/FuseSmoke.xml has no FS_FuseSmoke'; return }
+    $fade = [double]::Parse($def.SelectSingleNode('fadeInTime').InnerText, [Globalization.CultureInfo]::InvariantCulture)
+    $delay = [int](Get-Text $standNode ".//launchDelay")
+    $fuseSeconds = $delay / 60.0
+    if ($fade -gt $fuseSeconds / 4) { "the smoke takes $fade s to fade in, more than a quarter of the $fuseSeconds s fuse: it would not show before the rocket leaves" }
+    $solid = [double]::Parse($def.SelectSingleNode('solidTime').InnerText, [Globalization.CultureInfo]::InvariantCulture)
+    if ($solid -lt $fuseSeconds) { "the smoke stays solid $solid s, less than the $fuseSeconds s fuse" }
+    if ((Get-Text $standNode ".//smokeInterval") -and [int](Get-Text $standNode ".//smokeInterval") -lt 1) { 'smokeInterval is not positive' }
+}
+
 # =============================================================================================
 Section 'The light, and the hook that makes it blink'
 # =============================================================================================

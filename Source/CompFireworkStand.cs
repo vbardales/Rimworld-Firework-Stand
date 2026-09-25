@@ -1,4 +1,4 @@
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -131,7 +131,7 @@ namespace FireworkStand
             {
                 if (Props.smokeInterval > 0 && now % Props.smokeInterval == 0)
                 {
-                    FleckMaker.ThrowSmoke(parent.DrawPos, map, 1.0f);
+                    ThrowFuseSmoke(map);
                 }
             }
 
@@ -161,6 +161,26 @@ namespace FireworkStand
         /// glower from the light grid when they differ. So it is called at the two instants our
         /// answer changes, and never on every tick.
         /// </summary>
+        private static FleckDef fuseSmokeDef;
+
+        /// <summary>
+        /// One puff of the fuse's smoke, at the foot of the stand. It is our own fleck (`FS_FuseSmoke`) and not
+        /// FleckMaker.ThrowSmoke: the game's Smoke takes half a second to fade in and the fuse burns for one,
+        /// so the thread never showed. The throw is otherwise ThrowSmoke's own: same drift, same spin, same
+        /// range of sizes (scaled down, it is a thread and not the launch's cloud).
+        /// </summary>
+        private void ThrowFuseSmoke(Map map)
+        {
+            Vector3 loc = parent.DrawPos;
+            if (!loc.ShouldSpawnMotesAt(map)) return;
+            if (fuseSmokeDef == null) fuseSmokeDef = DefDatabase<FleckDef>.GetNamed("FS_FuseSmoke");
+            FleckCreationData data = FleckMaker.GetDataStatic(loc, map, fuseSmokeDef, Rand.Range(1.5f, 2.5f) * 0.6f);
+            data.rotationRate = Rand.Range(-30f, 30f);
+            data.velocityAngle = Rand.Range(30, 40);
+            data.velocitySpeed = Rand.Range(0.5f, 0.7f);
+            map.flecks.CreateFleck(data);
+        }
+
         private void SetLit(bool value, Map map)
         {
             if (lit == value) return;

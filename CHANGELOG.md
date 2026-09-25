@@ -8,8 +8,10 @@ data is unchanged, so a colony saved with 0.1.0 loads as it was.
 - **The fuse smoke could not be seen.** The stand's effects (the fuse smoke, the launch puff and sparks, the light going
   out) were timed in `CompTickInterval`, which the game runs only every few ticks for a building with a Normal ticker,
   so a sixty-tick fuse smoking every twelve ticks fell between two calls. They are now timed in `CompTick`, which runs on
-  every tick, the puffs are a little larger and closer together, and the light goes out on time. A new functional test
-  reads the game to keep it from coming back.
+  every tick and the light goes out on time. That was not enough to see it: the game's own Smoke fleck fades in over half
+  a second and the fuse lasts one, so the thread was still invisible when the rocket left. The fuse now throws its own smoke
+  (`FS_FuseSmoke`, in `Mod/Defs/FuseSmoke.xml`), which is there almost at once. Functional tests read the game and the def
+  to keep both from coming back.
 - **An empty stand no longer gives recreation.** The base game's watch-building giver never looks at fuel, so colonists
   went to an empty stand and were paid the whole recreation without a rocket going up. The stand now has its own joy
   giver that refuses an empty stand, and the watching job ends once the last rocket has gone and its burst has faded.

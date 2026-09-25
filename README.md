@@ -54,7 +54,7 @@ Two halves, and only the second needs a colony.
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
 ```
 
-31 tests, fifteen seconds, no game launched. They read off the compiled game and off telardo's
+32 tests, fifteen seconds, no game launched. They read off the compiled game and off telardo's
 assembly that the things this mod delegates to still do what it delegates them for: the virtual
 slot the job driver grafts onto, the `IThingGlower` veto the light rests on, and the method and
 field the bridge reaches for by name. A RimWorld installation and a subscription to Fireworks are

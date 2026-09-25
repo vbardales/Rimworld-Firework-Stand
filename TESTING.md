@@ -13,7 +13,7 @@ It is one half of the testing. The other half needs no colony and runs in fiftee
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
 ```
 
-Those 31 tests read off the compiled game, and off telardo's assembly, that the things this mod
+Those 32 tests read off the compiled game, and off telardo's assembly, that the things this mod
 delegates to still do what it delegates them for - the virtual slot the job driver grafts onto,
 the `IThingGlower` veto the light rests on, the method and field the bridge reaches for by name.
 Run that first: it is faster than building a stand, and a failure there explains a scenario below

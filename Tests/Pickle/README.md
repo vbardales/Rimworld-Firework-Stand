@@ -74,7 +74,7 @@ captures show, which is what a person looks at (a raw key, English left in Frenc
 ## Scope: what stays out of Gherkin, and why
 
 Everything provable outside the game is proved outside it, by `_tools/Run-Functional-Tests.ps1`
-(31 tests) and `_tools/Test-Xml.ps1`. None of that is repeated here. **No scenario is `@wip`, no test is left
+(32 tests) and `_tools/Test-Xml.ps1`. None of that is repeated here. **No scenario is `@wip`, no test is left
 for a person to play**: what a person does is validate captures and films.
 
 - **Fireworks absent (TESTING.md scenario 2, negative half): not applicable, and why.** Fireworks is a hard
