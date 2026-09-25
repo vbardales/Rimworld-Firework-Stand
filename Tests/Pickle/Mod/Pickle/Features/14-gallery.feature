@@ -64,8 +64,13 @@ Feature: the Workshop gallery, in the zen meadow studio
     And I move the camera to (154, 99)
     And Firework Stand: "Miel" is ordered to watch the stand at x=154 z=98
     Then Firework Stand: "Miel" is watching the stand at x=154 z=98
-    And Firework Stand: the light of the stand at x=154 z=98 comes on within 60 seconds
+    # The first run (and its rerun) never saw the light within 60 s with the watcher at the stand. Two steps tell the two
+    # possible causes apart: the stand is asked to have fired (its launcher spent), then the light is awaited.
+    And Firework Stand: the stand at x=154 z=98 comes to hold 0 launchers within 60 seconds
+    And Firework Stand: the light of the stand at x=154 z=98 comes on within 30 seconds
     And I take a screenshot "gallery 04: the ground lit at night as the rocket leaves"
+    When I wait 100 ticks
+    Then I take a screenshot "gallery 04b: the burst at night"
     And no errors were logged
 
   @timeout:110
