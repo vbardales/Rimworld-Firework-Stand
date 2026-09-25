@@ -1,4 +1,4 @@
-# 0.1.1
+## [0.1.1] - unreleased
 
 Three defects found on the first full in-game run of the Pickle suite, and confirmed by the owner. The stand's saved
 data is unchanged, so a colony saved with 0.1.0 loads as it was.
@@ -18,7 +18,7 @@ data is unchanged, so a colony saved with 0.1.0 loads as it was.
 - **An empty stand no longer reads "ready to fire".** The inspect line reported the reload interval and not the fuel; it
   now says nothing when nothing is loaded, and the fuel gauge beside it says so.
 
-# 0.1.0
+## [0.1.0] - 2026-09-23
 
 First version. RimWorld 1.6. Creation of the `PublishedFileId.txt` file (`Mod/About/PublishedFileId.txt`): the
 Workshop item, 3806767445, was created by the first upload and is private until it is switched to public by hand.

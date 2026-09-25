@@ -13,27 +13,17 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
 
 ## Status
 
-- **English pass, 2026-09-21 19:07** (the first four features only, before this suite was widened):
-  8 of 8 non-`@wip` scenarios passed, `exitReason: passed`. Report in
-  [`docs/runs/2026-09-21-english-first-four.md`](../../docs/runs/2026-09-21-english-first-four.md). That run did not exercise the bridge to
-  Fireworks (it resolves lazily and nothing read it); `02-stand-on-map` now selects the stand, which does.
-- **The widened suite ran twice on 2026-09-21, and the two runs disagree.**
-  - *English*, 20:28 to 20:38: 21 scenarios discovered, 18 passed, **1 failed**, 2 skipped,
-    `exitReason: failed`. **The report was lost**: it was archived and then pruned by later runs before
-    it was read, so which scenario failed, its message, its captures and its films are unknown. Only the
-    totals survive, from the launcher's output.
-  - *French* (`-Language French -IncludeWip`), 22:28 to 22:38: **21 of 21 passed, 0 failed, 0
-    skipped, `exitReason: passed`.** Report, films and summary in
-    [`docs/runs/2026-09-21-french-full.md`](../../docs/runs/2026-09-21-french-full.md); the evidence (stills, films, log) is on disk and ignored by git, not in the repository; the full-size stills are kept on the
-    machine, not in git. All 16 stills and the 5 films were opened; the evidence was then trimmed to 10 clean stills, 5 films, summary.json and junit.xml (see the docs/runs summary).
-  - So the English failure is either language-dependent or intermittent, and only a second English run
-    can say which. It is the open item of this suite.
-- **Since those runs the suite was changed, and none of the change has been played:** the filmed scenarios of
-  `03`, `05`, `06`, `07` and `09` lost their stills and `05` and `06` gained a non-filmed twin that takes them; the
-  French-only `@wip` feature became `04-labels`, which runs in every pass; the two remaining manual checks became
-  `12-launch-gizmo` and `13-architect-menu`, with a third pass without Ideology. **27 scenarios (26 at that time), no `@wip`, three
-  passes, none played yet.** `Run-Passes.ps1` will play them and keep each report.
+Updated 2026-09-25. The history of every run is in [`docs/runs/`](../../docs/runs/README.md), one text line per run.
 
+- **The reshaped suite** (27 scenarios in 13 features, none `@wip`, three passes) passed 26 of 26 in English (2026-09-23)
+  and in French (2026-09-24) on the **0.1.0** build.
+- **On the 0.1.1 build** (the empty stand gives no recreation and no "Ready to fire"; the fuse smoke fixed in three steps,
+  see `CHANGELOG.md`): English ran 26 of 27, French 26 of 27, the one failure in both a bug of the smoke step, since fixed;
+  the pass without Ideology (feature 12 only) passed 1 of 1. The smoke scenarios are replayed after each tuning of the smoke;
+  the final whole-suite passes on the last build are still to run.
+- **Nothing has been validated by the owner yet**: a run shows that the path ran, not that an image shows anything.
+- The English report of 2026-09-21 20:28 was lost before it was read (a failure of unknown cause). The English pass of
+  2026-09-23 and later ones are green on every scenario the 0.1.0 suite had.
 ## The features
 
 | Feature | What it stages | Assertions before the capture | Capture |
@@ -64,7 +54,7 @@ captures show, which is what a person looks at (a raw key, English left in Frenc
 | `05-light` film and stills | Is the ground dark before, warmly lit for a few seconds when the rocket leaves, dark after? Is it a lamp, or a flash? |
 | `06-fuse-and-launch` film | Does a thread of smoke rise from the foot of the stand before the launch, then a thick puff and sparks? (Cosmetic, not a gate.) |
 | `07-on-their-own` film | Does the colonist walk over unprompted and stand, not sit? |
-| `08-fuel` still | On the empty stand, what does the inspect line say beside the gauge? (Known rough edge, see STATUS.md.) |
+| `08-fuel` still | On the empty stand, what does the inspect line say beside the gauge? (Since 0.1.1: the count and "No fireworks loaded", no "Ready to fire".) |
 | `09-save-reload` film | Is the stand, right after the reload, as the save left it? |
 | `10-audience` still | Is the layout what the scenario says: the stand, one colonist in the open, the roofed patch with the other two? |
 | `11-inspect-pane` stills, both languages | Any raw key, fallback, broken accent, clipped line, wrong paragraph break, badly formed time in the reload line? Is the blueprint the stand, and named in the language of the pass? |
@@ -97,8 +87,8 @@ researched (`13-architect-menu`).
 not under vacuum, powered if it has a power comp, and unroofed when the def says `unroofedOnly`. They
 **never look at fuel**: an empty stand is offered as recreation. The driver's joy tick is vanilla's and
 does not ask the stand either, so a colonist watching an empty stand gains full fireworks recreation
-without a rocket going up. That is a design question recorded in STATUS.md, not something a scenario
-asserts.
+without a rocket going up. That was the 0.1.0 behaviour; the owner decided an empty stand gives no recreation, and 0.1.1 has
+its own joy giver and driver that refuse it (`07-on-their-own` and `08-fuel` assert it).
 
 ## Passes
 
@@ -148,8 +138,8 @@ is. The assembly references the game and Pickle only, not the mod under test.
 - **Each film opens with about five seconds of the main menu**, the save loading, then the game at
   the closest zoom, which at the film's 960x540 makes the stand small. The stills are the better
   evidence for detail; the films are for movement.
-- **In a French game, the inspect pane of the empty stand reads "Prête à tirer" beside a gauge at
-  0 / 10**: the known rough edge, confirmed on a capture.
+- **In a French game the inspect pane of the empty stand read "Prête à tirer" beside a gauge at 0 / 10** on the 0.1.0 build:
+  fixed in 0.1.1 (the pane now says only the count and that nothing is loaded, checked on the captures of both languages).
 - **The blueprint capture shows the ghost of the stand, not its watching area.** The area is drawn
   while placing or selecting, not around a blueprint that is already down; the scenario title no
   longer claims otherwise.
@@ -159,14 +149,6 @@ is. The assembly references the game and Pickle only, not the mod under test.
 What to keep after a run, and what to delete, is in [`TESTING.md`](../../TESTING.md), "Evidence to keep": the raw result
 and the stills and films that show something, minified, on disk and out of git; a text summary in `docs/runs/`; the rest
 deleted as soon as a newer report replaces it.
-
-## Why the pass without Ideology plays one feature
-
-The first attempt (2026-09-24) played the whole suite without the DLC and died: the fixture save's colonists carry state
-that needs Ideology, and without it the game throws a `NullReferenceException` in `Pawn_AgeTracker.AgeTickInterval` on
-every tick, so every scenario that ran the clock failed and the launcher killed the run as stalled. `12-launch-gizmo`
-runs no tick (nothing waits), so it is the one feature played there, and `Run-Passes.ps1` names it with `-Filter`. This is
-not a conditional scenario: the whole suite is played, with Ideology, by the first two passes.
 
 ## Why the pass without Ideology plays one feature
 

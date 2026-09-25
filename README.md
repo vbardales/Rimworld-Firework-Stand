@@ -58,8 +58,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.
 assembly that the things this mod delegates to still do what it delegates them for: the virtual
 slot the job driver grafts onto, the `IThingGlower` veto the light rests on, and the method and
 field the bridge reaches for by name. A RimWorld installation and a subscription to Fireworks are
-needed, since both are read from disk. The other half is [TESTING.md](TESTING.md), nine scenarios
-for a running colony.
+needed, since both are read from disk. The other half is [TESTING.md](TESTING.md): the scenarios that need a
+running colony, played by Pickle in a real game (`Tests/Pickle/`, 27 scenarios), with captures and films for a person to
+validate.
 
 ## Building
 

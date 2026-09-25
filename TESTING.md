@@ -1,8 +1,9 @@
 # Testing Firework Stand in game
 
-Nothing in this mod has ever been observed running. It is written against three things read by
-decompiling telardo's assembly and two hooks read in the game's own source, and every one of them
-is an assumption until a colonist stands in a field and watches a rocket go up.
+This mod was written against three things read by decompiling telardo's assembly and two hooks read
+in the game's own source. Since 2026-09-21 a real game has played it, through Pickle, in the WSL: see
+"Pickle (Gherkin) suite" below and `STATUS.md` for what has run and what a person still has to validate. The scenarios
+below stay the reference for what each one proves, and for playing one by hand.
 
 This file is the list of what to look at, in the order that finds problems fastest. Each scenario
 says what it proves, because a test whose failure you cannot interpret is not worth running.
@@ -30,7 +31,7 @@ description link and EN/FR translation keys/placeholders. Run that additional ch
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Test-Xml.ps1
 ```
 
-The nine scenarios below have not yet been executed in game.
+The nine scenarios below were written before any run; the Pickle suite below now plays them.
 
 1. Fireworks (telardo, `2922179297`) must be subscribed and active, and this mod must load after
    it. Both conditions are already declared in `About.xml`; the mod list will say so.
@@ -110,7 +111,8 @@ the light was registered.
 Watch the foot of the stand in the second between the order and the rocket. A thin trail of smoke
 should rise from it, then a thick puff, sparks and a flash as the rocket leaves.
 
-A failure here is cosmetic and does not block publishing. Note it and move on.
+A failure here is cosmetic, but it is not left: the owner found the smoke invisible on the first run (2026-09-24) and it is
+fixed until a capture shows it (0.1.1, `STATUS.md`). It is a red scenario to replay green before a publication.
 
 ## 6 — Colonists go on their own
 
@@ -224,9 +226,12 @@ proved where it can be: the patch is a `PatchOperationConditional` on `FireworkL
 `Check-DefInjected.ps1`) and the reflection bridge is read off the compiled assembly (`Run-Functional-Tests.ps1`).
 The audience filter has no line-of-sight test on purpose, so there is nothing to test.
 
-**Status.** The suite as it stands has never run. Before this shape, a 21-scenario version ran twice on
-2026-09-21: French all green, English 18 passed and 1 failed with the report lost. A Pickle run only shows that the
-path ran: it does not replace looking.
+**Status (2026-09-25).** The reshaped suite (26 scenarios) passed in English and in French on 2026-09-23 and 24, on the
+0.1.0 build. On the 0.1.1 build it has been played in English (26 of 27, the one failure a bug of the smoke step, fixed),
+in French (the same) and in the pass without Ideology (feature 12, 1 of 1); the smoke scenarios are being replayed
+after each tuning of the smoke, and the final whole-suite passes on the last build are still to run. Details and
+evidence policy: `docs/runs/`. A Pickle run only shows that the path ran: it does not replace looking, and nothing has
+been validated by the owner yet.
 
 
 ## Evidence to keep
