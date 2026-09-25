@@ -663,3 +663,6 @@ that produced the image is in `docs/runs/`.
 - **Capture 5, the blueprint of the stand, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the owner on 2026-09-25.**
   The translucent ghost of the stand, "Firework stand (blueprint)". She asked what "IED" is: the vanilla research project IEDs
   (improvised explosive devices), the stand's `researchPrerequisites`, which is why the Architect menu hides the stand until it is done.
+- **Capture 6, the Recreation category once IEDs is researched, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the
+  owner on 2026-09-25, with one remark:** the box slightly overflows its cell. The stand's drawn size goes from 1.6 to 1.3 cells
+  (0.1.1, in `Stand.xml`); the images of this suite that show the stand predate it.

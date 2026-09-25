@@ -18,6 +18,7 @@ data is unchanged, so a colony saved with 0.1.0 loads as it was.
 - **An empty stand no longer reads "ready to fire".** The inspect line reported the reload interval and not the fuel; it
   now says nothing when nothing is loaded, and the fuel gauge beside it says so.
 - **The fuel line starts with a capital.** "Fireworks loaded: 0 / 10" (and "Feux d'artifice chargés" in French) instead of a lowercase label.
+- **The stand is drawn a little smaller** (1.3 cells instead of 1.6): the box no longer overflows its cell.
 
 ## [0.1.0] - 2026-09-23
 
