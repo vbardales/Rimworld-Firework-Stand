@@ -657,3 +657,6 @@ that produced the image is in `docs/runs/`.
   with the launch puff above it, the colonist outdoors, the roofed patch with the one under it and the sleeper (Z), the watcher at
   the door. Her question, whether the show should wake the sleeper, goes to the backlog (monorepo `BACKLOG.md`, commit
   `678722f6`): Firework Stand does nothing about sleep, and what vanilla or Fireworks do about noise was not read.
+- **Capture 4, the stand counting down its reload, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the owner on
+  2026-09-25.** "Reloading: 0.3 hours", the count and the gauge at 3 / 10, the watching areas drawn round the selected stand.
+  The count's label was still lowercase on this image (fixed in `f2ccb52`).
