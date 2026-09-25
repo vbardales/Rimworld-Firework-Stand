@@ -171,14 +171,15 @@ namespace FireworkStand
         /// </summary>
         private void ThrowFuseSmoke(Map map)
         {
-            Vector3 loc = parent.DrawPos;
+            // From the top of the rack, not its middle: against the ground a puff shows, against the striped rockets it did not.
+            Vector3 loc = parent.DrawPos + new Vector3(0f, 0f, 0.35f);
             if (!loc.ShouldSpawnMotesAt(map)) return;
             if (fuseSmokeDef == null) fuseSmokeDef = DefDatabase<FleckDef>.GetNamed("FS_FuseSmoke");
-            FleckCreationData data = FleckMaker.GetDataStatic(loc, map, fuseSmokeDef, Rand.Range(1.5f, 2.5f) * 0.9f);
-            data.instanceColor = new Color(0.4f, 0.4f, 0.4f, 0.9f);
+            FleckCreationData data = FleckMaker.GetDataStatic(loc, map, fuseSmokeDef, Rand.Range(1.2f, 1.8f));
+            data.instanceColor = new Color(0.3f, 0.3f, 0.3f, 1f);
             data.rotationRate = Rand.Range(-30f, 30f);
-            data.velocityAngle = Rand.Range(30, 40);
-            data.velocitySpeed = Rand.Range(0.5f, 0.7f);
+            data.velocityAngle = Rand.Range(-12, 12);
+            data.velocitySpeed = Rand.Range(1.0f, 1.4f);
             map.flecks.CreateFleck(data);
         }
 
