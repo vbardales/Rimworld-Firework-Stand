@@ -13,6 +13,7 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 
 | Run | Suite | Result | Evidence |
 | --- | --- | --- | --- |
+| [`2026-09-25-smoke-3.md`](2026-09-25-smoke-3.md) | smoke stills only, second tuning | 1 passed, `passed`: the smoke is counted, and still barely visible on the fuse still | kept until the rerun replaces it |
 | [`2026-09-25-smoke-2.md`](2026-09-25-smoke-2.md) | 2 smoke scenarios, darker smoke | 1 passed, **1 failed**, `failed`: a placement step of the test; dark smoke visible after the launch | kept, summary, junit, 1 film |
 | [`2026-09-25-smoke.md`](2026-09-25-smoke.md) | 2 smoke scenarios, own fleck, first tuning | 2 passed, `passed`: smoke there, still barely visible | deleted 2026-09-25, superseded |
 | [`2026-09-24-smoke.md`](2026-09-24-smoke.md) | 2 smoke scenarios, game's Smoke fleck | 2 passed, `passed`: puffs thrown, not visible on the captures | deleted 2026-09-25, superseded |
