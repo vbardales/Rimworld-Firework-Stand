@@ -40,9 +40,14 @@ Feature: the Workshop gallery, in the zen meadow studio
     And I take a screenshot "gallery 01: the fuse smoking at the foot of the stand"
     When I wait 40 ticks
     Then I take a screenshot "gallery 02: the puff and the sparks as the rocket leaves"
-    When I zoom all the way out
-    And I wait 90 ticks
-    Then I take a screenshot "gallery 03: the burst over the meadow"
+    When I zoom out
+    And I move the camera to (154, 103)
+    And I wait 50 ticks
+    Then I take a screenshot "gallery 03a: the burst over the meadow"
+    When I wait 50 ticks
+    Then I take a screenshot "gallery 03b: the burst over the meadow"
+    When I wait 50 ticks
+    Then I take a screenshot "gallery 03c: the burst over the meadow"
     And no errors were logged
 
   @timeout:110
@@ -58,7 +63,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     When I zoom in
     And I move the camera to (154, 99)
     And Firework Stand: "Miel" is ordered to watch the stand at x=154 z=98
-    Then Firework Stand: the light of the stand at x=154 z=98 comes on within 60 seconds
+    Then Firework Stand: "Miel" is watching the stand at x=154 z=98
+    And Firework Stand: the light of the stand at x=154 z=98 comes on within 60 seconds
     And I take a screenshot "gallery 04: the ground lit at night as the rocket leaves"
     And no errors were logged
 
@@ -73,7 +79,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And I move the camera to (154, 98)
     And Firework Stand: "Miel" is ordered to watch the stand at x=154 z=98
     Then Firework Stand: the stand at x=154 z=98 comes to hold 3 launchers within 60 seconds
-    When Firework Stand: I select the stand at x=154 z=98
+    When Nelim's Pickle Tools: windows are allowed to open again
+    And Firework Stand: I select the stand at x=154 z=98
     And I wait 60 ticks
     Then I take a screenshot "gallery 05: the stand counting down its reload"
     And no errors were logged

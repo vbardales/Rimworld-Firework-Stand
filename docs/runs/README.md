@@ -13,6 +13,7 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 
 | Run | Suite | Result | Evidence |
 | --- | --- | --- | --- |
+| [`2026-09-25-vitrine.md`](2026-09-25-vitrine.md) | gallery, feature 14, pass vitrine, first run | 3 passed, **1 failed** (night light not seen in 60 s), `failed`; 5 of 6 images usable as drafts | kept until the rerun replaces it |
 | [`2026-09-25-smoke-4.md`](2026-09-25-smoke-4.md) | smoke stills, smoke rising from the top of the rack | 1 passed, `passed`: the smoke is visible on the stills | kept, summary, junit, 2 stills |
 | [`2026-09-25-smoke-3.md`](2026-09-25-smoke-3.md) | smoke stills only, second tuning | 1 passed, `passed`: counted, still barely visible | deleted 2026-09-25, superseded |
 | [`2026-09-25-smoke-2.md`](2026-09-25-smoke-2.md) | 2 smoke scenarios, darker smoke | 1 passed, **1 failed**, `failed`: a placement step of the test; dark smoke visible after the launch | kept, summary, junit, 1 film |
