@@ -1,0 +1,7 @@
+# The pass "vitrine": the Workshop gallery, in PickleTools' zen meadow studio (feature 14-gallery). It stages the studio
+# (the saved fixture nelim-zen-meadow-studio and its presentation steps) and ClearScreen, which keeps another mod's window out
+# of every frame. Nothing else is added. Both folders are PickleTools' (a private development tool, never a dependency).
+#
+# Run: Submit-PickleRun.ps1 -Mod FireworkStand -DepMap wsl-deps.vitrine.map -Filter 14-gallery
+nelim.pickletools.screenshotstudio path:PickleTools/ScreenshotStudio/Mod
+nelim.pickletools.clearscreen path:PickleTools/ClearScreen/Mod
