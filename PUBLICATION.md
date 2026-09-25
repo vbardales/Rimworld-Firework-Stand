@@ -130,6 +130,13 @@ makes a thumbnail.
 `STATUS.md` records `upstream_permission: silent`: no licence or permission found for Fireworks, the takedown commitment
 stands, and this message is also the first contact. Update the register the moment it is posted.
 
+## After the publication: what the owner follows
+
+By hand, on her accounts, never by a session (`PUBLISHING.md`, "Mise en production d'une 1.0.0"): subscribe to the comments
+of the Workshop item (`3806767445`); "Watch all activity" of the item and of its parent mod Fireworks (`2922179297`); and,
+on GitHub, **Watch, All activity** on `https://github.com/vbardales/Rimworld-Firework-Stand` for the commits and issues of
+this repository.
+
 ## Right after an upload, and it cannot be undone
 
 - **`Mod/About/PublishedFileId.txt` is committed** (done 2026-09-23, item 3806767445). Lost, the next upload would create a
