@@ -13,7 +13,8 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 
 | Run | Suite | Result | Evidence |
 | --- | --- | --- | --- |
-| [`2026-09-24-smoke.md`](2026-09-24-smoke.md) | 2 smoke scenarios, game's Smoke fleck | 2 passed, `passed`: puffs thrown, but not visible on the captures | kept until the rerun replaces it |
+| [`2026-09-25-smoke.md`](2026-09-25-smoke.md) | 2 smoke scenarios, own fleck, first tuning | 2 passed, `passed`: smoke there, still barely visible | kept until the rerun replaces it |
+| [`2026-09-24-smoke.md`](2026-09-24-smoke.md) | 2 smoke scenarios, game's Smoke fleck | 2 passed, `passed`: puffs thrown, not visible on the captures | deleted 2026-09-25, superseded |
 | [`2026-09-24-sans-ideology-gizmo.md`](2026-09-24-sans-ideology-gizmo.md) | feature 12 only, without Ideology | 1 passed, `passed` | kept, summary and junit |
 | [`2026-09-24-french-0-1-1.md`](2026-09-24-french-0-1-1.md) | 27 scenarios, first 0.1.1 build | 26 passed, **1 failed**, `failed`: the same smoke-step bug | kept, 13 stills, 5 films |
 | [`2026-09-24-english-0-1-1.md`](2026-09-24-english-0-1-1.md) | 27 scenarios, 0.1.1 build | 26 passed, **1 failed**, `failed`: the smoke step of the test was wrong, not the mod | kept, 11 stills, 4 films |
