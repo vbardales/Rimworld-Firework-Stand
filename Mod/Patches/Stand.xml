@@ -119,7 +119,7 @@
               <launchDelay>60</launchDelay>
               <moodRadius>20</moodRadius>
               <flashTicks>240</flashTicks>
-              <smokeInterval>8</smokeInterval>
+              <smokeInterval>5</smokeInterval>
             </li>
           </comps>
           <placeWorkers>

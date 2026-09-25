@@ -45,7 +45,7 @@ image, and a green scenario says the trajectory ran, not that the picture shows 
 | `12-launch-gizmo` | a launcher on the ground | Fireworks' launch gizmo is offered exactly when Ideology is inactive | 1 still |
 | `13-architect-menu` | the research IEDs unfinished, then finished | the Recreation category hides the stand, then lists it | 2 stills |
 | `05-light` | night, a loaded stand, a watcher | light off before, on when the rocket leaves, off again | **film**, and a non-filmed twin with 3 stills |
-| `06-fuse-and-launch` | closest zoom on the stand | a launcher was spent (the fuse was lit); at least 2 smoke puffs are near the stand 25 ticks in | **film**, and a non-filmed twin with 2 stills |
+| `06-fuse-and-launch` | closest zoom on the stand | a launcher was spent (the fuse was lit); at least 4 smoke puffs are near the stand 40 ticks in | **film**, and a non-filmed twin with 2 stills |
 | `07-on-their-own` | a bored colonist, no order | picks the stand by themselves, watches it standing, 4 to 12 cells away; a roofed stand and a stand with nothing loaded are never used | **film** |
 | `08-fuel` | a stand nobody watches; a last launcher | nothing drains while idle; the last launcher is spent, nothing more happens, and the watcher has stopped watching | 1 still |
 | `09-save-reload` | a save taken while the light is on | count and timer survive (no refire for 300 ticks), the light does not stay on, no error | **film** |

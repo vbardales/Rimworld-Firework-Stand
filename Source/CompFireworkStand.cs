@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -174,7 +174,8 @@ namespace FireworkStand
             Vector3 loc = parent.DrawPos;
             if (!loc.ShouldSpawnMotesAt(map)) return;
             if (fuseSmokeDef == null) fuseSmokeDef = DefDatabase<FleckDef>.GetNamed("FS_FuseSmoke");
-            FleckCreationData data = FleckMaker.GetDataStatic(loc, map, fuseSmokeDef, Rand.Range(1.5f, 2.5f) * 0.6f);
+            FleckCreationData data = FleckMaker.GetDataStatic(loc, map, fuseSmokeDef, Rand.Range(1.5f, 2.5f) * 0.9f);
+            data.instanceColor = new Color(0.4f, 0.4f, 0.4f, 0.9f);
             data.rotationRate = Rand.Range(-30f, 30f);
             data.velocityAngle = Rand.Range(30, 40);
             data.velocitySpeed = Rand.Range(0.5f, 0.7f);
