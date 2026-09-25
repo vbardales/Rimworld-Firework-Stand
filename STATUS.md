@@ -638,3 +638,15 @@ fixture throws on every tick without Ideology, see docs/runs/2026-09-24-sans-ide
 **Nothing has been played on the new build.** The runs of 2026-09-23 and 24 are for the previous DLL and prove nothing
 about this one; the three passes must be replayed, and the smoke, the empty-stand line and the empty-stand behaviour
 looked at again. The item on Steam has the old DLL: an update upload is needed. Stage stays `done`.
+
+## Owner validations of captures and films — from 2026-09-25
+
+One item at a time, each with the list of what to look for. A validation is the owner's, recorded here with its date; the run
+that produced the image is in `docs/runs/`.
+
+- **Capture 1, the empty stand's inspect pane, English (first 0.1.1 English run, `docs/runs/2026-09-24-english-0-1-1.md`):
+  validated by the owner on 2026-09-25.** No "Ready to fire" on an empty stand; "No fireworks loaded (10x firework launcher)"
+  and a gauge at 0 / 10. Remark: the label "fireworks loaded" wanted a capital; fixed in `f2ccb52` (English and French), so the
+  image on disk predates it and is not re-taken for this validation.
+- The owner subscribed to the GitHub repository (Watch, All activity) on 2026-09-25. The Workshop comment subscriptions and the
+  "Watch all activity" of the item and of Fireworks are still to come with the public item.
