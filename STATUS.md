@@ -666,3 +666,6 @@ that produced the image is in `docs/runs/`.
 - **Capture 6, the Recreation category once IEDs is researched, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the
   owner on 2026-09-25, with one remark:** the box slightly overflows its cell. The stand's drawn size goes from 1.6 to 1.3 cells
   (0.1.1, in `Stand.xml`); the images of this suite that show the stand predate it.
+- **Capture 7, the fuse smoke on the stills (`docs/runs/2026-09-25-smoke-4.md`): the owner leaned towards a little thicker, and chose "modestly thicker" on 2026-09-25.**
+  Puffs 25 % larger (size 1.5 to 2.25) and one every 4 ticks (`Stand.xml`), still a thread and not a cloud, so that it stays distinct from the launch puff. The smoke-4 images predate it: the first gallery run (`docs/runs/`, feature 14) is the next
+  picture of it, and her validation of the smoke stays open until she has seen that one.

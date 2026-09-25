@@ -175,7 +175,7 @@ namespace FireworkStand
             Vector3 loc = parent.DrawPos + new Vector3(0f, 0f, 0.35f);
             if (!loc.ShouldSpawnMotesAt(map)) return;
             if (fuseSmokeDef == null) fuseSmokeDef = DefDatabase<FleckDef>.GetNamed("FS_FuseSmoke");
-            FleckCreationData data = FleckMaker.GetDataStatic(loc, map, fuseSmokeDef, Rand.Range(1.2f, 1.8f));
+            FleckCreationData data = FleckMaker.GetDataStatic(loc, map, fuseSmokeDef, Rand.Range(1.5f, 2.25f));
             data.instanceColor = new Color(0.3f, 0.3f, 0.3f, 1f);
             data.rotationRate = Rand.Range(-30f, 30f);
             data.velocityAngle = Rand.Range(-12, 12);
