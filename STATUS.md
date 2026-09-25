@@ -650,3 +650,6 @@ that produced the image is in `docs/runs/`.
   image on disk predates it and is not re-taken for this validation.
 - The owner subscribed to the GitHub repository (Watch, All activity) on 2026-09-25. The Workshop comment subscriptions and the
   "Watch all activity" of the item and of Fireworks are still to come with the public item.
+- **Capture 2, the ground lit at night as the rocket leaves, English (`docs/runs/2026-09-24-english-0-1-1.md`): validated by the
+  owner on 2026-09-25.** A warm pool of light around the stand on dark ground, "Lit (50%)", 23h, the interface visible with no
+  film frame: the light is a flash and not a lamp.
