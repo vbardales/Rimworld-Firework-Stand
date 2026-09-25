@@ -18,7 +18,7 @@ monorepo and the files stay where they were. Commands on them go through
 
 | Repository | Head |
 | --- | --- |
-| protocols (`Rimworld-protocols`) | **7311308** |
+| protocols (`Rimworld-protocols`) | **7546e86** |
 | monorepo (`Documents\rimworld`) | 99d91bba |
 | `PickleTools` | 2e68653 |
 | `Rimworld-Release-Admin` | 2ce34a3 |
@@ -29,7 +29,7 @@ monorepo and the files stay where they were. Commands on them go through
 | Document | Lines now | Last commit | Blob read | Blob now | Read, and what changed since |
 | --- | --- | --- | --- | --- | --- |
 | `AGENTS.md` | 46 | 3a1d2cb, 2026-09-24 | `bb4c08c1e41a` | `bb4c08c1e41a` | in full; unchanged |
-| `AUDIT.md` | 227 | f3dc1e4, 2026-09-25 | `78c72fd1d1d8` | `78c72fd1d1d8` | in full; unchanged |
+| `AUDIT.md` | 232 | 7546e86, 2026-09-25 | `78c72fd1d1d8` | `d1368fb9340f` | in full; since then (read as a diff) two changes: my rule that a failed 32 px legibility check of the delivered ModIcon is reported and put to the owner, who decides whether to override (transition 2); and, written by **another session** at the owner's request and **swept into the same commit by mine**, an exception for `PickleTools/SoundCapture`: those tests play alone, on the Windows install, only on the owner's explicit request, with their own launcher, under the lock |
 | `PUBLISHING.md` | 683 | 04aa365, 2026-09-25 | `595db194bd47` | `b9d6db1c075c` | in full; since then one paragraph that was written twice (the `get_session("self")` corollary) was dropped |
 | `TRANSLATIONS.md` | 100 | b83933b, 2026-09-23 | `8970fe6c4aab` | `8970fe6c4aab` | in full; unchanged |
 | `MOD_SETTINGS.md` | 107 | b83933b, 2026-09-23 | `a61cd541925d` | `a61cd541925d` | in full; unchanged |
