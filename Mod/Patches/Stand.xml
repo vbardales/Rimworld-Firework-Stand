@@ -94,7 +94,7 @@
                    1.6, and nothing in the game reads it any more. Writing it would be writing a
                    comment. The gauge shows regardless. -->
               <atomicFueling>false</atomicFueling>
-              <fuelLabel>fireworks loaded</fuelLabel>
+              <fuelLabel>Fireworks loaded</fuelLabel>
               <outOfFuelMessage>No fireworks loaded</outOfFuelMessage>
             </li>
             <!-- telardo's comp, put on a building. Checked by decompilation: its Launch method
