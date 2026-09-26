@@ -13,6 +13,11 @@
 # that show the world (01 to 03) and is left off for the two that show the interface (04, 05), which are there to show
 # it. ClearScreen keeps a log viewer or a notice of another mod out of every frame.
 #
+# THE ZOOM. Every picture is taken with the camera all the way in (the owner's rule, 2026-09-26): what a picture has
+# to prove must fill at least half the height of the window, and the game cannot zoom further, so the picture is then
+# cropped around the subject (PUBLICATION.md, "Gallery"). The camera is set a few cells north of the stand for the
+# pictures that hold the rocket and its burst, which rise above it.
+#
 # THE CELLS. The stand goes in the flower glade (the studio's `flowers` view, camera cell 154,98), open ground with no
 # roof by design; the watcher is set down five cells west of it, inside the 4 to 12 cells colonists stand at. The
 # first run of this feature is the one that tells whether those cells are free: a failed placement names the cell.
@@ -32,7 +37,7 @@ Feature: the Workshop gallery, in the zen meadow studio
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And game speed is normal
     When I zoom all the way in
-    And I move the camera to (154, 99)
+    And I move the camera to (154, 100)
     And Firework Stand: "Miel" is ordered to watch the stand at x=154 z=98
     Then Firework Stand: the stand at x=154 z=98 comes to hold 0 launchers within 60 seconds
     When I wait 40 ticks
@@ -40,8 +45,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And I take a screenshot "gallery 01: the fuse smoking at the foot of the stand"
     When I wait 40 ticks
     Then I take a screenshot "gallery 02: the puff and the sparks as the rocket leaves"
-    When I zoom out
-    And I move the camera to (154, 103)
+    When I zoom all the way in
+    And I move the camera to (154, 104)
     And I wait 50 ticks
     Then I take a screenshot "gallery 03a: the burst over the meadow"
     When I wait 50 ticks
@@ -60,8 +65,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And game speed is normal
-    When I zoom in
-    And I move the camera to (154, 99)
+    When I zoom all the way in
+    And I move the camera to (154, 100)
     And Firework Stand: "Miel" is ordered to watch the stand at x=154 z=98
     Then Firework Stand: "Miel" is watching the stand at x=154 z=98
     # The first run (and its rerun) never saw the light within 60 s with the watcher at the stand. Two steps tell the two

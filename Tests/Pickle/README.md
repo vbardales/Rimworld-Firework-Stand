@@ -94,7 +94,7 @@ its own joy giver and driver that refuse it (`07-on-their-own` and `08-fuel` ass
 
 The mod declares no optional mod (`loadAfter` names only RimWorld and Fireworks) and no
 incompatibility, so there is no pass with optional mods and none per incompatibility. It needs
-**three passes**, the first two playing the **whole suite** (27 scenarios) and the third one feature (`12-launch-gizmo`, see below), on the minimal set that
+**three passes** (plus a fourth, `vitrine`, that makes the gallery: see the table), the first two playing the **whole suite** (27 scenarios) and the third one feature (`12-launch-gizmo`, see below), on the minimal set that
 `scripts/stage-pickle-wsl.sh` mounts (Core, the DLC, Harmony, RimLogging, Pickle, Fireworks, the mod and its
 companion). No scenario is conditional on a tag: the two that depend on the pass read the game and assert the
 value for it (`04-labels` reads the active language, `12-launch-gizmo` reads whether Ideology is active), so each
@@ -105,6 +105,7 @@ is green in every pass and none is skipped.
 | English, `sans-facultatifs` | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand` | every DLC active, Ideology included: the launch gizmo must be absent |
 | French | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -Language French` | the labels are French, and the captures show the French interface |
 | Without Ideology | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature` | `!ludeon.rimworld.ideology` leaves the DLC out: the launch gizmo must be there |
+| Vitrine (Workshop gallery) | `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1 -Mod FireworkStand -DepMap wsl-deps.vitrine.map -Filter 14-gallery` | adds ScreenshotStudio and ClearScreen; plays feature 14 only, in the studio meadow, camera all the way in. Not a test of the mod: it makes the gallery images. Feature 14 is `@requires`, so the three passes above skip it |
 
 **`Run-Passes.ps1` plays the three in turn** (`powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Run-Passes.ps1`).
 It goes through the launcher for each (ticket, lock, staging, release) and, the moment the launcher returns, copies

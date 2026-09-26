@@ -213,8 +213,11 @@ incompatibility. All on the minimal WSL set (Core, the DLC, Harmony, RimLogging,
 | English, every DLC | `Run-PickleWsl.ps1 -Mod FireworkStand` |
 | French | `Run-PickleWsl.ps1 -Mod FireworkStand -Language French` |
 | Without Ideology, feature 12 only | `Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature` |
+| Vitrine (the Workshop gallery), feature 14 only | `Submit-PickleRun.ps1 -Mod FireworkStand -DepMap wsl-deps.vitrine.map -Filter 14-gallery` |
 
 **Why the third pass plays one feature only.** The fixture save's colonists carry state that needs the Ideology DLC: without it the game throws a NullReferenceException in `Pawn_AgeTracker` on every tick, so any scenario that runs the clock fails and the launcher kills the run (first attempt, 2026-09-24). `12-launch-gizmo` is written so that no tick runs. Everything else is played in full, with Ideology, by the first two passes.
+
+**The fourth pass, `vitrine`, is not a test of the mod.** `14-gallery` produces the Workshop gallery in the ScreenshotStudio meadow (fixture `nelim-zen-meadow-studio`, staged with ClearScreen by `wsl-deps.vitrine.map`) and is tagged `@requires:nelim.pickletools.screenshotstudio`, so the other passes count it as skipped. It asserts only what makes an image worth keeping (the stand exists, is loaded, the salvo happened) and every picture is taken with the camera all the way in; the pictures are then cropped (`PUBLICATION.md`, "Gallery"). A red scenario here is replayed until green like any other.
 
 `Tests/Pickle/Run-Passes.ps1` plays the three in turn and keeps the evidence of each run on disk under `Tests/Pickle/runs/` (ignored by git) and writes a text summary of it in `docs/runs/`. Two
 scenarios read the game to know what to assert in a pass (`04-labels` reads the active language, `12-launch-gizmo`
