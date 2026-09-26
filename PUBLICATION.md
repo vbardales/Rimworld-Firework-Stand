@@ -1,6 +1,6 @@
 # Publication sheet
 
-**Updated 2026-09-25. The mod is at `done`. The owner prepublished 0.1.0 by hand on 2026-09-23: the Workshop item exists
+**Updated 2026-09-26. The mod is at `done`. The owner prepublished 0.1.0 by hand on 2026-09-23: the Workshop item exists
 (`3806767445`, private) and `Mod/About/PublishedFileId.txt` is committed. Ahead: `tested`, the 0.1.1 update through the CI,
 the switch to public (by the owner) and the thank-you to telardo.** This sheet holds what the Workshop page asks for and
 the repository holds nowhere else, so that it can be used again at the next update and by whoever picks the mod up.
@@ -15,7 +15,7 @@ Rules that apply, and where they are written: `PUBLISHING.md` and `AUDIT.md` (pr
   open and the regression pass runs afterwards, but never skips: every red scenario replayed green on a build with its fix
   (the fuse smoke is one), the Workshop gallery, the owner's manual validations, the dry-run of the exact commit and the
   approval of `steam-production` by the owner, and a rollback target chosen beforehand (a tag at every good version).
-- **Publication goes through the CI, not the in-game button.** The mod has no workflow yet. It is an update of an existing
+- **Publication goes through the CI, not the in-game button.** The workflow was generated on 2026-09-26 (`.github/`, 68 script tests pass, `About.xml` synchronised with the description below) and is not yet run: no dry-run exists. It is an update of an existing
   item, so the manual workflow of `Rimworld-Release-Admin/scripts/generate-publish-workflow.sh` applies, not the
   semantic-release one:
 
@@ -133,6 +133,13 @@ The images come from a **scenario of their own** that mounts the scene (`Screens
 stand, dev tools may show, and a still taken during a film carries the film's corner frame. Each image is opened before it
 is kept: a green capture scenario shows that the trajectory ran, not that the picture shows anything.
 
+**Zoom and crop (the owner's rule, 2026-09-26).** Every picture is taken with the camera all the way in, so that what it has
+to prove fills as much of the window as the game allows (at least half its height wherever the subject allows it). The game
+cannot zoom past its maximum, so `_tools/Crop-Gallery.ps1 -From Tests/Pickle/runs/<run> -To Gallery` then cuts a 16:9 window
+around the subject, in native pixels, leaving out the studio's alerts, the "Area revealed" letters and the colonist bar. The
+crops are read off the pictures: re-read them after any change of camera in `14-gallery.feature`. Each picture is opened,
+after the crop, to check that it shows what it is meant to prove: the stand, its light, the burst.
+
 Steam shows the first one large: the most demonstrative, not the prettiest. Order to confirm on the images themselves:
 
 1. **The audience**: the stand, a colonist beside it, a burst overhead. The one that says what the mod is.
@@ -150,19 +157,20 @@ final gallery images: the boxes commit the page.
 ## Thanks to post, after the item is public
 
 A link to a private item opens for nobody, so post only once it is public. The register `WORKSHOP_COMMENTS.md` decides
-whether a comment is still needed: **telardo's Fireworks (`2922179297`) has no row yet**, so this is the first contact and
-the draft below is to be registered as `drafted` (Pickle, `3791648678`, is already `posted` and covers this mod's tests once
+whether a comment is still needed: **telardo's Fireworks (`2922179297`) had no row; it has one since 2026-09-26 (`drafted`)**, so this is the first contact and
+the draft below is the one registered (Pickle, `3791648678`, is already `posted` and covers this mod's tests once
 its `Covers` names Firework Stand). One recipient, under 1000 characters, BBCode allowed; a bare item URL on its own line
 makes a thumbnail.
 
 **telardo, on Fireworks** (`https://steamcommunity.com/sharedfiles/filedetails/?id=2922179297`), comment page. Status:
-`drafted`.
+`drafted` (register row added 2026-09-26). Written to the register's method of 2026-09-26: her plain voice, one concrete
+true thing, one link hidden behind BBCode, under 350 characters. **She reads and rewords it before it goes up**; it is
+posted by her, once the item is public and after reading the last comments of the page.
 
-> Thank you for Fireworks. I made a small mod around it, Firework Stand: a building loaded with your launchers that
-> colonists walk over to and watch as recreation, with a recreation type of its own. Your show is called as it is,
-> the bursts, the trails, the sounds and the memories, and nothing of yours is copied or shipped. I read your
-> assembly to see how the comp fires, and it is credited in the attribution file. If you would rather I did
-> something differently, tell me and I will. https://steamcommunity.com/sharedfiles/filedetails/?id=3806767445
+> Thank you for Fireworks! I made a small stand around it: colonists walk over and watch your launchers as recreation,
+> and your show (bursts, trails, sounds) is called as it is, nothing copied. I read your assembly to see how it fires, it's
+> credited. Tell me if you'd rather I did something differently :)
+> [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3806767445]Firework Stand[/url]
 
 `STATUS.md` records `upstream_permission: silent`: no licence or permission found for Fireworks, the takedown commitment
 stands, and this message is also the first contact. Update the register the moment it is posted.
