@@ -349,7 +349,7 @@ namespace FireworkStand.PickleSteps
             ctx.Assert(!GlowerOf(ctx, StandAt(ctx, x, z)).Glows, "the stand's light is on, and should be off");
         }
 
-        [Then("Firework Stand: the light of the stand at x={int} z={int} comes on within {int} seconds")]
+        [Then("Firework Stand: the light of the stand at x={int} z={int} comes on within {int} seconds", TimeoutSeconds = 150f)]
         public async Task LightComesOn(PickleContext ctx, int x, int z, int seconds)
         {
             Thing stand = StandAt(ctx, x, z);
@@ -372,8 +372,10 @@ namespace FireworkStand.PickleSteps
                 }
                 return glower.Glows;
             }
-            try { await ctx.WaitUntil(Sample, seconds); }
-            catch (Exception) { /* reported below, with evidence */ }
+            // Tick by tick, not by a poll between frames: the light lasts 240 ticks (four seconds at normal speed) and a poll can fall on either side of it.
+            int limit = seconds * 60;
+            for (int i = 0; i < limit && !Sample(); i++) await ctx.WaitTicks(1);
+            Sample();
             ctx.Assert(glower.Glows, $"after {seconds} s the stand's light never came on; {string.Join(" | ", trace.Count > 12 ? trace.GetRange(0, 6).Concat(trace.GetRange(trace.Count - 6, 6)) : trace)}");
         }
 
