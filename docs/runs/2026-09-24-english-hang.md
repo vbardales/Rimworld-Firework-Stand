@@ -26,3 +26,16 @@ Not established: whether this is the new build or the machine. The same scenario
 in the French pass, and passed on both; it involves no watcher and none of the changed code is called in it, but the
 comp does now run its effects in `CompTick`. The French pass, replayed straight after, is the check: if this scenario
 hangs again there, the new build is the suspect.
+
+## Reading, 2026-09-26 (nothing new could be measured: the evidence of this run was deleted)
+
+The hang was **not reproduced in seven later runs on the same build family** (the English 0.1.1 whole-suite pass, 20 s for the same
+scenario; the French pass; the smoke and gallery passes, whose reload scenarios also ran). It is not tied to a scenario: the run
+before it needed 76 s to load a game that takes a few seconds elsewhere, and the two loads that preceded the stop each spent
+"several seconds of garbage collection". A machine short of memory or disk explains all three symptoms (a slow load, a
+watchdog that trips at 120 s, a process that outlives its kill), and the machine was in that state: on 2026-09-26 the disk had
+1.3 GB free and the Pickle queue refused to start (it needs 2 GB). What is established: no code of this mod is involved in
+`I save and reload` (it calls none of the changed methods), and the same step passed each time the machine was not starved.
+What is not: the free memory and disk at that moment were not recorded. Kept as **unexplained, suspected machine**; if a whole
+pass stops on `I save and reload` again, read the free disk and the memory first, then the log's last lines, before suspecting the
+mod. The watchdog is 300 s per scenario now.
