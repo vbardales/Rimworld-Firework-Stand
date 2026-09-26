@@ -8,7 +8,7 @@ the one of the final passes before it is sent**, so the paths are refreshed then
 Every image below is also checked by the session first (opened, what it shows written in `docs/runs/`). The owner's look is the
 one that counts for "does it read well"; the session's is for "is it the right picture".
 
-## 1. The fuse smoke (capture 7)
+## 1. The fuse smoke (capture 7): validated as a principle on 2026-09-26; the gallery image still has to show it larger
 
 Image: `gallery-01` of the vitrine run (cropped by `_tools/Crop-Gallery.ps1`). What to look at:
 - a **dark thread of smoke rises from the top of the rack**, above the rockets, visible against the ground;

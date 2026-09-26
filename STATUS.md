@@ -668,4 +668,4 @@ that produced the image is in `docs/runs/`.
   (0.1.1, in `Stand.xml`); the images of this suite that show the stand predate it.
 - **Capture 7, the fuse smoke on the stills (`docs/runs/2026-09-25-smoke-4.md`): the owner leaned towards a little thicker, and chose "modestly thicker" on 2026-09-25.**
   Puffs 25 % larger (size 1.5 to 2.25) and one every 4 ticks (`Stand.xml`), still a thread and not a cloud, so that it stays distinct from the launch puff. The smoke-4 images predate it: the first gallery run (`docs/runs/`, feature 14) is the next
-  picture of it, and her validation of the smoke stays open until she has seen that one.
+  picture of it. **Validated by the owner on 2026-09-26, as the principle**, on the cropped `gallery-01` of `docs/runs/2026-09-26-vitrine-4.md` (the final smoke): a dark thread above the rack, thicker, still a thread. Not validated as a gallery image: the stand is too small in it, the next run (camera all the way in) and its crop must show it larger.
