@@ -9,15 +9,15 @@
   <url>https://github.com/vbardales/Rimworld-Firework-Stand</url>
   <description>If the original author contacts me to request its removal, I undertake to take it down promptly.
 
-Turns telardo's Fireworks into a real recreation source, with a recreation type of its own.
+Turns telardo's Fireworks (https://steamcommunity.com/sharedfiles/filedetails/?id=2922179297) into a real recreation source, with a recreation type of its own.
 
-In the original mod, fireworks are either an Ideology ritual or a one-use item you set off by hand — and with Ideology installed the manual button is not even created, so the ritual is the only way.
+In the original mod, fireworks are either an Ideology ritual or a one-use item you set off by hand, and with Ideology installed the manual button is not even created, so the ritual is the only way.
 
-This adds a firework stand: a building loaded with firework launchers that colonists walk over to and watch of their own accord, as recreation. The stand only fires while somebody is actually watching, so it never wastes a rocket on an empty field, and it must be built under open sky.
+This adds a firework stand: a building loaded with firework launchers that colonists watch of their own accord, as recreation. The stand only fires while somebody is actually watching, so it never wastes a rocket on an empty field, and it must be built under open sky. A stand with nothing loaded gives no recreation.
 
-The show itself — the bursts, the trails, the sounds, the mood memories — is telardo's, called as it is. What this adds is the recreation type, plus the two effects his mod has no reason to provide: the fuse smoking at the foot of the rack, and real light thrown across the ground for a few seconds as each rocket leaves. The stand is dark the rest of the time; it is not a lamp. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
+The show itself (the bursts, the trails, the sounds, the mood memories) is telardo's, called as it is. What this adds is the recreation type, plus the two effects his mod has no reason to provide: the fuse smoking at the top of the rack, and real light thrown across the ground for a few seconds as each rocket leaves. The stand is dark the rest of the time; it is not a lamp. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
 
-Fireworks is declared as a dependency, because the stand does nothing at all without it. The link itself is made at runtime by reflection, and the defs sit inside a guarded patch: if the mod is absent, nothing is patched and nothing errors. Ideology is not required either way.
+Fireworks is declared as a dependency, because the stand does nothing at all without it. The link itself is made at runtime by reflection, and the defs sit inside a guarded patch: if the mod is absent, nothing is patched and nothing errors. Ideology is not required either way. The stand appears in the Recreation category of the Architect menu once IEDs is researched. English and French.
 
 No save data of its own beyond the stand's own reload timer.
 
@@ -31,12 +31,13 @@ This mod's code was written with Claude Code (Anthropic) and its images generate
 
 THANKS
 
-telardo for Fireworks, whose show this mod calls rather than reimplements.
-Claude Code (Anthropic) and DALL-E (OpenAI).
+- telardo (https://steamcommunity.com/sharedfiles/filedetails/?id=2922179297), for Fireworks, whose show this mod calls rather than reimplements.
+- Claude Code (Anthropic) and DALL-E (OpenAI).
+- Pickle (RimWorks), used for the in-game tests: a development tool, never a dependency of the mod.
 
 What this mod studied and what it reproduced is listed in ATTRIBUTION.md, and it is released under the MIT licence (LICENSE); both are in the repository linked below.
 
-[url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]</description>
+Source code on GitHub (https://github.com/vbardales/Rimworld-Firework-Stand)</description>
   <modDependencies>
     <li>
       <packageId>telardo.Fireworks</packageId>

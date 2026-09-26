@@ -1,0 +1,20 @@
+{
+  "templateStamp": "a8ca11cdd9a3",
+  "workshopId": "3806767445",
+  "packageId": "nelim.fireworkstand",
+  "releaseTitle": "Firework Stand {version}",
+  "requirePaths": [
+    "Assemblies/FireworkStand.dll",
+    "Defs",
+    "Patches"
+  ],
+  "forbidPaths": [],
+  "previewFile": "About/Preview.png",
+  "galleryDir": "Gallery",
+  "aboutFromDescription": true,
+  "description": {
+    "file": "PUBLICATION.md",
+    "format": "markdown",
+    "heading": "^## Steam description$"
+  }
+}
