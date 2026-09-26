@@ -13,7 +13,8 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 
 | Run | Suite | Result | Evidence |
 | --- | --- | --- | --- |
-| [`2026-09-25-vitrine-2.md`](2026-09-25-vitrine-2.md) | gallery, feature 14, pass vitrine, second run | 3 passed, **1 failed** (night light, reproducible), `failed`; images 01, 02, 05, 06 usable as drafts | kept until the night rerun replaces it |
+| [`2026-09-26-vitrine-4.md`](2026-09-26-vitrine-4.md) | gallery, feature 14, pass vitrine, request a79b (98c7 was cut by a shutdown) | 3 passed, **1 failed** (night light: the stand fired, the light not seen), `failed`; the step now traces its state | kept until the next run replaces it |
+| [`2026-09-25-vitrine-2.md`](2026-09-25-vitrine-2.md) | gallery, feature 14, pass vitrine, second run | 3 passed, **1 failed** (night light, reproducible), `failed` | deleted 2026-09-26, superseded by vitrine-4 |
 | [`2026-09-25-vitrine.md`](2026-09-25-vitrine.md) | gallery, first run | 3 passed, 1 failed, same rouge | deleted 2026-09-25, superseded |
 | [`2026-09-25-smoke-4.md`](2026-09-25-smoke-4.md) | smoke stills, smoke rising from the top of the rack | 1 passed, `passed`: the smoke is visible on the stills | kept, summary, junit, 2 stills |
 | [`2026-09-25-smoke-3.md`](2026-09-25-smoke-3.md) | smoke stills only, second tuning | 1 passed, `passed`: counted, still barely visible | deleted 2026-09-25, superseded |

@@ -352,11 +352,33 @@ namespace FireworkStand.PickleSteps
         [Then("Firework Stand: the light of the stand at x={int} z={int} comes on within {int} seconds")]
         public async Task LightComesOn(PickleContext ctx, int x, int z, int seconds)
         {
-            CompGlower glower = GlowerOf(ctx, StandAt(ctx, x, z));
-            try { await ctx.WaitUntil(() => glower.Glows, seconds); }
+            Thing stand = StandAt(ctx, x, z);
+            CompGlower glower = GlowerOf(ctx, stand);
+            // Two runs of the vitrine saw the stand fire and never saw its light. The trace says which link
+            // is missing: the shot's tick, the fuse still burning (departed), the light the stand wants
+            // (lit), the glow the game really has, and the game's own tick (paused, or running).
+            ThingComp comp = ((ThingWithComps)stand).AllComps.Find(c => c.GetType().Name == "CompFireworkStand");
+            var trace = new List<string>();
+            string last = null;
+            float t0 = UnityEngine.Time.realtimeSinceStartup;
+            bool Sample()
+            {
+                string now = comp == null ? "no stand comp" :
+                    $"shot@{Field(comp, "lastShotTick")} departed={Field(comp, "departed")} lit={Field(comp, "lit")} glows={glower.Glows} tick={Find.TickManager.TicksGame} speed={Find.TickManager.CurTimeSpeed}";
+                if (now != last)
+                {
+                    trace.Add($"+{UnityEngine.Time.realtimeSinceStartup - t0:0.0}s {now}");
+                    last = now;
+                }
+                return glower.Glows;
+            }
+            try { await ctx.WaitUntil(Sample, seconds); }
             catch (Exception) { /* reported below, with evidence */ }
-            ctx.Assert(glower.Glows, $"after {seconds} s the stand's light never came on");
+            ctx.Assert(glower.Glows, $"after {seconds} s the stand's light never came on; {string.Join(" | ", trace.Count > 12 ? trace.GetRange(0, 6).Concat(trace.GetRange(trace.Count - 6, 6)) : trace)}");
         }
+
+        private static object Field(object o, string name)
+            => o.GetType().GetField(name, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public)?.GetValue(o);
 
         [Then("Firework Stand: the light of the stand at x={int} z={int} goes off within {int} seconds")]
         public async Task LightGoesOff(PickleContext ctx, int x, int z, int seconds)
