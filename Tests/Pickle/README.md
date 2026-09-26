@@ -168,3 +168,21 @@ The Pickle queue is followed by the TicketDispatcher, not by this suite: no moni
 suite), and without Ideology (`-DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature`). `Run-Passes.ps1` is the
 direct route it replaced; it is kept only for what it knows about this suite's evidence (which stills and films are ours) and
 is not run any more.
+
+## The final passes, to be submitted together once the build is frozen (prepared 2026-09-26)
+
+Nothing is submitted before the night-light scenario of the gallery is green and no change of `Source/` or `Mod/` is left: a
+change of the mod would make these four invalid. Each is one request (`-Owner` is this session's id, given by the dispatcher's
+welcome file), and each report is copied to `Tests/Pickle/runs/<date>-<pass>/` and summarised in `docs/runs/` as soon as it returns.
+
+```powershell
+$s = 'Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1'
+& $s -Mod FireworkStand -Owner <session id>                                                                         # English, whole suite
+& $s -Mod FireworkStand -Owner <session id> -Language French                                                         # French, whole suite
+& $s -Mod FireworkStand -Owner <session id> -DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo               # without Ideology
+& $s -Mod FireworkStand -Owner <session id> -DepMap wsl-deps.vitrine.map -Filter 14-gallery                          # vitrine
+```
+
+Then, in this order: read each `exitReason` before the counts, open every image and film, replace the earlier runs' evidence
+(the 0.1.0-build films and captures are superseded by these), write the summaries, send the owner her items one at a time
+(`docs/OWNER-CHECKS.md`), and only then decide `tested`.
