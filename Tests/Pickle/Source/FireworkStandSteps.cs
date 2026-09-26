@@ -364,10 +364,10 @@ namespace FireworkStand.PickleSteps
             bool Sample()
             {
                 string now = comp == null ? "no stand comp" :
-                    $"shot@{Field(comp, "lastShotTick")} departed={Field(comp, "departed")} lit={Field(comp, "lit")} glows={glower.Glows} tick={Find.TickManager.TicksGame} speed={Find.TickManager.CurTimeSpeed}";
+                    $"shot@{Field(comp, "lastShotTick")} departed={Field(comp, "departed")} lit={Field(comp, "lit")} glows={glower.Glows} speed={Find.TickManager.CurTimeSpeed}";
                 if (now != last)
                 {
-                    trace.Add($"+{UnityEngine.Time.realtimeSinceStartup - t0:0.0}s {now}");
+                    trace.Add($"tick {Find.TickManager.TicksGame} (+{UnityEngine.Time.realtimeSinceStartup - t0:0.0}s): {now}");
                     last = now;
                 }
                 return glower.Glows;
@@ -376,7 +376,7 @@ namespace FireworkStand.PickleSteps
             int limit = seconds * 60;
             for (int i = 0; i < limit && !Sample(); i++) await ctx.WaitTicks(1);
             Sample();
-            ctx.Assert(glower.Glows, $"after {seconds} s the stand's light never came on; {string.Join(" | ", trace.Count > 12 ? trace.GetRange(0, 6).Concat(trace.GetRange(trace.Count - 6, 6)) : trace)}");
+            ctx.Assert(glower.Glows, $"after {seconds} s the stand's light never came on; {string.Join(" | ", trace.Count > 16 ? trace.GetRange(0, 8).Concat(trace.GetRange(trace.Count - 8, 8)) : trace)}");
         }
 
         private static object Field(object o, string name)
