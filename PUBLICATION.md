@@ -135,10 +135,19 @@ is kept: a green capture scenario shows that the trajectory ran, not that the pi
 
 **Zoom and crop (the owner's rule, 2026-09-26).** Every picture is taken with the camera all the way in, so that what it has
 to prove fills as much of the window as the game allows (at least half its height wherever the subject allows it). The game
-cannot zoom past its maximum, so `_tools/Crop-Gallery.ps1 -From Tests/Pickle/runs/<run> -To Gallery` then cuts a 16:9 window
-around the subject, in native pixels, leaving out the studio's alerts, the "Area revealed" letters and the colonist bar. The
-crops are read off the pictures: re-read them after any change of camera in `14-gallery.feature`. Each picture is opened,
-after the crop, to check that it shows what it is meant to prove: the stand, its light, the burst.
+cannot zoom past its maximum (Pickle's own zoom step stops at RootSize 12, the game's floor is 11 with no promise below it;
+neither a bigger stand nor a higher run resolution was chosen, see below), so `_tools/Crop-Gallery.ps1 -From
+Tests/Pickle/runs/<run> -To Gallery` cuts a 16:9 window around the subject and, for the pictures where the stand alone is
+the subject (the fuse, the launch), scales that crop back up to 1280x720 with nearest-neighbour, not a smoothing filter: the
+game is pixel art, and a sharp, blocky enlargement reads better than a blurred one. The crops are read off the pictures:
+re-read them after any change of camera in `14-gallery.feature`. Each picture is opened, after the crop, to check that it
+shows what it is meant to prove: the stand, its light, the burst.
+
+**Why not a bigger stand or a higher run resolution (owner's choice, 2026-09-27).** Three ways were on the table: the
+stand drawn larger, the run's screen resolution raised (1920x1080 is hard-coded in the shared launcher's `xvfb-run` call,
+outside this mod and outside Pickle's own settings — PickleTools read it, 2026-09-27), or the crop enlarged. Enlarging the
+stand undoes capture 6 (its box was already made to overflow less), and the resolution is not this mod's file to change.
+The owner chose the enlarged crop.
 
 Steam shows the first one large: the most demonstrative, not the prettiest. Order to confirm on the images themselves:
 
