@@ -13,6 +13,7 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 
 | Run | Suite | Result | Evidence |
 | --- | --- | --- | --- |
+| [`2026-09-27-vitrine-7.md`](2026-09-27-vitrine-7.md) | gallery, pass vitrine, request 6702 | 3 passed, **1 failed** (a step timeout, not the application message — machine slowdown suspected), `failed` | **evidence destroyed by this session's own mistake** (see the file); nothing to keep |
 | [`2026-09-27-vitrine-6.md`](2026-09-27-vitrine-6.md) | gallery, pass vitrine, request e0f0 | 3 passed, **1 failed** (night light: fired, lit=true, glows never followed — game bookkeeping suspect), `failed` | kept until the next run replaces it |
 | [`2026-09-26-vitrine-5.md`](2026-09-26-vitrine-5.md) | gallery, pass vitrine, request f586 | 3 passed, **1 failed** (night light: fired, launch branch ran, light not seen; the trace is at fault-finding stage), `failed` | evidence deleted 2026-09-27, superseded by vitrine-6 |
 | [`2026-09-26-vitrine-4.md`](2026-09-26-vitrine-4.md) | gallery, feature 14, pass vitrine, request a79b (98c7 was cut by a shutdown) | 3 passed, **1 failed** (night light: the stand fired, the light not seen), `failed`; the step now traces its state | deleted 2026-09-26, superseded by vitrine-5 |
