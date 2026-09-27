@@ -364,7 +364,7 @@ namespace FireworkStand.PickleSteps
             bool Sample()
             {
                 string now = comp == null ? "no stand comp" :
-                    $"shot@{Field(comp, "lastShotTick")} departed={Field(comp, "departed")} lit={Field(comp, "lit")} glows={glower.Glows} speed={Find.TickManager.CurTimeSpeed}";
+                    $"shot@{Field(comp, "lastShotTick")} departed={Field(comp, "departed")} lit={Field(comp, "lit")} shouldBeLitNow={ShouldBeLitNow(glower)} spawned={stand.Spawned} glows={glower.Glows} speed={Find.TickManager.CurTimeSpeed}";
                 if (now != last)
                 {
                     trace.Add($"tick {Find.TickManager.TicksGame} (+{UnityEngine.Time.realtimeSinceStartup - t0:0.0}s): {now}");
@@ -381,6 +381,12 @@ namespace FireworkStand.PickleSteps
 
         private static object Field(object o, string name)
             => o.GetType().GetField(name, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public)?.GetValue(o);
+
+        // CompGlower.ShouldBeLitNow is protected: what CompFireworkStand.cs (Source/) says it does (Spawned, the flick
+        // switch, then every IThingGlower comp on the building) is read here to tell "our veto never fires" from "the
+        // game never lights the building at all".
+        private static object ShouldBeLitNow(CompGlower glower)
+            => glower.GetType().GetProperty("ShouldBeLitNow", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)?.GetValue(glower);
 
         [Then("Firework Stand: the light of the stand at x={int} z={int} goes off within {int} seconds")]
         public async Task LightGoesOff(PickleContext ctx, int x, int z, int seconds)
