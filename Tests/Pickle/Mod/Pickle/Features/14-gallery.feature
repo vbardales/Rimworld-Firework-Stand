@@ -55,7 +55,10 @@ Feature: the Workshop gallery, in the zen meadow studio
     Then I take a screenshot "gallery 03c: the burst over the meadow"
     And no errors were logged
 
-  @timeout:110
+  # Raised from 110 (2026-09-27, four runs in a row: f586, e0f0, 6702, ad7c): the tick rate itself runs well under real
+  # time in this scene (dense flowers, mote effects, software-rendered xvfb), so the step waiting for the light needs
+  # real-time headroom past its own 300s budget, and the scenario needs headroom past that for its teardown.
+  @timeout:340
   Scenario: gallery 04: the ground lit at night as the rocket leaves
     Given a "FS_FireworkStand" is built at (154, 98)
     And Firework Stand: the stand at x=154 z=98 is loaded with 1 launchers

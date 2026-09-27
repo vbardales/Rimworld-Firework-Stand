@@ -349,7 +349,12 @@ namespace FireworkStand.PickleSteps
             ctx.Assert(!GlowerOf(ctx, StandAt(ctx, x, z)).Glows, "the stand's light is on, and should be off");
         }
 
-        [Then("Firework Stand: the light of the stand at x={int} z={int} comes on within {int} seconds", TimeoutSeconds = 150f)]
+        // Four runs in a row (2026-09-26/27, f586/e0f0/6702/ad7c) hit this step's own real-time budget before its 1 800
+        // ticks (30 simulated seconds at Normal) could complete: the scenario's Player.log shows the run finishing at
+        // 208 s total, well past the 150 s this step was given, with no error of its own logged in between - the tick
+        // rate itself runs well under real time here (dense flower biome, mote effects on screen, software-rendered
+        // xvfb). Raised to give real-time headroom that has nothing to do with how many ticks are simulated.
+        [Then("Firework Stand: the light of the stand at x={int} z={int} comes on within {int} seconds", TimeoutSeconds = 300f)]
         public async Task LightComesOn(PickleContext ctx, int x, int z, int seconds)
         {
             Thing stand = StandAt(ctx, x, z);
