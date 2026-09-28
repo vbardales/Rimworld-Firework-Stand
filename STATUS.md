@@ -12,6 +12,7 @@ detached:     yes
 stage:        done   # workflow state names are used literally, no codes; see the 2026-09-21 audit
 licence:      open
 licence_at:   MIT in LICENSE and Mod/LICENSE for this mod; upstream permission is separate and not established
+upstream_mod_remotes: N/A
 upstream_permission: silent
 upstream_permission_at: No licence file found in the installed Fireworks dependency; no explicit consent or written refusal documented
 maintainer:   Codex, responsible for this repository and STATUS.md
