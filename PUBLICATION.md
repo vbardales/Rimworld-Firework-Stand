@@ -95,7 +95,8 @@ The CI reads the block under `### <version>`. They are sent again at every updat
 > Fixes. The fuse now smokes visibly at the top of the rack before each launch (the smoke was there but too faint to
 > see). A stand with nothing loaded no longer counts as recreation: colonists stop going to it, and its inspect line no
 > longer says "Ready to fire". The fuel line starts with a capital and the stand is drawn a little smaller, so its box stays
-> in its cell. Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
+> in its cell. The last rocket of a stand now lights the ground like the others (it did not, because the stand's
+> last launcher was spent before its light). Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
 
 The CI refuses a note whose first line does not carry the version (`[b]0.1.1[/b]` or a heading): each block starts with it.
 Confirm the first sentence against the last smoke pass before sending: it says what a person was shown, not what the

@@ -690,11 +690,11 @@ It 'the game asks every IThingGlower comp on the building before lighting it' {
     }
 }
 
-It 'that same test consults neither fuel nor power, which is why the veto is needed' {
+It 'that same test consults neither fuel nor power itself, which is why the veto is needed' {
     # This is the reason a loaded stand would otherwise glow for ever: ShouldBeLitNow looks at
-    # Spawned and at the flick switch, and at nothing else. If the game ever started consulting
-    # fuel, the comp's veto would be doing work the game already does - worth knowing, not worth
-    # guessing at.
+    # Spawned and at the flick switch, and at nothing else OF ITS OWN. If the game ever started consulting
+    # fuel there, the comp's veto would be doing work the game already does - worth knowing, not worth
+    # guessing at. (The comps it asks are another matter: see the next test.)
     $cg = $byName['CompGlower']
     if (-not $cg) { 'the game has no CompGlower any more'; return }
     $refs = Get-Refs ($cg.GetProperty('ShouldBeLitNow', $BFi).GetGetMethod($true))
@@ -706,6 +706,27 @@ It 'that same test consults neither fuel nor power, which is why the veto is nee
     if (-not (Test-Calls $refs 'Thing' 'get_Spawned')) {
         'it no longer checks Spawned, which is not fatal but means this reading is stale'
     }
+}
+
+It 'CompRefuelable is itself an IThingGlower, so an empty stand cannot light: the launcher is spent when the light goes out' {
+    # Found on the fifth red run of the gallery's night scenario (2026-09-27): CompGlower.ShouldBeLitNow does not
+    # touch fuel itself, but it asks every IThingGlower comp of the building, and CompRefuelable is one (its answer is
+    # HasFuel). A stand that spent its last launcher at the departure could never light the ground for it, and the
+    # trace read shouldBeLitNow=False while the stand's own comp said yes. The comp therefore keeps the launcher
+    # until the light is out (consumePending, spent from CompTick), and an unsuccessful shot spends it at once.
+    $ig = $byName['IThingGlower']
+    $cr = $byName['CompRefuelable']
+    if (-not $ig -or -not $cr) { 'the game has no IThingGlower or no CompRefuelable any more'; return }
+    if (-not $ig.IsAssignableFrom($cr)) { 'CompRefuelable no longer implements IThingGlower: the deferred spending is then unnecessary, and this test with it' }
+    $stand = $modAsm.GetType('FireworkStand.CompFireworkStand')
+    if (-not $stand) { 'the mod has no CompFireworkStand'; return }
+    if (-not $stand.GetField('consumePending', $BFi)) { 'CompFireworkStand no longer has the consumePending field the deferred spending rests on' }
+    $watched = $stand.GetMethod('Notify_Watched', $BFi)
+    $tick = $stand.GetMethod('CompTick', $BFi)
+    $spend = $stand.GetMethod('ConsumePendingLauncher', $BFi)
+    if (-not $spend) { 'CompFireworkStand no longer has ConsumePendingLauncher'; return }
+    if (-not (Test-Calls (Get-Refs $tick) 'CompFireworkStand' 'ConsumePendingLauncher')) { 'CompTick no longer spends the pending launcher when the light is out' }
+    if (-not (Test-Calls (Get-Refs $spend) 'CompRefuelable' 'ConsumeFuel')) { 'ConsumePendingLauncher no longer spends the launcher through CompRefuelable.ConsumeFuel' }
 }
 
 It 'putting the light on the grid is a comparison, so the comp may call it at will' {

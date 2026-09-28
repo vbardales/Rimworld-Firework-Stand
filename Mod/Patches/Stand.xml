@@ -108,8 +108,8 @@
                  `CompGlower.ShouldBeLitNow` asks every comp on the building that implements
                  `IThingGlower` and gives up as soon as one says no. Ours is one of them, and only
                  says yes for the four seconds following a rocket's departure. Without that veto a
-                 loaded stand would stay lit permanently like a lamp - `ShouldBeLitNow` consults
-                 neither fuel nor power, checked by decompilation. -->
+                 loaded stand would stay lit permanently like a lamp - `CompGlower` itself consults
+                 neither fuel nor power, but CompRefuelable is an IThingGlower too and says no when empty: hence the launcher is spent when its light goes out (CompFireworkStand.cs). -->
             <li Class="CompProperties_Glower">
               <glowRadius>9</glowRadius>
               <glowColor>(255,220,150,0)</glowColor>

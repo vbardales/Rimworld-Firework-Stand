@@ -50,7 +50,7 @@ namespace FireworkStand
     ///
     /// THE LIGHT IS A REAL LIGHT, not a glowing fleck. `CompGlower.ShouldBeLitNow` asks every comp
     /// on the building that implements <see cref="IThingGlower"/> and gives up as soon as one says
-    /// no - that is the hook the game provides, and it consults neither fuel nor power. So this
+    /// no - that is the hook the game provides, and CompGlower itself consults neither fuel nor power (CompRefuelable, which is an IThingGlower too, does: see Notify_Watched). So this
     /// comp answers "yes" for the few seconds after the rocket leaves, and "no" the rest of the
     /// time: the stand lights the ground for the length of the burst instead of staying on like a
     /// lamp.
@@ -61,6 +61,7 @@ namespace FireworkStand
         private int litUntilTick = -99999;
         private bool departed = true;
         private bool lit;
+        private bool consumePending;
 
         private CompProperties_FireworkStand Props => (CompProperties_FireworkStand)props;
         private CompRefuelable Fuel => parent.GetComp<CompRefuelable>();
@@ -78,17 +79,35 @@ namespace FireworkStand
             var fuel = Fuel;
             if (fuel == null || !fuel.HasFuel) return;
 
-            // Consume first: if the shot fails for any reason, one lost rocket is better than a
-            // stand that fires forever without spending anything.
-            fuel.ConsumeFuel(1f);
             lastShotTick = Find.TickManager.TicksGame;
 
             if (FireworksBridge.Fire(parent as ThingWithComps, Props.launchDelay))
             {
                 // The fuse is lit: it will smoke until the rocket leaves, handled on tick.
                 departed = false;
+                // THE ROCKET IS SPENT WHEN ITS LIGHT GOES OUT, NOT WHEN IT LEAVES. CompRefuelable is itself an
+                // IThingGlower and answers "no light" the moment it holds no fuel (read off the game, 2026-09-27),
+                // and CompGlower gives up as soon as one comp says no: a stand whose last launcher was spent at the
+                // departure could never light the ground for it. The gallery's night scenario, which loads a single
+                // launcher, saw exactly that on five runs in a row; the stands of the other scenarios held two or
+                // more, so the light was seen there.
+                consumePending = true;
                 ApplyMemory();
             }
+            else
+            {
+                // The shot did not leave: there is no light to keep the launcher for, and one lost rocket is
+                // better than a stand that fires forever without spending anything.
+                fuel.ConsumeFuel(1f);
+            }
+        }
+
+        /// <summary>Spends the launcher whose light has just gone out (see Notify_Watched).</summary>
+        private void ConsumePendingLauncher()
+        {
+            consumePending = false;
+            var fuel = Fuel;
+            if (fuel != null && fuel.HasFuel) fuel.ConsumeFuel(1f);
         }
 
         /// <summary>
@@ -153,6 +172,12 @@ namespace FireworkStand
             if (lit && now >= litUntilTick)
             {
                 SetLit(false, map);
+            }
+
+            // 4. The salvo is over: the launcher it used is spent only now, once its light is out.
+            if (consumePending && departed && !lit)
+            {
+                ConsumePendingLauncher();
             }
         }
 
@@ -262,6 +287,7 @@ namespace FireworkStand
             Scribe_Values.Look(ref litUntilTick, "litUntilTick", -99999);
             Scribe_Values.Look(ref departed, "departed", true);
             Scribe_Values.Look(ref lit, "lit", false);
+            Scribe_Values.Look(ref consumePending, "consumePending", false);
         }
     }
 }
