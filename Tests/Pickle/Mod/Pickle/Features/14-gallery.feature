@@ -39,7 +39,7 @@ Feature: the Workshop gallery, in the zen meadow studio
     When I zoom all the way in
     And I move the camera to (154, 100)
     And Firework Stand: "Miel" is ordered to watch the stand at x=154 z=98
-    Then Firework Stand: the stand at x=154 z=98 comes to hold 0 launchers within 60 seconds
+    Then Firework Stand: the stand at x=154 z=98 has fired within 60 seconds
     When I wait 40 ticks
     Then Firework Stand: at least 4 smoke puffs are near the stand at x=154 z=98 now
     And I take a screenshot "gallery 01: the fuse smoking at the foot of the stand"
@@ -74,7 +74,7 @@ Feature: the Workshop gallery, in the zen meadow studio
     Then Firework Stand: "Miel" is watching the stand at x=154 z=98
     # The first run (and its rerun) never saw the light within 60 s with the watcher at the stand. Two steps tell the two
     # possible causes apart: the stand is asked to have fired (its launcher spent), then the light is awaited.
-    And Firework Stand: the stand at x=154 z=98 comes to hold 0 launchers within 60 seconds
+    And Firework Stand: the stand at x=154 z=98 has fired within 60 seconds
     And Firework Stand: the light of the stand at x=154 z=98 comes on within 30 seconds
     And I take a screenshot "gallery 04: the ground lit at night as the rocket leaves"
     When I wait 100 ticks

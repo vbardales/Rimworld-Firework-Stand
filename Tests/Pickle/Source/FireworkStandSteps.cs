@@ -331,6 +331,21 @@ namespace FireworkStand.PickleSteps
             ctx.Assert(Held(fuel) == count, $"the stand holds {fuel.Fuel} launchers, not {count}");
         }
 
+        /// <summary>
+        /// Waits for the salvo to START: the moment the fuse is lit. The launcher is spent when the salvo's light goes
+        /// out (CompRefuelable is an IThingGlower and would veto the light of an empty stand), so the count cannot mark
+        /// the start any more; the shot's own tick does. Tick by tick, like the light step.
+        /// </summary>
+        [Then("Firework Stand: the stand at x={int} z={int} has fired within {int} seconds", TimeoutSeconds = 300f)]
+        public async Task HasFired(PickleContext ctx, int x, int z, int seconds)
+        {
+            ThingComp comp = ((ThingWithComps)StandAt(ctx, x, z)).AllComps.Find(c => c.GetType().Name == "CompFireworkStand");
+            ctx.Assert(comp != null, "the stand carries no CompFireworkStand");
+            bool Fired() => Convert.ToInt32(Field(comp, "lastShotTick")) > -99999;
+            for (int i = 0; i < seconds * 60 && !Fired(); i++) await ctx.WaitTicks(1);
+            ctx.Assert(Fired(), $"after {seconds} s the stand has not fired");
+        }
+
         /// <summary>Waits for a salvo to have been spent: one launcher per salvo, so the count is the salvo counter.</summary>
         [Then("Firework Stand: the stand at x={int} z={int} comes to hold {int} launchers within {int} seconds")]
         public async Task ComesToHold(PickleContext ctx, int x, int z, int count, int seconds)

@@ -46,8 +46,8 @@ Feature: the fuse smokes, then the rocket leaves
     When I zoom all the way in
     And I move the camera to (140, 150)
     And Firework Stand: "Watcher" is ordered to watch the stand at x=140 z=150
-    Then Firework Stand: the stand at x=140 z=150 comes to hold 0 launchers within 120 seconds
-    # The launcher is spent the instant the fuse is lit. Forty ticks in, the thread of smoke is
+    Then Firework Stand: the stand at x=140 z=150 has fired within 120 seconds
+    # The shot is marked the instant the fuse is lit (the launcher itself is spent when the light goes out). Forty ticks in, the thread of smoke is
     # rising; seventy ticks in, the fuse is done and the puff, the sparks and the flash are out.
     When I wait 40 ticks
     # The count is what tells "thrown and too faint" from "never thrown": the first full run showed no smoke on any
