@@ -28,7 +28,7 @@ $plan = @(
     @{ N = '01'; Match = 'gallery-03b*';  Name = 'the-audience';         Crop = '1280:720:320:225' },
     @{ N = '02'; Match = 'gallery-01*';   Name = 'the-fuse-smoking';     Crop = '256:144:832:553';  Scale = '1280:720' },
     @{ N = '03'; Match = 'gallery-02*';   Name = 'the-launch';           Crop = '256:144:832:553';  Scale = '1280:720' },
-    @{ N = '04'; Match = 'gallery-04b*';  Name = 'the-burst-at-night';   Crop = '1280:720:320:225' },  # placeholder: no green run has produced this picture yet (2026-09-27)
+    @{ N = '04'; Match = 'gallery-04b*';  Name = 'the-burst-at-night';   Crop = '1280:720:320:65' },
     @{ N = '05'; Match = 'gallery-05*';   Name = 'the-reload-countdown'; Crop = '1254:705:0:340' },
     @{ N = '06'; Match = 'gallery-06*';   Name = 'the-blueprint';        Crop = '1254:705:0:340' }
 )
