@@ -125,9 +125,14 @@ counts say.
 ## Gallery (manual: no tool of the chain can send it)
 
 The Workshop gallery is added by hand on the Steam page, in the order below. The folder `Gallery/` (at the repository root,
-not in `Mod/`) holds **only the images to upload, numbered `01-`, `02-`, ... in the order they go on the page, and nothing
-else** (no older version, no raw capture, no subfolder): it is also the workflow's `--gallery-dir`. Raw captures stay in
-`Tests/Pickle/runs/`, ignored by git, and are deleted once cropped. The folder does not exist yet.
+not in `Mod/`) holds **only the images to upload, numbered `00-`, `01-`, `02-`, ... in the order they go on the page, and
+nothing else** (no older version, no raw capture, no subfolder): it is also the workflow's `--gallery-dir`. Raw captures stay
+in `Tests/Pickle/runs/`, ignored by git, and are deleted once cropped. The folder does not exist yet.
+
+**Image `00` (owner's rule, 2026-09-29)** is not a game capture: it is a plain copy of `Mod/About/Preview.png`, the same
+image used as the Steam capsule, which itself carries `Mod/About/ModIcon.png` cut out of its background and composited into
+the emptier corner of the frame (bottom-left, +15°, its side and bottom edges overflowing past the canvas) so the mascot
+reads as leaping out of the picture. `_tools/Crop-Gallery.ps1` copies it as `00-preview.png` before cutting the rest.
 
 The images come from a **scenario of their own** that mounts the scene (`ScreenshotStudio`, the fixture
 `nelim-zen-meadow-studio`, staged with ClearScreen), not from the test colony's captures: those show a skeleton beside the

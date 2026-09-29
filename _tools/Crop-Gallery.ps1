@@ -34,6 +34,13 @@ $plan = @(
 )
 
 New-Item -ItemType Directory -Force $To | Out-Null
+
+# Image 0: a plain copy of Mod/About/Preview.png (the Steam capsule image, with its own ModIcon corner badge),
+# always first on the Workshop page (owner's rule, 2026-09-29).
+$previewSrc = Join-Path $PSScriptRoot '..\Mod\About\Preview.png'
+Copy-Item $previewSrc (Join-Path $To '00-preview.png') -Force
+"00-preview.png  <-  Preview.png"
+
 foreach ($p in $plan) {
     $src = Get-ChildItem $From -File | Where-Object { $_.Name -like $p.Match -and $_.Extension -in '.jpg', '.jpeg', '.png' } | Select-Object -First 1
     if (-not $src) { Write-Warning "no picture for $($p.N) $($p.Match) in $From"; continue }
