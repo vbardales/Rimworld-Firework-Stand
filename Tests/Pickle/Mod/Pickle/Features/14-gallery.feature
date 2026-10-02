@@ -47,8 +47,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (147, 97) to (151, 100)
     And Nelim's Pickle Tools: I place the decor "StandingLamp" at (147, 97)
     And Nelim's Pickle Tools: I place the decor "Stool" at (148, 100)
-    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 97)
-    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 100)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (152, 97)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (152, 100)
     And Nelim's Pickle Tools: "Miel" body type is Thin
     And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Miel" hair colour is rgb (235, 235, 240)
@@ -92,8 +92,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (147, 97) to (151, 100)
     And Nelim's Pickle Tools: I place the decor "StandingLamp" at (147, 97)
     And Nelim's Pickle Tools: I place the decor "Stool" at (148, 100)
-    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 97)
-    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 100)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (152, 97)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (152, 100)
     And Nelim's Pickle Tools: "Miel" body type is Thin
     And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Miel" hair colour is rgb (235, 235, 240)
