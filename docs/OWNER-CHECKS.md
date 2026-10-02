@@ -51,7 +51,7 @@ colonist stands in the show's way.
 
 ## 7. The Workshop gallery (six images, after the crop)
 
-`Gallery/` holds only these, numbered: the audience, the fuse, the launch, the burst at night, the reload count, the blueprint. For
+`Art/Gallery/` holds only these, numbered: the audience, the fuse, the launch, the burst at night, the reload count, the blueprint. For
 each, after the crop: the stand is there and legible, the subject fills most of the frame, no alert, no "Area revealed" letters, no
 log window, nothing that is not the mod. The content boxes (no nudity, no gore) are ticked after this look, not before.
 

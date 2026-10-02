@@ -746,7 +746,7 @@ it and nothing deleted. The proofs to keep at every test are written in `TESTING
 **What `tested` still needs** (AUDIT.md, transition 9): (1) no `@wip`: met; (2) every conditional scenario run: none is conditional,
 the pass without Ideology has run; (3) no manual test: none left, Fireworks absent is not applicable and justified. Still open:
 the three whole-suite passes on the final build (English, French, without Ideology), filed together at the end; the owner's look
-at the `@review` captures; and the French review above. Gallery: `Gallery/` is built at publication from `vitrine-11` with
+at the `@review` captures; and the French review above. Gallery: `Art/Gallery/` is built at publication from `vitrine-11` with
 `_tools/Crop-Gallery.ps1` (now `0-preview.png`, `1-` to `6-`).
 
 ## French review feedback — 2026-10-02

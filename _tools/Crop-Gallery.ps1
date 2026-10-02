@@ -11,7 +11,7 @@
   outside this mod, 2026-09-27). The scale-up uses nearest-neighbour (`flags=neighbor`), not a smoothing filter: the
   game is pixel art, so a sharp, blocky enlargement reads better than a blurred one.
 
-  -From is a folder of jpeg or png pictures (Tests/Pickle/runs/<run>/), -To the destination (Gallery/ at the root, or a
+  -From is a folder of jpeg or png pictures (Tests/Pickle/runs/<run>/), -To the destination (Art/Gallery/, or a
   scratch folder to look first). The output files are numbered in the order they go on the Steam page. The crop (and
   scale, when the entry has one) is the table below, matched on the scenario name in the file name; it is read off the
   pictures, so it is to be re-read after a change of camera or of zoom in 14-gallery.feature.

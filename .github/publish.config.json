@@ -10,7 +10,7 @@
   ],
   "forbidPaths": [],
   "previewFile": "About/Preview.png",
-  "galleryDir": "Gallery",
+  "galleryDir": "Art/Gallery",
   "aboutFromDescription": true,
   "description": {
     "file": "PUBLICATION.md",

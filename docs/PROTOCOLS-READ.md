@@ -72,7 +72,7 @@ mod's own documents. `TRANSLATIONS.md` when a French or English text changes. Th
 1. **The version that comes with `published` is 1.0.0**, not 0.1.1. Done in the CHANGELOG and the publication sheet.
 2. **The Steam change note must be a fenced block under `### <version>`**: it was a blockquote, which the CI would have
    refused (`fencedBlockUnder`). Fixed in `PUBLICATION.md`.
-3. **Gallery numbering is `0-`, `1-`, `2-`** (one digit): `_tools/Crop-Gallery.ps1` and the sheet are aligned. The `Gallery/`
+3. **Gallery numbering is `0-`, `1-`, `2-`** (one digit): `_tools/Crop-Gallery.ps1` and the sheet are aligned. The `Art/Gallery/`
    folder does not exist yet; it is built from `2026-09-28-vitrine-11` at the publication.
 4. **`FRENCH_REVIEW.md` starts with the mod's name.** The shared `scripts/Make-FrenchReview.ps1` leaves the English column
    empty here (the stand's defs live in `Mod/Patches/Stand.xml`), so the mod keeps `_tools/Generate-FrenchReview.ps1`,
