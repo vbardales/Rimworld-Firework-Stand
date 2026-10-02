@@ -21,6 +21,15 @@
 # THE CELLS. The stand goes in the flower glade (the studio's `flowers` view, camera cell 154,98), open ground with no
 # roof by design; the watcher is set down five cells west of it, inside the 4 to 12 cells colonists stand at. The
 # first run of this feature is the one that tells whether those cells are free: a failed placement names the cell.
+#
+# THE STORY OF THE SERIES (owner's rule, 2026-10-02: every gallery picture is a staged photograph, except menus and windows).
+# Midsummer eve in the flower glade. Miel, the colony's quiet gardener, has laid a small plank deck at the edge of the glade, set
+# a standing lamp and a stool beside it and planted roses along its edge, to watch the one show of the year. The same set is in
+# every photograph of the series (01 to 04b), put up before the picture and taken down after it. Miel: silver-white hair in a bob,
+# so that it catches the warm light of the burst and the light of the launch; a teal collar shirt and cream trousers, cool
+# colours that stand out against the warm light and the purple streaks; a slight build. No tattoo: none would mean anything
+# here. Her face (head type) and beard are NOT chosen yet: the step is requested from Pickle Tools (2026-10-02), see STATUS.md. The standing lamp is NOT powered (it gives no light), so that the only light on the night ground is the stand's own.
+# Pictures 05 (the inspect pane) and 06 (the blueprint) are the interface and are not staged.
 @review @requires:nelim.pickletools.screenshotstudio
 Feature: the Workshop gallery, in the zen meadow studio
 
@@ -34,6 +43,17 @@ Feature: the Workshop gallery, in the zen meadow studio
     And Firework Stand: the stand at x=154 z=98 is loaded with 1 launchers
     And Firework Stand: "Miel" is bored
     And Firework Stand: "Miel" is placed at x=149 z=98
+    # The set and the subject, put up before the picture (see the story at the top).
+    And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (147, 97) to (151, 100)
+    And Nelim's Pickle Tools: I place the decor "StandingLamp" at (147, 97)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (148, 100)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 97)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 100)
+    And Nelim's Pickle Tools: "Miel" body type is Thin
+    And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
+    And Nelim's Pickle Tools: "Miel" hair colour is rgb (235, 235, 240)
+    And Nelim's Pickle Tools: "Miel" wears "Apparel_CollarShirt" dyed rgb (30, 120, 130)
+    And Nelim's Pickle Tools: "Miel" wears "Apparel_Pants" dyed rgb (235, 225, 200)
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And game speed is normal
     When I zoom all the way in
@@ -53,6 +73,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     Then I take a screenshot "gallery 03b: the burst over the meadow"
     When I wait 50 ticks
     Then I take a screenshot "gallery 03c: the burst over the meadow"
+    When Nelim's Pickle Tools: the decor is removed
+    And Nelim's Pickle Tools: "Miel" gets back the clothes it had
     And no errors were logged
 
   # Raised from 110 (2026-09-27, four runs in a row: f586, e0f0, 6702, ad7c): the tick rate itself runs well under real
@@ -64,6 +86,17 @@ Feature: the Workshop gallery, in the zen meadow studio
     And Firework Stand: the stand at x=154 z=98 is loaded with 1 launchers
     And Firework Stand: "Miel" is bored
     And Firework Stand: "Miel" is placed at x=149 z=98
+    # The set and the subject, put up before the picture (see the story at the top).
+    And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (147, 97) to (151, 100)
+    And Nelim's Pickle Tools: I place the decor "StandingLamp" at (147, 97)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (148, 100)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 97)
+    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (151, 100)
+    And Nelim's Pickle Tools: "Miel" body type is Thin
+    And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
+    And Nelim's Pickle Tools: "Miel" hair colour is rgb (235, 235, 240)
+    And Nelim's Pickle Tools: "Miel" wears "Apparel_CollarShirt" dyed rgb (30, 120, 130)
+    And Nelim's Pickle Tools: "Miel" wears "Apparel_Pants" dyed rgb (235, 225, 200)
     And I set the weather to "Clear"
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
@@ -79,6 +112,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And I take a screenshot "gallery 04: the ground lit at night as the rocket leaves"
     When I wait 100 ticks
     Then I take a screenshot "gallery 04b: the burst at night"
+    When Nelim's Pickle Tools: the decor is removed
+    And Nelim's Pickle Tools: "Miel" gets back the clothes it had
     And no errors were logged
 
   @timeout:110

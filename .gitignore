@@ -45,3 +45,6 @@ Tests/Pickle/runs/
 Tests/Pickle/Evidence/
 evidence/
 pickle-reports-archive/
+
+# Reproductible Preview diagnostics; generated locally by scripts/Render-Preview.cjs.
+Art/.render/

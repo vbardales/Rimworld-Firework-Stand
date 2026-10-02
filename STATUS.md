@@ -169,15 +169,14 @@ Before manual testing, research IEDs: the building is absent from the Architect 
 
 ## Preview overlay â€” 2026-09-13
 
-Recomposed with HTML/CSS at 896 x 504 following ../STYLE_RIMWORLD.md. The existing
-illustration is retained: Art/Preview-source.png remains the original, copied unchanged to
-Art/Preview.png as the canonical text-free source. No replacement illustration was generated.
+Recomposed with HTML/CSS at 896 x 504 following ../STYLE_RIMWORLD.md. The final edited
+illustration is retained as the canonical text-free source in Art/Preview-source.png.
 The retained illustration has a lower camera angle than the guide's preferred overhead style;
 this pass updates the overlay, using the explicitly allowed existing illustration.
 
-Delivered image: Mod/About/Preview.png. Composition and layout parameters: Art/preview.html.
-Single colour reference: Art/preview-palette.json. Reproducible capture: Art/render-preview.cjs
-(Node with playwright and sharp; local Chrome). The renderer reads the highest stable version
+Delivered image: Mod/About/Preview.png. Composition, copy and palette are unified in
+Art/Preview.config.json. Reproducible capture uses the shared ../scripts/Render-Preview.cjs
+(Node with Playwright and Sharp; local Chrome). The renderer reads the highest stable version
 from the delivered About.xml, currently 1.6, and waits for document.fonts.ready and image decode.
 
 The veil follows the large blue-black night surface. Secondary ink is a light, visibly blue
@@ -191,31 +190,30 @@ the title, Segoe UI regular for the summary, Segoe UI Bold for the version. No f
 The dark radial veil was strengthened and held through the title area after the original
 firework highlight failed contrast. Final contrast minima over every pixel of the title and
 summary rectangles in a text-hidden render: title 10.24:1, summary 14.23:1; badge 9.01:1.
-Tag contrast is not applicable. Full evidence: Art/preview-qa.json and
-Art/preview-background.png. Palette values are deliberately not duplicated here.
+Tag contrast is not applicable. Reproducible local evidence is regenerated under ignored
+Art/.render/. Palette values are deliberately not duplicated here.
 
-Visually checked at 896 x 504 and at 268 px wide (Art/preview-268.png): title and version
-identifiable, no clipping or overlap, rule visible, launch stand retained on the right.
+Visually checked at 896 x 504: title and version identifiable, no clipping or overlap,
+rule visible, launch stand retained on the right.
 No reduced title words apply to Firework Stand. Summary is for full-size reading as the guide
 specifies. Initial overlay PNG was 433789 bytes, below 900 KB; see the revision below for current evidence. Nothing published.
 
 ### Preview illustration revision â€” 2026-09-13
 
-User found the launch-only composition ambiguous, resembling a mortar. Replaced Art/Preview.png
-with a built-in imagegen edit: a large fully opened orange-gold firework now fills the right
+User found the launch-only composition ambiguous, resembling a mortar. The canonical
+Art/Preview-source.png is the built-in imagegen edit: a large fully opened orange-gold firework fills the right
 background above the launch stand. Removed the small left burst so the title area stays quiet.
-Previous source archived at Art/Preview-before-firework-burst-2026-09-13.png; the still older
-Art/Preview-source.png is also preserved. Edit prompt: Art/PROMPT_Preview-burst.md.
-This supersedes the earlier statement that no replacement illustration was generated.
+The superseded launch-only source remains recoverable from Git history rather than as an active
+duplicate in Art/. This supersedes the earlier statement that no replacement illustration was generated.
 
 Re-evaluated the palette on the edited source: blue-black night remains dominant, the blue
 secondary ink remains appropriate, and the new orange-gold burst reinforces the warm accent's
-connection to the subject. Existing Art/preview-palette.json values are retained deliberately.
-Re-rendered Mod/About/Preview.png using Art/preview.html and Art/render-preview.cjs. Name,
+connection to the subject. Existing palette values are retained in Art/Preview.config.json.
+Re-rendered Mod/About/Preview.png using the shared renderer. Name,
 summary, no-tag decision and version 1.6 are unchanged. Segoe UI regular/Semibold/Bold confirmed.
-Current QA: 896 x 504, 564219 bytes; minimum contrast title 12.66:1, summary 12.42:1,
-badge 9.01:1. Art/preview-qa.json, preview-background.png and preview-268.png refreshed.
-Visually inspected the source and final composition at full size and 268 px: the expanded
+Current QA: 896 x 504, 675964 bytes; minimum contrast title 12.66:1, summary 12.42:1,
+badge 9.01:1. Local QA evidence is regenerated in Art/.render/.
+Visually inspected the source and final composition at full size: the expanded
 firework is immediately recognisable, title and badge are clear, no text overlap or clipping.
 Nothing published.
 
@@ -238,13 +236,12 @@ The final image was inspected again at full size and 268 px. No Source/, Mod/Pat
 functional-suite differences against the initial revision were found. Existing edits were
 preserved; this audit changes only STATUS.md and creates ignored build output under .build/audit.
 
-Local changes at final inventory: About.xml, Preview.png, README.md, STATUS.md, TESTING.md,
-_tools/Test-Xml.ps1; untracked Art/PROMPT_Preview-burst.md,
-Art/Preview-before-firework-burst-2026-09-13.png, Art/Preview.png, Art/preview-268.png,
-Art/preview-background.png, Art/preview-palette.json, Art/preview-qa.json,
-Art/preview.html and Art/render-preview.cjs. Earlier untracked French resources and the
-CHANGELOG change were incorporated into the intervening commit, not removed by this audit.
-Results apply to this working tree, not merely the clean commit.
+That audit originally found several local Preview intermediates. The 2026-10-02 Preview
+migration consolidated their retained data into Art/Preview-source.png,
+Art/ModIcon-source.png, Art/echo.png and Art/Preview.config.json; generated diagnostics now
+live under ignored Art/.render/. Earlier untracked French resources and the CHANGELOG change
+were incorporated into the intervening commit, not removed by this audit. Results apply to
+this working tree, not merely the clean commit.
 
 ### Transition decisions (evaluated in order)
 
@@ -374,7 +371,7 @@ No RimWorld was launched, and none was running (`Get-Process RimWorldWin64`: 0).
 | horsMonoRepo | Validated. Independent repository, origin `Rimworld-Firework-Stand` configured and pushed (remote HEAD = local HEAD). STATUS.md initialised. Public visibility and `open` / MIT with upstream `silent` are the recorded, user-approved decision of 2026-09-13; unchanged. packageId `nelim.fireworkstand`, name, repository and folder are coherent. README, ATTRIBUTION, CHANGELOG and LICENSE are in English; the distributed ATTRIBUTION.md and LICENSE are byte-identical to the root copies (SHA256 compared). |
 | ModIcon generated | Validated. Isolated rebuild of `Source/FireworkStand.csproj` exits 0 with 0 warnings and 0 errors, and its SHA256 equals the shipped `Mod/Assemblies/FireworkStand.dll` (`F1525A95â€¦C62D`). `Mod/About/ModIcon.png` is PNG, 128 x 128, 24000 bytes, opened and looked at: the accepted mascot. |
 | Preview generated | Validated. `Mod/About/Preview.png` is PNG, 896 x 504, 564219 bytes (< 1 MB), SHA256 `5B41D328â€¦4282`, identical to the image the user approved on 2026-09-13. Opened and looked at: title, rule, summary and version badge readable, no clipping. |
-| preOptions | Validated. Blue-black veil against an orange accent (`Art/preview-palette.json`), clearly distinct. English description present and ends with `[url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]`, matching `<url>` and the remote. No prefix, suffix or linking word to handle under the recorded title decision. |
+| preOptions | Validated. Blue-black veil against an orange accent (`Art/Preview.config.json`), clearly distinct. English description present and ends with `[url=https://github.com/vbardales/Rimworld-Firework-Stand]Source code on GitHub[/url]`, matching `<url>` and the remote. No prefix, suffix or linking word to handle under the recorded title decision. |
 | options | Validated as `settings_audit: not_applicable`. Grep of `Source/*.cs` and `Mod/`: no `Verse.Mod` subclass, no `ModSettings`, no `MainButtonDef`, no settings window, so there is neither an empty page nor a shortcut. Rationale unchanged from the 2026-09-13 section. No in-game check was required or claimed. |
 | l10n | Validated statically. `Test-Xml.ps1`: 10 XML files parsed, EN/FR keys and placeholders match. `Check-DefInjected.ps1`: 30 patch operations, 11625 defs indexed, 16 keys checked, 0 errors. Both Translate calls (`FireworkStand.Ready`, `FireworkStand.Reloading`) have EN and FR entries; the only other player-facing strings are Def fields (English source in the patch, French in DefInjected). The `Log.Warning` texts are technical logs and stay English. |
 | preTest | Validated. Only `telardo.Fireworks` is declared as `modDependencies` and it is what the code and the guarded patch reach for; `loadAfter` lists Ludeon.RimWorld and it. Only RimWorld 1.6 is supported and no `LoadFolders.xml` is needed. Ideology is not required. |
@@ -767,3 +764,17 @@ Reviewer: Virginie. Date: 2026-10-02. Revision reviewed: `7a59b01` (last commit 
 the corrections of `51420f0` are in the working tree on top of it). Result: validated; sources traced or marked `derived`,
 French correct. Corrections requested: `FS_FireworkStand.description` ("ne se déroule que tant que quelqu’un est là"),
 `FS_WatchFireworks.reportString` lowercase; both applied. `translation_fr: complete`. Recorded by the session on her statement in chat.
+
+## Gallery staged as photographs — 2026-10-02 (owner's rule, PUBLISHING.md)
+
+Every gallery picture except menus and windows is a staged photograph. `14-gallery.feature` (scenarios 01 to 04b) now carries a
+story at its top and stages one set in all of them: a plank deck, a standing lamp (unpowered, so the stand's light is the only
+light at night), a stool, two roses, put up before the picture and taken down after (`the decor is removed`); and one subject,
+Miel: thin build, silver-white bob, teal collar shirt, cream trousers, clothes given back at the end. Pictures 05 (inspect pane)
+and 06 (blueprint) are interface and stay as they are. Steps used come from Pickle Tools' StageDecor and ColonistRace, both written
+2026-10-02 and **never played**; `wsl-deps.vitrine.map` now stages them. Def names (`WoodPlankFloor`, `StandingLamp`, `Stool`,
+`Plant_Rose`, `Bob`, `Apparel_CollarShirt`, `Apparel_Pants`) are unchecked guesses: the first run names any wrong one.
+**Missing step:** the face (head type) and beard are not chosen. Requested from the Pickle Tools session; the message could not be
+delivered (no reachable session by name or id), so the request stands in this file: `{string} head type is {string}` and
+`{string} beard is {string}`. Until then the face is the fixture's. The vitrine pass is to be replayed (small ticket, feature 14
+only) and every image reopened; the old gallery images and captures 1 to 9 validated by the owner no longer stand, being unstaged.
