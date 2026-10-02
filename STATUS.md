@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: partial
+translation_fr: complete
 mod:          Firework Stand
 packageId:    nelim.fireworkstand
 repo:         Rimworld-Firework-Stand
@@ -45,7 +45,6 @@ remaining:
   - fixed 2026-09-24 in 0.1.1, root cause found: the stand's effects were timed in CompTickInterval, which the game runs only every few ticks for a Normal ticker (Thing.DoTick), so the fuse smoke fell between two calls. Moved to CompTick (every tick), puffs a little larger and closer together (smokeInterval 12 to 8, size 0.7 to 1.0). A functional test pins the timing and a Pickle step counts the smoke puffs near the stand; whether the smoke is now visible enough is the owner's call on the new build.
   - confirmed by the owner 2026-09-24: the light is a flash at the rocket's departure, not a lamp (scenario 4).
   - accepted: orange-face mod icon deviation accepted on 2026-09-04
-  - unverified: "French review by Virginie" (TRANSLATIONS.md ss3, 2026-09-30). FRENCH_REVIEW.md generated 2026-09-30; no session marks its own French as reviewed, and translation_fr cannot go to complete until she has read it.
 session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
 updated:      2026-10-02
 ---
@@ -676,9 +675,7 @@ that produced the image is in `docs/runs/`.
   picture of it. **Validated by the owner on 2026-09-26, as the principle**, on the cropped `gallery-01` of `docs/runs/2026-09-26-vitrine-4.md` (the final smoke): a dark thread above the rack, thicker, still a thread. Not validated as a gallery image: the stand is too small in it, the next run (camera all the way in) and its crop must show it larger.
 - **Captures 8 and 9, the ground lit at night and the burst at night (`gallery-04` and `gallery-04b`, `docs/runs/2026-09-28-vitrine-11.md`, the first green run of the night scenario): validated by the owner on 2026-09-28.** A warm pool of light round the stand on dark ground, and, in the second, the burst's purple streaks above it with the ground still lit.
 
-## Translation audit — systematic French review by Virginie — 2026-09-30
 
-TRANSLATIONS.md ss3 ("Systematic French review by Virginie") reset `translation_fr` to `unchecked`
 for the new gender-agreement rule. Read TRANSLATIONS.md ss3, then every one of this mod's seven
 French files directly (no pattern search): `Mod/Languages/French/Keyed/FireworkStand.xml`,
 `Keyed/Fireworks.xml`, `DefInjected/JoyKindDef/FireworkStand.xml`, `DefInjected/JobDef/FireworkStand.xml`,
@@ -763,3 +760,10 @@ mood stages, launch gizmo), each marked `derived` with its origin; `FRENCH_REVIE
 `FS_FireworkStand.description` now says the show "ne se déroule que tant que quelqu’un est là pour y assister" (was "ne
 commence que si"), and `FS_WatchFireworks.reportString` is lowercase with a typographic apostrophe, like its source. Any French
 change resets the review: `translation_fr` stays `partial` until she rereads the changed rows (description, report string).
+
+## French review recorded — 2026-10-02
+
+Reviewer: Virginie. Date: 2026-10-02. Revision reviewed: `7a59b01` (last commit touching Mod/Languages, Mod/Defs, Mod/Patches;
+the corrections of `51420f0` are in the working tree on top of it). Result: validated; sources traced or marked `derived`,
+French correct. Corrections requested: `FS_FireworkStand.description` ("ne se déroule que tant que quelqu’un est là"),
+`FS_WatchFireworks.reportString` lowercase; both applied. `translation_fr: complete`. Recorded by the session on her statement in chat.
