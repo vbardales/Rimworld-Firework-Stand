@@ -28,7 +28,7 @@
 # every photograph of the series (01 to 04b), put up before the picture and taken down after it. Miel: silver-white hair in a bob,
 # so that it catches the warm light of the burst and the light of the launch; a teal collar shirt and cream trousers, cool
 # colours that stand out against the warm light and the purple streaks; a slight build. No tattoo: none would mean anything
-# here. Her face (head type) and beard are NOT chosen yet: the step is requested from Pickle Tools (2026-10-02), see STATUS.md. The standing lamp is NOT powered (it gives no light), so that the only light on the night ground is the stand's own.
+# here. Face: Female_NarrowNormal (Miel is assumed female: the step refuses the other gender and names it), no beard. The standing lamp is NOT powered (it gives no light), so that the only light on the night ground is the stand's own.
 # Pictures 05 (the inspect pane) and 06 (the blueprint) are the interface and are not staged.
 @review @requires:nelim.pickletools.screenshotstudio
 Feature: the Workshop gallery, in the zen meadow studio
@@ -52,6 +52,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And Nelim's Pickle Tools: "Miel" body type is Thin
     And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Miel" hair colour is rgb (235, 235, 240)
+    And Nelim's Pickle Tools: "Miel" head type is "Female_NarrowNormal"
+    And Nelim's Pickle Tools: "Miel" beard is "none"
     And Nelim's Pickle Tools: "Miel" wears "Apparel_CollarShirt" dyed rgb (30, 120, 130)
     And Nelim's Pickle Tools: "Miel" wears "Apparel_Pants" dyed rgb (235, 225, 200)
     And Nelim's Pickle Tools: studio presentation mode is enabled
@@ -95,6 +97,8 @@ Feature: the Workshop gallery, in the zen meadow studio
     And Nelim's Pickle Tools: "Miel" body type is Thin
     And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Miel" hair colour is rgb (235, 235, 240)
+    And Nelim's Pickle Tools: "Miel" head type is "Female_NarrowNormal"
+    And Nelim's Pickle Tools: "Miel" beard is "none"
     And Nelim's Pickle Tools: "Miel" wears "Apparel_CollarShirt" dyed rgb (30, 120, 130)
     And Nelim's Pickle Tools: "Miel" wears "Apparel_Pants" dyed rgb (235, 225, 200)
     And I set the weather to "Clear"
