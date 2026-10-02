@@ -76,6 +76,23 @@ if (Test-Path $defsRoot) { $script:defFiles += (Get-ChildItem $defsRoot -Recurse
 if (Test-Path $patchesRoot) { $script:defFiles += (Get-ChildItem $patchesRoot -Recurse -Filter *.xml | ForEach-Object { $_.FullName }) }
 $script:defCache = @{}
 
+$script:known = @{
+ 'FireworkLauncher.label' = 'firework launcher'
+ 'FireworkLauncher.description' = 'A one-use firework launcher for celebrations. Once ignited, the propelled fireworks would emit a burst of sparks and colorful displays in the sky, giving spectators a mood bonus.'
+ 'FS_FireworkStand.comps.CompRefuelable.fuelLabel' = 'Fireworks loaded'
+ 'FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage' = 'No fireworks loaded'
+ 'TerribleFireworks.stages.terrible_fireworks_celebration.label' = 'terrible fireworks celebration'
+ 'TerribleFireworks.stages.terrible_fireworks_celebration.description' = 'The fireworks celebration was terrible! The equipment is misfired and the show looks disjointed and unsynchronized.'
+ 'UnimpressiveFireworks.stages.boring_fireworks_celebration.label' = 'boring fireworks celebration'
+ 'UnimpressiveFireworks.stages.boring_fireworks_celebration.description' = 'The fireworks celebration was unimpressive. A limited number of fireworks are lacking in vibrant colors and special effects.'
+ 'BeautifulFireworks.stages.beautiful_fireworks_celebration.label' = 'beautiful fireworks celebration'
+ 'BeautifulFireworks.stages.beautiful_fireworks_celebration.description' = 'The fireworks celebration was beautiful. A brilliant display of light and sound delights everyone.'
+ 'UnforgettableFireworks.stages.unforgettable_fireworks_celebration.label' = 'unforgettable fireworks celebration'
+ 'UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description' = 'The fireworks celebration was unforgettable! Every participant rejoiced at the mesmerizing and harmonious visual feast.'
+ 'LaunchFirework' = 'Launch fireworks'
+ 'LaunchFireworkDesc' = 'Initiate a dazzling pyrotechnic display in the sky. Audiences will receive a positive mood boost.'
+}
+$script:inherited = @('FireworkLauncher.','TerribleFireworks.','UnimpressiveFireworks.','BeautifulFireworks.','UnforgettableFireworks.','LaunchFirework')
 $frenchFiles = Get-ChildItem $frenchRoot -Recurse -Filter *.xml | Sort-Object FullName
 $out = New-Object System.Text.StringBuilder
 [void]$out.AppendLine("# French review - Firework Stand")
@@ -106,6 +123,11 @@ foreach ($ff in $frenchFiles) {
         $en = $null
         if ($enEntries.Contains($key)) { $en = $enEntries[$key] }
         else { $en = Resolve-DefField $key }
+        if ($null -eq $en -and $script:known.ContainsKey($key)) {
+            $en = $script:known[$key]
+            if ($script:inherited | Where-Object { $key.StartsWith($_) }) { $en += ' *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*' }
+            else { $en += ' *(Mod/Patches/Stand.xml)*' }
+        }
         if ($null -eq $en) { $en = '*(not found - check by hand)*' }
         $orig = $en
         $flag = if ($fr -match '\?\?\?|TODO|\{PAWN_gender' -and $fr -notmatch '\{PAWN_gender \? ') { ' | ?' } else { '' }

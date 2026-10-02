@@ -11,7 +11,7 @@ Generated 2026-10-02 from revision `7a59b01` (the last commit touching Mod/Langu
 
 | Key or path | Original | English | French |
 |---|---|---|---|
-| FS_WatchFireworks.reportString | watching fireworks. | watching fireworks. | Regarde les feux d'artifice. |
+| FS_WatchFireworks.reportString | watching fireworks. | watching fireworks. | regarde les feux d’artifice. |
 
 ## DefInjected/JoyKindDef/FireworkStand.xml
 
@@ -23,37 +23,37 @@ Generated 2026-10-02 from revision `7a59b01` (the last commit touching Mod/Langu
 
 | Key or path | Original | English | French |
 |---|---|---|---|
-| FireworkLauncher.label | *(not found - check by hand)* | *(not found - check by hand)* | lanceur de feux d'artifice |
-| FireworkLauncher.description | *(not found - check by hand)* | *(not found - check by hand)* | Un lanceur de feux d'artifice à usage unique pour les célébrations. Une fois allumé, il projette dans le ciel des gerbes d'étincelles et des effets colorés qui améliorent l'humeur des spectateurs. |
+| FireworkLauncher.label | firework launcher *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | firework launcher *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | lanceur de feux d'artifice |
+| FireworkLauncher.description | A one-use firework launcher for celebrations. Once ignited, the propelled fireworks would emit a burst of sparks and colorful displays in the sky, giving spectators a mood bonus. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | A one-use firework launcher for celebrations. Once ignited, the propelled fireworks would emit a burst of sparks and colorful displays in the sky, giving spectators a mood bonus. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Un lanceur de feux d'artifice à usage unique pour les célébrations. Une fois allumé, il projette dans le ciel des gerbes d'étincelles et des effets colorés qui améliorent l'humeur des spectateurs. |
 
 ## DefInjected/ThingDef/FireworkStand.xml
 
 | Key or path | Original | English | French |
 |---|---|---|---|
 | FS_FireworkStand.label | firework stand | firework stand | rampe de feux d'artifice |
-| FS_FireworkStand.description | A braced rack that holds a stack of firework launchers and sets them off one at a time. Colonists gather at a distance to watch, and the show only runs while somebody is there to see it.\n\nMust be built under open sky. | A braced rack that holds a stack of firework launchers and sets them off one at a time. Colonists gather at a distance to watch, and the show only runs while somebody is there to see it.\n\nMust be built under open sky. | Une rampe renforcée qui accueille plusieurs lanceurs de feux d'artifice et les déclenche un par un. Les colons se rassemblent à distance pour regarder le spectacle, qui ne commence que si quelqu'un est là pour y assister.\n\nDoit être construite à ciel ouvert. |
-| FS_FireworkStand.comps.CompRefuelable.fuelLabel | *(not found - check by hand)* | *(not found - check by hand)* | Feux d'artifice chargés |
-| FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage | *(not found - check by hand)* | *(not found - check by hand)* | Aucun feu d'artifice chargé |
+| FS_FireworkStand.description | A braced rack that holds a stack of firework launchers and sets them off one at a time. Colonists gather at a distance to watch, and the show only runs while somebody is there to see it.\n\nMust be built under open sky. | A braced rack that holds a stack of firework launchers and sets them off one at a time. Colonists gather at a distance to watch, and the show only runs while somebody is there to see it.\n\nMust be built under open sky. | Une rampe renforcée qui accueille plusieurs lanceurs de feux d'artifice et les déclenche un par un. Les colons se rassemblent à distance pour regarder le spectacle, qui ne se déroule que tant que quelqu’un est là pour y assister.\n\nDoit être construite à ciel ouvert. |
+| FS_FireworkStand.comps.CompRefuelable.fuelLabel | Fireworks loaded *(Mod/Patches/Stand.xml)* | Fireworks loaded *(Mod/Patches/Stand.xml)* | Feux d'artifice chargés |
+| FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage | No fireworks loaded *(Mod/Patches/Stand.xml)* | No fireworks loaded *(Mod/Patches/Stand.xml)* | Aucun feu d'artifice chargé |
 
 ## DefInjected/ThoughtDef/Fireworks.xml
 
 | Key or path | Original | English | French |
 |---|---|---|---|
-| TerribleFireworks.stages.terrible_fireworks_celebration.label | *(not found - check by hand)* | *(not found - check by hand)* | spectacle pyrotechnique désastreux |
-| TerribleFireworks.stages.terrible_fireworks_celebration.description | *(not found - check by hand)* | *(not found - check by hand)* | Le spectacle pyrotechnique était désastreux ! Les lanceurs ont eu des ratés et les tirs étaient décousus et mal synchronisés. |
-| UnimpressiveFireworks.stages.boring_fireworks_celebration.label | *(not found - check by hand)* | *(not found - check by hand)* | spectacle pyrotechnique ennuyeux |
-| UnimpressiveFireworks.stages.boring_fireworks_celebration.description | *(not found - check by hand)* | *(not found - check by hand)* | Le spectacle pyrotechnique était décevant. Les feux d'artifice étaient peu nombreux et manquaient de couleurs vives et d'effets spéciaux. |
-| BeautifulFireworks.stages.beautiful_fireworks_celebration.label | *(not found - check by hand)* | *(not found - check by hand)* | magnifique spectacle pyrotechnique |
-| BeautifulFireworks.stages.beautiful_fireworks_celebration.description | *(not found - check by hand)* | *(not found - check by hand)* | Le spectacle pyrotechnique était magnifique. Cette brillante démonstration de sons et de lumières a ravi tout le monde. |
-| UnforgettableFireworks.stages.unforgettable_fireworks_celebration.label | *(not found - check by hand)* | *(not found - check by hand)* | spectacle pyrotechnique inoubliable |
-| UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description | *(not found - check by hand)* | *(not found - check by hand)* | Le spectacle pyrotechnique était inoubliable ! Chaque personne présente s'est émerveillée devant ce spectacle envoûtant et harmonieux. |
+| TerribleFireworks.stages.terrible_fireworks_celebration.label | terrible fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | terrible fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | spectacle pyrotechnique désastreux |
+| TerribleFireworks.stages.terrible_fireworks_celebration.description | The fireworks celebration was terrible! The equipment is misfired and the show looks disjointed and unsynchronized. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | The fireworks celebration was terrible! The equipment is misfired and the show looks disjointed and unsynchronized. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Le spectacle pyrotechnique était désastreux ! Les lanceurs ont eu des ratés et les tirs étaient décousus et mal synchronisés. |
+| UnimpressiveFireworks.stages.boring_fireworks_celebration.label | boring fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | boring fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | spectacle pyrotechnique ennuyeux |
+| UnimpressiveFireworks.stages.boring_fireworks_celebration.description | The fireworks celebration was unimpressive. A limited number of fireworks are lacking in vibrant colors and special effects. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | The fireworks celebration was unimpressive. A limited number of fireworks are lacking in vibrant colors and special effects. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Le spectacle pyrotechnique était décevant. Les feux d'artifice étaient peu nombreux et manquaient de couleurs vives et d'effets spéciaux. |
+| BeautifulFireworks.stages.beautiful_fireworks_celebration.label | beautiful fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | beautiful fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | magnifique spectacle pyrotechnique |
+| BeautifulFireworks.stages.beautiful_fireworks_celebration.description | The fireworks celebration was beautiful. A brilliant display of light and sound delights everyone. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | The fireworks celebration was beautiful. A brilliant display of light and sound delights everyone. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Le spectacle pyrotechnique était magnifique. Cette brillante démonstration de sons et de lumières a ravi tout le monde. |
+| UnforgettableFireworks.stages.unforgettable_fireworks_celebration.label | unforgettable fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | unforgettable fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | spectacle pyrotechnique inoubliable |
+| UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description | The fireworks celebration was unforgettable! Every participant rejoiced at the mesmerizing and harmonious visual feast. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | The fireworks celebration was unforgettable! Every participant rejoiced at the mesmerizing and harmonious visual feast. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Le spectacle pyrotechnique était inoubliable ! Chaque personne présente s'est émerveillée devant ce spectacle envoûtant et harmonieux. |
 
 ## Keyed/Fireworks.xml
 
 | Key or path | Original | English | French |
 |---|---|---|---|
-| LaunchFirework | *(not found - check by hand)* | *(not found - check by hand)* | Lancer les feux d'artifice |
-| LaunchFireworkDesc | *(not found - check by hand)* | *(not found - check by hand)* | Déclencher un éblouissant spectacle pyrotechnique dans le ciel. L'humeur des spectateurs sera améliorée. |
+| LaunchFirework | Launch fireworks *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Launch fireworks *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Lancer les feux d'artifice |
+| LaunchFireworkDesc | Initiate a dazzling pyrotechnic display in the sky. Audiences will receive a positive mood boost. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Initiate a dazzling pyrotechnic display in the sky. Audiences will receive a positive mood boost. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)* | Déclencher un éblouissant spectacle pyrotechnique dans le ciel. L'humeur des spectateurs sera améliorée. |
 
 ## Keyed/FireworkStand.xml
 

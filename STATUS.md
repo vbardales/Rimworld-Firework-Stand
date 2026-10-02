@@ -754,3 +754,12 @@ the pass without Ideology has run; (3) no manual test: none left, Fireworks abse
 the three whole-suite passes on the final build (English, French, without Ideology), filed together at the end; the owner's look
 at the `@review` captures; and the French review above. Gallery: `Gallery/` is built at publication from `vitrine-11` with
 `_tools/Crop-Gallery.ps1` (now `0-preview.png`, `1-` to `6-`).
+
+## French review feedback — 2026-10-02
+
+Virginie: not validated, 13 rows read `not found - check by hand`. Fixed: the generator now carries the English of the 2 fuel
+labels (`Mod/Patches/Stand.xml`) and of the 11 rows inherited from telardo.Fireworks 1.6 (launcher label/description, four
+mood stages, launch gizmo), each marked `derived` with its origin; `FRENCH_REVIEW.md` has 0 `not found`. Corrections applied:
+`FS_FireworkStand.description` now says the show "ne se déroule que tant que quelqu’un est là pour y assister" (was "ne
+commence que si"), and `FS_WatchFireworks.reportString` is lowercase with a typographic apostrophe, like its source. Any French
+change resets the review: `translation_fr` stays `partial` until she rereads the changed rows (description, report string).
