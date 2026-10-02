@@ -1,4 +1,4 @@
-## [0.1.1] - unreleased
+## [1.0.0] - unreleased
 
 Defects found on the in-game runs of the Pickle suite, and confirmed by the owner. The stand's saved
 data is unchanged, so a colony saved with 0.1.0 loads as it was.
@@ -44,12 +44,6 @@ Workshop item, 3806767445, was created by the first upload and is private until 
 - 40 steel and 20 wood, behind the IEDs research. English and French.
 
 ### Fixed
-
-- **The last rocket of a stand never lit the ground.** The game's own fuel component (`CompRefuelable`) is one of the
-  comps the light asks, and it answers "no light" as soon as nothing is loaded; the stand spent its launcher as the
-  rocket left, so a stand with one launcher left could not light the ground for it (the others could, because they still
-  held one). The launcher is now spent when the light goes out, four seconds later. The saved data gains one flag
-  (`consumePending`, false for a stand saved with 0.1.0).
 
 - Completed French translations for the stand, recreation type, job and fuel messages,
   plus the reused Fireworks launcher, launch command and four mood memories.

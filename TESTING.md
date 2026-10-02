@@ -14,7 +14,7 @@ It is one half of the testing. The other half needs no colony and runs in fiftee
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
 ```
 
-Those 32 tests read off the compiled game, and off telardo's assembly, that the things this mod
+Those 33 tests (2026-10-02, all passing) read off the compiled game, and off telardo's assembly, that the things this mod
 delegates to still do what it delegates them for - the virtual slot the job driver grafts onto,
 the `IThingGlower` veto the light rests on, the method and field the bridge reaches for by name.
 Run that first: it is faster than building a stand, and a failure there explains a scenario below
@@ -262,6 +262,37 @@ still that repeats another, and every report for a build or a suite revision tha
 sole proof of a check the latest run did not repeat. Delete the superseded evidence as soon as a newer report has been
 read, and write in the run's `docs/runs/` summary what was kept and what was deleted. Never delete a report a
 `STATUS.md` field still points to: repoint it first (STATUS points at the `docs/runs/` summaries, not at the folders).
+
+### What proves what today (audit of 2026-10-02)
+
+The code of the stand last changed in `7a59b01` (2026-09-28); the whole suite last ran on the 0.1.1 build of 2026-09-24,
+before three more tunings of the smoke and the last-rocket fix. Per scenario, the report that stands is:
+
+| Evidence on disk (`Tests/Pickle/runs/`) | Proves | State |
+| --- | --- | --- |
+| `2026-09-24-english` (junit, summary, 11 stills) | features 01 to 13 in English, 0.1.1 first build | sole proof of those scenarios: **non-regression** pass still to rerun on the final build |
+| `2026-09-24-french-0-1-1` (junit, summary, stills) | the same in French | same |
+| `2026-09-24-sans-ideology` (junit, summary) | feature 12 without Ideology | same, sole proof of that check |
+| `2026-09-25-smoke-4` (junit, summary, 2 stills) | the fuse smoke is visible | validated by the owner as a principle |
+| `2026-09-28-vitrine-11` (junit, summary, 9 images) | feature 14, the gallery, green on the final mod code | the only report on the current revision; the source of the Workshop gallery |
+
+**Order of the passes (owner's rule, 2026-10-02).** What has never run or is red is replayed alone, in small tickets
+(`-Filter` on the feature). Nothing is in that state now: every scenario has a green run. The whole-suite passes (English,
+French, without Ideology) rerun what is already green, so they are filed **all together, at the end, on the final
+revision**; a change to the stand or to a step they use makes a scenario new again. Scenarios `05-light` and
+`06-fuse-and-launch` changed after their last whole-suite run (the last-rocket fix, the smoke tunings): they are the first
+to replay if a short pass is wanted before the end.
+
+**What the evidence keeps, to write down at every test (so that nobody has to guess later).** Per scenario, the latest
+`junit.xml` and `summary.json` of the revision now in the repository, and the stills a person validates (listed in
+"Evidence to keep" above). An older report stays only while it is the sole proof of a check the newest run did not repeat.
+A film never stays: the junit already says the scenario ran, and a film proves nothing a still does not.
+
+**Gates for `tested` (AUDIT.md, transition 9, 2026-10-02).** (1) no scenario in `@wip`: met, none in the suite; (2) every
+conditional scenario has run: none is conditional on a `@requires:<packageId>` tag, the mod declares no optional mod, DLC
+or companion tool, and the pass without Ideology is the only condition-dependent one (it has run); (3) no manual test left
+to validate: nothing is manual (Fireworks absent is not applicable, justified above). The `@review` captures are still to be
+looked at by the owner. The three whole-suite passes on the final build are the non-regression pass, filed last.
 
 ## Publishing gate
 

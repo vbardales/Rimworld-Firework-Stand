@@ -1,7 +1,7 @@
 # Publication sheet
 
 **Updated 2026-09-26. The mod is at `done`. The owner prepublished 0.1.0 by hand on 2026-09-23: the Workshop item exists
-(`3806767445`, private) and `Mod/About/PublishedFileId.txt` is committed. Ahead: `tested`, the 0.1.1 update through the CI,
+(`3806767445`, private) and `Mod/About/PublishedFileId.txt` is committed. Ahead: `tested`, the 1.0.0 update through the CI,
 the switch to public (by the owner) and the thank-you to telardo.** This sheet holds what the Workshop page asks for and
 the repository holds nowhere else, so that it can be used again at the next update and by whoever picks the mod up.
 
@@ -29,8 +29,8 @@ Rules that apply, and where they are written: `PUBLISHING.md` and `AUDIT.md` (pr
   ```
 
   (the one Markdown source for the description, see "Steam description" below), then a dry-run on the exact commit (run id and SHA noted in `STATUS.md`), then
-  `dispatch-publish.sh <owner/repo> publish-tag.yml <full SHA> 0.1.1`. Only the owner approves `steam-production`. The CI
-  creates the tag `v0.1.1` and the GitHub release (the `## [0.1.1]` section of `CHANGELOG.md`, dated first) after a
+  `dispatch-publish.sh <owner/repo> publish-tag.yml <full SHA> 1.0.0`. Only the owner approves `steam-production`. The CI
+  creates the tag `v1.0.0` and the GitHub release (the `## [1.0.0]` section of `CHANGELOG.md`, dated first) after a
   successful upload: not by hand. Options `update_preview`, `update_description`, `update_title` and `update_tags` are off
   by default; the Workshop description is that of 0.1.0, and it is replaced only if `update_description` is switched on for a
   publish (the dry-run prints the text and the diff against the page first).
@@ -85,32 +85,39 @@ What this mod studied and what it reproduced is listed in ATTRIBUTION.md, and it
 [Source code on GitHub](https://github.com/vbardales/Rimworld-Firework-Stand)
 ```
 
-## Change notes (Steam), one block per version
+## Steam change notes
 
-The CI reads the block under `### <version>`. They are sent again at every update.
+One fenced block per version under `### <version>`; the CI sends it as written, at every update. The first line must
+carry the exact version in BBCode (`[b]1.0.0[/b]`), or the run stops. The version that comes with `published` is 1.0.0
+(AUDIT.md, transition 11): the work done after the 0.1.0 prepublication was called 0.1.1 in the commits, the runs and
+`STATUS.md` while it was built, and is released as 1.0.0.
 
-### 0.1.1
+### 1.0.0
 
-> [b]0.1.1[/b]
-> Fixes. The fuse now smokes visibly at the top of the rack before each launch (the smoke was there but too faint to
-> see). A stand with nothing loaded no longer counts as recreation: colonists stop going to it, and its inspect line no
-> longer says "Ready to fire". The fuel line starts with a capital and the stand is drawn a little smaller, so its box stays
-> in its cell. The last rocket of a stand now lights the ground like the others (it did not, because the stand's
-> last launcher was spent before its light). Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
+```
+[b]1.0.0[/b]
+Fixes. The fuse now smokes visibly at the top of the rack before each launch (the smoke was there but too faint to
+see). A stand with nothing loaded no longer counts as recreation: colonists stop going to it, and its inspect line no
+longer says "Ready to fire". The fuel line starts with a capital and the stand is drawn a little smaller, so its box stays
+in its cell. The last rocket of a stand now lights the ground like the others (it did not, because the stand's
+last launcher was spent before its light). Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
+```
 
-The CI refuses a note whose first line does not carry the version (`[b]0.1.1[/b]` or a heading): each block starts with it.
 Confirm the first sentence against the last smoke pass before sending: it says what a person was shown, not what the
 counts say.
 
-### 0.1.0 (prepublished by hand on 2026-09-23, kept for the record)
+### 0.1.0
 
-> [b]0.1.0[/b]
-> First release. Adds a firework stand: a building loaded with up to ten Fireworks launchers that colonists walk over to and
-> watch as recreation, standing, from 4 to 12 cells away. It fires one rocket per salvo, only while somebody watches, and it
-> adds its own recreation type. The fuse smokes before the launch and the ground is lit for about four seconds as the rocket
-> leaves. Requires Fireworks. English and French.
+Prepublished by hand on 2026-09-23, kept for the record (the CI never sends it again).
 
-## Dependencies and DLC
+```
+[b]0.1.0[/b]
+First release. Adds a firework stand: a building loaded with up to ten Fireworks launchers that colonists walk over to and
+watch as recreation, standing, from 4 to 12 cells away. It fires one rocket per salvo, only while somebody watches, and it
+adds its own recreation type. The fuse smokes before the launch and the ground is lit for about four seconds as the rocket
+leaves. Requires Fireworks. English and French.
+```
+
 
 - **Fireworks (telardo, `2922179297`, `telardo.Fireworks`): a hard dependency, and it is declared** in `modDependencies`
   with its Steam URL, and in `loadAfter`. The code reaches its `CompLaunchFireworks` by reflection, the patch is guarded on
@@ -125,14 +132,14 @@ counts say.
 ## Gallery (manual: no tool of the chain can send it)
 
 The Workshop gallery is added by hand on the Steam page, in the order below. The folder `Gallery/` (at the repository root,
-not in `Mod/`) holds **only the images to upload, numbered `00-`, `01-`, `02-`, ... in the order they go on the page, and
+not in `Mod/`) holds **only the images to upload, numbered `0-`, `1-`, `2-`, ... (one digit, from `0`) in the order they go on the page, and
 nothing else** (no older version, no raw capture, no subfolder): it is also the workflow's `--gallery-dir`. Raw captures stay
 in `Tests/Pickle/runs/`, ignored by git, and are deleted once cropped. The folder does not exist yet.
 
-**Image `00` (owner's rule, 2026-09-29)** is not a game capture: it is a plain copy of `Mod/About/Preview.png`, the same
+**Image `0` (owner's rule, 2026-09-29)** is not a game capture: it is a plain copy of `Mod/About/Preview.png`, the same
 image used as the Steam capsule, which itself carries `Mod/About/ModIcon.png` cut out of its background and composited into
 the emptier corner of the frame (bottom-left, +15°, its side and bottom edges overflowing past the canvas) so the mascot
-reads as leaping out of the picture. `_tools/Crop-Gallery.ps1` copies it as `00-preview.png` before cutting the rest.
+reads as leaping out of the picture. `_tools/Crop-Gallery.ps1` copies it as `0-preview.png` before cutting the rest.
 
 The images come from a **scenario of their own** that mounts the scene (`ScreenshotStudio`, the fixture
 `nelim-zen-meadow-studio`, staged with ClearScreen), not from the test colony's captures: those show a skeleton beside the

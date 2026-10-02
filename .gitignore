@@ -36,3 +36,12 @@ PROMPT_*.md
 # Pickle run evidence (captures, films, logs, reports) stays on disk and out of git: a text summary of each run
 # is committed in docs/runs/ instead. Tests/Pickle/Run-Passes.ps1 writes both.
 Tests/Pickle/runs/
+
+# DirectDraw Surface textures: heavy binaries that never belong in the repository (AUDIT 2026-10-02).
+*.dds
+
+# Test evidence stays on disk, never in git (AGENTS.md, "Test evidence"). Tests/Pickle/runs/ above is this mod's folder;
+# the two below are the names the shared launcher and the protocols use.
+Tests/Pickle/Evidence/
+evidence/
+pickle-reports-archive/

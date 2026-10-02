@@ -1,7 +1,7 @@
-﻿---
+---
 localization: complete
 translation_en: complete
-translation_fr: complete
+translation_fr: partial
 mod:          Firework Stand
 packageId:    nelim.fireworkstand
 repo:         Rimworld-Firework-Stand
@@ -9,7 +9,8 @@ remote:       https://github.com/vbardales/Rimworld-Firework-Stand.git
 local_path:   C:\Users\nelim\Documents\rimworld\FireworkStand
 visibility:   public
 detached:     yes
-stage:        done   # workflow state names are used literally, no codes; see the 2026-09-21 audit
+stage:        done   # six codes (port, showcase, preTest, done, tested, published); the exact state is workflow_stage
+workflow_stage: done
 licence:      open
 licence_at:   MIT in LICENSE and Mod/LICENSE for this mod; upstream permission is separate and not established
 upstream_mod_remotes: N/A
@@ -22,9 +23,11 @@ tested_on:    partial, 2026-09-23 and 24, in game through Pickle in the WSL: the
 automated_on: 2026-09-21
 workshop:     3806767445, created by the owner's first upload of 0.1.0 on 2026-09-23, private. The item went up ahead of the chain (stage is done, not tested), the owner's choice and not an oversight. Mod/About/PublishedFileId.txt holds the id and is committed. The description as sent carries the ATTRIBUTION and licence line.
 settings_audit: not_applicable
-audit_on:     2026-09-21
-audit_revision: 3fa32521e3de47ce73ecc372e1809794d7de9f05
+audit_on:     2026-10-02
+audit_revision: 57611159202f2d11c4a054512f041240033f5985
 remaining:
+  - audit 2026-10-02 (nothing lowered, stage stays done): automated tests replayed, 33 functional tests and the XML check (11 files) green; Pickle suite written (14 features); no @wip; no conditional scenario; nothing manual. FRENCH_REVIEW.md regenerated with the mod name first (TRANSLATIONS.md, 2026-10-02). Evidence trimmed (see the audit section at the end).
+  - unverified (done -> tested): the three whole-suite passes (English, French, without Ideology) on the final build, filed together at the end (AUDIT.md, 2026-10-02: never-run and red scenarios first, non-regression last); every scenario has a green run, none is new or red, so no small ticket is due first
   - resolved 2026-09-21 (preTest -> done): Pickle suite written in Tests/Pickle (four features, companion mod, wsl-ids.map, README with scope and reasons), and TESTING.md states the two passes the mod needs. Written, never run.
   - done 2026-09-21: Pickle English pass (sans-facultatifs) ran once in the WSL, 19:07: 4 features discovered, 11 scenarios, 8 played and passed, 3 @wip skipped as designed, exitReason passed, exit 0; the one @review capture was opened. Text summary in docs/runs/2026-09-21-english-first-four.md, evidence on disk and ignored by git. Fireworks staged and loaded, so the WSL staging does find it.
   - done 2026-09-21 22:28: Pickle French pass, whole suite plus feature 04: 21 of 21 passed, exitReason passed; text summary in docs/runs/2026-09-21-french-full.md, evidence (films, stills, log) on disk under Tests/Pickle/runs/ and ignored by git; all stills and films opened by the session.
@@ -42,8 +45,9 @@ remaining:
   - fixed 2026-09-24 in 0.1.1, root cause found: the stand's effects were timed in CompTickInterval, which the game runs only every few ticks for a Normal ticker (Thing.DoTick), so the fuse smoke fell between two calls. Moved to CompTick (every tick), puffs a little larger and closer together (smokeInterval 12 to 8, size 0.7 to 1.0). A functional test pins the timing and a Pickle step counts the smoke puffs near the stand; whether the smoke is now visible enough is the owner's call on the new build.
   - confirmed by the owner 2026-09-24: the light is a flash at the rocket's departure, not a lamp (scenario 4).
   - accepted: orange-face mod icon deviation accepted on 2026-09-04
+  - unverified: "French review by Virginie" (TRANSLATIONS.md ss3, 2026-09-30). FRENCH_REVIEW.md generated 2026-09-30; no session marks its own French as reviewed, and translation_fr cannot go to complete until she has read it.
 session:      local_db219fa5-6fea-40f2-b0fa-aa63c79d3774
-updated:      2026-09-23
+updated:      2026-10-02
 ---
 
 # Firework Stand â€” status
@@ -671,3 +675,82 @@ that produced the image is in `docs/runs/`.
   Puffs 25 % larger (size 1.5 to 2.25) and one every 4 ticks (`Stand.xml`), still a thread and not a cloud, so that it stays distinct from the launch puff. The smoke-4 images predate it: the first gallery run (`docs/runs/`, feature 14) is the next
   picture of it. **Validated by the owner on 2026-09-26, as the principle**, on the cropped `gallery-01` of `docs/runs/2026-09-26-vitrine-4.md` (the final smoke): a dark thread above the rack, thicker, still a thread. Not validated as a gallery image: the stand is too small in it, the next run (camera all the way in) and its crop must show it larger.
 - **Captures 8 and 9, the ground lit at night and the burst at night (`gallery-04` and `gallery-04b`, `docs/runs/2026-09-28-vitrine-11.md`, the first green run of the night scenario): validated by the owner on 2026-09-28.** A warm pool of light round the stand on dark ground, and, in the second, the burst's purple streaks above it with the ground still lit.
+
+## Translation audit — systematic French review by Virginie — 2026-09-30
+
+TRANSLATIONS.md ss3 ("Systematic French review by Virginie") reset `translation_fr` to `unchecked`
+for the new gender-agreement rule. Read TRANSLATIONS.md ss3, then every one of this mod's seven
+French files directly (no pattern search): `Mod/Languages/French/Keyed/FireworkStand.xml`,
+`Keyed/Fireworks.xml`, `DefInjected/JoyKindDef/FireworkStand.xml`, `DefInjected/JobDef/FireworkStand.xml`,
+`DefInjected/ThoughtDef/Fireworks.xml`, `DefInjected/ThingDef/Fireworks.xml`,
+`DefInjected/ThingDef/FireworkStand.xml`.
+
+**Where the French lives.** Two Keyed files (the stand's own two inspect strings, and two reused
+dependency keys for Fireworks' inherited launch gizmo) and five DefInjected files (the stand's own
+label/description/CompRefuelable fuel strings, the recreation-type label, the job report string, and
+four reused dependency ThoughtDef stages for the mood roll). No grammar files: this mod has none.
+
+**Gender agreement.** None of the seven files' French text agrees with a pawn (no "the colonist who
+watched" phrasing anywhere in this mod's or the reused dependency's strings) — every sentence is
+about the stand, the show or a memory, never a pawn's own trait or state. No `{PAWN_gender ? ...}`
+switch applies anywhere in this mod; none was needed before this rule and none is needed now.
+
+**FRENCH_REVIEW.md generated** (`_tools/Generate-FrenchReview.ps1`, adapted from FoodCourt's script of
+the same name: FireworkStand's own defs live inside the guarded patch `Mod/Patches/Stand.xml`, not
+under `Mod/Defs`, so the script's def search covers both). One table per source file, in shipped
+order, Original/English/French columns. Original equals English throughout: this mod has no
+non-English source of its own, said once at the top of the file rather than per row. Every row
+resolved to real text except the four dependency-owned files (`FireworkLauncher.label/.description`,
+`LaunchFirework`/`LaunchFireworkDesc`, the four `*Fireworks.stages...` thought fields): their English
+is supplied by Fireworks 1.6 and is not shipped in this repository, so the script correctly flags them
+"not found — check by hand" rather than guessing. No row carries the script's own `?` flag (stray
+`{PAWN_gender` or `???`/`TODO` markers): none found.
+
+Nothing flagged as unsure on terminology, tone or rewording: all seven files were already reviewed
+statically on 2026-09-13/21 (placeholders, duplicate keys, DefInjected paths) and re-read now in full
+for the gender rule; none of the wording changed since. `translation_fr` moves from `unchecked` to
+`partial`: everything a session can verify (inventory, coverage, the gender-switch rule, the review
+file) is done, but per ss3 no session marks its own French reviewed, so `partial` is the ceiling until
+Virginie has read `FRENCH_REVIEW.md`. Revision: working tree at this audit, no French or English text
+changed by it — only `_tools/Generate-FrenchReview.ps1`, `FRENCH_REVIEW.md` and this file were added
+or touched.
+
+## Audit — 2026-10-02 (stage stays `done`, `workflow_stage: done`)
+
+Revision audited: `5761115` plus local changes (Preview, Art and the owner's other uncommitted work are untouched by this audit).
+Applied `AUDIT.md` of 2026-10-02 (blob `daab030ccf54`); what was read, in which version, is in `docs/PROTOCOLS-READ.md`.
+
+**Checks done.** `_tools/Run-Functional-Tests.ps1`: 33 tests, all passing. `_tools/Test-Xml.ps1`: 11 XML files parse, link and EN/FR
+keys valid. `.github/scripts` against the template: up to date (`82de20b8aa50`). Dependencies in `About.xml`: `telardo.Fireworks`
+hard (the code reflects into it), `loadAfter` Core and Fireworks, no optional mod, no incompatibility. Settings:
+`not_applicable` (no setting, no page, no MainButtons entry). Plurals: no counted noun phrase of its own (the fuel line is the
+game's `CompRefuelable` label), nothing to give `.One`/`.Many`. French: no text agrees with a pawn. No game launched.
+
+**Not a defect, not done by a session.** `translation_fr` stays `partial` until Virginie has read `FRENCH_REVIEW.md` (regenerated today,
+mod name first line, revision `7a59b01`); the line "French review" in `remaining` is hers to record.
+
+**Upstream.** `upstream_mod_remotes: N/A`: searched with `gh search repos/code` and the web, telardo's Fireworks (2922179297) has no
+repository, only the Workshop page and the installed copy (no git, no licence file, no URL in its `About.xml`). So there is no
+repository to base the code on and no pull request to propose; the dependency stays a runtime reflection.
+
+**Publication state.** `Mod/About/PublishedFileId.txt` exists (3806767445, committed in `2413f50`): 0.1.0 is prepublished, the
+item is private. `CHANGELOG.md` opens with `## [1.0.0] - unreleased` above `## [0.1.0] - 2026-09-23` ("creation of the
+publishIdFile"): the version that comes with `published` is 1.0.0 (AUDIT.md, transition 11), the work called 0.1.1 until now is
+released as 1.0.0. The 0.1.0 section had received a copy of a 0.1.1 bullet by mistake; removed. The Steam note of
+`PUBLICATION.md` is now a fenced block under `### 1.0.0` as the CI reads it (it was a blockquote the CI would have refused).
+
+**Evidence (disk, ignored by git; nothing was tracked).** No `.dds` in the repository, on disk or in git; `*.dds` is now in
+`.gitignore` with `Tests/Pickle/Evidence/`, `evidence/` and `pickle-reports-archive/`. Deleted from `Tests/Pickle/runs/`:
+`2026-09-25-smoke-2` (superseded by smoke-4), `2026-09-26-vitrine-6` (superseded by vitrine-11), the 8 loose `manual--gallery-*`
+and `the-Workshop-gallery--*` copies in `runs/`, the 4 films of `2026-09-24-english` (the junit already says those scenarios ran).
+Kept (30 MB down to 11 MB): `2026-09-24-english`, `2026-09-24-french-0-1-1`, `2026-09-24-sans-ideology` (sole proofs of
+features 01 to 13, until the final passes), `2026-09-25-smoke-4`, `2026-09-28-vitrine-11` (the source of the gallery). The
+launcher archive `pickle-reports-archive/` holds no run of this mod (looked: none matches "firework"), so nothing was taken from
+it and nothing deleted. The proofs to keep at every test are written in `TESTING.md`, "What proves what today" and
+"Evidence to keep". `docs/runs/README.md` lines brought up to date.
+
+**What `tested` still needs** (AUDIT.md, transition 9): (1) no `@wip`: met; (2) every conditional scenario run: none is conditional,
+the pass without Ideology has run; (3) no manual test: none left, Fireworks absent is not applicable and justified. Still open:
+the three whole-suite passes on the final build (English, French, without Ideology), filed together at the end; the owner's look
+at the `@review` captures; and the French review above. Gallery: `Gallery/` is built at publication from `vitrine-11` with
+`_tools/Crop-Gallery.ps1` (now `0-preview.png`, `1-` to `6-`).

@@ -25,12 +25,12 @@ $ErrorActionPreference = 'Stop'
 # number, file-name pattern, output name, crop as "w:h:x:y" in the 1920x1080 window, optional Scale ("outW:outH") when
 # the crop is tighter than 1280x720 and has to be enlarged back up to it
 $plan = @(
-    @{ N = '01'; Match = 'gallery-03b*';  Name = 'the-audience';         Crop = '1280:720:320:225' },
-    @{ N = '02'; Match = 'gallery-01*';   Name = 'the-fuse-smoking';     Crop = '256:144:832:553';  Scale = '1280:720' },
-    @{ N = '03'; Match = 'gallery-02*';   Name = 'the-launch';           Crop = '256:144:832:553';  Scale = '1280:720' },
-    @{ N = '04'; Match = 'gallery-04b*';  Name = 'the-burst-at-night';   Crop = '1280:720:320:65' },
-    @{ N = '05'; Match = 'gallery-05*';   Name = 'the-reload-countdown'; Crop = '1254:705:0:340' },
-    @{ N = '06'; Match = 'gallery-06*';   Name = 'the-blueprint';        Crop = '1254:705:0:340' }
+    @{ N = '1'; Match = 'gallery-03b*';  Name = 'the-audience';         Crop = '1280:720:320:225' },
+    @{ N = '2'; Match = 'gallery-01*';   Name = 'the-fuse-smoking';     Crop = '256:144:832:553';  Scale = '1280:720' },
+    @{ N = '3'; Match = 'gallery-02*';   Name = 'the-launch';           Crop = '256:144:832:553';  Scale = '1280:720' },
+    @{ N = '4'; Match = 'gallery-04b*';  Name = 'the-burst-at-night';   Crop = '1280:720:320:65' },
+    @{ N = '5'; Match = 'gallery-05*';   Name = 'the-reload-countdown'; Crop = '1254:705:0:340' },
+    @{ N = '6'; Match = 'gallery-06*';   Name = 'the-blueprint';        Crop = '1254:705:0:340' }
 )
 
 New-Item -ItemType Directory -Force $To | Out-Null
@@ -38,8 +38,8 @@ New-Item -ItemType Directory -Force $To | Out-Null
 # Image 0: a plain copy of Mod/About/Preview.png (the Steam capsule image, with its own ModIcon corner badge),
 # always first on the Workshop page (owner's rule, 2026-09-29).
 $previewSrc = Join-Path $PSScriptRoot '..\Mod\About\Preview.png'
-Copy-Item $previewSrc (Join-Path $To '00-preview.png') -Force
-"00-preview.png  <-  Preview.png"
+Copy-Item $previewSrc (Join-Path $To '0-preview.png') -Force
+"0-preview.png  <-  Preview.png"
 
 foreach ($p in $plan) {
     $src = Get-ChildItem $From -File | Where-Object { $_.Name -like $p.Match -and $_.Extension -in '.jpg', '.jpeg', '.png' } | Select-Object -First 1
