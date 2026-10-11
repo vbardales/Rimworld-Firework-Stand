@@ -63,14 +63,14 @@ captures show, which is what a person looks at (a raw key, English left in Frenc
 
 ## Scope: what stays out of Gherkin, and why
 
-Everything provable outside the game is proved outside it, by `_tools/Run-Functional-Tests.ps1`
-(32 tests) and `_tools/Test-Xml.ps1`. None of that is repeated here. **No scenario is `@wip`, no test is left
+Everything provable outside the game is proved outside it, by `Tests/Run-Functional-Tests.ps1`
+(32 tests) and the shared `Check-ModBasics.ps1` (protocols repository). None of that is repeated here. **No scenario is `@wip`, no test is left
 for a person to play**: what a person does is validate captures and films.
 
 - **Fireworks absent (TESTING.md scenario 2, negative half): not applicable, and why.** Fireworks is a hard
   dependency declared in `About.xml`, so the game does not activate this mod without it; there is no running game
   in which the stand is loaded and Fireworks is not. What remains true of that case is the guard itself, and it is
-  proved outside the game: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Test-Xml.ps1` and
+  proved outside the game: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Run-Functional-Tests.ps1` and
   `Check-DefInjected.ps1`), and the reflection bridge is read off the compiled assembly (`Run-Functional-Tests.ps1`).
 - **No line-of-sight test in the audience filter.** Deliberate in the mod, so there is nothing to test; proving its
   absence would need a wall and a pawn behind it and would assert what the mod chose not to do.
@@ -107,7 +107,7 @@ is green in every pass and none is skipped.
 | Without Ideology | `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FireworkStand -DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature` | `!ludeon.rimworld.ideology` leaves the DLC out: the launch gizmo must be there |
 | Vitrine (Workshop gallery) | `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1 -Mod FireworkStand -DepMap wsl-deps.vitrine.map -Filter 14-gallery` | adds ScreenshotStudio and ClearScreen; plays feature 14 only, in the studio meadow, camera all the way in. Not a test of the mod: it makes the gallery images. Feature 14 is `@requires`, so the three passes above skip it |
 
-**`Run-Passes.ps1` plays the three in turn** (`powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Run-Passes.ps1`).
+**The three passes are three tickets** (`Submit-PickleRun.ps1`, one `-Language` and `-DepMap` each).
 It goes through the launcher for each (ticket, lock, staging, release) and, the moment the launcher returns, copies
 what the run wrote into `runs/<date>-<pass>/` (summary, junit, log, this suite's films and stills), **on disk and ignored by git**, and
 writes a text summary of the run in `docs/runs/<date>-<pass>.md`, which is what is committed. It keeps only files this suite
@@ -156,7 +156,7 @@ deleted as soon as a newer report replaces it.
 The first attempt (2026-09-24) played the whole suite without the DLC and died: the fixture save's colonists carry state
 that needs Ideology, and without it the game throws a `NullReferenceException` in `Pawn_AgeTracker.AgeTickInterval` on
 every tick, so every scenario that ran the clock failed and the launcher killed the run as stalled. `12-launch-gizmo`
-runs no tick (nothing waits), so it is the one feature played there, and `Run-Passes.ps1` names it with `-Filter`. This is
+runs no tick (nothing waits), so it is the one feature played there, and its ticket names it with `-Filter`. This is
 not a conditional scenario: the whole suite is played, with Ideology, by the first two passes.
 
 ## Queue: hand it to the TicketDispatcher, follow nothing
@@ -165,9 +165,7 @@ The Pickle queue is followed by the TicketDispatcher, not by this suite: no moni
 2026-09-24 the passes are submitted with `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1` (one request per pass,
 `-EvidenceDir` under `Tests/Pickle/runs`), and the dispatcher wakes the session with START, END and RUN_DONE; see
 `Rimworld-Ticket-Dispatcher/docs/WELCOME.md`. The three requests, all on the 0.1.1 build: English (whole suite), French (whole
-suite), and without Ideology (`-DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature`). `Run-Passes.ps1` is the
-direct route it replaced; it is kept only for what it knows about this suite's evidence (which stills and films are ours) and
-is not run any more.
+suite), and without Ideology (`-DepMap wsl-deps.sans-ideology.map -Filter 12-launch-gizmo.feature`). The old direct route, Run-Passes.ps1, was deleted on 2026-10-11 (it is in the git history).
 
 ## The final passes, to be submitted together once the build is frozen (prepared 2026-09-26)
 

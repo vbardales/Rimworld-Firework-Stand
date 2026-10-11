@@ -11,7 +11,7 @@ says what it proves, because a test whose failure you cannot interpret is not wo
 It is one half of the testing. The other half needs no colony and runs in fifteen seconds:
 
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-Functional-Tests.ps1
 ```
 
 Those 33 tests (2026-10-02, all passing) read off the compiled game, and off telardo's assembly, that the things this mod
@@ -24,11 +24,11 @@ up, which is what everything after this line is for.
 ## Before anything
 
 Audit 2026-09-13: the existing 25 automated tests passed against the shipped DLL and installed
-game/dependency. All four mod XML files also passed `_tools/Test-Xml.ps1`, including the GitHub
+game/dependency. All four mod XML files also passed the XML check (now the shared `scripts/Check-ModBasics.ps1` and `scripts/Check-Translations.ps1` of the protocols repository, since 2026-10-11), including the GitHub
 description link and EN/FR translation keys/placeholders. Run that additional check with:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Test-Xml.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File ..\scripts\Check-ModBasics.ps1 -Mod FireworkStand
 ```
 
 The nine scenarios below were written before any run; the Pickle suite below now plays them.
@@ -219,13 +219,13 @@ incompatibility. All on the minimal WSL set (Core, the DLC, Harmony, RimLogging,
 
 **The fourth pass, `vitrine`, is not a test of the mod.** `14-gallery` produces the Workshop gallery in the ScreenshotStudio meadow (fixture `nelim-zen-meadow-studio`, staged with ClearScreen by `wsl-deps.vitrine.map`) and is tagged `@requires:nelim.pickletools.screenshotstudio`, so the other passes count it as skipped. It asserts only what makes an image worth keeping (the stand exists, is loaded, the salvo happened) and every picture is taken with the camera all the way in; the pictures are then cropped (`PUBLICATION.md`, "Gallery"). A red scenario here is replayed until green like any other.
 
-`Tests/Pickle/Run-Passes.ps1` plays the three in turn and keeps the evidence of each run on disk under `Tests/Pickle/runs/` (ignored by git) and writes a text summary of it in `docs/runs/`. Two
+The three passes are filed as Pickle tickets (`Submit-PickleRun.ps1`, one each) and keep the evidence of each run on disk under `Tests/Pickle/runs/` (ignored by git) and writes a text summary of it in `docs/runs/`. Two
 scenarios read the game to know what to assert in a pass (`04-labels` reads the active language, `12-launch-gizmo`
 whether Ideology is active), so each is green in every pass and none is skipped.
 
 **Nothing is left manual.** The one case that cannot be played, Fireworks absent, is not a missing test: the mod
 declares Fireworks in `modDependencies`, so no game exists in which the stand is loaded without it. The guard is
-proved where it can be: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Test-Xml.ps1`,
+proved where it can be: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Run-Functional-Tests.ps1`,
 `Check-DefInjected.ps1`) and the reflection bridge is read off the compiled assembly (`Run-Functional-Tests.ps1`).
 The audience filter has no line-of-sight test on purpose, so there is nothing to test.
 
@@ -247,7 +247,7 @@ folders.
 **Keep, once a run has been read:**
 
 - `summary.json` and `junit.xml`: the raw result, tiny. Read `exitReason` before the counts.
-- The stills that show something a person validates, **minified to jpeg** (`Run-Passes.ps1` does it with ffmpeg: about
+- The stills that show something a person validates, **minified to jpeg** (done with ffmpeg: about
   0.2 MB instead of 3.5 MB, still readable at 1920x1080): the audience, the stand loaded and reloading, the empty stand
   beside its gauge, the fuse and the puff, the night stills, the blueprint, the Architect menu, the launch gizmo.
 - The films of the filmed scenarios (`03-firing`, `05-light`, `06-fuse-and-launch`, `07-on-their-own`,

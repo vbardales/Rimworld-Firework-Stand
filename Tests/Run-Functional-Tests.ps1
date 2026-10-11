@@ -75,7 +75,7 @@
   that matter most, and they are the ones with no red run behind them.
 
 .EXAMPLE
-  powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+  powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-Functional-Tests.ps1
 #>
 
 param(

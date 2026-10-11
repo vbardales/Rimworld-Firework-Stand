@@ -72,9 +72,13 @@ mod's own documents. `TRANSLATIONS.md` when a French or English text changes. Th
 1. **The version that comes with `published` is 1.0.0**, not 0.1.1. Done in the CHANGELOG and the publication sheet.
 2. **The Steam change note must be a fenced block under `### <version>`**: it was a blockquote, which the CI would have
    refused (`fencedBlockUnder`). Fixed in `PUBLICATION.md`.
-3. **Gallery numbering is `0-`, `1-`, `2-`** (one digit): `_tools/Crop-Gallery.ps1` and the sheet are aligned. The `Art/Gallery/`
+3. **Gallery numbering is `0-`, `1-`, `2-`** (one digit): `scripts/Crop-Gallery.ps1` and the sheet are aligned. The `Art/Gallery/`
    folder does not exist yet; it is built from `2026-09-28-vitrine-11` at the publication.
 4. **`FRENCH_REVIEW.md` starts with the mod's name.** The shared `scripts/Make-FrenchReview.ps1` leaves the English column
-   empty here (the stand's defs live in `Mod/Patches/Stand.xml`), so the mod keeps `_tools/Generate-FrenchReview.ps1`,
+   empty here (the stand's defs live in `Mod/Patches/Stand.xml`), so the mod kept its own generator until 2026-10-11 (now `french-review-english.json` feeds the shared script),
    aligned to the new heading.
 5. **Gates for `tested`** are listed in `TESTING.md` ("What proves what today").
+
+## Reading of 2026-10-11 (audit `done` -> `playTests[1.0.0]`)
+
+Read in full: `AGENTS.md`, `PICKLE.md`, `GALLERY.md`, `TRANSLATIONS.md`, `MOD_SETTINGS.md`, `PUBLISHING-CI.md`; `AUDIT.md` transitions 7, 8 and 16 and the rules of interpretation. `PUBLISHING.md`: only the layout, images and CHANGELOG rules (`[Unreleased]` until the dry-run). Not read, no subject called for it: `STYLE_RIMWORLD.md` (the Preview is rendered by the shared script, not edited), `scripts/SEARCHING.md`, `EXTERNAL_TOOLS.md`, `WORKSHOP_COMMENTS.md` (uncommitted changes of other sessions at the time; `Mark-ProtocolsRead.ps1 -Force` used because of that file alone).

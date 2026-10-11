@@ -1,0 +1,22 @@
+﻿{
+    "FS_WatchFireworks.reportString":  "watching fireworks.",
+    "FS_Fireworks.label":  "fireworks",
+    "FireworkLauncher.label":  "firework launcher *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "FireworkLauncher.description":  "A one-use firework launcher for celebrations. Once ignited, the propelled fireworks would emit a burst of sparks and colorful displays in the sky, giving spectators a mood bonus. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "FS_FireworkStand.label":  "firework stand",
+    "FS_FireworkStand.description":  "A braced rack that holds a stack of firework launchers and sets them off one at a time. Colonists gather at a distance to watch, and the show only runs while somebody is there to see it.\\n\\nMust be built under open sky.",
+    "FS_FireworkStand.comps.CompRefuelable.fuelLabel":  "Fireworks loaded *(Mod/Patches/Stand.xml)*",
+    "FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage":  "No fireworks loaded *(Mod/Patches/Stand.xml)*",
+    "TerribleFireworks.stages.terrible_fireworks_celebration.label":  "terrible fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "TerribleFireworks.stages.terrible_fireworks_celebration.description":  "The fireworks celebration was terrible! The equipment is misfired and the show looks disjointed and unsynchronized. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "UnimpressiveFireworks.stages.boring_fireworks_celebration.label":  "boring fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "UnimpressiveFireworks.stages.boring_fireworks_celebration.description":  "The fireworks celebration was unimpressive. A limited number of fireworks are lacking in vibrant colors and special effects. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "BeautifulFireworks.stages.beautiful_fireworks_celebration.label":  "beautiful fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "BeautifulFireworks.stages.beautiful_fireworks_celebration.description":  "The fireworks celebration was beautiful. A brilliant display of light and sound delights everyone. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "UnforgettableFireworks.stages.unforgettable_fireworks_celebration.label":  "unforgettable fireworks celebration *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description":  "The fireworks celebration was unforgettable! Every participant rejoiced at the mesmerizing and harmonious visual feast. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "LaunchFirework":  "Launch fireworks *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "LaunchFireworkDesc":  "Initiate a dazzling pyrotechnic display in the sky. Audiences will receive a positive mood boost. *(derived: inherited from telardo.Fireworks 1.6, its Defs or Languages/English/Keyed/Keys.xml)*",
+    "FireworkStand.Ready":  "Ready to fire",
+    "FireworkStand.Reloading":  "Reloading: {0}"
+}

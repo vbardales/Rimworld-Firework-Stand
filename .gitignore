@@ -1,8 +1,8 @@
-# Build intermediates. Source/Directory.Build.props sends them to ../.build/, outside Mod/: the
+# Build intermediates. Source/Directory.Build.props sends them to ../build/, outside Mod/: the
 # Workshop uploader takes that folder as it stands on disk, with no filtering, so an obj/ left
 # inside it would redistribute the publicised Assembly-CSharp.dll to every subscriber. The two
 # in-place entries are belt and braces, for a build run with the props file bypassed.
-.build/
+build/
 Source/obj/
 Source/bin/
 

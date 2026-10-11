@@ -1,4 +1,4 @@
-## [1.0.0] - unreleased
+## [Unreleased]
 
 Defects found on the in-game runs of the Pickle suite, and confirmed by the owner. The stand's saved
 data is unchanged, so a colony saved with 0.1.0 loads as it was.
@@ -59,7 +59,7 @@ Workshop item, 3806767445, was created by the first upload and is private until 
 
 - The scenarios of `TESTING.md` are played by Pickle in a real game (`Tests/Pickle/`), which records captures and
   films for a person to validate. `TESTING.md` and `STATUS.md` say what has run and what has not.
-- `_tools/Run-Functional-Tests.ps1` settles what a colony is not needed for: 31 tests, fifteen
+- `Tests/Run-Functional-Tests.ps1` settles what a colony is not needed for: 31 tests, fifteen
   seconds, no game launched. It reads off the compiled game that the hooks this mod grafts onto
   still do what it grafts onto them for, and off telardo's assembly that the three things reached
   by reflection are still there under those names. Twenty of the tests have been seen to fail on
@@ -71,4 +71,4 @@ Workshop item, 3806767445, was created by the first upload and is private until 
 - `About/Preview.png` is generated key art carrying the mod's name and one summary line, rendered
   at the 896x504 the Workshop pages use, in the treatment shared by every showcase in this
   collection. The full-size original is kept in `Art/`, outside the published folder. The vector
-  placeholder it replaced still builds from `_tools/svg-about/`, as a fallback.
+  placeholder it replaced was built from an SVG source, removed on 2026-10-11 (the Preview is rendered by the shared `Render-Preview.cjs`).

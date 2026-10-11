@@ -139,7 +139,7 @@ in `Tests/Pickle/runs/`, ignored by git, and are deleted once cropped. It holds 
 **Image `0` (owner's rule, 2026-09-29)** is not a game capture: it is a plain copy of `Mod/About/Preview.png`, the same
 image used as the Steam capsule, which itself carries `Mod/About/ModIcon.png` cut out of its background and composited into
 the emptier corner of the frame (bottom-left, +15°, its side and bottom edges overflowing past the canvas) so the mascot
-reads as leaping out of the picture. `_tools/Crop-Gallery.ps1` copies it as `0-preview.png` before cutting the rest.
+reads as leaping out of the picture. `scripts/Crop-Gallery.ps1` copies it as `0-preview.png` before cutting the rest.
 
 The images come from a **scenario of their own** that mounts the scene (`ScreenshotStudio`, the fixture
 `nelim-zen-meadow-studio`, staged with ClearScreen), not from the test colony's captures: those show a skeleton beside the
@@ -149,7 +149,7 @@ is kept: a green capture scenario shows that the trajectory ran, not that the pi
 **Zoom and crop (the owner's rule, 2026-09-26).** Every picture is taken with the camera all the way in, so that what it has
 to prove fills as much of the window as the game allows (at least half its height wherever the subject allows it). The game
 cannot zoom past its maximum (Pickle's own zoom step stops at RootSize 12, the game's floor is 11 with no promise below it;
-neither a bigger stand nor a higher run resolution was chosen, see below), so `_tools/Crop-Gallery.ps1 -From
+neither a bigger stand nor a higher run resolution was chosen, see below), so `scripts/Crop-Gallery.ps1 -From
 Tests/Pickle/runs/<run> -To Art/Gallery` cuts a 16:9 window around the subject and, for the pictures where the stand alone is
 the subject (the fuse, the launch), scales that crop back up to 1280x720 with nearest-neighbour, not a smoothing filter: the
 game is pixel art, and a sharp, blocky enlargement reads better than a blurred one. The crops are read off the pictures:

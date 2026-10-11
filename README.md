@@ -42,8 +42,9 @@ telardo's, called as it is. See [ATTRIBUTION.md](ATTRIBUTION.md).
 ```
 Mod/       published to the Workshop, and the junction target for RimWorld/Mods
 Source/    never published
-_tools/    the functional test suite, and the SVG sources for the About images
-.build/    build intermediates, outside the mod folder and ignored by git
+Tests/    the functional test suite (Run-Functional-Tests.ps1) and the Pickle suite
+scripts/  gallery crop and About image scripts, with the SVG sources
+build/    build intermediates, outside the mod folder and ignored by git
 ```
 
 ## Testing
@@ -51,7 +52,7 @@ _tools/    the functional test suite, and the SVG sources for the About images
 Two halves, and only the second needs a colony.
 
 ```bash
-powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-Functional-Tests.ps1
 ```
 
 32 tests, fifteen seconds, no game launched. They read off the compiled game and off telardo's
@@ -71,7 +72,7 @@ needed to compile:
 dotnet build Source/FireworkStand.csproj -c Release
 ```
 
-The DLL lands in `Mod/Assemblies/`. Intermediates go to `.build/`, kept out of the mod folder
+The DLL lands in `Mod/Assemblies/`. Intermediates go to `build/`, kept out of the mod folder
 because the Workshop uploader sends the mod directory as it is, with no exclusions.
 
 ## Licence

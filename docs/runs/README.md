@@ -1,9 +1,9 @@
-﻿# Pickle runs: text summaries
+# Pickle runs: text summaries
 
 Evidence of a Pickle run (the report, the captures and the films) **stays on disk and out of git**, under
 `Tests/Pickle/runs/<date>-<pass>/`, which `.gitignore` ignores. What is committed is a **text summary** of each run,
 here: the counts, `exitReason`, every scenario's outcome, the failure messages and the list of evidence kept.
-`Tests/Pickle/Run-Passes.ps1` writes both as soon as a pass returns. Which evidence to keep, and when to delete it, is in
+The session writes both from the ticket report (`RUN_DONE`); the old `Run-Passes.ps1` did it until 2026-10-11. Which evidence to keep, and when to delete it, is in
 `TESTING.md`, "Evidence to keep".
 
 Read `exitReason` before the counts. A summary says a run went to its end, not that an image shows anything: whether a
@@ -40,10 +40,10 @@ One line per run, newest first. A run whose evidence was superseded keeps its li
 | [`2026-09-21-english-first-four.md`](2026-09-21-english-first-four.md) | first four features, 11 scenarios | 8 passed, 3 skipped, `passed` | deleted 2026-09-23, superseded |
 
 The 20:28 English run has no summary: its report was archived, then pruned by later runs before anyone read it, and only
-the totals survive from the launcher's output. That loss is why `Run-Passes.ps1` exists.
+the totals survive from the launcher's output. That loss is why the ticket worker now copies the report into `-EvidenceDir`.
 
 **Keep only what matters.** After a run has been read, the evidence on disk is trimmed to the most relevant: the raw
-`summary.json` and `junit.xml`, the images (minified to jpeg by `Run-Passes.ps1`) and films that show something, and
+`summary.json` and `junit.xml`, the images (minified to jpeg with ffmpeg) and films that show something, and
 nothing derived (contact sheets, half-size copies), no log or messages file, no image that a later change of the suite
 makes obsolete or that carries the film's corner frame. The trim is written in the run's summary, with what was deleted.
 

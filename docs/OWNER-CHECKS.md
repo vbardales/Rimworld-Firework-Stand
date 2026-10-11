@@ -10,7 +10,7 @@ one that counts for "does it read well"; the session's is for "is it the right p
 
 ## 1. The fuse smoke (capture 7): validated as a principle on 2026-09-26; the gallery image still has to show it larger
 
-Image: `gallery-01` of the vitrine run (cropped by `_tools/Crop-Gallery.ps1`). What to look at:
+Image: `gallery-01` of the vitrine run (cropped by `scripts/Crop-Gallery.ps1`). What to look at:
 - a **dark thread of smoke rises from the top of the rack**, above the rockets, visible against the ground;
 - it is **thicker than the 2026-09-25 image** (puffs 25 % larger, one every 4 ticks) and is still **a thread, not a cloud**;
 - it does not hide the stand, and it is not the launch's grey puff (that one comes when the rocket leaves, not before);
