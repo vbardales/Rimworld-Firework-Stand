@@ -141,8 +141,7 @@ image used as the Steam capsule, which itself carries `Mod/About/ModIcon.png` cu
 the emptier corner of the frame (bottom-left, +15°, its side and bottom edges overflowing past the canvas) so the mascot
 reads as leaping out of the picture. `scripts/Crop-Gallery.ps1` copies it as `0-preview.png` before cutting the rest.
 
-The images come from a **scenario of their own** that mounts the scene (`ScreenshotStudio`, the fixture
-`nelim-zen-meadow-studio`, staged with ClearScreen), not from the test colony's captures: those show a skeleton beside the
+The images come from a **scenario of their own** that mounts the scene (the Sanctuary of SanctuaryBacklot, the save `Nelims-tribe`, place `bare-clearing`, staged with ClearScreen), not from the test colony's captures: those show a skeleton beside the
 stand, dev tools may show, and a still taken during a film carries the film's corner frame. Each image is opened before it
 is kept: a green capture scenario shows that the trajectory ran, not that the picture shows anything.
 
