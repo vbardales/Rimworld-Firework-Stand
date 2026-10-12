@@ -14,10 +14,11 @@
 # that show the world (01 to 04b) and is left off for the two that show the interface (05, 06), which are there to show
 # it. ClearScreen keeps a log viewer or a notice of another mod out of every frame.
 #
-# THE ZOOM. Every picture is taken with the camera all the way in (the owner's rule, 2026-09-26): what a picture has
-# to prove must fill at least half the height of the window, and the game cannot zoom further, so the picture is then
-# cropped around the subject (PUBLICATION.md, "Gallery"). The camera is set a few cells north of the stand for the
-# pictures that hold the rocket and its burst, which rise above it.
+# THE ZOOM. Every picture is taken at zoom 9 (Nelim's Pickle Tools: I frame the cell ... at zoom 9, 2026-10-12), not "all the way in":
+# the Sanctuary's own scale is a 28 x 16 cell window, the stand about 70 px, and the picture is then cropped around the subject
+# (PUBLICATION.md, "Gallery") so that what it has to prove fills half the height. The window is centred west of the stand, so that the
+# orange smiley of the east edge stays out of it; it is set north of the stand for the burst, which rises above it. The vanometric
+# cell at the east edge of the clearing is hidden for the run.
 #
 # THE CELLS. The stand stands in the middle of the clearing at (198, 152); the watcher is set down five cells west of it
 # (193, 152), inside the 4 to 12 cells colonists stand at. The cells are read off the clearing's frame (x 186-204, z 147-157);
@@ -43,6 +44,7 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And Nelim's Pickle Tools: all animals are removed
     And Nelim's Pickle Tools: the screen is clear
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
+    And Nelim's Sanctuary: the vanometric cell of the sanctuary is hidden
     And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
 
   @timeout:110
@@ -68,8 +70,7 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And I set the hour to 20
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And game speed is normal
-    When I zoom all the way in
-    And I move the camera to (198, 154)
+    When Nelim's Pickle Tools: I frame the cell (192, 153) at zoom 9
     And Firework Stand: "Miel" is ordered to watch the stand at x=198 z=152
     Then Firework Stand: the stand at x=198 z=152 has fired within 60 seconds
     When I wait 40 ticks
@@ -77,8 +78,7 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And I take a screenshot "gallery 01: the fuse smoking at the foot of the stand"
     When I wait 40 ticks
     Then I take a screenshot "gallery 02: the puff and the sparks as the rocket leaves"
-    When I zoom all the way in
-    And I move the camera to (198, 158)
+    When Nelim's Pickle Tools: I frame the cell (194, 160) at zoom 9
     And I wait 50 ticks
     Then I take a screenshot "gallery 03a: the burst over the clearing"
     When I wait 50 ticks
@@ -115,8 +115,7 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And game speed is normal
-    When I zoom all the way in
-    And I move the camera to (198, 154)
+    When Nelim's Pickle Tools: I frame the cell (192, 153) at zoom 9
     And Firework Stand: "Miel" is ordered to watch the stand at x=198 z=152
     Then Firework Stand: "Miel" is watching the stand at x=198 z=152
     # The first run (and its rerun) never saw the light within 60 s with the watcher at the stand. Two steps tell the two
@@ -139,8 +138,7 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And I set the weather to "Clear"
     And I set the hour to 12
     And game speed is normal
-    When I zoom all the way in
-    And I move the camera to (198, 152)
+    When Nelim's Pickle Tools: I frame the cell (194, 152) at zoom 9
     And Firework Stand: "Miel" is ordered to watch the stand at x=198 z=152
     Then Firework Stand: the stand at x=198 z=152 comes to hold 3 launchers within 60 seconds
     When Nelim's Pickle Tools: windows are allowed to open again
@@ -155,8 +153,7 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And I set the weather to "Clear"
     And I set the hour to 12
     When I use the build designator for "FS_FireworkStand" at (198, 152)
-    And I zoom all the way in
-    And I move the camera to (198, 152)
+    And Nelim's Pickle Tools: I frame the cell (194, 152) at zoom 9
     And I wait 30 ticks
     Then a blueprint for "FS_FireworkStand" is at (198, 152)
     And I take a screenshot "gallery 06: the blueprint of the firework stand"
