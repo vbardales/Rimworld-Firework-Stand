@@ -37,7 +37,7 @@ remaining:
   - accepted: current Preview including its camera approved 2026-09-13; orange-face mod icon deviation accepted 2026-09-04; light is a flash at the rocket's departure, not a lamp (2026-09-24)
 session:      local_6c5dcb78-92e8-4c24-ba24-a93528b66105
 updated:      2026-10-11
-protocols_read_sha: 0f8d8d6f62536df04f415039724307411c2eede7
+protocols_read_sha: 5e7c922c02ef44b3ee1357f59dde11a7da5e66f6
 ---
 
 # Firework Stand: status
