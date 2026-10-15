@@ -107,12 +107,12 @@ function Get-InheritedField($def, $f) {
 foreach ($doc in $parsed) {
   foreach ($def in $doc.SelectNodes('//*[defName]')) {
     $own = @()
-    foreach ($f in $topFields) { foreach ($node in $def.SelectNodes($f)) { $p = if ($f -like '*/*') { $f -replace '/', '.' } else { $node.LocalName }; Add-Text $def.LocalName "$($def.defName).$p" $node.InnerText; $own += $node } }
+    foreach ($f in $topFields) { foreach ($node in $def.SelectNodes($f)) { if ($node.SelectSingleNode('*')) { continue }; $p = if ($f -like '*/*') { $f -replace '/', '.' } else { $node.LocalName }; Add-Text $def.LocalName "$($def.defName).$p" $node.InnerText; $own += $node } }
     # a top field the def does not write itself comes from its parent chain (a RecipeDef jobString set on an abstract base)
     foreach ($f in $topFields) {
       if ($def.SelectNodes($f).Count) { continue }
       $inh = Get-InheritedField $def $f
-      if ($inh) { $p = if ($f -like '*/*') { $f -replace '/', '.' } else { $inh.LocalName }; Add-Text $def.LocalName "$($def.defName).$p" $inh.InnerText }
+      if ($inh -and -not $inh.SelectSingleNode('*')) { $p = if ($f -like '*/*') { $f -replace '/', '.' } else { $inh.LocalName }; Add-Text $def.LocalName "$($def.defName).$p" $inh.InnerText }
     }
     # the game numbers stages that share a handle: initial-0, initial-1
     $stageHandles = @($def.SelectNodes('stages/li') | ForEach-Object { ([string]$_.label) -replace '[^a-zA-Z0-9_ ]', '' -replace ' ', '_' })
@@ -127,6 +127,8 @@ foreach ($doc in $parsed) {
     foreach ($node in $def.SelectNodes($xp)) {
       # A text deeper in the def (tools/li/label, body parts, work giver verbs...): its exact handle path needs the game's classes
       # (Check-DefInjected.ps1 proves a key resolves), but it can still be COUNTED: see the nested count check below.
+      # <verb> of a ManeuverDef is a nested VerbProperties struct, not a text
+      if ($node.SelectSingleNode('*')) { continue }
       if ($own -notcontains $node) { $k = "$($def.LocalName)/$($def.defName)|$($node.LocalName)"; $nested[$k] = 1 + [int]$nested[$k] }
     }
   }
