@@ -46,8 +46,8 @@
 #              | north of the stand), the stele at the right, Nelim and the dogs small at the bottom | "the show itself" (a burst does not read by
 #              | day, 2026-09-25: a night picture).
 #   5  reload  | 12h, zoom 5 on (198, 184), the interface on but cleaned (colonist bar, resources, alerts, learning helper and tooltips hidden),
-#              | the inspect pane open | the pane reads "Fireworks loaded 3 / 10" and "Reloading"; Nelim at her post | "the stand reloads, one
-#              | launcher a salvo".
+#              | the inspect pane open | the pane reads "Fireworks loaded 3 / 10" and "Reloading"; Nelim at her post, a launcher in her
+#              | hands for the next reload | "the stand reloads, one launcher a salvo".
 #   6  menu    | 12h, the Architect Joy category open | the menu itself, a screenshot of what it is | "where to find it".
 # Pictures 1 to 4 hide the interface (the game's own screenshot mode) and 5 and 6 show it. ClearScreen keeps a log viewer or a notice
 # of another mod out of every frame.
@@ -194,6 +194,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     Then Firework Stand: the stand at x=200 z=183 comes to hold 3 launchers within 60 seconds
     When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing East
     And Firework Stand: "Nelim" is told to stay where they stand
+    And Nelim's Pickle Tools: "Nelim" carries the item "FireworkLauncher"
     And Nelim's Pickle Tools: windows are allowed to open again
     And Firework Stand: I select the stand at x=200 z=183
     And Nelim's Pickle Tools: I move the mouse to (1500, 400)

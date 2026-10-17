@@ -30,6 +30,7 @@ remaining:
   - audit 2026-10-11 (done -> playTests[1.0.0], vocabulary only, nothing lowered): old journal moved to docs/runs/STATUS-journal-to-2026-10-11.md, old `remaining` kept at its end.
   - shootGallery work, not playTests (owner, 2026-10-17: gallery captures are not taken at playTests): feature 14 rewritten 2026-10-18 (d83b348) for `calm-zone` (cream square, stand at (200, 183), Nelim protagonist with Shogun and Yuki, no Miel, no deck; camera framed before the salvo, pictures at fixed ticks from the fuse and the light, game paused before the shutter; the old plan and the four candidates of 2026-10-13 judged weak: Nelim absent, brown ground). Ticket 20261018-000740-695-db97 (6 scenarios) filed; then open every picture, redo the weak ones, only then candidates. The 05 pane no longer waits on NPT: the hide steps (resource readout, alerts, learning helper, tooltips, colonist bar, labels) exist; whether calm-zone carries zone paint is read off the picture.
   - 8.d, 8.k: UI captures (French, without Ideology, Architect menu) opened by the session 2026-10-17, all fine (docs/runs/2026-10-17-session-review-ui-captures.md). Left: films of the final build, light and smoke images (docs/OWNER-CHECKS.md, owner's look not required); fuse smoke (capture 7) validated as a principle, the gallery image has to show it larger.
+  - at prepareRelease (AUDIT.md 11.k, AGENTS.md 9a and 9b, rule 2026-10-18): gameplay Pickle steps of the mod (already in `Tests/Pickle/Source/FireworkStandSteps.cs`, to list in a `steps.md` catalogue) and the stand's entry in `GALLERY-PROPS.md` (`FS_FireworkStand`, packageId `nelim.fireworkstand`, Workshop id 3806767445, "seen in a capture" once a gallery image is accepted); no apparel or hairstyle of its own.
   - unverified (non-regression, after commit and deployment, AUDIT.md section 15): the three whole-suite passes on the final build (English, French, without Ideology), filed together.
   - code review 8.m done 2026-10-13 on `cdca0a9..${H:0:7}` (no tag, from the first commit), Source/ and Mod/: no blocking defect; two cosmetic notes below, not fixed (a Source edit would reopen the review and the staged ticket)
   - local scripts: Run-Functional-Tests.ps1 validated by Audit 2026-10-17; Crop-Gallery.ps1 deleted 2026-10-17 (obsolete, Audit agreed); Collect-Evidence, Run-Passes, build-about.sh and svg-about deleted 2026-10-11
@@ -38,7 +39,7 @@ remaining:
 session:      local_6c5dcb78-92e8-4c24-ba24-a93528b66105
 updated:      2026-10-11
 code_review_sha: 341107f159930c986a2e99bf573914605851767d
-protocols_read_sha: 117fb9642df7e57bece2318904c644a9c39296df
+protocols_read_sha: e552fd9823504a685ddedd14953c3f62a699851b
 ---
 # Firework Stand: status
 
