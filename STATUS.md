@@ -38,7 +38,7 @@ remaining:
 session:      local_6c5dcb78-92e8-4c24-ba24-a93528b66105
 updated:      2026-10-11
 code_review_sha: 341107f159930c986a2e99bf573914605851767d
-protocols_read_sha: 4f023b7709e07279f109433dd2e45dae89d1dd27
+protocols_read_sha: 117fb9642df7e57bece2318904c644a9c39296df
 ---
 # Firework Stand: status
 
