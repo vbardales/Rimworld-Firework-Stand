@@ -17,13 +17,13 @@
 #
 # THE SHOOTING PLAN (one line per image: place, moment, subject, composition, life, what it says). Zoom N is the camera's
 # half-height (PickleTools docs/GALERIE.md): 2N cells high, about 3.56N wide, a cell is 540 / N px, so a SMALLER N is closer.
-#   1  fuse    | bare-clearing, 18h (dusk), the stand, tight: zoom 3 on (197, 153), 6 x 11 cells, the rack large and the thread of
-#              | smoke over it, grey against the brown earth | nobody in frame, the show has not begun | "something is about to go up".
-#   2  launch  | same salvo 40 ticks later, zoom 5 on (194, 152), 10 x 18 cells | Nelim on the left at her watch cell, the deck and
-#              | Miel behind her, the stand on the right throwing its trails and sparks | "she watches, and it leaves".
+#   1  fuse    | bare-clearing, 16h (late afternoon: the smoke reads grey, at dusk it was a dark stain), the stand, tight: zoom 3 on
+#              | (199, 153), 6 x 11 cells, the rack large and the thread of smoke over it | nobody in frame (the deck stays west of x 193), the show has not begun | "something is about to go up".
+#   2  launch  | same salvo 25 ticks after the fuse picture, zoom 7 on (195, 156), 14 x 25 cells (the rocket climbs north: the first try at
+#              | zoom 5 caught the stand before it left) | Nelim at her watch cell, the deck and Miel, the stand at the bottom throwing its trails | "she watches, and it leaves".
 #   3  light   | 23h (night), zoom 5 on (194, 152) | Nelim, the deck, the stand; the ground lit warm for the length of the burst, all
 #              | else dark | "the stand lights the night, it is not a lamp".
-#   4  burst   | 23h, zoom 12 on (197, 162), 24 x 43 cells, the stand at the bottom edge and the sky above it, three pictures 60
+#   4  burst   | 23h, zoom 12 on (184, 162), 24 x 43 cells (west of the stand so that the Sanctuary smiley marker, x 207 and east, stays out), the stand at the bottom edge and the sky above it, three pictures 60
 #              | ticks apart after the light comes on | the burst high over the clearing, Nelim in frame at the bottom left, the
 #              | ground still lit | "the show itself" (a burst does not read by day, 2026-09-25: it is a night picture).
 #   5  reload  | 12h, zoom 5 on (195, 152), the interface on, the inspect pane open | Nelim at her post; the pane reads "Fireworks
@@ -66,17 +66,17 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And Nelim's Pickle Tools: "Miel" wears "Apparel_CollarShirt" dyed rgb (30, 120, 130)
     And Nelim's Pickle Tools: "Miel" wears "Apparel_Pants" dyed rgb (235, 225, 200)
     And I set the weather to "Clear"
-    And I set the hour to 18
+    And I set the hour to 16
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And game speed is normal
-    When Nelim's Pickle Tools: I frame the cell (197, 153) at zoom 3
+    When Nelim's Pickle Tools: I frame the cell (199, 153) at zoom 3
     And Firework Stand: "Nelim" is ordered to watch the stand at x=198 z=152
     Then Firework Stand: the stand at x=198 z=152 has fired within 60 seconds
     When I wait 40 ticks
     Then Firework Stand: at least 4 smoke puffs are near the stand at x=198 z=152 now
     And I take a screenshot "gallery 01: the fuse smoking at the foot of the stand"
-    When Nelim's Pickle Tools: I frame the cell (194, 152) at zoom 5
-    And I wait 40 ticks
+    When Nelim's Pickle Tools: I frame the cell (195, 156) at zoom 7
+    And I wait 25 ticks
     Then I take a screenshot "gallery 02: the launch, Nelim watching"
     When Nelim's Pickle Tools: the decor is removed
     And Nelim's Pickle Tools: "Miel" gets back the clothes it had
@@ -144,7 +144,7 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And game speed is normal
-    When Nelim's Pickle Tools: I frame the cell (197, 162) at zoom 12
+    When Nelim's Pickle Tools: I frame the cell (184, 162) at zoom 12
     And Firework Stand: "Nelim" is ordered to watch the stand at x=198 z=152
     Then Firework Stand: the stand at x=198 z=152 has fired within 60 seconds
     And Firework Stand: the light of the stand at x=198 z=152 comes on within 30 seconds
@@ -182,7 +182,8 @@ Feature: the Workshop gallery, in the Sanctuary's bare clearing
     And I set the weather to "Clear"
     And I set the hour to 12
     Then Firework Stand: the Architect menu lists the stand
-    When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
+    When Nelim's Pickle Tools: windows are allowed to open again
+    And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And Firework Stand: I open the Architect category of the stand
     And I wait 30 ticks
     And I take a screenshot "gallery 06: the Architect menu, the stand in the Joy category"
