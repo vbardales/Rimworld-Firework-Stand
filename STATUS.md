@@ -9,7 +9,7 @@ remote:       https://github.com/vbardales/Rimworld-Firework-Stand.git
 local_path:   C:\Users\nelim\Documents\rimworld\FireworkStand
 visibility:   public
 detached:     yes
-workflow_stage: playTests[1.0.0]
+workflow_stage: shootGallery[1.0.0]
 licence:      open
 licence_at:   MIT in LICENSE and Mod/LICENSE for this mod; upstream permission is separate and not established
 upstream_mod_remotes: N/A
@@ -38,7 +38,7 @@ remaining:
 session:      local_6c5dcb78-92e8-4c24-ba24-a93528b66105
 updated:      2026-10-11
 code_review_sha: 341107f159930c986a2e99bf573914605851767d
-protocols_read_sha: c283fedfcc80166d175245f9553ab4095716c1fa
+protocols_read_sha: 4f023b7709e07279f109433dd2e45dae89d1dd27
 ---
 # Firework Stand: status
 
