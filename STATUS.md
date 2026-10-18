@@ -45,6 +45,21 @@ protocols_read_sha: b7ed0bd92ef9c1a1a5c74fa52332110b024377dd
 
 Current state only. History up to audit of 2026-10-02 (ownership, licence, title, tests, translation audit, Pickle runs, owner validations, French review, gallery staging) in `docs/runs/STATUS-journal-to-2026-10-11.md`.
 
+## Shotlist (AUDIT.md 9.0; criteria a to j of GALLERY.md "Shotlist : critères d'une scène à 4/5"; reworked 2026-10-18 after the Audit read of `GALLERY-SHOTLIST-AUDIT.md`; full lines, with a to j, in the header of `Tests/Pickle/Mod/Pickle/Features/14-gallery.feature`)
+
+Story: midsummer eve in `calm-zone` (cream square, stand at (200, 183)), Nelim lights the stand and waits for the dark, 12h to 23h, one outfit per scene as the day goes; Shogun and Yuki face the camera in 1 to 4. Pass `wsl-deps.vitrine.map` (all mods already in it, none added). Decor of each scene named, different, removed after the shot. Steps: all exist (`FireworkStandSteps.cs`, PickleTools dress, hair, face-part, decor, hide steps); face parts and `Plant_Rose` / `Plant_Dandelion` names unplayed, a wrong name fails with the list.
+
+| # | Hour | Nelim (outfit, hair, expression, action) | Decor, plant, animals | Score | Risk, then plan |
+|---|---|---|---|---|---|
+| 1 fuse | 16h, zoom 3 | saffron shirt, indigo trousers; Ponytails, dark brown; own face (smirk smile, blink); WatchStand job, in profile | PlantPot with Plant_Daylily, Hay; Shogun facing us | 4 | thin smoke; 4 puffs asserted before the shutter, zoom 2.5 if it does not read |
+| 2 launch | 19h, zoom 7 | teal collar shirt, charcoal trousers, straw Flophat; FancyBun, black; awe (MouthSmile, BrowRaised); carries MealSimple, faces the rocket | 2 Hay, 2 Plant_YellowTallGrass; Shogun and Yuki facing us | 4 | caught before or after the departure; framed before the salvo, shutter at the light + 25 ticks, paused |
+| 3 light | 23h, zoom 4.5 | cream shirt, wine Parka, plum Tuque; BraidedKnot, dark reddish; small smile, rosy cheeks; wrapped for the chill, in profile | 2 PlantPot with Plant_Dandelion; both dogs facing us at the glow edge | 4 | 240-tick flash; light asserted, shutter at +30 ticks, paused; unknown face part fails with the list |
+| 4 burst | 23h, zoom 8.5 | grey shirt, night-blue Duster; Pigtails, dark brown; wonder (MouthSmile, BrowRaised); head up, duster open | 2 PlantPot with Plant_Rose; both dogs facing us | 4 | burst delay read off one picture; if missed, replay at the light + 85 and + 115 as one small ticket |
+| 5 reload | 12h, zoom 5 | sky shirt, khaki trousers, tan CowboyHat; Bob, sandy blonde; focused (MouthNormal, BrowThick); carries the next FireworkLauncher | 2 Plant_YellowTallGrass, Hay; no animal | 4 | hide steps unseen; picture opened first, NPT told if anything covers the frame |
+| 6 menu | 12h | interface scene, set aside, not scored (Architect Joy menu, no Nelim, no subtitle) | none | n/a | menu did not open on 2026-10-14; windows now allowed first |
+
+Series score 4 (a story that moves forward by outfit and hour, living things and a named decor in every scored scene, no catalogue plate, the whole offer shown: fuse, launch, light, burst, reload, menu). Subtitles (English, one line, scenes 1 to 4, after acceptance, in `PUBLICATION.md`): 1 "Nelim has lit the fuse and waits." 2 "The rocket leaves, and supper is forgotten." 3 "The stand lights the whole square, only for a moment." 4 "The show itself, over the bamboo." Nothing played under 4. Ticket 20261018-000740-695-db97 carried the older, unscored version of feature 14: its result is not read as a verdict, the scenes are refiled.
+
 ## Audit 2026-10-11 (`done` -> `playTests[1.0.0]`)
 
 Old vocabulary mapped by AUDIT.md section 16. Criteria of `done` held on 2026-10-02, nothing since lowers them: French review recorded (`translation_fr: complete`), Pickle suite written (14 features), gallery staged as photographs, subject given a face (615556c), `Art/` reorganised (296f187). `playTests` still needs the `remaining` list above.
