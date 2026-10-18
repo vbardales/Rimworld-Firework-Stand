@@ -1,0 +1,1 @@
+2026-10-18 db97 vitrine old feature 14: 2 of 6 (1 to 4 kind Labrador unknown; 5 and 6 green, menu opens), evidence trimmed to summary, junit, one screenshot (06); cdbf same feature: staging failed, 3745223213 (eyegenes3) has no About.xml in the Workshop folder, exit 3, no report, refile after the TM fixes the folder.
