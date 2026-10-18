@@ -144,7 +144,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (90, 58, 32)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
-    And Nelim's Pickle Tools: an adult animal of kind "Labrador" named "Shogun" is spawned at (203, 185)
+    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 185)
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 185) facing South
     And Firework Stand: "Shogun" is told to stay where they stand
     And I set the weather to "Clear"
@@ -180,7 +180,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: "Nelim" carries the item "MealSimple"
-    And Nelim's Pickle Tools: an adult animal of kind "Labrador" named "Shogun" is spawned at (203, 184)
+    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 185)
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
     And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 185) facing South
@@ -221,7 +221,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (64, 51, 38)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
-    And Nelim's Pickle Tools: an adult animal of kind "Labrador" named "Shogun" is spawned at (203, 184)
+    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (203, 182)
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
     And Nelim's Pickle Tools: the animal "Yuki" stands at (203, 182) facing South
@@ -262,7 +262,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (90, 58, 32)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
-    And Nelim's Pickle Tools: an adult animal of kind "Labrador" named "Shogun" is spawned at (203, 184)
+    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 185)
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
     And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 185) facing South
