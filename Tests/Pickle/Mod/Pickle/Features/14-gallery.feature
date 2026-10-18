@@ -15,8 +15,8 @@
 # quiet for herself and tonight gives it to the one show of the year. She changes clothes as the day goes: the saffron of the
 # afternoon, the teal of dusk, the parka of the night chill. Her two dogs, SHOGUN the labrador and YUKI the husky, are with her and
 # watch her and not the sky: they face the camera (South) in scenes 1 to 4. No other character, no set: the decor of each picture is
-# its own, small, named below, and removed after the shot (`the decor is removed`). The only light on the night ground is the
-# stand's own (the stand throws it for the length of the rocket's departure, it is not a lamp). Time runs from 12h to 23h.
+# its own, small, named below, and removed after the shot (`the decor is removed`). EPISODES, in the order of the pictures: 1 late afternoon (16h), she has lit the fuse and waits; 2 dusk (19h), the rocket leaves, supper forgotten; 3 night (23h), the stand lights the square; 4 the same night, a hundred ticks later, the burst; 5 the morning after (9h), she reloads for the next one; 6 the menu that tells the reader where to find it (noon, outside the story). The only light on the night ground is the
+# stand's own (the stand throws it for the length of the rocket's departure, it is not a lamp). Time runs from 16h on the eve to 9h the morning after; each hour is the next beat of one evening.
 #
 # HOW THE FRAMES ARE MADE TRUE (what the first runs taught). (1) The camera is framed BEFORE the game runs: the framing step waits
 # ninety frames, ninety ticks of the salvo at normal speed. (2) The stand's own tick is the clock: T is the tick the fuse is lit
@@ -99,8 +99,8 @@
 #   i. not a plate.   j. the mod: the burst itself.
 #   subtitle: "The show itself, over the bamboo."
 #
-#  5 reload (score 4, a scene with the inspect pane: no subtitle)
-#   a. calm-zone, 12h (noon, the pane reads best in daylight), clear, 60 ticks after the stand is back to 3.
+#  5 reload (score 4, a scene with the inspect pane: no subtitle; the morning after the show)
+#   a. calm-zone, 9h (the morning after, low clear light, the pane reads in daylight), clear, 60 ticks after the stand is back to 3.
 #   b. decor: Plant_YellowTallGrass fully grown at (194, 183) and (194, 185), Hay at (198, 187).
 #   c. life: Plant_YellowTallGrass; no animal (the pane is the subject, the frame stays light).
 #   d. Nelim: BasicShirt dyed sky (96, 150, 200), Pants dyed khaki (160, 140, 96), CowboyHat dyed tan (150, 100, 60);
@@ -305,7 +305,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And I set the weather to "Clear"
-    And I set the hour to 12
+    And I set the hour to 9
     And Nelim's Pickle Tools: the colonist bar is hidden
     And Nelim's Pickle Tools: the resource readout is hidden
     And Nelim's Pickle Tools: the alerts are hidden
