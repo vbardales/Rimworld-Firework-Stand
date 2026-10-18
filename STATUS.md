@@ -45,6 +45,21 @@ protocols_read_sha: b7ed0bd92ef9c1a1a5c74fa52332110b024377dd
 
 Current state only. History up to audit of 2026-10-02 (ownership, licence, title, tests, translation audit, Pickle runs, owner validations, French review, gallery staging) in `docs/runs/STATUS-journal-to-2026-10-11.md`.
 
+## Shotlist (AUDIT.md 9.0, scored 2026-10-18; full plan in the header of `Tests/Pickle/Mod/Pickle/Features/14-gallery.feature`)
+
+Story: midsummer eve in `calm-zone` (cream square, stand at (200, 183)); Nelim lights the stand late afternoon and waits for dark with Shogun (labrador) and Yuki (husky) facing the camera; 16h to 23h. Decor: the square's own flowers, bamboo, stele; no prop staged, no external mod beyond the Sanctuary map (`wsl-deps.vitrine.map`). Steps: all exist (`FireworkStandSteps.cs`, PickleTools hide steps). Subtitles: one English line per scene 1 to 4, written after acceptance in `PUBLICATION.md`; none on 5 and 6 (interface).
+
+| # | Hour | Subject, what it says | Score | Main risk |
+|---|---|---|---|---|
+| 1 fuse | 16h, zoom 3 | stand with fuse smoke, Nelim in profile, Shogun facing us: "she has lit it" | 4 | smoke thread is thin on a pale ground; fleck only seen on captures of 2026-09 |
+| 2 launch | 19h, zoom 7 | rocket two or three cells up, trails, dogs facing us: "it leaves" | 4 | timing at light + 25 ticks; two earlier runs caught the stand before departure (framing now before the salvo) |
+| 3 light | 23h, zoom 4.5 | cream square lit warm by the stand, Nelim lit, dogs at the glow edge: "not a lamp" | 4 | light is a 240-tick flash, a stray tick loses it (paused before shutter) |
+| 4 burst | 23h, zoom 8.5 | burst over flowers and bamboo, stele right, Nelim and dogs small: "the show" | 4 | burst delay (about 100 ticks after the light) read off one picture only; weakest of the six |
+| 5 reload | 12h, zoom 5 | inspect pane "3 / 10", Nelim with a launcher: "reloads, one launcher a salvo" | 4 | hide steps new and unseen: zone paint or HUD may still cover the frame |
+| 6 menu | 12h, zoom 6 | Architect Joy category open: "where to find it" | 4 | menu failed to open on the 2026-10-14 run; window rule changed since, unseen |
+
+Lowest 4, series score 4 (one story forward, living things in 1 to 5, no catalogue plate, whole offer shown: fuse, launch, light, burst, reload, menu). Nothing to redo before ticket 20261018-000740-695-db97 returns; each picture is read against its line, any under 4 is redone.
+
 ## Audit 2026-10-11 (`done` -> `playTests[1.0.0]`)
 
 Old vocabulary mapped by AUDIT.md section 16. Criteria of `done` held on 2026-10-02, nothing since lowers them: French review recorded (`translation_fr: complete`), Pickle suite written (14 features), gallery staged as photographs, subject given a face (615556c), `Art/` reorganised (296f187). `playTests` still needs the `remaining` list above.
