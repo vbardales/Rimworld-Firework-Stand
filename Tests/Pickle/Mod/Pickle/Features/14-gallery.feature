@@ -26,7 +26,7 @@
 # 4 to 12 cells from the stand; once the stand has fired it needs no audience, so Nelim is put on her own cell then. (4) The map is
 # held at 22 degrees so that she does not sweat or blush at 39; her own face (`Nelim has her own face`: BrowNormal, MouthSmirkSmile,
 # normal+blink) is set after her clothes, then the scene's own mouth, brows and lids (face-part steps of ColonistRace), no tick
-# between them and the shutter. NO HAT on Nelim in any scene (owner rule on hats: a hat needs a hair-under-hat mod in the DepMap and long loose hair; none is mounted, so none is worn). Her garments: the first `wears` undresses her, so every scene dresses her whole: shirt, trousers,
+# between them and the shutter. CANON (SanctuaryBacklot NELIM-PROFIL.md): her hair is a high ponytail (Core "Ponytails" here), never a bun; her palette is emerald, deep blue, brown, beige, blood red, gold. HAT RULE (owner, 2026-10-18): a hat only with long loose hair ("Long", never a ponytail or a bun) and Show Hair Under Stuff in the map, seeded by Tests/Pickle/config/vitrine/Mod_3255379190_ShowHairMod.xml; only scene 3 wears one, and if the hair clips the hat is taken off. Her garments: the first `wears` undresses her, so every scene dresses her whole: shirt, trousers,
 # then the rest.
 #
 # THE SHOOTING PLAN, scored against GALLERY.md "Shotlist : critères d'une scène à 4/5" (a to j). Zoom N is the camera's half-height
@@ -36,7 +36,7 @@
 #   a. calm-zone, 16h, clear, T + 40 ticks after the fuse is lit.
 #   b. decor: PlantPot at (195, 186) holding Plant_Daylily fully grown (the midsummer flower), Hay at (202, 186) as the dogs' bed.
 #   c. life: Plant_Daylily; Shogun (labrador) at (203, 185) facing South, i.e. the camera.
-#   d. Nelim: BasicShirt dyed saffron (232, 168, 48), Pants dyed indigo (52, 68, 112); hairstyle Ponytails, DarkBrown (90, 58, 32);
+#   d. Nelim: ShirtRuffle dyed blood red (150, 30, 40), Pants dyed brown (92, 64, 40) (the party outfit); hairstyle Ponytails, near-black brown (42, 30, 24);
 #      expression: her own face, the smirk smile and the blink (calm, pleased).
 #   e. action: the WatchStand job, kept in profile (facing East) three cells west of the stand: she has lit it and waits.
 #   f. zoom 3 on (199, 184), 10.7 x 6 cells; the stand at the bottom centre with the thread of smoke over it, Nelim left of it,
@@ -53,8 +53,8 @@
 #   b. decor: two Hay at (202, 186) and (204, 186) (the dogs' supper bed), Plant_YellowTallGrass fully grown at (195, 187) and
 #      (196, 188) (straw-coloured foreground).
 #   c. life: Plant_YellowTallGrass; Shogun at (203, 184) and Yuki (husky) at (204, 185), both facing South (the camera).
-#   d. Nelim: CollarShirt dyed teal (22, 96, 100), Pants dyed charcoal (58, 58, 66), no hat;
-#      hairstyle FancyBun, PitchBlack (26, 26, 26); expression: awe, MouthSmile and BrowRaised.
+#   d. Nelim: BasicShirt dyed emerald (28, 110, 80), Pants dyed brown, Jacket dyed deep blue (28, 48, 96), no hat;
+#      hairstyle Ponytails, near-black brown; expression: awe, MouthSmile and BrowRaised.
 #   e. action: she carries the item "MealSimple", the dogs' supper, her head turned to the rocket (facing North).
 #   f. zoom 7 on (199, 189), 25 x 14 cells; the rocket two or three cells up its climb with its purple trails and sparks, the stand
 #      at the bottom centre, Nelim at the left from behind, the two dogs low right facing us, the grass in the foreground; dusk light.
@@ -69,8 +69,8 @@
 #   a. calm-zone, 23h (night), clear, the light + 30 ticks.
 #   b. decor: two PlantPot with Plant_Dandelion fully grown at (196, 182) and (203, 182), either side of the stand, lit by it.
 #   c. life: Plant_Dandelion; Shogun at (203, 184) and Yuki at (203, 182) facing South, at the edge of the glow.
-#   d. Nelim: BasicShirt dyed cream (236, 226, 200), Pants dyed charcoal, Parka dyed wine (122, 38, 62), no hat
-#      ; hairstyle BraidedKnot, DarkReddish (64, 51, 38); expression: a soft small smile, MouthLipsSmallSmile,
+#   d. Nelim: BasicShirt dyed beige (214, 200, 170), Pants dyed brown, Parka dyed deep blue (28, 48, 96), Tuque dyed emerald (30, 100, 70)
+#      (the cold outfit); hairstyle "Long", loose, near-black brown, shown under the tuque by Show Hair Under Stuff; expression: a soft small smile, MouthLipsSmallSmile,
 #      cheeks flushed by the cold (SkinRosyCheeks).
 #   e. state: wrapped for the night chill in a parka, facing East in profile beside the stand, her face lit.
 #   f. zoom 4.5 on (199, 184), 16 x 9 cells; the cream square lit warm round the stand, all else dark; the dandelion pots at the two
@@ -87,9 +87,9 @@
 #   b. decor: two PlantPot with Plant_Rose fully grown at (198, 186) and (202, 186) in the foreground (a rose is not a daylily or a
 #      dandelion; if the def is unknown the scenario fails with the list and Plant_Daylily takes its place).
 #   c. life: Plant_Rose; Shogun at (203, 184) and Yuki at (204, 185) facing South, small at the bottom.
-#   d. Nelim: Duster dyed night blue (28, 36, 82) over BasicShirt dyed grey (150, 150, 158) and Pants dyed charcoal; no hat;
-#      hairstyle Pigtails, DarkBrown (90, 58, 32); expression: wonder, MouthSmile, BrowRaised (a small figure, read by her stance).
-#   e. state: head turned up (facing North), the duster open: she watches the burst, the dogs at her feet.
+#   d. Nelim: Jacket dyed emerald (30, 100, 70) over BasicShirt dyed beige and Pants dyed brown; no hat;
+#      hairstyle Ponytails, near-black brown; expression: wonder, MouthSmile, BrowRaised (a small figure, read by her stance).
+#   e. state: head turned up (facing North), the jacket open: she watches the burst, the dogs at her feet.
 #   f. zoom 8.5 on (200, 190), 30 x 17 cells; the burst high over the flowers and the bamboo (about 12 cells north of the stand), the
 #      stele at the right, Nelim and the dogs small at the bottom, the rose pots as foreground.
 #   g. subject: the burst. "The show itself, over the bamboo."
@@ -103,8 +103,8 @@
 #   a. calm-zone, 9h (the morning after, low clear light, the pane reads in daylight), clear, 60 ticks after the stand is back to 3.
 #   b. decor: Plant_YellowTallGrass fully grown at (194, 183) and (194, 185), Hay at (198, 187).
 #   c. life: Plant_YellowTallGrass; no animal (the pane is the subject, the frame stays light).
-#   d. Nelim: BasicShirt dyed sky (96, 150, 200), Pants dyed khaki (160, 140, 96), no hat;
-#      hairstyle Bob, SandyBlonde (193, 146, 85); expression: focused, MouthNormal and BrowThick (names valid without VEFA).
+#   d. Nelim: BasicShirt dyed deep blue (28, 52, 110), Pants dyed beige (200, 184, 150), no hat;
+#      hairstyle Ponytails, near-black brown; expression: focused, MouthNormal and BrowThick (names valid without VEFA).
 #   e. action: she carries the item "FireworkLauncher", the next one, at her post by the stand.
 #   f. zoom 5 on (198, 184), the interface on but cleaned (colonist bar, resources, alerts, learning helper, tooltips and labels
 #      hidden), the inspect pane open on the left; Nelim and the stand in the right two thirds.
@@ -138,10 +138,10 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "PlantPot" at (195, 186)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (195, 186) fully grown
     And Nelim's Pickle Tools: I place the decor "Hay" at (202, 186)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (232, 168, 48)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (52, 68, 112)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (90, 58, 32)
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 185)
@@ -173,10 +173,11 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Hay" at (204, 186)
     And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (195, 187) fully grown
     And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (196, 188) fully grown
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_CollarShirt" dyed rgb (22, 96, 100)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (58, 58, 66)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "FancyBun"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (26, 26, 26)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (28, 48, 96)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: "Nelim" carries the item "MealSimple"
@@ -214,11 +215,12 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Plant_Dandelion" at (196, 182) fully grown
     And Nelim's Pickle Tools: I place the decor "PlantPot" at (203, 181)
     And Nelim's Pickle Tools: I place the decor "Plant_Dandelion" at (203, 181) fully grown
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (236, 226, 200)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (58, 58, 66)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Parka" dyed rgb (122, 38, 62)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "BraidedKnot"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (64, 51, 38)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Parka" dyed rgb (28, 48, 96)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (30, 100, 70)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Long"
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
@@ -255,11 +257,11 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (198, 186) fully grown
     And Nelim's Pickle Tools: I place the decor "PlantPot" at (202, 186)
     And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (202, 186) fully grown
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (150, 150, 158)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (58, 58, 66)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Duster" dyed rgb (28, 36, 82)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Pigtails"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (90, 58, 32)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (30, 100, 70)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
@@ -295,10 +297,10 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (194, 183) fully grown
     And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (194, 185) fully grown
     And Nelim's Pickle Tools: I place the decor "Hay" at (198, 187)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (96, 150, 200)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (160, 140, 96)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (193, 146, 85)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 52, 110)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (200, 184, 150)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And I set the weather to "Clear"
