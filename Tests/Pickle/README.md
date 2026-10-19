@@ -109,7 +109,7 @@ is green in every pass and none is skipped.
 
 **The three passes are three tickets** (`Submit-PickleRun.ps1`, one `-Language` and `-DepMap` each).
 It goes through the launcher for each (ticket, lock, staging, release) and, the moment the launcher returns, copies
-what the run wrote into `runs/<date>-<pass>/` (summary, junit, log, this suite's films and stills), **on disk and ignored by git**, and
+what the run wrote into `Tests/Pickle/Inbox/<run>` (see Evidence below), **on disk and ignored by git**, and
 writes a text summary of the run in `docs/runs/<date>-<pass>.md`, which is what is committed. It keeps only files this suite
 names (the screenshots folder is shared and accumulates) and does not stop the next pass if one copy fails. The first English
 run of this suite lost its report because nobody was there to copy it; this is there.
@@ -147,9 +147,7 @@ is. The assembly references the game and Pickle only, not the mod under test.
 
 ## Evidence
 
-What to keep after a run, and what to delete, is in [`TESTING.md`](../../TESTING.md), "Evidence to keep": the raw result
-and the stills and films that show something, minified, on disk and out of git; a text summary in `docs/runs/`; the rest
-deleted as soon as a newer report replaces it.
+Runs land in `Tests/Pickle/Inbox/<run>` (the `-EvidenceDir` of each ticket), are studied there, then deleted, parked in `Tests/Pickle/Parked/<folder>/` with a `RELEASE.md`, or minified into `Tests/Pickle/Evidence/` (proofs only, under 2 MB, each with a `RELEASE.md`). All three folders are on disk and ignored by git. `docs/runs/history.md` holds one text line per run. Rules: protocols repository, `AGENTS.md` "Test evidence" and `PICKLE.md`. The old `Tests/Pickle/runs/` and the per-run summaries of `docs/runs/` were retired on 2026-10-20 (the lines are in `history.md`, the files in git history).
 
 ## Why the pass without Ideology plays one feature
 
