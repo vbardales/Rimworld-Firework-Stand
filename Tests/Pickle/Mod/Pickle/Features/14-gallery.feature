@@ -31,7 +31,7 @@
 #
 # THE SHOOTING PLAN, scored against GALLERY.md "Shotlist : critères d'une scène à 4/5" (a to j). Zoom N is the camera's half-height
 # (PickleTools docs/GALERIE.md): 2N cells high, about 3.56N wide, a cell is 540 / N px, so a SMALLER N is closer.
-# Run 888d (2026-10-21): a plant placed on a PlantPot cell was refused ("already holds PlantPot", the step refuses a cell with a building), so the plants stand on the ground for now; a step that places a pot with its plant is asked of NPT.
+# Run 888d (2026-10-21): a plant placed on a PlantPot cell was refused by the plain step; the pot and its plant now go through one NPT step (compiled, not played).
 #
 #  1 fuse   (score 4)
 #   a. calm-zone, 16h, clear, T + 40 ticks after the fuse is lit.
@@ -136,7 +136,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 1: the fuse smoking, Nelim waiting
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (195, 186) fully grown
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (195, 186)
     And Nelim's Pickle Tools: I place the decor "Hay" at (202, 186)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
@@ -211,8 +211,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 3: the ground lit at night as the rocket leaves
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "Plant_Dandelion" at (196, 182) fully grown
-    And Nelim's Pickle Tools: I place the decor "Plant_Dandelion" at (203, 181) fully grown
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Dandelion" fully grown at (196, 182)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Dandelion" fully grown at (203, 181)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Parka" dyed rgb (28, 48, 96)
@@ -251,8 +251,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 4: the burst at night, over the flowers and the bamboo
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (198, 186) fully grown
-    And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (202, 186) fully grown
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Rose" fully grown at (198, 186)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Rose" fully grown at (202, 186)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (30, 100, 70)
