@@ -31,6 +31,7 @@
 #
 # THE SHOOTING PLAN, scored against GALLERY.md "Shotlist : critères d'une scène à 4/5" (a to j). Zoom N is the camera's half-height
 # (PickleTools docs/GALERIE.md): 2N cells high, about 3.56N wide, a cell is 540 / N px, so a SMALLER N is closer.
+# Run 888d (2026-10-21): a plant placed on a PlantPot cell was refused ("already holds PlantPot", the step refuses a cell with a building), so the plants stand on the ground for now; a step that places a pot with its plant is asked of NPT.
 #
 #  1 fuse   (score 4)
 #   a. calm-zone, 16h, clear, T + 40 ticks after the fuse is lit.
@@ -104,7 +105,7 @@
 #   b. decor: Plant_YellowTallGrass fully grown at (194, 183) and (194, 185), Hay at (198, 187).
 #   c. life: Plant_YellowTallGrass; no animal (the pane is the subject, the frame stays light).
 #   d. Nelim: BasicShirt dyed deep blue (28, 52, 110), Pants dyed beige (200, 184, 150), no hat;
-#      hairstyle Ponytails, near-black brown; expression: focused, MouthNormal and BrowThick (names valid without VEFA).
+#      hairstyle Ponytails, near-black brown; expression: focused, MouthNormal and BrowSquare (BrowThick does not exist: run 888d).
 #   e. action: she carries the item "FireworkLauncher", the next one, at her post by the stand.
 #   f. zoom 5 on (198, 184), the interface on but cleaned (colonist bar, resources, alerts, learning helper, tooltips and labels
 #      hidden), the inspect pane open on the left; Nelim and the stand in the right two thirds.
@@ -135,7 +136,6 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 1: the fuse smoking, Nelim waiting
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "PlantPot" at (195, 186)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (195, 186) fully grown
     And Nelim's Pickle Tools: I place the decor "Hay" at (202, 186)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
@@ -211,9 +211,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 3: the ground lit at night as the rocket leaves
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "PlantPot" at (196, 182)
     And Nelim's Pickle Tools: I place the decor "Plant_Dandelion" at (196, 182) fully grown
-    And Nelim's Pickle Tools: I place the decor "PlantPot" at (203, 181)
     And Nelim's Pickle Tools: I place the decor "Plant_Dandelion" at (203, 181) fully grown
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
@@ -253,9 +251,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 4: the burst at night, over the flowers and the bamboo
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "PlantPot" at (198, 186)
     And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (198, 186) fully grown
-    And Nelim's Pickle Tools: I place the decor "PlantPot" at (202, 186)
     And Nelim's Pickle Tools: I place the decor "Plant_Rose" at (202, 186) fully grown
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
@@ -320,7 +316,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" carries the item "FireworkLauncher"
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthNormal"
-    And Nelim's Pickle Tools: "Nelim" brows are "BrowThick"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowSquare"
     And Nelim's Pickle Tools: windows are allowed to open again
     And Firework Stand: I select the stand at x=200 z=183
     And Nelim's Pickle Tools: I move the mouse to (1500, 400)
