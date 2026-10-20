@@ -29,11 +29,13 @@ Feature: a stand saved in the middle of a salvo comes back in the same state
     When I move the camera to (140, 150)
     And Firework Stand: "Watcher" is ordered to watch the stand at x=140 z=150
     Then Firework Stand: the light of the stand at x=140 z=150 comes on within 90 seconds
-    And Firework Stand: the stand at x=140 z=150 holds 2 launchers
+    # Since 0.1.1 the launcher is spent when its light goes out, not when it comes on (runs of
+    # 2026-09-28: "holds 3 launchers, not 2" in English and French).
+    And Firework Stand: the stand at x=140 z=150 holds 3 launchers
     And the save round trips
     When I save and reload
     Then a "FS_FireworkStand" is at (140, 150)
-    And Firework Stand: the stand at x=140 z=150 holds 2 launchers
+    And Firework Stand: the stand at x=140 z=150 holds 3 launchers
     When I move the camera to (140, 150)
     And I wait 30 ticks
     And Firework Stand: the light of the stand at x=140 z=150 goes off within 60 seconds
