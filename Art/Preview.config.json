@@ -1,45 +1,26 @@
 {
-  "modIconSource": "ModIcon-source.png",
-  "title": "Firework Stand",
-  "titleSize": 49,
-  "titleParts": [
-    {
-      "text": "Firework Stand",
-      "scale": 1
-    }
-  ],
-  "suffix": "",
-  "tag": "",
-  "copyLines": [
-    "Fireworks become real recreation, with a type of their own."
-  ],
-  "layout": "panel",
-  "panelAnchor": "top-left",
+  "panel": {
+    "title": "Firework Stand",
+    "titleSize": 49,
+    "titleParts": [
+      {
+        "text": "Firework Stand",
+        "scale": 1
+      }
+    ],
+    "copyLines": [
+      "Fireworks become real recreation, with a type of their own."
+    ]
+  },
   "backgroundFile": "Preview-source.png",
-  "backgroundPosition": "center",
-  "backgroundSize": "cover",
   "echo": {
     "file": "echo-source.png",
-    "preSized": true,
     "color": "var(--accent)",
     "width": 190,
-    "height": 190,
-    "opacity": 1,
-    "veil": false,
-    "panelTop": 0,
-    "panelRight": 1,
-    "panelWidth": 33
+    "height": 190
   },
-  "iconBadge": {
-    "file": "ModIcon-source.png",
-    "corner": "bottom-left",
-    "width": 180,
-    "translate": "-12.5%, 12.5%",
-    "outline": false,
-    "veil": "radial",
-    "veilSize": 275,
-    "veilLeft": -55,
-    "veilBottom": -61
+  "icon": {
+    "file": "ModIcon-source.png"
   },
   "palette": {
     "veil": "#101925",
