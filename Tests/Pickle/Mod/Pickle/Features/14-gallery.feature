@@ -307,6 +307,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: the learning helper is hidden
     And Nelim's Pickle Tools: the tooltips are hidden
     And Nelim's Pickle Tools: the item and name labels are hidden
+    And Nelim's Pickle Tools: the painted zones are hidden
     When Nelim's Pickle Tools: I frame the cell (198, 184) at zoom 5
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
