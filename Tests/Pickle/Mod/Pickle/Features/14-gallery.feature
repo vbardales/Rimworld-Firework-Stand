@@ -141,10 +141,12 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
+    And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
+    And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 185)
+    And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 185) facing South
     And Firework Stand: "Shogun" is told to stay where they stand
     And I set the weather to "Clear"
@@ -177,12 +179,15 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (28, 48, 96)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
+    And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
+    And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: "Nelim" carries the item "MealSimple"
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
+    And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 185)
+    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
     And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 185) facing South
     And Firework Stand: "Shogun" is told to stay where they stand
@@ -216,11 +221,14 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
+    And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
+    And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
+    And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (203, 182)
+    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
     And Nelim's Pickle Tools: the animal "Yuki" stands at (203, 182) facing South
     And Firework Stand: "Shogun" is told to stay where they stand
@@ -255,11 +263,14 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (30, 100, 70)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
+    And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
+    And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
+    And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 185)
+    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
     And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
     And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 185) facing South
     And Firework Stand: "Shogun" is told to stay where they stand
@@ -294,7 +305,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 52, 110)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (200, 184, 150)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
+    And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
+    And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
     And I set the weather to "Clear"
