@@ -286,7 +286,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: the decor is removed
     And no errors were logged
 
-  @timeout:180
+  @timeout:180 @requires:nelim.pickletools.screenshotmode
   Scenario: gallery 5: the stand counting down its reload, with its inspect pane
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 4 launchers
@@ -322,6 +322,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Firework Stand: I select the stand at x=200 z=183
     And Nelim's Pickle Tools: I move the mouse to (1500, 400)
     And Nelim's Pickle Tools: I let 60 ticks pass
+    And Nelim's Pickle Tools: screenshot mode is enabled around the open windows
+    And Nelim's Pickle Tools: I let 10 ticks pass
     Then I take a screenshot "gallery 05: the stand counting down its reload"
     And Nelim's Pickle Tools: the decor is removed
     And no errors were logged
