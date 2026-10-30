@@ -70,10 +70,10 @@
 #   a. calm-zone, 23h (night), clear, the light + 30 ticks.
 #   b. decor: two PlantPot with Plant_Dandelion fully grown at (196, 182) and (203, 182), either side of the stand, lit by it.
 #   c. life: Plant_Dandelion; Shogun at (203, 184) and Yuki at (203, 182) facing South, at the edge of the glow.
-#   d. Nelim: BasicShirt dyed beige (214, 200, 170), Pants dyed brown, Parka dyed deep blue (28, 48, 96), Tuque dyed emerald (30, 100, 70)
-#      (the cold outfit); hairstyle "Long", loose, near-black brown, shown under the tuque by Show Hair Under Stuff; expression: a soft small smile, MouthLipsSmallSmile,
+#   d. Nelim: BasicShirt dyed beige (214, 200, 170), Pants dyed brown, no hat, no parka (NSB canon 2026-10-30: midsummer eve is warm, the parka is not in her profile);
+#      hairstyle Roo_HD_Hair_Highpony (canon high ponytail), near-black brown (gene Hair_DarkSaturatedReddish once NPT has a step for it); expression: a soft small smile, MouthLipsSmallSmile,
 #      cheeks flushed by the cold (SkinRosyCheeks).
-#   e. state: wrapped for the night chill in a parka, facing East in profile beside the stand, her face lit.
+#   e. state: dressed for the warm night, facing East in profile beside the stand, her face lit.
 #   f. zoom 4.5 on (199, 184), 16 x 9 cells; the cream square lit warm round the stand, all else dark; the dandelion pots at the two
 #      edges of the glow as framing; Nelim left of the stand, the dogs right.
 #   g. subject: the light on the ground. "The stand lights the night, it is not a lamp."
@@ -140,7 +140,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Hay" at (202, 186)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
@@ -176,7 +176,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (28, 48, 96)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
@@ -215,9 +215,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Dandelion" fully grown at (203, 181)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Parka" dyed rgb (28, 48, 96)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (30, 100, 70)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Long"
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
@@ -256,7 +254,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (30, 100, 70)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
@@ -295,7 +293,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Hay" at (198, 187)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 52, 110)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (200, 184, 150)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Ponytails"
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (42, 30, 24)
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
