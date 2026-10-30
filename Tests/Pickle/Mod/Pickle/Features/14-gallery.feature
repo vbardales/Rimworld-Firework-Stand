@@ -322,6 +322,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Firework Stand: I select the stand at x=200 z=183
     And Nelim's Pickle Tools: I move the mouse to (1500, 400)
     And Nelim's Pickle Tools: I let 60 ticks pass
+    And Nelim's Pickle Tools: the area and zone overlays are hidden
     And Nelim's Pickle Tools: screenshot mode is enabled around the open windows
     And Nelim's Pickle Tools: I let 10 ticks pass
     Then I take a screenshot "gallery 05: the stand counting down its reload"
