@@ -26,7 +26,7 @@
 # 4 to 12 cells from the stand; once the stand has fired it needs no audience, so Nelim is put on her own cell then. (4) The map is
 # held at 22 degrees so that she does not sweat or blush at 39; her own face (`Nelim has her own face`: BrowNormal, MouthSmirkSmile,
 # normal+blink) is set after her clothes, then the scene's own mouth, brows and lids (face-part steps of ColonistRace), no tick
-# between them and the shutter. CANON (SanctuaryBacklot NELIM-PROFIL.md): her hair is a high ponytail (Roo_HD_Hair_Highpony), never a bun; her palette is emerald, deep blue, brown, beige, blood red, gold. HAT RULE (owner, 2026-10-18): a hat only with long loose hair ("Long", never a ponytail or a bun) and Show Hair Under Stuff in the map, seeded by Tests/Pickle/config/vitrine/Mod_3255379190_ShowHairMod.xml; no scene wears one. Her garments: the first `wears` undresses her, so every scene dresses her whole: shirt, trousers,
+# between them and the shutter. CANON (SanctuaryBacklot NELIM-PROFIL.md): her hair is a high ponytail (Roo_HD_Hair_Highpony), never a bun; her palette is emerald, deep blue, brown, beige, blood red, gold. HAT RULE (owner, 2026-10-18): a hat only with long loose hair ("Long", never a ponytail or a bun) and a hat-hair mod in the map; no scene wears a hat, so the map holds none (seed removed 2026-11-08). Her garments: the first `wears` undresses her, so every scene dresses her whole: shirt, trousers,
 # then the rest.
 #
 # THE SHOOTING PLAN (rewritten 2026-11-08 against GALLERY.md "Shotlist : critères d'une scène à 4/5", a to g and j, k on the series;
