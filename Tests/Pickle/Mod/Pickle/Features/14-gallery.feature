@@ -12,10 +12,10 @@
 #
 # THE STORY (one story, one photographer; Nelim is the protagonist of every picture). Midsummer eve. NELIM, the save's only
 # colonist (the fixture gives her her face, her brown eyes and her trousers; each scene below re-dresses her), keeps one square of
-# quiet for herself and tonight gives it to the one show of the year. She changes clothes as the day goes: the saffron of the
-# afternoon, the teal of dusk, the parka of the night chill. Her two dogs, SHOGUN the labrador and YUKI the husky, are with her and
-# watch her and not the sky: they face the camera (South) in scenes 1 to 4. No other character, no set: the decor of each picture is
-# its own, small, named below, and removed after the shot (`the decor is removed`). EPISODES, in the order of the pictures: 1 late afternoon (16h), she has lit the fuse and waits; 2 dusk (19h), the rocket leaves, supper forgotten; 3 night (23h), the stand lights the square; 4 the same night, a hundred ticks later, the burst; 5 the morning after (9h), she reloads for the next one; 6 the menu that tells the reader where to find it (noon, outside the story). The only light on the night ground is the
+# quiet for herself and gives the day to a slow show, one rocket at every beat of the story. She changes once as the day goes: the blood-red party shirt
+# of the afternoon, the emerald shirt of dusk and night, then a new day. Her two dogs, SHOGUN the labrador and YUKI the husky, are with her and
+# watch her and the show (South, West or North as each beat says, see the plan). No other character, no set: the decor of each picture is
+# its own, lived-in, named below, and removed after the shot (`the decor is removed`). EPISODES, in the order of the pictures: 1 late afternoon (16h), she has lit the fuse and waits; 2 dusk (19h), the rocket leaves, supper forgotten; 3 night (23h), the stand lights the square; 4 the same night, a hundred ticks later, the burst; 5 the morning after (9h), she reloads for the next one; 6 the menu that tells the reader where to find it (noon, outside the story). The only light on the night ground is the
 # stand's own (the stand throws it for the length of the rocket's departure, it is not a lamp). Time runs from 16h on the eve to 9h the morning after; each hour is the next beat of one evening.
 #
 # HOW THE FRAMES ARE MADE TRUE (what the first runs taught). (1) The camera is framed BEFORE the game runs: the framing step waits
@@ -26,97 +26,124 @@
 # 4 to 12 cells from the stand; once the stand has fired it needs no audience, so Nelim is put on her own cell then. (4) The map is
 # held at 22 degrees so that she does not sweat or blush at 39; her own face (`Nelim has her own face`: BrowNormal, MouthSmirkSmile,
 # normal+blink) is set after her clothes, then the scene's own mouth, brows and lids (face-part steps of ColonistRace), no tick
-# between them and the shutter. CANON (SanctuaryBacklot NELIM-PROFIL.md): her hair is a high ponytail (Core "Ponytails" here), never a bun; her palette is emerald, deep blue, brown, beige, blood red, gold. HAT RULE (owner, 2026-10-18): a hat only with long loose hair ("Long", never a ponytail or a bun) and Show Hair Under Stuff in the map, seeded by Tests/Pickle/config/vitrine/Mod_3255379190_ShowHairMod.xml; only scene 3 wears one, and if the hair clips the hat is taken off. Her garments: the first `wears` undresses her, so every scene dresses her whole: shirt, trousers,
+# between them and the shutter. CANON (SanctuaryBacklot NELIM-PROFIL.md): her hair is a high ponytail (Roo_HD_Hair_Highpony), never a bun; her palette is emerald, deep blue, brown, beige, blood red, gold. HAT RULE (owner, 2026-10-18): a hat only with long loose hair ("Long", never a ponytail or a bun) and Show Hair Under Stuff in the map, seeded by Tests/Pickle/config/vitrine/Mod_3255379190_ShowHairMod.xml; no scene wears one. Her garments: the first `wears` undresses her, so every scene dresses her whole: shirt, trousers,
 # then the rest.
 #
-# THE SHOOTING PLAN, scored against GALLERY.md "Shotlist : critères d'une scène à 4/5" (a to j). Zoom N is the camera's half-height
-# (PickleTools docs/GALERIE.md): 2N cells high, about 3.56N wide, a cell is 540 / N px, so a SMALLER N is closer.
+# THE SHOOTING PLAN (rewritten 2026-11-08 against GALLERY.md "Shotlist : critères d'une scène à 4/5", a to g and j, k on the series;
+# the interface scene 6 is set aside; director's pass of an Opus sub-agent applied, see the end of this block). Zoom N is the camera's
+# half-height (PickleTools docs/GALERIE.md): 2N cells high, about 3.56N wide, a cell is 540 / N px, so a SMALLER N is closer.
 # Run 888d (2026-10-21): a plant placed on a PlantPot cell was refused by the plain step; the pot and its plant now go through one NPT step (compiled, not played).
 #
-#  1 fuse   (score 4)
-#   a. calm-zone, 16h, clear, T + 40 ticks after the fuse is lit.
-#   b. decor: PlantPot at (195, 186) holding Plant_Daylily fully grown (the midsummer flower), Hay at (202, 186) as the dogs' bed.
-#   c. life: Plant_Daylily; Shogun (labrador) at (203, 185) facing South, i.e. the camera.
-#   d. Nelim: ShirtRuffle dyed blood red (150, 30, 40), Pants dyed brown (92, 64, 40) (the party outfit); hairstyle Ponytails, near-black brown (42, 30, 24);
-#      expression: her own face, the smirk smile and the blink (calm, pleased).
-#   e. action: the WatchStand job, kept in profile (facing East) three cells west of the stand: she has lit it and waits.
-#   f. zoom 3 on (199, 184), 10.7 x 6 cells; the stand at the bottom centre with the thread of smoke over it, Nelim left of it,
-#      Shogun at the right edge, the daylily pot at the left edge as foreground; a daylight afternoon, grey smoke on a pale ground.
-#   g. subject: the lit fuse. "She has lit it, and waits."
-#   h. risk: the thread of smoke is thin and fades (the fleck FS_FuseSmoke, seen on the captures of 2026-09 only). Plan: the step
-#      "at least 4 smoke puffs are near the stand now" must pass before the shutter; the picture is taken 40 ticks after the fuse
-#      and the game is paused; if the smoke does not read, the fix is a closer zoom (2.5), not a darker hour.
-#   i. not a plate: a pot, a dog and a woman at three depths, not a row.   j. the mod: the stand, its fuse and its smoke.
+# SERIES (criterion k). One story: midsummer eve in the cream square. Nelim gives the day to a slow show, one rocket at each beat of
+# the story: lit at 16h, away at 19h, the light at 23h, the burst a hundred ticks later, the reload at 9h the next morning.
+# ONE FIXED CORNER in all five pictures, only what the story changes moves: a launch pad of WoodPlankFloor under the stand (so the
+# ground is never bare), the Stool at (195, 185), the dogs' Hay at (203, 186) and (204, 187), two PlantPot holding Plant_Daylily at
+# (196, 181) and (203, 181) in the foreground, Plant_YellowTallGrass at (195, 187) and (205, 187) behind, two TorchLamp at (195, 183)
+# and (205, 183), and the spare rockets, FireworkLauncher at (197, 182), whose pile counts down the night: 4, 3, 2, 2, 1. The torches
+# are lit from 19h to 23h and out in 1 (daylight, a torch in the sun looks staged) and in 5 (burnt out, the morning after).
+# Variety: 1 close (zoom 3), 2 and 5 medium (zoom 7 and 5), 3 medium-close (zoom 4.5), 4 wide (zoom 8.5). Opening image: 1 (the place,
+# the stand, the lit fuse). Closing image: 5 (the morning after, the dogs asleep, the reload counter). Rhythm: 16h, 19h, 23h,
+# 23h + 100 ticks, 9h, never the same framing twice; Nelim moves along the pad edge from beat to beat.
+# Outfits and continuity: 1 she wears the blood-red party shirt to light the fuse; at dusk she changes into the emerald shirt and
+# keeps it in 2, 3 and 4 (same evening, no change); 5 is a new day, deep-blue shirt and beige trousers. Hair in every scene:
+# Roo_HD_Hair_Highpony (canon high ponytail), gene Hair_DarkSaturatedReddish, no hat. Dogs: Shogun (LabradorRetriever,
+# Apparel_leatherdogcollar) and Yuki (Husky, the same collar dyed #FF1493, the fuchsia of NSB). The mod adds no animal. 22 degrees
+# on the map: no sweat. Every written smile is a smile; no scene lacks one.
+#
+#  1. fuse
+#   a. calm-zone, 16h, clear, 22 degrees, T + 40 ticks after the fuse is lit (see HOW THE FRAMES ARE MADE TRUE).
+#   b. decor: the fixed corner (pad floor "WoodPlankFloor" from (198, 182) to (202, 184), Stool, Hay, 2 pots of Plant_Daylily, grass,
+#      the two TorchLamp unlit); 4 FireworkLauncher at (197, 182), the full pile; light: the afternoon sun and the burning fuse.
+#   c. life: Plant_Daylily (the midsummer flower); Shogun lying asleep on the hay at (203, 186) facing South (the camera), Yuki at
+#      (204, 187) facing West, watching Nelim; collars on.
+#   d. Nelim: Apparel_ShirtRuffle dyed rgb (150, 30, 40) blood red and Apparel_Pants dyed rgb (92, 64, 40) brown (the party shirt of
+#      the day); Roo_HD_Hair_Highpony; no hat; her own face, the smirk smile and the blink (a pleased smirk, written: a smile).
+#   e. action: the WatchStand job, in profile facing East at (196, 184), four cells west of the stand. Instant: she lit the fuse 40
+#      ticks ago, the rocket is about to leave. Obtained: she is ordered to watch the stand, then stands at (196, 184) facing East and
+#      is told to stay, the game is paused at T + 40.
+#   f. zoom 3 on (199, 184): the stand at the bottom centre with its thread of smoke, Nelim left of it, the pots as foreground, the dogs
+#      on their hay at the right edge, the stool at the left edge; a daylight afternoon, grey smoke on a pale ground.
+#   g. subject: the lit fuse. "Nelim has lit the fuse and waits." Readable in the image: smoke over the stand, a full pile of rockets
+#      by the pad, one dog asleep and one watching her, a woman in her party shirt waiting.
+#   j. the mod: the stand, its fuse and its smoke, large in the frame.
 #   subtitle: "Nelim has lit the fuse and waits."
 #
-#  2 launch (score 4)
-#   a. calm-zone, 19h (dusk, sky still faintly lit), clear, the light + 25 ticks.
-#   b. decor: two Hay at (202, 186) and (204, 186) (the dogs' supper bed), Plant_YellowTallGrass fully grown at (195, 187) and
-#      (196, 188) (straw-coloured foreground).
-#   c. life: Plant_YellowTallGrass; Shogun at (203, 184) and Yuki (husky) at (204, 185), both facing South (the camera).
-#   d. Nelim: BasicShirt dyed emerald (28, 110, 80), Pants dyed brown, Jacket dyed deep blue (28, 48, 96), no hat;
-#      hairstyle Ponytails, near-black brown; expression: awe, MouthSmile and BrowRaised.
-#   e. action: she carries the item "MealSimple", the dogs' supper, her head turned to the rocket (facing North).
-#   f. zoom 7 on (199, 189), 25 x 14 cells; the rocket two or three cells up its climb with its purple trails and sparks, the stand
-#      at the bottom centre, Nelim at the left from behind, the two dogs low right facing us, the grass in the foreground; dusk light.
-#   g. subject: the rocket leaving. "It leaves, and supper is forgotten."
-#   h. risk: caught before the rocket leaves or after the trails (two earlier runs). Plan: the camera is framed before the salvo, the
-#      shutter is the light + 25 ticks on the stand's clock, the game is paused first; a step that fails to find the light fails
-#      the scenario instead of shooting an empty sky.
-#   i. not a plate: the stand, the dogs and the grass at three depths.   j. the mod: the rocket, its trails, the departure.
+#  2. launch
+#   a. calm-zone, 19h, clear (dusk, the sky still faintly lit), 22 degrees, the light + 25 ticks.
+#   b. decor: the fixed corner with both TorchLamp at (195, 183) and (205, 183) lit (the dusk lamps); 3 FireworkLauncher at (197, 182).
+#   c. life: Plant_Daylily, Plant_YellowTallGrass; Shogun at (203, 184) and Yuki at (204, 185) facing West, towards Nelim and her bowl;
+#      collars on.
+#   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) emerald and Apparel_Pants dyed rgb (92, 64, 40) (she changed at dusk, the
+#      evening shirt); Roo_HD_Hair_Highpony; no hat, no jacket (warm night); awe: MouthSmile and BrowRaised (a smile).
+#   e. action: she carries the item Kibble, the dogs' supper, her head turned up to the rocket (facing North). Instant: the rocket has
+#      just left, the trails are still lit; supper is forgotten in her hands while the dogs wait for it. Obtained: ordered to watch,
+#      then stands at (197, 184) facing North, the item carried, the game paused 25 ticks after the light comes on.
+#   f. zoom 7 on (199, 189): the rocket two or three cells up its climb, purple trails, the stand and the pad at the bottom centre, Nelim
+#      at the left from behind, the dogs low right looking at her, the pots in front, the lamps as two warm points; dusk light.
+#   g. subject: the rocket leaving. "The rocket leaves, and supper is forgotten." Readable in the image: a rocket climbing, a woman
+#      looking up with a bowl in her hands, two dogs looking at the bowl.
+#   j. the mod: the rocket, its trails and the stand's departure light, large in the frame.
 #   subtitle: "The rocket leaves, and supper is forgotten."
 #
-#  3 light  (score 4)
-#   a. calm-zone, 23h (night), clear, the light + 30 ticks.
-#   b. decor: two PlantPot with Plant_Dandelion fully grown at (196, 182) and (203, 182), either side of the stand, lit by it.
-#   c. life: Plant_Dandelion; Shogun at (203, 184) and Yuki at (203, 182) facing South, at the edge of the glow.
-#   d. Nelim: BasicShirt dyed beige (214, 200, 170), Pants dyed brown, no hat, no parka (NSB canon 2026-10-30: midsummer eve is warm, the parka is not in her profile);
-#      hairstyle Roo_HD_Hair_Highpony (canon high ponytail), near-black brown (gene Hair_DarkSaturatedReddish once NPT has a step for it); expression: a soft small smile, MouthLipsSmallSmile,
-#      cheeks flushed by the cold (SkinRosyCheeks).
-#   e. state: dressed for the warm night, facing East in profile beside the stand, her face lit.
-#   f. zoom 4.5 on (199, 184), 16 x 9 cells; the cream square lit warm round the stand, all else dark; the dandelion pots at the two
-#      edges of the glow as framing; Nelim left of the stand, the dogs right.
-#   g. subject: the light on the ground. "The stand lights the night, it is not a lamp."
-#   h. risk: the light is a 240-tick flash and a stray tick loses it; face steps may name a part the game does not know. Plan: the
-#      light comes on within 30 seconds is asserted, the shutter is +30 ticks with the game paused; if a face part name fails,
-#      the scenario fails with the list of names (read it, use a name from it) and the own face stays.
-#   i. not a plate: lit pots, three beings at different distances.   j. the mod: the light the stand throws.
+#  3. light
+#   a. calm-zone, 23h, clear (night), 22 degrees, the light + 30 ticks.
+#   b. decor: the fixed corner with both TorchLamp at (195, 183) and (205, 183) lit; 2 FireworkLauncher at (197, 182).
+#   c. life: Plant_Daylily; Shogun at (203, 184) and Yuki at (204, 185) facing South, the camera, collars on, at the edge of the glow.
+#   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) and Apparel_Pants dyed rgb (92, 64, 40), the same as at dusk (same evening);
+#      Roo_HD_Hair_Highpony; no hat, no parka (NSB canon: midsummer eve is warm); a soft small smile, her face lit by the stand.
+#   e. state: in profile facing East at (197, 185) beside the stand, so that her lit face shows. Instant: the rocket has just left
+#      and the flash of the stand fills the square. Obtained: ordered to watch, then stands at (197, 185) facing East, the game paused
+#      30 ticks after the light comes on.
+#   f. zoom 4.5 on (199, 184): the cream square lit warm round the stand, all else dark; the pots and the two torches at the edges of
+#      the glow as framing; Nelim left of the stand, the dogs right.
+#   g. subject: the light on the ground. "The stand lights the whole square, only for a moment." Readable in the image: a square lit
+#      from one point, a woman and two dogs inside the glow, the rocket gone.
+#   j. the mod: the light the stand throws, covering most of the frame.
 #   subtitle: "The stand lights the whole square, only for a moment."
 #
-#  4 burst  (score 4)
-#   a. calm-zone, 23h, clear, the light + 100 ticks.
-#   b. decor: two PlantPot with Plant_Rose fully grown at (198, 186) and (202, 186) in the foreground (a rose is not a daylily or a
-#      dandelion; if the def is unknown the scenario fails with the list and Plant_Daylily takes its place).
-#   c. life: Plant_Rose; Shogun at (203, 184) and Yuki at (204, 185) facing South, small at the bottom.
-#   d. Nelim: Jacket dyed emerald (30, 100, 70) over BasicShirt dyed beige and Pants dyed brown; no hat;
-#      hairstyle Ponytails, near-black brown; expression: wonder, MouthSmile, BrowRaised (a small figure, read by her stance).
-#   e. state: head turned up (facing North), the jacket open: she watches the burst, the dogs at her feet.
-#   f. zoom 8.5 on (200, 190), 30 x 17 cells; the burst high over the flowers and the bamboo (about 12 cells north of the stand), the
-#      stele at the right, Nelim and the dogs small at the bottom, the rose pots as foreground.
-#   g. subject: the burst. "The show itself, over the bamboo."
-#   h. risk: the burst delay read off one picture only (04a, 2026-10-14); the rocket may be still climbing or gone. Plan: the picture is
-#      taken at the light + 100 ticks; if it misses, the same scenario is replayed at the light + 85 and + 115 as one small ticket
-#      before anything else is judged.
-#   i. not a plate.   j. the mod: the burst itself.
+#  4. burst
+#   a. calm-zone, 23h, clear, 22 degrees, the light + 100 ticks.
+#   b. decor: the fixed corner with both TorchLamp at (195, 183) and (205, 183) lit, the pots in the foreground at (196, 181) and
+#      (203, 181); 2 FireworkLauncher at (197, 182).
+#   c. life: Plant_Daylily, Plant_YellowTallGrass; Shogun at (203, 184) and Yuki at (204, 185) facing North with Nelim, collars on,
+#      small at the bottom.
+#   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) and Apparel_Pants dyed rgb (92, 64, 40), the same as in 2 and 3; Roo_HD_Hair_Highpony;
+#      no hat; wonder: MouthSmile and BrowRaised (a smile, read by her stance).
+#   e. state: head thrown back, facing North at (197, 185), the dogs at her side looking up too. Instant: the burst has just opened
+#      over the bamboo. Obtained: ordered to watch, then stands at (197, 185) facing North, the game paused 100 ticks after the light.
+#   f. zoom 8.5 on (200, 190): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
+#      bottom, the pots and the lamps as foreground.
+#   g. subject: the burst. "The show itself, over the bamboo." Readable in the image: a firework flowering over a small group watching.
+#   j. the mod: the burst itself, the largest thing in the frame.
 #   subtitle: "The show itself, over the bamboo."
 #
-#  5 reload (score 4, a scene with the inspect pane: no subtitle; the morning after the show)
-#   a. calm-zone, 9h (the morning after, low clear light, the pane reads in daylight), clear, 60 ticks after the stand is back to 3.
-#   b. decor: Plant_YellowTallGrass fully grown at (194, 183) and (194, 185), Hay at (198, 187).
-#   c. life: Plant_YellowTallGrass; no animal (the pane is the subject, the frame stays light).
-#   d. Nelim: BasicShirt dyed deep blue (28, 52, 110), Pants dyed beige (200, 184, 150), no hat;
-#      hairstyle Ponytails, near-black brown; expression: focused, MouthNormal and BrowSquare (BrowThick does not exist: run 888d).
-#   e. action: she carries the item "FireworkLauncher", the next one, at her post by the stand.
-#   f. zoom 5 on (198, 184), the interface on but cleaned (colonist bar, resources, alerts, learning helper, tooltips and labels
-#      hidden), the inspect pane open on the left; Nelim and the stand in the right two thirds.
-#   g. subject: the reload counter. "The stand reloads, one launcher a salvo."
-#   h. risk: the hide steps are new and unseen; zone paint or a HUD part may still cover the frame. Plan: the picture is opened
-#      first; if anything covers it, the step is described to NPT with the capture and the scene replayed after the answer.
-#   i. not a plate.   j. the mod: the inspect pane, the countdown, the launcher.
+#  5. reload (a scene with the inspect pane, no subtitle: the morning after the show)
+#   a. calm-zone, 9h (the morning after, low clear light), clear, 22 degrees, 60 ticks after the stand is back to 3 launchers.
+#   b. decor: the fixed corner with both TorchLamp at (195, 183) and (205, 183) out (burnt out in the night), a Brazier at (204, 184),
+#      lit (the morning tea), 1 item Kibble at (196, 186) (the leftover supper), 1 FireworkLauncher at (197, 182), the last of the pile.
+#   c. life: Plant_Daylily, Plant_YellowTallGrass; Shogun lying asleep at (203, 186) facing South and Yuki lying asleep at (204, 187)
+#      facing South, on their hay, collars on (worn out by the night).
+#   d. Nelim: Apparel_BasicShirt dyed rgb (28, 52, 110) deep blue and Apparel_Pants dyed rgb (200, 184, 150) beige (a new day, a new
+#      outfit); Roo_HD_Hair_Highpony; no hat; a small satisfied smile, MouthLipsSmallSmile, and BrowSquare (focused: she counts).
+#   e. action: she carries the item FireworkLauncher, the next one, at her post by the stand. Instant: the stand has just reloaded
+#      to 3, the next rocket is in her hands. Obtained: ordered to watch the stand until it holds 3 launchers, then stands at (197, 184)
+#      facing East with the item carried, the pane opened on the stand, the game running only for the shutter.
+#   f. zoom 5 on (196, 184): the interface cleaned (colonist bar, resources, alerts, learning helper, tooltips, labels and zone paint
+#      hidden), the inspect pane open on the left; Nelim and the stand right of the pane, the sleeping dogs at the right edge.
+#   g. subject: the reload counter. "The stand reloads, one launcher a salvo." Readable in the image: a pane that counts the reload,
+#      a woman bringing the next rocket, two dogs asleep after the show.
+#   j. the mod: the inspect pane with its countdown, the stand and the launcher.
 #
-#  6 menu   (interface scene: set aside, not scored; the Architect menu is taken for what it is, no subtitle)
+#  6. menu   (interface scene: set aside, not scored; the Architect menu is taken for what it is, no subtitle)
 #   12h, the Architect Joy category open on the cleaned interface, the stand listed. No Nelim, no decor. "Where to find it."
 #   Risk: the menu did not open on the run of 2026-10-14; plan: windows are allowed to open before the category is opened (done).
+#
+# DIRECTOR'S PASS (Opus sub-agent, one call, 2026-11-08). Kept: one fixed corner and the countdown of the spare pile (series 1, 2);
+# Nelim's cell moves along the pad edge (series 3); torch unlit at 16h (scene 1); a sleeping dog and a watching dog (scene 1);
+# Kibble as the supper and dogs turned West to it (scene 2); scenes 3 and 4 share their decor and dog cells; dogs looking North
+# with her in scene 4; pots moved to the foreground; reframe of scene 5 clear of the pane; traces of the night in scene 5. Not kept:
+# Nelim facing North in scene 3 (her smile and her lit face must show in the picture that is about the light on her square). The
+# story gap (rockets fired at 16h and 19h) is closed in THE STORY: a slow show, one rocket at every beat.
 #
 # Pictures 1 to 4 hide the interface (the game's own screenshot mode) and 5 and 6 show it. ClearScreen keeps a log viewer or a
 # notice of another mod out of every frame.
@@ -136,19 +163,31 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 1: the fuse smoking, Nelim waiting
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (195, 186)
-    And Nelim's Pickle Tools: I place the decor "Hay" at (202, 186)
+    And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (198, 182) to (202, 184)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 185)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (203, 186)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (204, 187)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (196, 181)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (203, 181)
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (195, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (205, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (195, 183)
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
+    And Nelim's Pickle Tools: 4 of the item "FireworkLauncher" are spawned at (197, 182)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
-    And Firework Stand: "Nelim" is placed at x=197 z=184
-    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 185)
+    And Firework Stand: "Nelim" is placed at x=196 z=184
+    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 186)
     And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
-    And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 185) facing South
-    And Firework Stand: "Shogun" is told to stay where they stand
+    And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 187)
+    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
+    And Nelim's Pickle Tools: the animal "Shogun" lies at (203, 186) facing South
+    And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 187) facing West
+    And Firework Stand: "Yuki" is told to stay where they stand
     And I set the weather to "Clear"
     And I set the hour to 16
     And Nelim's Pickle Tools: studio presentation mode is enabled
@@ -156,7 +195,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing East
+    When Nelim's Pickle Tools: "Nelim" stands at (196, 184) facing East
     And Firework Stand: "Nelim" is told to stay where they stand
     And Nelim's Pickle Tools: I let 40 ticks pass
     Then Firework Stand: at least 4 smoke puffs are near the stand at x=200 z=183 now
@@ -171,27 +210,35 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 2: the rocket leaving at dusk
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "Hay" at (202, 186)
-    And Nelim's Pickle Tools: I place the decor "Hay" at (204, 186)
+    And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (198, 182) to (202, 184)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 185)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (203, 186)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (204, 187)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (196, 181)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (203, 181)
     And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (195, 187) fully grown
-    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (196, 188) fully grown
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (205, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (195, 183)
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (195, 183) is lit
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (205, 183) is lit
+    And Nelim's Pickle Tools: 3 of the item "FireworkLauncher" are spawned at (197, 182)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (28, 48, 96)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
-    And Nelim's Pickle Tools: "Nelim" carries the item "MealSimple"
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
     And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 185)
     And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
-    And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
-    And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 185) facing South
+    And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing West
+    And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 185) facing West
     And Firework Stand: "Shogun" is told to stay where they stand
     And Firework Stand: "Yuki" is told to stay where they stand
+    And Nelim's Pickle Tools: "Nelim" carries the item "Kibble"
     And I set the weather to "Clear"
     And I set the hour to 19
     And Nelim's Pickle Tools: studio presentation mode is enabled
@@ -216,57 +263,26 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 3: the ground lit at night as the rocket leaves
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Dandelion" fully grown at (196, 182)
-    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Dandelion" fully grown at (203, 181)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
+    And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (198, 182) to (202, 184)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 185)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (203, 186)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (204, 187)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (196, 181)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (203, 181)
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (195, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (205, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (195, 183)
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (195, 183) is lit
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (205, 183) is lit
+    And Nelim's Pickle Tools: 2 of the item "FireworkLauncher" are spawned at (197, 182)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
-    And Firework Stand: "Nelim" is placed at x=197 z=184
-    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
-    And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
-    And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (203, 182)
-    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
-    And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing South
-    And Nelim's Pickle Tools: the animal "Yuki" stands at (203, 182) facing South
-    And Firework Stand: "Shogun" is told to stay where they stand
-    And Firework Stand: "Yuki" is told to stay where they stand
-    And I set the weather to "Clear"
-    And I set the hour to 23
-    And Nelim's Pickle Tools: studio presentation mode is enabled
-    When Nelim's Pickle Tools: I frame the cell (199, 184) at zoom 4.5
-    And game speed is normal
-    And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
-    Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing East
-    And Firework Stand: "Nelim" is told to stay where they stand
-    Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
-    When Nelim's Pickle Tools: I let 30 ticks pass
-    And game speed is paused
-    And Nelim's Sanctuary: Nelim has her own face
-    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmallSmile"
-    And Nelim's Pickle Tools: "Nelim" face skin is "SkinRosyCheeks"
-    And Nelim's Pickle Tools: I let 5 frames pass
-    Then I take a screenshot "gallery 03: the ground lit at night as the rocket leaves"
-    And Nelim's Pickle Tools: the decor is removed
-    And no errors were logged
-
-  @timeout:340
-  Scenario: gallery 4: the burst at night, over the flowers and the bamboo
-    Given a "FS_FireworkStand" is built at (200, 183)
-    And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
-    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Rose" fully grown at (198, 186)
-    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Rose" fully grown at (202, 186)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (214, 200, 170)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Jacket" dyed rgb (30, 100, 70)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
-    And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
-    And Firework Stand: "Nelim" is bored
-    And Firework Stand: "Nelim" is placed at x=197 z=184
+    And Firework Stand: "Nelim" is placed at x=197 z=185
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
     And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
     And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 185)
@@ -278,11 +294,62 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And I set the weather to "Clear"
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
+    When Nelim's Pickle Tools: I frame the cell (199, 184) at zoom 4.5
+    And game speed is normal
+    And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
+    Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
+    When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing East
+    And Firework Stand: "Nelim" is told to stay where they stand
+    Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
+    When Nelim's Pickle Tools: I let 30 ticks pass
+    And game speed is paused
+    And Nelim's Sanctuary: Nelim has her own face
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmallSmile"
+    And Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 03: the ground lit at night as the rocket leaves"
+    And Nelim's Pickle Tools: the decor is removed
+    And no errors were logged
+
+  @timeout:340
+  Scenario: gallery 4: the burst at night, over the flowers and the bamboo
+    Given a "FS_FireworkStand" is built at (200, 183)
+    And Firework Stand: the stand at x=200 z=183 is loaded with 1 launchers
+    And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (198, 182) to (202, 184)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 185)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (203, 186)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (204, 187)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (196, 181)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (203, 181)
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (195, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (205, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (195, 183)
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (195, 183) is lit
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (205, 183) is lit
+    And Nelim's Pickle Tools: 2 of the item "FireworkLauncher" are spawned at (197, 182)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
+    And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
+    And Firework Stand: "Nelim" is bored
+    And Firework Stand: "Nelim" is placed at x=197 z=185
+    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 184)
+    And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
+    And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 185)
+    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
+    And Nelim's Pickle Tools: the animal "Shogun" stands at (203, 184) facing North
+    And Nelim's Pickle Tools: the animal "Yuki" stands at (204, 185) facing North
+    And Firework Stand: "Shogun" is told to stay where they stand
+    And Firework Stand: "Yuki" is told to stay where they stand
+    And I set the weather to "Clear"
+    And I set the hour to 23
+    And Nelim's Pickle Tools: studio presentation mode is enabled
     When Nelim's Pickle Tools: I frame the cell (200, 190) at zoom 8.5
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing North
+    When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing North
     And Firework Stand: "Nelim" is told to stay where they stand
     Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
     When Nelim's Pickle Tools: I let 100 ticks pass
@@ -299,9 +366,20 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
   Scenario: gallery 5: the stand counting down its reload, with its inspect pane
     Given a "FS_FireworkStand" is built at (200, 183)
     And Firework Stand: the stand at x=200 z=183 is loaded with 4 launchers
-    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (194, 183) fully grown
-    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (194, 185) fully grown
-    And Nelim's Pickle Tools: I place the decor "Hay" at (198, 187)
+    And Nelim's Pickle Tools: I lay the floor "WoodPlankFloor" from (198, 182) to (202, 184)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 185)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (203, 186)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (204, 187)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (196, 181)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" holding "Plant_Daylily" fully grown at (203, 181)
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (195, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (205, 187) fully grown
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (195, 183)
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
+    And Nelim's Pickle Tools: I place the decor "Brazier" at (204, 184)
+    And Nelim's Pickle Tools: the decor "Brazier" at (204, 184) is lit
+    And Nelim's Pickle Tools: 1 of the item "Kibble" are spawned at (196, 186)
+    And Nelim's Pickle Tools: 1 of the item "FireworkLauncher" are spawned at (197, 182)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 52, 110)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (200, 184, 150)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
@@ -309,6 +387,12 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
     And Firework Stand: "Nelim" is bored
     And Firework Stand: "Nelim" is placed at x=197 z=184
+    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Shogun" is spawned at (203, 186)
+    And Nelim's Pickle Tools: the animal "Shogun" is dressed in "Apparel_leatherdogcollar"
+    And Nelim's Pickle Tools: an adult animal of kind "Husky" named "Yuki" is spawned at (204, 187)
+    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#FF1493"
+    And Nelim's Pickle Tools: the animal "Shogun" lies at (203, 186) facing South
+    And Nelim's Pickle Tools: the animal "Yuki" lies at (204, 187) facing South
     And I set the weather to "Clear"
     And I set the hour to 9
     And Nelim's Pickle Tools: the colonist bar is hidden
@@ -318,7 +402,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: the tooltips are hidden
     And Nelim's Pickle Tools: the item and name labels are hidden
     And Nelim's Pickle Tools: the painted zones are hidden
-    When Nelim's Pickle Tools: I frame the cell (198, 184) at zoom 5
+    When Nelim's Pickle Tools: I frame the cell (196, 184) at zoom 5
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 comes to hold 3 launchers within 60 seconds
@@ -326,7 +410,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Firework Stand: "Nelim" is told to stay where they stand
     And Nelim's Pickle Tools: "Nelim" carries the item "FireworkLauncher"
     And Nelim's Sanctuary: Nelim has her own face
-    And Nelim's Pickle Tools: "Nelim" mouth is "MouthNormal"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmallSmile"
     And Nelim's Pickle Tools: "Nelim" brows are "BrowSquare"
     And Nelim's Pickle Tools: windows are allowed to open again
     And Firework Stand: I select the stand at x=200 z=183
@@ -340,7 +424,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And no errors were logged
 
   @timeout:150
-  Scenario: gallery 6: the Architect menu lists the stand
+  Scenario: gallery 6: the Architect menu (interface window) lists the stand
     Given research "IEDs" is finished
     And I set the weather to "Clear"
     And I set the hour to 12

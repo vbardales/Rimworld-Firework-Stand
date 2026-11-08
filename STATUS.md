@@ -32,6 +32,7 @@ remaining:
   - gallery 2026-10-30 (lines in docs/runs/history.md): candidates `Art/Gallery/` 1 to 4 kept as provisional (462d). NSB canon check 2026-10-30: dogs right (Shogun LabradorRetriever, Yuki Husky unconfirmed kind, fuchsia collar must show), Nelim hair gene Hair_DarkSaturatedReddish and Roo_HD_Hair_Highpony, no parka or tuque in scene 3 (warm night). Feature 14 and wsl-deps.vitrine.map updated (hair by gene, collars, screenshot mode and overlay-hide steps in scene 5, Sanctuary current map); scenes 1 to 5 refiled as ticket 20261030-155132-129-06ac (evidence to Tests/Pickle/Inbox/calm-zone-1-5-canon). Then open every picture (collars drawn? scene 5 clean?), then Virginie accepts or refuses.
   - Preview re-rendered 2026-11-03 (resume step 7b, config without echo size): output byte-identical to the committed Preview, nothing to commit; the echo (rack of rockets) crosses the copy line ("recreation, with"), a defect to fix at mountPreview with the echo review (shorter copy line or another echo), not now. Ticket 06ac ended exit=1 (no report, infra suspected, 2026-11-03); refiled as 20261103-160112-981-480e (scenes 1 to 5, wsl-deps.vitrine.map, owner local_16c45ad0, tree on 04373bf), waiting for RUN_DONE. Resume 2026-11-03 (later): renderer default background is now cover top left (70aa492); the re-render differs from the committed Preview (background crop) and the echo still crosses the copy line, so nothing committed, files restored; redo at mountPreview with the echo fix.
   - resume 2026-11-08: protocols read at a95086f. Preview re-rendered and committed (rule 2026-11-06): echo no longer crosses the copy line, no clipping, opened at full size; config rewritten in the new schema. Ticket 480e ended exit=1 again (no report, "launcher exit code 1", log gone), 2nd infra failure of scenes 1 to 5: refile after nsb-sync check (no `nsb-sync` flag raised by Check-Status). GitHub social preview stale (`social_preview_sha256`), upload at mountPreview.
+  - shotlist 2026-11-08 (plan 5 on every scene, drift check OK, NSB section below): next, rate-gallery step 1 (ticket of scenes 1 to 5 on the new header, runner auto, never azure), then open every capture; owner sees all candidates once at the end.
   - replay tickets 94cf (09 english) and 72d6 (07 and 09 french) green on 60e8126 (history.md, 2026-10-25): feature 09 stale-scenario and french feature 07 reds of 2026-09-28 closed. Evidence/ holds only the without-Ideology proof (RELEASE.md).
   - 8.d, 8.k: UI captures (French, without Ideology, Architect menu) opened by the session 2026-10-17, all fine (docs/runs/history.md, line of 2026-10-17). Left: films of the final build, light and smoke images (docs/OWNER-CHECKS.md, owner's look not required); fuse smoke (capture 7) validated as a principle, the gallery image has to show it larger.
   - at prepareRelease (AUDIT.md 11.k, AGENTS.md 9a and 9b, rule 2026-10-18): gameplay Pickle steps of the mod (already in `Tests/Pickle/Source/FireworkStandSteps.cs`, to list in a `steps.md` catalogue) and the stand's entry in `GALLERY-PROPS.md` (`FS_FireworkStand`, packageId `nelim.fireworkstand`, Workshop id 3806767445, "seen in a capture" once a gallery image is accepted); no apparel or hairstyle of its own.
@@ -49,20 +50,47 @@ protocols_read_sha: a95086f2b1c3b3d1df3d0bb4b62e789ea0561c85
 
 Current state only. History up to audit of 2026-10-02 (ownership, licence, title, tests, translation audit, Pickle runs, owner validations, French review, gallery staging) in `docs/runs/STATUS-journal-to-2026-10-11.md`.
 
-## Shotlist (AUDIT.md 9.0; criteria a to j of GALLERY.md "Shotlist : critères d'une scène à 4/5"; reworked 2026-10-18 after the Audit read of `GALLERY-SHOTLIST-AUDIT.md`; full lines, with a to j, in the header of `Tests/Pickle/Mod/Pickle/Features/14-gallery.feature`)
+## Shotlist (rewritten 2026-11-08; AUDIT.md 9.0; criteria a to g and j of GALLERY.md "Shotlist : critères d'une scène à 4/5"; full lines in the header of `Tests/Pickle/Mod/Pickle/Features/14-gallery.feature`)
 
-Story (criterion k, written in full in the feature header: who, where, which day, rhythm, one episode per scene): midsummer eve in `calm-zone` (cream square, stand at (200, 183)); 1 16h she has lit the fuse, 2 19h the rocket leaves, 3 23h the stand lights the square, 4 23h+100 ticks the burst, 5 9h next morning she reloads, 6 menu outside the story; one outfit per scene; Shogun and Yuki face the camera in 1 to 4. Pass `wsl-deps.vitrine.map` (all mods already in it, none added). Decor of each scene named, different, removed after the shot. Steps: all exist (`FireworkStandSteps.cs`, PickleTools dress, hair, face-part, decor, hide steps); face parts and `Plant_Rose` / `Plant_Dandelion` names unplayed, a wrong name fails with the list.
+Story (criterion k): midsummer eve in `calm-zone` (stand at (200, 183)), a slow show, one rocket at every beat, from the lit fuse at 16h to the reload at 9h next morning. Nelim: blood-red party shirt for the fuse (1), emerald shirt from dusk, kept in 2 to 4, new day in 5. ONE FIXED CORNER in all five pictures (launch pad `WoodPlankFloor`, `Stool` (195, 185), `Hay` (203, 186) and (204, 187), 2 `PlantPot` of `Plant_Daylily` (196, 181) and (203, 181), grass (195, 187) and (205, 187), 2 `TorchLamp` (195, 183) and (205, 183)); the spare pile of `FireworkLauncher` at (197, 182) counts down 4, 3, 2, 2, 1; torches out in 1 and 5, lit in 2 to 4. Opening image 1, closing image 5; close (1), medium (2, 3, 5), wide (4). 22 degrees: no sweat; every scene carries a written smile. The mod adds no animal (rule 5 does not apply).
 
-| # | Hour | Nelim (outfit, hair, expression, action) | Decor, plant, animals | Score | Risk, then plan |
-|---|---|---|---|---|---|
-| 1 fuse | 16h, zoom 3 | blood-red ruffle shirt, brown trousers (party outfit); Ponytails, near-black brown; own face (smirk smile, blink); WatchStand job, in profile | PlantPot with Plant_Daylily, Hay; Shogun facing us | 4 | thin smoke; 4 puffs asserted before the shutter, zoom 2.5 if it does not read |
-| 2 launch | 19h, zoom 7 | emerald shirt, brown trousers, deep-blue jacket, no hat; Ponytails; awe (MouthSmile, BrowRaised); carries MealSimple, faces the rocket | 2 Hay, 2 Plant_YellowTallGrass; Shogun and Yuki facing us | 4 | caught before or after the departure; framed before the salvo, shutter at the light + 25 ticks, paused |
-| 3 light | 23h, zoom 4.5 | beige shirt, deep-blue Parka, emerald Tuque (the only hat); loose "Long" hair under it (Show Hair Under Stuff, seeded); small smile, rosy cheeks; wrapped for the chill, in profile | 2 PlantPot with Plant_Dandelion; both dogs facing us at the glow edge | 4 | 240-tick flash; light asserted, shutter at +30 ticks, paused; unknown face part fails with the list |
-| 4 burst | 23h, zoom 8.5 | beige shirt, emerald jacket; Ponytails; wonder (MouthSmile, BrowRaised); head up, duster open | 2 PlantPot with Plant_Rose; both dogs facing us | 4 | burst delay read off one picture; if missed, replay at the light + 85 and + 115 as one small ticket |
-| 5 reload | 9h the morning after, zoom 5 | deep-blue shirt, beige trousers, no hat; Ponytails; focused (MouthNormal, BrowThick); carries the next FireworkLauncher | 2 Plant_YellowTallGrass, Hay; no animal | 4 | hide steps unseen; picture opened first, NPT told if anything covers the frame |
-| 6 menu | 12h | interface scene, set aside, not scored (Architect Joy menu, no Nelim, no subtitle) | none | n/a | menu did not open on 2026-10-14; windows now allowed first |
+| # | Hour, zoom | Dogs | Nelim (cell, facing, outfit, expression) | Action, instant | Says | Plan |
+|---|---|---|---|---|---|---|
+| 1 fuse | 16h, 3 | Shogun asleep on hay, Yuki watching her (W) | (196, 184) E; `Apparel_ShirtRuffle` red (150, 30, 40), Pants brown; smirk smile | WatchStand; fuse lit 40 ticks ago | "Nelim has lit the fuse and waits." | 5 |
+| 2 launch | 19h, 7 | both W, to the bowl | (197, 184) N; `Apparel_BasicShirt` emerald (28, 110, 80), Pants brown; awe smile | carries `Kibble`; rocket just left | "The rocket leaves, and supper is forgotten." | 5 |
+| 3 light | 23h, 4.5 | both S (camera) | (197, 185) E profile; same outfit; soft small smile | flash just filled the square | "The stand lights the whole square, only for a moment." | 5 |
+| 4 burst | 23h, 8.5 | both N with her | (197, 185) N; same outfit; wonder smile | burst just opened over the bamboo | "The show itself, over the bamboo." | 5 |
+| 5 reload | 9h, 5 | both asleep on hay | (197, 184) E; `Apparel_BasicShirt` deep blue (28, 52, 110), Pants beige (200, 184, 150); small satisfied smile | carries `FireworkLauncher`; stand just reloaded to 3; pane open; `Brazier` lit, leftover `Kibble` | "The stand reloads, one launcher a salvo." (pane, no subtitle) | 5 |
+| 6 menu | 12h | interface window, set aside, not scored (Architect Joy menu, no Nelim, no subtitle) | | | | n/a |
 
-Series score 4 (a story that moves forward by outfit and hour, living things and a named decor in every scored scene, no catalogue plate, the whole offer shown: fuse, launch, light, burst, reload, menu). Subtitles (English, one line, scenes 1 to 4, after acceptance, in `PUBLICATION.md`): 1 "Nelim has lit the fuse and waits." 2 "The rocket leaves, and supper is forgotten." 3 "The stand lights the whole square, only for a moment." 4 "The show itself, over the bamboo." Nothing played under 4. Ticket 20261018-000740-695-db97 carried the older, unscored version of feature 14: its result is not read as a verdict, the scenes are refiled.
+Series k: ok (one story, rhythm 16h, 19h, 23h, 23h+100, 9h, variety, opening and closing). Plan score by `score-gallery` 2026-11-08: 5 on every scene (a to g and j written concretely; no capture yet). Director's pass (Opus, one call): kept and rejected items listed at the end of the feature header. `Check-ShotlistVsScenario.ps1 -Feature 14-gallery.feature`: OK 2026-11-08 (without `-Feature` it finds no header, the shot lines now sit past line 40). Not verified: that `WoodPlankFloor`, `Brazier`, `Plant_Daylily`, `Kibble` exist in the loaded game (vanilla names, not played here); that `the animal lies at` holds the pose (NOT PLAYED in steps.md). Old captures `Art/Gallery/1-4` deleted at the rewrite (rule 2026-11-06). Subtitles (English, one line, scenes 1 to 4, after acceptance, in `PUBLICATION.md`): as in the table.
+
+## NSB (sync 2026-11-08, `sync-nsb-npt`)
+
+Owner rules of 2026-11-05 and 2026-11-07 applied: everything in NSB is free (places, colonists, domestic animals), every outfit is free, a colonist property change or an outside pawn needs her express validation, an included animal must be shown (none here).
+
+Places read: 2026-11-08 (`SANCTUAIRE-LIEUX.md` lines of `calm-zone`, `SANCTUAIRE-CASES.md` calm-zone cells, `EMBELLISSEMENT-LIEUX.md` and `VALIDE.md` lines on the free shooting zones: `calm-zone` kept free, decor comes from the scenario)
+Tribe read: 2026-11-08 (`NELIM-PROFIL.md`, `CATALOGUE-ANIMAUX.md`, "Qui une galerie peut utiliser"; roster, `AVANCEMENT.md` and the dog sheets not opened)
+Steps read: 2026-11-08 (`git log` of NPT since 2026-10-30; `docs/steps.md` entries for decor, floor, lit, carries, lies, put out)
+
+NSB changed since 2026-10-30 only for other places (batches 5k, 5l, `VALIDE.md` lines for gravel-yard, workshops, right-bank, enclosure, hearth-hall): nothing the gallery uses. NPT added steps (light dim, put out, plant removal near zones): none needed.
+
+| Place | Shots | Changes for the gallery | Last read |
+|---|---|---|---|
+| calm-zone | 1 to 5 | the fixed corner (pad floor, stool, hay, pots, grass, torches or brazier, spare launchers), removed after each shot; hours 16, 19, 23, 23, 9 | 2026-11-08 |
+
+| Colonist | Shots | Outfit per shot (garment, why) | Last read of profile | Exceptions |
+|---|---|---|---|---|
+| Nelim | 1 to 5 | 1 ShirtRuffle red + Pants brown (party shirt of the day, palette blood red, brown); 2 to 4 BasicShirt emerald + Pants brown (changed at dusk, kept all evening, palette emerald); 5 BasicShirt deep blue + Pants beige (new day, palette deep blue, beige); hair Roo_HD_Hair_Highpony in all | 2026-11-08 | none: hair gene `Hair_DarkSaturatedReddish` is the NSB canon of 2026-10-30; no property changed |
+
+| Animal | Shots | Outfit | Last read of its sheet | Exceptions |
+|---|---|---|---|---|
+| Shogun (LabradorRetriever) | 1 to 5 | `Apparel_leatherdogcollar` (NSB default) | catalogue 2026-11-08, sheet not opened | none |
+| Yuki (Husky) | 1 to 5 | `Apparel_leatherdogcollar` dyed #FF1493 (NSB fuchsia collar) | catalogue 2026-11-08, sheet not opened | none; kind "Husky" unconfirmed against NSB |
+
+| Animal the mod includes | Shot |
+|---|---|
+| none (the mod adds no animal) | n/a |
 
 ## Audit 2026-10-11 (`done` -> `playTests[1.0.0]`)
 
