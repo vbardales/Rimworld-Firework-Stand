@@ -1,24 +1,14 @@
 {
   "panel": {
     "title": "Firework Stand",
-    "titleSize": 49,
     "titleParts": [
-      {
-        "text": "Firework Stand",
-        "scale": 1
-      }
+      { "text": "Firework Stand" }
     ],
-    "copyLines": [
-      "Fireworks become real recreation, with a type of their own."
-    ]
+    "description": "Fireworks become real recreation, with a type of their own."
   },
-  "backgroundFile": "Preview-source.png",
-  "echo": {
-    "file": "echo-source.png"
-  },
-  "icon": {
-    "file": "ModIcon-source.png"
-  },
+  "background": { "file": "Preview-source.png" },
+  "echo": { "file": "echo-source.png" },
+  "icon": { "file": "ModIcon-source.png" },
   "palette": {
     "veil": "#101925",
     "inkPrimary": "#F2ECE1",
