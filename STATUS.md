@@ -33,6 +33,7 @@ remaining:
   - Preview re-rendered 2026-11-03 (resume step 7b, config without echo size): output byte-identical to the committed Preview, nothing to commit; the echo (rack of rockets) crosses the copy line ("recreation, with"), a defect to fix at mountPreview with the echo review (shorter copy line or another echo), not now. Ticket 06ac ended exit=1 (no report, infra suspected, 2026-11-03); refiled as 20261103-160112-981-480e (scenes 1 to 5, wsl-deps.vitrine.map, owner local_16c45ad0, tree on 04373bf), waiting for RUN_DONE. Resume 2026-11-03 (later): renderer default background is now cover top left (70aa492); the re-render differs from the committed Preview (background crop) and the echo still crosses the copy line, so nothing committed, files restored; redo at mountPreview with the echo fix.
   - resume 2026-11-08: protocols read at a95086f. Preview re-rendered and committed (rule 2026-11-06): echo no longer crosses the copy line, no clipping, opened at full size; config rewritten in the new schema. Ticket 480e ended exit=1 again (no report, "launcher exit code 1", log gone), 2nd infra failure of scenes 1 to 5: refile after nsb-sync check (no `nsb-sync` flag raised by Check-Status). GitHub social preview stale (`social_preview_sha256`), upload at mountPreview.
   - shotlist 2026-11-08 (plan 5 on every scene, drift check OK, NSB section below). Ticket 20261108-235657-699-6330 filed (scenes 1 to 5, `wsl-deps.vitrine.map`, runner auto, tree 0410063, evidence to Tests/Pickle/Inbox/calm-zone-1-5-shotlist), waiting for RUN_DONE; then open every capture, score-gallery, REDO alone, owner sees all candidates once at the end. The Show Hair seed was removed (no hat scene); the def pre-check found all 16 cited defs in the map.
+  - resume 2026-11-10: protocols read at b7e49f6, sync-nsb-npt done (nothing the gallery uses changed). Ticket 6330 ended 5 of 5 `passed` (evidence `Tests/Pickle/Inbox/calm-zone-1-5-shotlist`, 5 captures opened by the session, provisional read before `score-gallery`): 1 weak (one torch lit though planned out, no hay, Shogun and Yuki cut at the right corner), 2 weak (Nelim and rocket tiny, criterion j), 3 and 4 fair (smoke and sparks or burst clear, no hay, Nelim small in 4), 5 best (pane readable, brazier, dogs asleep). Next: `score-gallery` on the five images, REDO the weak ones alone, then subtitles, one message to Virginie. Session code unknown (title had none): asked Virginie.
   - replay tickets 94cf (09 english) and 72d6 (07 and 09 french) green on 60e8126 (history.md, 2026-10-25): feature 09 stale-scenario and french feature 07 reds of 2026-09-28 closed. Evidence/ holds only the without-Ideology proof (RELEASE.md).
   - 8.d, 8.k: UI captures (French, without Ideology, Architect menu) opened by the session 2026-10-17, all fine (docs/runs/history.md, line of 2026-10-17). Left: films of the final build, light and smoke images (docs/OWNER-CHECKS.md, owner's look not required); fuse smoke (capture 7) validated as a principle, the gallery image has to show it larger.
   - at prepareRelease (AUDIT.md 11.k, AGENTS.md 9a and 9b, rule 2026-10-18): gameplay Pickle steps of the mod (already in `Tests/Pickle/Source/FireworkStandSteps.cs`, to list in a `steps.md` catalogue) and the stand's entry in `GALLERY-PROPS.md` (`FS_FireworkStand`, packageId `nelim.fireworkstand`, Workshop id 3806767445, "seen in a capture" once a gallery image is accepted); no apparel or hairstyle of its own.
@@ -41,10 +42,10 @@ remaining:
   - local scripts: Run-Functional-Tests.ps1 validated by Audit 2026-10-17; Crop-Gallery.ps1 deleted 2026-10-17 (obsolete, Audit agreed); Collect-Evidence, Run-Passes, build-about.sh and svg-about deleted 2026-10-11
   - limitation: five existing assembly contract tests have no recorded mutation test; passing outside the game does not establish runtime behaviour
   - accepted: current Preview including its camera approved 2026-09-13; orange-face mod icon deviation accepted 2026-09-04; light is a flash at the rocket's departure, not a lamp (2026-09-24)
-session:      local_16c45ad0-b85e-42f5-828d-a168b74062ad
-updated:      2026-11-08
+session:      local_d9c492b7-4005-453d-ba27-cafc17e4a72b
+updated:      2026-11-10
 code_review_sha: 341107f159930c986a2e99bf573914605851767d
-protocols_read_sha: a95086f2b1c3b3d1df3d0bb4b62e789ea0561c85
+protocols_read_sha: b7e49f69b9fc104798932a470241a51dfdd51abb
 ---
 # Firework Stand: status
 
@@ -65,15 +66,15 @@ Story (criterion k): midsummer eve in `calm-zone` (stand at (200, 183)), a slow 
 
 Series k: ok (one story, rhythm 16h, 19h, 23h, 23h+100, 9h, variety, opening and closing). Plan score by `score-gallery` 2026-11-08: 5 on every scene (a to g and j written concretely; no capture yet). Director's pass (Opus, one call): kept and rejected items listed at the end of the feature header. `Check-ShotlistVsScenario.ps1 -Feature 14-gallery.feature`: OK 2026-11-08 (without `-Feature` it finds no header, the shot lines now sit past line 40). Not verified: that `WoodPlankFloor`, `Brazier`, `Plant_Daylily`, `Kibble` exist in the loaded game (vanilla names, not played here); that `the animal lies at` holds the pose (NOT PLAYED in steps.md). Old captures `Art/Gallery/1-4` deleted at the rewrite (rule 2026-11-06). Subtitles (English, one line, scenes 1 to 4, after acceptance, in `PUBLICATION.md`): as in the table.
 
-## NSB (sync 2026-11-08, `sync-nsb-npt`)
+## NSB (sync 2026-11-10, `sync-nsb-npt`)
 
 Owner rules of 2026-11-05 and 2026-11-07 applied: everything in NSB is free (places, colonists, domestic animals), every outfit is free, a colonist property change or an outside pawn needs her express validation, an included animal must be shown (none here).
 
-Places read: 2026-11-08 (`SANCTUAIRE-LIEUX.md` lines of `calm-zone`, `SANCTUAIRE-CASES.md` calm-zone cells, `EMBELLISSEMENT-LIEUX.md` and `VALIDE.md` lines on the free shooting zones: `calm-zone` kept free, decor comes from the scenario)
-Tribe read: 2026-11-08 (`NELIM-PROFIL.md`, `CATALOGUE-ANIMAUX.md`, "Qui une galerie peut utiliser"; roster, `AVANCEMENT.md` and the dog sheets not opened)
-Steps read: 2026-11-08 (`git log` of NPT since 2026-10-30; `docs/steps.md` entries for decor, floor, lit, carries, lies, put out)
+Places read: 2026-11-10 (diffs since 2026-11-08; full read 2026-11-08: `SANCTUAIRE-LIEUX.md` lines of `calm-zone`, `SANCTUAIRE-CASES.md` calm-zone cells, `EMBELLISSEMENT-LIEUX.md` and `VALIDE.md` lines on the free shooting zones: `calm-zone` kept free, decor comes from the scenario)
+Tribe read: 2026-11-10 (diffs of roster and Quill profile since 2026-11-08; full read 2026-11-08: `NELIM-PROFIL.md`, `CATALOGUE-ANIMAUX.md`, "Qui une galerie peut utiliser"; roster, `AVANCEMENT.md` and the dog sheets not opened)
+Steps read: 2026-11-10 (`git log` of NPT since 2026-11-08: Beauty2 mouth, carry-item-made-of, drawing-skip, point-framing, no-flee, flecks-not-thrown steps, none used here; earlier `git log` since 2026-10-30; `docs/steps.md` entries for decor, floor, lit, carries, lies, put out)
 
-NSB changed since 2026-10-30 only for other places (batches 5k, 5l, `VALIDE.md` lines for gravel-yard, workshops, right-bank, enclosure, hearth-hall): nothing the gallery uses. NPT added steps (light dim, put out, plant removal near zones): none needed.
+NSB changed 2026-11-09 only for Quill (eyes EyeNormal), the decor fixture `Nelims-tribe-decor-mods-z3.rws` (`Nelims-tribe.rws` stays, calm-zone unchanged for the gallery) and VALIDE lines: nothing the gallery uses. From 2026-10-30 to 2026-11-08 only other places (batches 5k, 5l, `VALIDE.md` lines for gravel-yard, workshops, right-bank, enclosure, hearth-hall): nothing the gallery uses. NPT added steps (light dim, put out, plant removal near zones): none needed.
 
 | Place | Shots | Changes for the gallery | Last read |
 |---|---|---|---|
