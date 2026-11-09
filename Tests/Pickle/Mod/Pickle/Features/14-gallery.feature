@@ -41,7 +41,7 @@
 # (196, 181) and (203, 181) in the foreground, Plant_YellowTallGrass at (195, 187) and (205, 187) behind, two TorchLamp at (195, 183)
 # and (205, 183), and the spare rockets, FireworkLauncher at (197, 182), whose pile counts down the night: 4, 3, 2, 2, 1. The torches
 # are lit from 19h to 23h and out in 1 (daylight, a torch in the sun looks staged) and in 5 (burnt out, the morning after).
-# Variety: 1 close (zoom 3), 2 and 5 medium (zoom 7 and 5), 3 medium-close (zoom 4.5), 4 wide (zoom 8.5). Opening image: 1 (the place,
+# Variety: 1 close (zoom 3.5), 2 and 5 medium (zoom 5.5 and 5), 3 medium-close (zoom 4.5), 4 wide (zoom 7). Opening image: 1 (the place,
 # the stand, the lit fuse). Closing image: 5 (the morning after, the dogs asleep, the reload counter). Rhythm: 16h, 19h, 23h,
 # 23h + 100 ticks, 9h, never the same framing twice; Nelim moves along the pad edge from beat to beat.
 # Outfits and continuity: 1 she wears the blood-red party shirt to light the fuse; at dusk she changes into the emerald shirt and
@@ -61,7 +61,7 @@
 #   e. action: the WatchStand job, in profile facing East at (196, 184), four cells west of the stand. Instant: she lit the fuse 40
 #      ticks ago, the rocket is about to leave. Obtained: she is ordered to watch the stand, then stands at (196, 184) facing East and
 #      is told to stay, the game is paused at T + 40.
-#   f. zoom 3 on (199, 184): the stand at the bottom centre with its thread of smoke, Nelim left of it, the pots as foreground, the dogs
+#   f. zoom 3.5 on (200, 185): the stand at the bottom centre with its thread of smoke, Nelim left of it, the pots as foreground, the dogs
 #      on their hay at the right edge, the stool at the left edge; a daylight afternoon, grey smoke on a pale ground.
 #   g. subject: the lit fuse. "Nelim has lit the fuse and waits." Readable in the image: smoke over the stand, a full pile of rockets
 #      by the pad, one dog asleep and one watching her, a woman in her party shirt waiting.
@@ -78,7 +78,7 @@
 #   e. action: she carries the item Kibble, the dogs' supper, her head turned up to the rocket (facing North). Instant: the rocket has
 #      just left, the trails are still lit; supper is forgotten in her hands while the dogs wait for it. Obtained: ordered to watch,
 #      then stands at (197, 184) facing North, the item carried, the game paused 25 ticks after the light comes on.
-#   f. zoom 7 on (199, 189): the rocket two or three cells up its climb, purple trails, the stand and the pad at the bottom centre, Nelim
+#   f. zoom 5.5 on (199, 187): the rocket two or three cells up its climb, purple trails, the stand and the pad at the bottom centre, Nelim
 #      at the left from behind, the dogs low right looking at her, the pots in front, the lamps as two warm points; dusk light.
 #   g. subject: the rocket leaving. "The rocket leaves, and supper is forgotten." Readable in the image: a rocket climbing, a woman
 #      looking up with a bowl in her hands, two dogs looking at the bowl.
@@ -86,14 +86,14 @@
 #   subtitle: "The rocket leaves, and supper is forgotten."
 #
 #  3. light
-#   a. calm-zone, 23h, clear (night), 22 degrees, the light + 30 ticks.
+#   a. calm-zone, 23h, clear (night), 22 degrees, the light + 10 ticks.
 #   b. decor: the fixed corner with both TorchLamp at (195, 183) and (205, 183) lit; 2 FireworkLauncher at (197, 182).
 #   c. life: Plant_Daylily; Shogun at (203, 184) and Yuki at (204, 185) facing South, the camera, collars on, at the edge of the glow.
 #   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) and Apparel_Pants dyed rgb (92, 64, 40), the same as at dusk (same evening);
 #      Roo_HD_Hair_Highpony; no hat, no parka (NSB canon: midsummer eve is warm); a soft small smile, her face lit by the stand.
 #   e. state: in profile facing East at (197, 185) beside the stand, so that her lit face shows. Instant: the rocket has just left
 #      and the flash of the stand fills the square. Obtained: ordered to watch, then stands at (197, 185) facing East, the game paused
-#      30 ticks after the light comes on.
+#      10 ticks after the light comes on.
 #   f. zoom 4.5 on (199, 184): the cream square lit warm round the stand, all else dark; the pots and the two torches at the edges of
 #      the glow as framing; Nelim left of the stand, the dogs right.
 #   g. subject: the light on the ground. "The stand lights the whole square, only for a moment." Readable in the image: a square lit
@@ -111,7 +111,7 @@
 #      no hat; wonder: MouthSmile and BrowRaised (a smile, read by her stance).
 #   e. state: head thrown back, facing North at (197, 185), the dogs at her side looking up too. Instant: the burst has just opened
 #      over the bamboo. Obtained: ordered to watch, then stands at (197, 185) facing North, the game paused 100 ticks after the light.
-#   f. zoom 8.5 on (200, 190): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
+#   f. zoom 7 on (199, 190): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
 #      bottom, the pots and the lamps as foreground.
 #   g. subject: the burst. "The show itself, over the bamboo." Readable in the image: a firework flowering over a small group watching.
 #   j. the mod: the burst itself, the largest thing in the frame.
@@ -173,6 +173,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (205, 187) fully grown
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (195, 183)
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
+    And Nelim's Pickle Tools: the building "TorchLamp" at (195, 183) is put out
+    And Nelim's Pickle Tools: the building "TorchLamp" at (205, 183) is put out
     And Nelim's Pickle Tools: 4 of the item "FireworkLauncher" are spawned at (197, 182)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
@@ -191,7 +193,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And I set the weather to "Clear"
     And I set the hour to 16
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    When Nelim's Pickle Tools: I frame the cell (199, 184) at zoom 3
+    When Nelim's Pickle Tools: I frame the cell (200, 185) at zoom 3.5
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
@@ -242,7 +244,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And I set the weather to "Clear"
     And I set the hour to 19
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    When Nelim's Pickle Tools: I frame the cell (199, 189) at zoom 7
+    When Nelim's Pickle Tools: I frame the cell (199, 187) at zoom 5.5
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
@@ -301,7 +303,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing East
     And Firework Stand: "Nelim" is told to stay where they stand
     Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
-    When Nelim's Pickle Tools: I let 30 ticks pass
+    When Nelim's Pickle Tools: I let 10 ticks pass
     And game speed is paused
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmallSmile"
@@ -345,7 +347,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And I set the weather to "Clear"
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    When Nelim's Pickle Tools: I frame the cell (200, 190) at zoom 8.5
+    When Nelim's Pickle Tools: I frame the cell (199, 190) at zoom 7
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
@@ -376,6 +378,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "Plant_YellowTallGrass" at (205, 187) fully grown
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (195, 183)
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
+    And Nelim's Pickle Tools: the building "TorchLamp" at (195, 183) is put out
+    And Nelim's Pickle Tools: the building "TorchLamp" at (205, 183) is put out
     And Nelim's Pickle Tools: I place the decor "Brazier" at (204, 184)
     And Nelim's Pickle Tools: the decor "Brazier" at (204, 184) is lit
     And Nelim's Pickle Tools: 1 of the item "Kibble" are spawned at (196, 186)
