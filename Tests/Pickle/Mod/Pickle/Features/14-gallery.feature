@@ -102,7 +102,7 @@
 #   subtitle: "The stand lights the whole square, only for a moment."
 #
 #  4. burst
-#   a. calm-zone, 23h, clear, 22 degrees, the light + 100 ticks.
+#   a. calm-zone, 23h, clear, 22 degrees, the light + 115 ticks.
 #   b. decor: the fixed corner with both TorchLamp at (195, 183) and (205, 183) lit, the pots in the foreground at (196, 181) and
 #      (203, 181); 2 FireworkLauncher at (197, 182).
 #   c. life: Plant_Daylily, Plant_YellowTallGrass; Shogun at (203, 184) and Yuki at (204, 185) facing North with Nelim, collars on,
@@ -110,8 +110,8 @@
 #   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) and Apparel_Pants dyed rgb (92, 64, 40), the same as in 2 and 3; Roo_HD_Hair_Highpony;
 #      no hat; wonder: MouthSmile and BrowRaised (a smile, read by her stance).
 #   e. state: head thrown back, facing North at (197, 185), the dogs at her side looking up too. Instant: the burst has just opened
-#      over the bamboo. Obtained: ordered to watch, then stands at (197, 185) facing North, the game paused 100 ticks after the light.
-#   f. zoom 7.5 on (199, 190): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
+#      over the bamboo. Obtained: ordered to watch, then stands at (197, 185) facing North, the game paused 115 ticks after the light.
+#   f. zoom 8.5 on (199, 191): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
 #      bottom, the pots and the lamps as foreground.
 #   g. subject: the burst. "The show itself, over the bamboo." Readable in the image: a firework flowering over a small group watching.
 #   j. the mod: the burst itself, the largest thing in the frame.
@@ -347,14 +347,14 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And I set the weather to "Clear"
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    When Nelim's Pickle Tools: I frame the cell (199, 190) at zoom 7.5
+    When Nelim's Pickle Tools: I frame the cell (199, 191) at zoom 8.5
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
     When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing North
     And Firework Stand: "Nelim" is told to stay where they stand
     Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
-    When Nelim's Pickle Tools: I let 100 ticks pass
+    When Nelim's Pickle Tools: I let 115 ticks pass
     And game speed is paused
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthSmile"
