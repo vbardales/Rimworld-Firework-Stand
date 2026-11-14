@@ -161,7 +161,7 @@ outside this mod and outside Pickle's own settings — PickleTools read it, 2026
 stand undoes capture 6 (its box was already made to overflow less), and the resolution is not this mod's file to change.
 The owner chose the enlarged crop.
 
-Steam shows the first one large: the most demonstrative, not the prettiest. Order to confirm on the images themselves:
+Steam shows the first image at full size: it should be the most illustrative, not the prettiest. Order to confirm on the images themselves:
 
 1. **The audience**: the stand, a colonist beside it, a burst overhead. The one that says what the mod is.
 2. **The fuse and the launch**: smoke rising from the rack, then the puff and the sparks (the still taken mid-fuse).
@@ -189,7 +189,7 @@ true thing, one link hidden behind BBCode, under 350 characters. **She reads and
 posted by her, once the item is public and after reading the last comments of the page.
 
 > Thank you for Fireworks! I made a small stand around it: colonists walk over and watch your launchers as recreation,
-> and your show (bursts, trails, sounds) is called as it is, nothing copied. I read your assembly to see how it fires, it's
+> and your show (bursts, trails, sounds) is called as it is, nothing copied. I read your assembly to see how it fires; it's
 > credited. Tell me if you'd rather I did something differently :)
 > [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3806767445]Firework Stand[/url]
 
