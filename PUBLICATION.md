@@ -169,6 +169,18 @@ Steam shows the first image at full size: it should be the most illustrative, no
 4. **The stand counting down its reload**: the gauge and the inspect line.
 5. **The blueprint**: buildable through the normal Architect menu (Recreation, after IEDs).
 
+### Gallery subtitles
+
+One English line burned at the bottom of each scene image (`scripts/Add-Subtitle.ps1`, from the clean original in `Art/Gallery-clean/` to `Art/Gallery/`). `0-preview.png` has none.
+
+| index | file | line |
+|---|---|---|
+| 1 | 1-candidate-the-fuse.jpg | The fuse is lit, and smoke climbs from the rack. |
+| 2 | 2-candidate-the-rocket-leaving.jpg | The rocket leaves the stand. |
+| 3 | 3-candidate-the-ground-lit.jpg | For a moment the ground glows with its light. |
+| 4 | 4-candidate-the-burst.jpg | Overhead, the burst opens. |
+| 5 | 5-candidate-the-reload.jpg | The stand counts down its reload. |
+
 ## Content boxes (adult content, violence)
 
 Nothing in the mod, the Preview, the ModIcon or the captures viewed so far shows nudity, gore or sexual content; the only
