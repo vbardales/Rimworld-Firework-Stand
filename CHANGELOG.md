@@ -9,7 +9,7 @@ data is unchanged, so a colony saved with 0.1.0 loads as it was.
   comps the light asks, and it answers "no light" as soon as nothing is loaded; the stand spent its launcher as the
   rocket left, so a stand with one launcher left could not light the ground for it (the others could, because they still
   held one). The launcher is now spent when the light goes out, four seconds later. The saved data gains one flag
-  (`consumePending`, false for a stand saved with 0.1.0).
+  (`consumePending`, set to `false` for a stand saved with 0.1.0).
 
 - **The fuse smoke could not be seen.** The stand's effects (the fuse smoke, the launch puff and sparks, the light going
   out) were timed in `CompTickInterval`, which the game runs only every few ticks for a building with a Normal ticker,

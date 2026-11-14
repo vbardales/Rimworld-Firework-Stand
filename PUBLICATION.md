@@ -60,7 +60,7 @@ In the original mod, fireworks are either an Ideology ritual or a one-use item y
 
 This adds a firework stand: a building loaded with firework launchers that colonists watch of their own accord, as recreation. The stand only fires while somebody is actually watching, so it never wastes a rocket on an empty field, and it must be built under open sky. A stand with nothing loaded gives no recreation.
 
-The show itself (the bursts, the trails, the sounds, the mood memories) is telardo's, called as it is. What this adds is the recreation type, plus the two effects his mod has no reason to provide: the fuse smoking at the top of the rack, and real light thrown across the ground for a few seconds as each rocket leaves. The stand is dark the rest of the time; it is not a lamp. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
+The show itself (the bursts, the trails, the sounds, the mood memories) is telardo's, used unchanged. What this adds is the recreation type, plus the two effects his mod has no reason to provide: the fuse smoking at the top of the rack, and real light thrown across the ground for a few seconds as each rocket leaves. The stand is dark the rest of the time; it is not a lamp. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
 
 Fireworks is declared as a dependency, because the stand does nothing at all without it. The link itself is made at runtime by reflection, and the defs sit inside a guarded patch: if the mod is absent, nothing is patched and nothing errors. Ideology is not required either way. The stand appears in the Recreation category of the Architect menu once IEDs is researched. English and French.
 
@@ -100,7 +100,7 @@ Fixes. The fuse now smokes visibly at the top of the rack before each launch (th
 see). A stand with nothing loaded no longer counts as recreation: colonists stop going to it, and its inspect line no
 longer says "Ready to fire". The fuel line starts with a capital and the stand is drawn a little smaller, so its box stays
 in its cell. The last rocket of a stand now lights the ground like the others (it did not, because the stand's
-last launcher was spent before its light). Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
+last launcher was spent before its light went out). Saved data is unchanged: a colony saved with 0.1.0 loads as it was.
 ```
 
 Confirm the first sentence against the last smoke pass before sending: it says what a person was shown, not what the
