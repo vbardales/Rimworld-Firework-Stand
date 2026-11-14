@@ -204,6 +204,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     When game speed is paused
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: I let 5 frames pass
+    And Nelim's Pickle Tools: the render nodes and layers of "Nelim" are logged
     Then I take a screenshot "gallery 01: the fuse smoking, Nelim waiting"
     And Nelim's Pickle Tools: the decor is removed
     And no errors were logged
