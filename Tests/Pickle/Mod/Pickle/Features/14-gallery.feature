@@ -57,9 +57,9 @@
 #   c. life: Plant_Daylily (the midsummer flower); Shogun lying asleep on the hay at (203, 186) facing South (the camera), Yuki at
 #      (204, 187) facing West, watching Nelim; collars on.
 #   d. Nelim: Apparel_ShirtRuffle dyed rgb (150, 30, 40) blood red and Apparel_Pants dyed rgb (92, 64, 40) brown (the party shirt of
-#      the day); Roo_HD_Hair_Highpony; no hat; her own face, the smirk smile and the blink (a pleased smirk, written: a smile).
-#   e. action: the WatchStand job, in profile facing East at (196, 184), four cells west of the stand. Instant: she lit the fuse 40
-#      ticks ago, the rocket is about to leave. Obtained: she is ordered to watch the stand, then stands at (196, 184) facing East and
+#      the day); trousers first, then the shirt (worn in that order so the legs are dressed); Roo_HD_Hair_Highpony; no hat; her own face, the smirk smile and the blink (a pleased smirk, written: a smile).
+#   e. action: the WatchStand job, facing South (the camera, her face shows) at (196, 184), four cells west of the stand. Instant: she lit the fuse 40
+#      ticks ago, the rocket is about to leave. Obtained: she is ordered to watch the stand, then stands at (196, 184) facing South and
 #      is told to stay, the game is paused at T + 40.
 #   f. zoom 4.5 on (200, 184): the stand at the bottom centre with its thread of smoke, Nelim left of it, the pots as foreground, the dogs
 #      on their hay at the right edge, the stool at the left edge; a daylight afternoon, grey smoke on a pale ground.
@@ -75,9 +75,9 @@
 #      collars on.
 #   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) emerald and Apparel_Pants dyed rgb (92, 64, 40) (she changed at dusk, the
 #      evening shirt); Roo_HD_Hair_Highpony; no hat, no jacket (warm night); awe: MouthSmile and BrowRaised (a smile).
-#   e. action: she carries the item Kibble, the dogs' supper, her head turned up to the rocket (facing North). Instant: the rocket has
+#   e. action: she carries the item Kibble, the dogs' supper, her face to the camera, smiling at the show (facing South). Instant: the rocket has
 #      just left, the trails are still lit; supper is forgotten in her hands while the dogs wait for it. Obtained: ordered to watch,
-#      then stands at (197, 184) facing North, the item carried, the game paused 25 ticks after the light comes on.
+#      then stands at (197, 184) facing South, the item carried, the game paused 25 ticks after the light comes on.
 #   f. zoom 5.5 on (199, 185): the rocket two or three cells up its climb, purple trails, the stand and the pad at the bottom centre, Nelim
 #      at the left from behind, the dogs low right looking at her, the pots in front, the lamps as two warm points; dusk light.
 #   g. subject: the rocket leaving. "The rocket leaves, and supper is forgotten." Readable in the image: a rocket climbing, a woman
@@ -91,8 +91,8 @@
 #   c. life: Plant_Daylily; Shogun at (203, 184) and Yuki at (204, 185) facing South, the camera, collars on, at the edge of the glow.
 #   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) and Apparel_Pants dyed rgb (92, 64, 40), the same as at dusk (same evening);
 #      Roo_HD_Hair_Highpony; no hat, no parka (NSB canon: midsummer eve is warm); a soft small smile, her face lit by the stand.
-#   e. state: in profile facing East at (197, 185) beside the stand, so that her lit face shows. Instant: the rocket has just left
-#      and the flash of the stand fills the square. Obtained: ordered to watch, then stands at (197, 185) facing East, the game paused
+#   e. state: facing South (the camera) at (197, 185) beside the stand, so that her lit face shows. Instant: the rocket has just left
+#      and the flash of the stand fills the square. Obtained: ordered to watch, then stands at (197, 185) facing South, the game paused
 #      10 ticks after the light comes on.
 #   f. zoom 4.5 on (199, 184): the cream square lit warm round the stand, all else dark; the pots and the two torches at the edges of
 #      the glow as framing; Nelim left of the stand, the dogs right.
@@ -109,8 +109,8 @@
 #      small at the bottom.
 #   d. Nelim: Apparel_BasicShirt dyed rgb (28, 110, 80) and Apparel_Pants dyed rgb (92, 64, 40), the same as in 2 and 3; Roo_HD_Hair_Highpony;
 #      no hat; wonder: MouthSmile and BrowRaised (a smile, read by her stance).
-#   e. state: head thrown back, facing North at (197, 185), the dogs at her side looking up too. Instant: the burst has just opened
-#      over the bamboo. Obtained: ordered to watch, then stands at (197, 185) facing North, the game paused 115 ticks after the light.
+#   e. state: face to the camera, wonder, facing South at (197, 185), the dogs at her side looking up too. Instant: the burst has just opened
+#      over the bamboo. Obtained: ordered to watch, then stands at (197, 185) facing South, the game paused 115 ticks after the light.
 #   f. zoom 8.5 on (199, 191): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
 #      bottom, the pots and the lamps as foreground.
 #   g. subject: the burst. "The show itself, over the bamboo." Readable in the image: a firework flowering over a small group watching.
@@ -127,7 +127,7 @@
 #      outfit); Roo_HD_Hair_Highpony; no hat; a small satisfied smile, MouthLipsSmallSmile, and BrowSquare (focused: she counts).
 #   e. action: she carries the item FireworkLauncher, the next one, at her post by the stand. Instant: the stand has just reloaded
 #      to 3, the next rocket is in her hands. Obtained: ordered to watch the stand until it holds 3 launchers, then stands at (197, 184)
-#      facing East with the item carried, the pane opened on the stand, the game running only for the shutter.
+#      facing South with the item carried, the pane opened on the stand, the game running only for the shutter.
 #   f. zoom 5 on (196, 184): the interface cleaned (colonist bar, resources, alerts, learning helper, tooltips, labels and zone paint
 #      hidden), the inspect pane open on the left; Nelim and the stand right of the pane, the sleeping dogs at the right edge.
 #   g. subject: the reload counter. "The stand reloads, one launcher a salvo." Readable in the image: a pane that counts the reload,
@@ -175,9 +175,9 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (205, 183)
     And Nelim's Pickle Tools: the building "TorchLamp" at (195, 183) is put out
     And Nelim's Pickle Tools: the building "TorchLamp" at (205, 183) is put out
-    And Nelim's Pickle Tools: 4 of the item "FireworkLauncher" are spawned at (197, 182)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_ShirtRuffle" dyed rgb (150, 30, 40)
+    And Nelim's Pickle Tools: 4 of the item "FireworkLauncher" are spawned at (197, 182)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
@@ -197,7 +197,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (196, 184) facing East
+    When Nelim's Pickle Tools: "Nelim" stands at (196, 184) facing South
     And Firework Stand: "Nelim" is told to stay where they stand
     And Nelim's Pickle Tools: I let 40 ticks pass
     Then Firework Stand: at least 4 smoke puffs are near the stand at x=200 z=183 now
@@ -225,8 +225,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: the decor "TorchLamp" at (195, 183) is lit
     And Nelim's Pickle Tools: the decor "TorchLamp" at (205, 183) is lit
     And Nelim's Pickle Tools: 3 of the item "FireworkLauncher" are spawned at (197, 182)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
@@ -248,7 +248,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing North
+    When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing South
     And Firework Stand: "Nelim" is told to stay where they stand
     Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
     When Nelim's Pickle Tools: I let 25 ticks pass
@@ -278,8 +278,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: the decor "TorchLamp" at (195, 183) is lit
     And Nelim's Pickle Tools: the decor "TorchLamp" at (205, 183) is lit
     And Nelim's Pickle Tools: 2 of the item "FireworkLauncher" are spawned at (197, 182)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
@@ -300,7 +300,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing East
+    When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing South
     And Firework Stand: "Nelim" is told to stay where they stand
     Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
     When Nelim's Pickle Tools: I let 10 ticks pass
@@ -329,8 +329,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: the decor "TorchLamp" at (195, 183) is lit
     And Nelim's Pickle Tools: the decor "TorchLamp" at (205, 183) is lit
     And Nelim's Pickle Tools: 2 of the item "FireworkLauncher" are spawned at (197, 182)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (92, 64, 40)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 110, 80)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
@@ -351,7 +351,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing North
+    When Nelim's Pickle Tools: "Nelim" stands at (197, 185) facing South
     And Firework Stand: "Nelim" is told to stay where they stand
     Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
     When Nelim's Pickle Tools: I let 115 ticks pass
@@ -384,8 +384,8 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And Nelim's Pickle Tools: the decor "Brazier" at (204, 184) is lit
     And Nelim's Pickle Tools: 1 of the item "Kibble" are spawned at (196, 186)
     And Nelim's Pickle Tools: 1 of the item "FireworkLauncher" are spawned at (197, 182)
-    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 52, 110)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (200, 184, 150)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (28, 52, 110)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" has the gene "Hair_DarkSaturatedReddish"
     And Nelim's Pickle Tools: "Nelim" hair colour is taken from its genes
@@ -410,7 +410,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 comes to hold 3 launchers within 60 seconds
-    When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing East
+    When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing South
     And Firework Stand: "Nelim" is told to stay where they stand
     And Nelim's Pickle Tools: "Nelim" carries the item "FireworkLauncher"
     And Nelim's Sanctuary: Nelim has her own face
