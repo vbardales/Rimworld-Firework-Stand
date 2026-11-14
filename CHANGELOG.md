@@ -1,7 +1,7 @@
 ## [Unreleased]
 
 Defects found on the in-game runs of the Pickle suite, and confirmed by the owner. The stand's saved
-data is unchanged, so a colony saved with 0.1.0 loads as it was.
+data stays compatible (one flag is added, see below): a colony saved with 0.1.0 loads as it was.
 
 ### Fixed
 
@@ -19,7 +19,7 @@ data is unchanged, so a colony saved with 0.1.0 loads as it was.
   (`FS_FuseSmoke`, in `Mod/Defs/FuseSmoke.xml`), which is there almost at once. Functional tests read the game and the def
   to keep both from coming back.
 - **An empty stand no longer gives recreation.** The base game's watch-building giver never looks at fuel, so colonists
-  went to an empty stand and were paid the whole recreation without a rocket going up. The stand now has its own joy
+  went to an empty stand and got the full recreation without a rocket going up. The stand now has its own joy
   giver that refuses an empty stand, and the watching job ends once the last rocket has gone and its burst has faded.
 - **An empty stand no longer reads "ready to fire".** The inspect line reported the reload interval and not the fuel; it
   now says nothing when nothing is loaded, and the fuel gauge beside it says so.
