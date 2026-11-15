@@ -82,7 +82,7 @@ The German and Russian texts were written with Claude Code (Anthropic), not by n
 - Claude Code (Anthropic) and DALL-E (OpenAI).
 - Pickle (RimWorks), used for the in-game tests: a development tool, never a dependency of the mod.
 
-What this mod studied and what it reproduced is listed in ATTRIBUTION.md, and it is released under the MIT licence (LICENSE); both are in the repository linked below.
+What this mod studied and reproduced is listed in ATTRIBUTION.md. The mod is released under the MIT licence (LICENSE); both are in the repository linked below.
 
 [Source code on GitHub](https://github.com/vbardales/Rimworld-Firework-Stand)
 ```
