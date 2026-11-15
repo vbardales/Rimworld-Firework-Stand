@@ -69,7 +69,7 @@
 #   subtitle: "Nelim has lit the fuse and waits."
 #
 #  2. launch
-#   a. calm-zone, 19h, clear (dusk, the sky still faintly lit), 22 degrees, the light + 25 ticks.
+#   a. calm-zone, 19h, clear (dusk, the sky still faintly lit), 22 degrees, the light + 40 ticks.
 #   b. decor: the fixed corner with both TorchLamp at (195, 183) and (205, 183) lit (the dusk lamps); 3 FireworkLauncher at (197, 182).
 #   c. life: Plant_Daylily, Plant_YellowTallGrass; Shogun at (203, 184) and Yuki at (204, 185) facing West, towards Nelim and her bowl;
 #      collars on.
@@ -77,7 +77,7 @@
 #      evening shirt); Roo_HD_Hair_Highpony; no hat, no jacket (warm night); awe: MouthSmile and BrowRaised (a smile).
 #   e. action: she carries the item Kibble, the dogs' supper, her face to the camera, smiling at the show (facing South). Instant: the rocket has
 #      just left, the trails are still lit; supper is forgotten in her hands while the dogs wait for it. Obtained: ordered to watch,
-#      then stands at (197, 184) facing South, the item carried, the game paused 25 ticks after the light comes on.
+#      then stands at (197, 184) facing South, the item carried, the game paused 40 ticks after the light comes on.
 #   f. zoom 5.5 on (199, 185): the rocket two or three cells up its climb, purple trails, the stand and the pad at the bottom centre, Nelim
 #      at the left from behind, the dogs low right looking at her, the pots in front, the lamps as two warm points; dusk light.
 #   g. subject: the rocket leaving. "The rocket leaves, and supper is forgotten." Readable in the image: a rocket climbing, a woman
@@ -111,7 +111,7 @@
 #      no hat; wonder: MouthSmile and BrowRaised (a smile, read by her stance).
 #   e. state: face to the camera, wonder, facing South at (197, 185), the dogs at her side looking up too. Instant: the burst has just opened
 #      over the bamboo. Obtained: ordered to watch, then stands at (197, 185) facing South, the game paused 115 ticks after the light.
-#   f. zoom 8.5 on (199, 191): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
+#   f. zoom 9.5 on (199, 189): the burst high over the flowers and the bamboo, the stele at the right, Nelim and the dogs small at the
 #      bottom, the pots and the lamps as foreground.
 #   g. subject: the burst. "The show itself, over the bamboo." Readable in the image: a firework flowering over a small group watching.
 #   j. the mod: the burst itself, the largest thing in the frame.
@@ -252,7 +252,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing South
     And Firework Stand: "Nelim" is told to stay where they stand
     Then Firework Stand: the light of the stand at x=200 z=183 comes on within 30 seconds
-    When Nelim's Pickle Tools: I let 25 ticks pass
+    When Nelim's Pickle Tools: I let 40 ticks pass
     And game speed is paused
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthSmile"
@@ -348,7 +348,7 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     And I set the weather to "Clear"
     And I set the hour to 23
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    When Nelim's Pickle Tools: I frame the cell (199, 191) at zoom 8.5
+    When Nelim's Pickle Tools: I frame the cell (199, 189) at zoom 9.5
     And game speed is normal
     And Firework Stand: "Nelim" is ordered to watch the stand at x=200 z=183
     Then Firework Stand: the stand at x=200 z=183 has fired within 60 seconds
