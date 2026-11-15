@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <FS_FireworkStand.label>Feuerwerksrampe</FS_FireworkStand.label>
-  <FS_FireworkStand.description>Eine verstärkte Rampe, die mehrere Feuerwerksraketen-Werfer aufnimmt und nacheinander zündet. Kolonisten versammeln sich in sicherem Abstand, um das Spektakel zu sehen, das nur so lange läuft, wie jemand zuschaut.\n\nMuss unter freiem Himmel gebaut werden.</FS_FireworkStand.description>
+  <FS_FireworkStand.description>Eine verstärkte Rampe, die mehrere Feuerwerksraketen-Werfer aufnimmt und nacheinander zündet. Kolonisten versammeln sich in einiger Entfernung, um das Spektakel zu sehen, das nur so lange läuft, wie jemand zuschaut.\n\nMuss unter freiem Himmel gebaut werden.</FS_FireworkStand.description>
   <FS_FireworkStand.comps.CompRefuelable.fuelLabel>Geladenes Feuerwerk</FS_FireworkStand.comps.CompRefuelable.fuelLabel>
   <FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage>Kein Feuerwerk geladen</FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage>
 </LanguageData>

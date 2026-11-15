@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <FS_FireworkStand.label>пусковая площадка для фейерверков</FS_FireworkStand.label>
-  <FS_FireworkStand.description>Усиленная площадка, на которой стоит несколько пусковых установок для фейерверков и которая запускает их по одной. Колонисты собираются на расстоянии, чтобы посмотреть представление, которое идёт только пока есть зрители.\n\nДолжна быть построена под открытым небом.</FS_FireworkStand.description>
+  <FS_FireworkStand.label>стойка для фейерверков</FS_FireworkStand.label>
+  <FS_FireworkStand.description>Усиленная стойка с несколькими пусковыми установками для фейерверков, которые запускаются по одной. Колонисты собираются поодаль, чтобы посмотреть представление, которое идёт только пока есть зрители.\n\nДолжна быть построена под открытым небом.</FS_FireworkStand.description>
   <FS_FireworkStand.comps.CompRefuelable.fuelLabel>Заряжено фейерверков</FS_FireworkStand.comps.CompRefuelable.fuelLabel>
   <FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage>Фейерверки не заряжены</FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage>
 </LanguageData>
