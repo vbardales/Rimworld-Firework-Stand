@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Dependency memories reused by Firework Stand; English comes from Fireworks. -->
+  <TerribleFireworks.stages.terrible_fireworks_celebration.label>katastrophales Feuerwerk</TerribleFireworks.stages.terrible_fireworks_celebration.label>
+  <TerribleFireworks.stages.terrible_fireworks_celebration.description>Das Feuerwerk war ein Reinfall! Die Kisten zündeten fehl, und die Schüsse kamen zusammenhanglos und ohne Takt.</TerribleFireworks.stages.terrible_fireworks_celebration.description>
+  <UnimpressiveFireworks.stages.boring_fireworks_celebration.label>langweiliges Feuerwerk</UnimpressiveFireworks.stages.boring_fireworks_celebration.label>
+  <UnimpressiveFireworks.stages.boring_fireworks_celebration.description>Das Feuerwerk war enttäuschend. Es gab nur wenige Raketen, und leuchtende Farben und Spezialeffekte fehlten.</UnimpressiveFireworks.stages.boring_fireworks_celebration.description>
+  <BeautifulFireworks.stages.beautiful_fireworks_celebration.label>wunderschönes Feuerwerk</BeautifulFireworks.stages.beautiful_fireworks_celebration.label>
+  <BeautifulFireworks.stages.beautiful_fireworks_celebration.description>Das Feuerwerk war wunderschön. Dieses glänzende Spiel aus Licht und Klang hat alle begeistert.</BeautifulFireworks.stages.beautiful_fireworks_celebration.description>
+  <UnforgettableFireworks.stages.unforgettable_fireworks_celebration.label>unvergessliches Feuerwerk</UnforgettableFireworks.stages.unforgettable_fireworks_celebration.label>
+  <UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description>Das Feuerwerk war unvergesslich! Alle Anwesenden staunten über dieses fesselnde, harmonische Schauspiel.</UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description>
+</LanguageData>

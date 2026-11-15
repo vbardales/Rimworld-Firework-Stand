@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Dependency item used as fuel; these translations also apply outside the stand. -->
+  <FireworkLauncher.label>Feuerwerkskiste</FireworkLauncher.label>
+  <FireworkLauncher.description>Eine Feuerwerkskiste zum einmaligen Gebrauch bei Feiern. Einmal gezündet, schickt sie Funkengarben und bunte Effekte in den Himmel, die die Stimmung der Zuschauer heben.</FireworkLauncher.description>
+</LanguageData>

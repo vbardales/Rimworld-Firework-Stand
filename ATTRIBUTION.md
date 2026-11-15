@@ -54,3 +54,17 @@ for the seconds after a launch.
 
 Code written with Claude Code (Anthropic), images generated with DALL-E (OpenAI), under human
 direction, review and testing.
+
+## Translations of the original
+
+Two translations of Fireworks exist on the Workshop: German, **Fireworks - Deutsch**
+([2963612025](https://steamcommunity.com/sharedfiles/filedetails/?id=2963612025)) by **Erdnussbrot**,
+and Russian, **Fireworks ru**
+([2944010494](https://steamcommunity.com/sharedfiles/filedetails/?id=2944010494)) by **Nevelian**.
+Neither carries a licence file, so none of their text is copied here. They were read as a terminology
+reference only (the German pack calls the launcher "Feuerwerkskiste", which this mod follows);
+every German and Russian text in `Mod/Languages/German` and `Mod/Languages/Russian` was written for
+this mod with Claude Code (Anthropic), from the English of Fireworks. Players who also subscribe to
+those two packs keep them: the texts of the dependency (launcher, mood memories, the launch button)
+are repeated here so the stand reads in one language even without them. The Russian pack's added
+firework battery is not part of this mod.

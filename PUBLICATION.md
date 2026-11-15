@@ -62,7 +62,7 @@ This adds a firework stand: a building loaded with firework launchers that colon
 
 The show itself (the bursts, the trails, the sounds, the mood memories) is telardo's, used unchanged. What this adds is the recreation type, plus the two effects his mod has no reason to provide: the fuse smoking at the top of the rack, and real light thrown across the ground for a few seconds as each rocket leaves. The stand is dark the rest of the time; it is not a lamp. That is the scarce part: expectations ask for up to six different types, tolerance is counted per type, and the base game only offers eight, of which four come from buildings.
 
-Fireworks is declared as a dependency, because the stand does nothing at all without it. The link itself is made at runtime by reflection, and the defs sit inside a guarded patch: if the mod is absent, nothing is patched and nothing errors. Ideology is not required either way. The stand appears in the Recreation category of the Architect menu once IEDs is researched. English and French.
+Fireworks is declared as a dependency, because the stand does nothing at all without it. The link itself is made at runtime by reflection, and the defs sit inside a guarded patch: if the mod is absent, nothing is patched and nothing errors. Ideology is not required either way. The stand appears in the Recreation category of the Architect menu once IEDs is researched. English, French, German and Russian.
 
 No save data of its own beyond the stand's own reload timer.
 
@@ -72,7 +72,9 @@ If I do not answer within a reasonable time after being contacted, anyone may fr
 
 ## AI-GENERATED
 
-This mod's code was written with Claude Code (Anthropic) and its images generated with DALL-E (OpenAI), under human direction, review and testing. Stated openly: designing with these tools is my job.
+This mod's code was written with Claude Code (Anthropic) and its images generated with DALL-E (OpenAI), under human direction, review and testing.
+
+The German and Russian texts were written with Claude Code (Anthropic), not by native speakers; they are not yet reviewed by a native speaker. Corrections are welcome. Stated openly: designing with these tools is my job.
 
 ## THANKS
 
@@ -115,7 +117,7 @@ Prepublished by hand on 2026-09-23, kept for the record (the CI never sends it a
 First release. Adds a firework stand: a building loaded with up to ten Fireworks launchers that colonists walk over to and
 watch as recreation, standing, from 4 to 12 cells away. It fires one rocket per salvo, only while somebody watches, and it
 adds its own recreation type. The fuse smokes before the launch and the ground is lit for about four seconds as the rocket
-leaves. Requires Fireworks. English and French.
+leaves. Requires Fireworks. English, French, German and Russian.
 ```
 
 

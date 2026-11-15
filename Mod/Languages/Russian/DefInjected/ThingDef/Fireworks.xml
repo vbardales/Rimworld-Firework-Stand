@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Dependency item used as fuel; these translations also apply outside the stand. -->
+  <FireworkLauncher.label>пусковая установка для фейерверков</FireworkLauncher.label>
+  <FireworkLauncher.description>Одноразовая пусковая установка для фейерверков, предназначенная для праздников. После поджига выбрасывает в небо фонтаны искр и разноцветные эффекты, которые улучшают настроение зрителей.</FireworkLauncher.description>
+</LanguageData>
