@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Seeds for the passes sanctuary-daily and sanctuary-nelim (2026-11-05): copy of config/sanctuary. These passes had no seed folder, so Hat Hair Control never got its show-hair list (no hair under the helmet, ticket 83b8/dd86) and the other mods kept whatever the previous pass left.
+-->
+<SettingsBlock>
+  <ModSettings Class="HatHairControl.HatHairControlSettings">
+    <hideHatsIndoors>False</hideHatsIndoors>
+    <hideHatsWhileSleeping>False</hideHatsWhileSleeping>
+    <showHatsOnlyWhenDrafted>False</showHatsOnlyWhenDrafted>
+    <showHairDefs>
+      <li>Apparel_Headwrap</li>
+      <li>LisaWork_ApparelCap</li>
+      <li>LisaWork_ApparelHardHat</li>
+      <li>Apparel_Flophat</li>
+      <li>Apparel_Beret</li>
+      <li>Apparel_Tuque</li>
+      <li>Apparel_HatLadies</li>
+      <li>Apparel_SimpleHelmet</li>
+      <li>Apparel_ArmorHelmetRecon</li>
+      <li>Apparel_ArmorHelmetReconPrestige</li>
+      <li>Apparel_CowboyHat</li>
+      <li>Apparel_Hood</li>
+      <li>FCA2_RoseWitchHat</li>
+      <li>Apparel_CinderellaTiara</li>
+      <li>KRJS_gat</li>
+      <li>KRJS_Sangtu</li>
+      <li>KRJS_jungjagwan</li>
+      <li>Apparel_FSFurHat</li>
+      <li>Apparel_PAHHeadband</li>
+      <li>Apparel_Headwrap</li>
+    </showHairDefs>
+  </ModSettings>
+</SettingsBlock>
