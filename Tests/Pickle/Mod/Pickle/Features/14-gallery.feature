@@ -125,13 +125,13 @@
 #      facing South, on their hay, collars on (worn out by the night).
 #   d. Nelim: Apparel_BasicShirt dyed rgb (28, 52, 110) deep blue and Apparel_Pants dyed rgb (200, 184, 150) beige (a new day, a new
 #      outfit); Roo_HD_Hair_Highpony; no hat; a small satisfied smile, MouthLipsSmallSmile, and BrowSquare (focused: she counts).
-#   e. action: she carries the item FireworkLauncher, the next one, at her post by the stand. Instant: the stand has just reloaded
-#      to 3, the next rocket is in her hands. Obtained: ordered to watch the stand until it holds 3 launchers, then stands at (197, 184)
-#      facing South with the item carried, the pane opened on the stand, the game running only for the shutter.
+#   e. action: she waits at her post by the stand, hands free (a carried launcher hid her face and trousers, seen 2026-11-15). Instant: the stand has just reloaded
+#      to 3. Obtained: ordered to watch the stand until it holds 3 launchers, then stands at (197, 184)
+#      facing South, the pane opened on the stand, the game running only for the shutter.
 #   f. zoom 5 on (196, 184): the interface cleaned (colonist bar, resources, alerts, learning helper, tooltips, labels and zone paint
 #      hidden), the inspect pane open on the left; Nelim and the stand right of the pane, the sleeping dogs at the right edge.
 #   g. subject: the reload counter. "The stand reloads, one launcher a salvo." Readable in the image: a pane that counts the reload,
-#      a woman bringing the next rocket, two dogs asleep after the show.
+#      a woman at her post, two dogs asleep after the show.
 #   j. the mod: the inspect pane with its countdown, the stand and the launcher.
 #
 #  6. menu   (interface scene: set aside, not scored; the Architect menu is taken for what it is, no subtitle)
@@ -413,7 +413,6 @@ Feature: the Workshop gallery, in the Sanctuary's calm zone
     Then Firework Stand: the stand at x=200 z=183 comes to hold 3 launchers within 60 seconds
     When Nelim's Pickle Tools: "Nelim" stands at (197, 184) facing South
     And Firework Stand: "Nelim" is told to stay where they stand
-    And Nelim's Pickle Tools: "Nelim" carries the item "FireworkLauncher"
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmallSmile"
     And Nelim's Pickle Tools: "Nelim" brows are "BrowSquare"
