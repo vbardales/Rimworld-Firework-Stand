@@ -1,7 +1,14 @@
 ## [Unreleased]
 
-Defects found on the in-game runs of the Pickle suite, and confirmed by the owner. The stand's saved
+German and Russian texts, and defects found on the in-game runs of the Pickle suite, confirmed by the owner. The stand's saved
 data stays compatible (one flag is added, see below): a colony saved with 0.1.0 loads as it was.
+
+### Added
+
+- **German and Russian.** `Mod/Languages/German` and `Mod/Languages/Russian`: the stand, its job, its recreation kind and the Fireworks strings the
+  stand reuses (launcher, thoughts) read in both languages. All texts are our own, written with Claude Code, not by native
+  speakers: they are not yet reviewed. The two Workshop packs of Fireworks (German 2963612025, Russian 2944010494) were read
+  for terminology only, nothing was copied (see `ATTRIBUTION.md`).
 
 ### Fixed
 
