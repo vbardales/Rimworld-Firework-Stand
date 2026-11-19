@@ -42,7 +42,7 @@ telardo's, called as it is. See [ATTRIBUTION.md](ATTRIBUTION.md).
 ```
 Mod/       published to the Workshop, and the junction target for RimWorld/Mods
 Source/    never published
-Tests/    the functional test suite (Run-Functional-Tests.ps1) and the Pickle suite
+Tests/    the functional test suite (Rule-OwnValues.ps1) and the Pickle suite
 scripts/  gallery crop and About image scripts, with the SVG sources
 build/    build intermediates, outside the mod folder and ignored by git
 ```
@@ -52,7 +52,7 @@ build/    build intermediates, outside the mod folder and ignored by git
 Two halves, and only the second needs a colony.
 
 ```bash
-powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-Functional-Tests.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Rule-OwnValues.ps1
 ```
 
 33 tests, fifteen seconds, no game launched. They read off the compiled game and off telardo's

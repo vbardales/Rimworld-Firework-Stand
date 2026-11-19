@@ -75,11 +75,13 @@
   that matter most, and they are the ones with no red run behind them.
 
 .EXAMPLE
-  powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-Functional-Tests.ps1
+  powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Rule-OwnValues.ps1 -ModRoot . -SharedDir ../scripts
+  (Tests/Test-Mod.ps1 runs it after the shared checks and passes both parameters.)
 #>
 
 param(
     [string]$ModRoot   = (Split-Path -Parent $PSScriptRoot),
+    [string]$SharedDir = (Join-Path (Split-Path -Parent $PSScriptRoot) '../scripts'),
     [string]$GameData  = 'C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data',
     [string]$Managed   = 'C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed',
     [string]$Fireworks = 'C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\2922179297'
@@ -87,21 +89,10 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$script:ran = 0
-$script:failed = 0
-
-function It([string]$name, [scriptblock]$body) {
-    $script:ran++
-    $problems = @()
-    try   { $problems = @(& $body | Where-Object { $_ }) }
-    catch { $problems = @("threw: $($_.Exception.GetBaseException().Message)") }
-    if ($problems.Count -eq 0) { Write-Output "  ok    $name" }
-    else {
-        $script:failed++
-        Write-Output "  FAIL  $name"
-        foreach ($p in $problems) { Write-Output "          $p" }
-    }
-}
+# The harness (It, Note, Complete-Tests) and the game reader (assembly resolver, type index, field walk, who
+# reads a field) are the shared libraries: what stays here is what this mod asks of the game.
+. (Join-Path $SharedDir 'lib/TestRunner.ps1')
+. (Join-Path $SharedDir 'lib/GameReflection.ps1')
 
 function Section([string]$name) { Write-Output ''; Write-Output $name }
 
@@ -109,23 +100,7 @@ function Section([string]$name) { Write-Output ''; Write-Output $name }
 # The three assemblies
 # ---------------------------------------------------------------------------------------------
 
-$script:probed = @{}
-$script:asmResolver = [System.ResolveEventHandler]{
-    param($sender, $e)
-    $short = $e.Name.Split(',')[0]
-    if ($script:probed.ContainsKey($short)) { return $null }
-    $script:probed[$short] = $true
-    $p = Join-Path $Managed "$short.dll"
-    if (Test-Path $p) { return [System.Reflection.Assembly]::LoadFrom($p) }
-    return $null
-}
-[System.AppDomain]::CurrentDomain.add_AssemblyResolve($script:asmResolver)
-
-function Get-AssemblyTypes([System.Reflection.Assembly]$a) {
-    try     { return $a.GetTypes() }
-    catch [System.Reflection.ReflectionTypeLoadException] { return $_.Exception.Types | Where-Object { $_ } }
-    catch   { return $_.Exception.InnerException.Types | Where-Object { $_ } }
-}
+Initialize-GameReflection -Managed $Managed
 
 $BFall = [System.Reflection.BindingFlags]'Public,NonPublic,Instance,Static,DeclaredOnly'
 $BFi   = [System.Reflection.BindingFlags]'Public,NonPublic,Instance'
@@ -133,12 +108,13 @@ $BFid  = [System.Reflection.BindingFlags]'Public,NonPublic,Instance,DeclaredOnly
 $BFn   = [System.Reflection.BindingFlags]'Public,NonPublic'
 $BFpi  = [System.Reflection.BindingFlags]'Public,Instance'
 
-$gameAsm  = [System.Reflection.Assembly]::LoadFrom((Join-Path $Managed 'Assembly-CSharp.dll'))
-$allTypes = @(Get-AssemblyTypes $gameAsm)
-$byName = @{}
-foreach ($t in $allTypes) { if (-not $byName.ContainsKey($t.Name)) { $byName[$t.Name] = $t } }
+$gameAsmPath = Join-Path $Managed 'Assembly-CSharp.dll'
+$gameAsm  = [System.Reflection.Assembly]::LoadFrom($gameAsmPath)
+$allTypes = @(Get-AssemblyTypes $gameAsmPath)
+$byName   = New-TypeIndex $allTypes
 
-$modAsm = [System.Reflection.Assembly]::LoadFrom((Join-Path $ModRoot 'Mod\Assemblies\FireworkStand.dll'))
+$modAsmPath = Join-Path $ModRoot 'Mod\Assemblies\FireworkStand.dll'
+$modAsm = [System.Reflection.Assembly]::LoadFrom($modAsmPath)
 
 # telardo's mod ships one folder per game version behind a LoadFolders.xml; 1.6 is the version
 # this mod declares, so it is the one every claim below is made against.
@@ -220,16 +196,6 @@ function Get-Ancestry([Type]$t) {
     return $names
 }
 
-function Get-FieldsRecursive([Type]$t) {
-    $d = @{}
-    $cur = $t
-    while ($cur -and $cur.FullName -ne 'System.Object') {
-        foreach ($f in $cur.GetFields($BFid)) { if (-not $d.ContainsKey($f.Name)) { $d[$f.Name] = $f } }
-        $cur = $cur.BaseType
-    }
-    return $d
-}
-
 # ---------------------------------------------------------------------------------------------
 # What the defs write
 # ---------------------------------------------------------------------------------------------
@@ -269,32 +235,16 @@ for ($gt = $giverType; $gt -and -not $giverVanillaName; $gt = $gt.BaseType) {
     if ($byName.ContainsKey($gt.Name) -and $byName[$gt.Name].Assembly -eq $gameAsm) { $giverVanillaName = $gt.Name }
 }
 
-$written = @{}      # metadata token -> "Type.field"
-function Collect-Written($node, [Type]$t) {
-    if (-not $t) { return }
-    $fields = Get-FieldsRecursive $t
-    foreach ($c in $node.ChildNodes) {
-        if ($c.NodeType -ne 'Element' -or $c.LocalName -eq 'li') { continue }
-        $f = $fields[$c.LocalName]
-        if (-not $f) { continue }
-        # Keyed by the type that DECLARES the field: defName written under a JoyGiverDef is
-        # Def.defName, read by half the game and a setting of nobody's.
-        $written[$f.MetadataToken] = "$($f.DeclaringType.Name).$($f.Name)"
-        $ft = $f.FieldType
-        if ($ft.IsPrimitive -or $ft -eq [string] -or $ft.IsEnum -or $ft.IsGenericType) { continue }
-        if ($byName['Def'] -and $byName['Def'].IsAssignableFrom($ft)) { continue }
-        $sub = $ft
-        $cls = $c.GetAttribute('Class')
-        if ($cls -and $byName.ContainsKey($cls)) { $sub = $byName[$cls] }
-        Collect-Written $c $sub
-    }
+$written = @{}      # metadata token -> "Type.field", keyed by the type that DECLARES the field
+foreach ($n in $defNodes) {
+    $nt = $byName[$n.LocalName]
+    if ($nt) { Get-WrittenFields -Node $n -Type $nt -ByName $byName -Written $written | Out-Null }
 }
-foreach ($n in $defNodes) { Collect-Written $n $byName[$n.LocalName] }
 foreach ($li in @($patch.SelectNodes('//comps/li'))) {
     $cls = $li.GetAttribute('Class')
     $t = $null
     if ($cls -and $byName.ContainsKey($cls)) { $t = $byName[$cls] } else { $t = $byName['CompProperties'] }
-    if ($t) { Collect-Written $li $t }
+    if ($t) { Get-WrittenFields -Node $li -Type $t -ByName $byName -Written $written | Out-Null }
 }
 
 # One field the defs deliberately leave at its default and whose reader still has to be named: the
@@ -313,44 +263,15 @@ $hunted = @{}
 foreach ($k in $written.Keys) { $hunted[$k] = $written[$k] }
 foreach ($k in $extra.Keys)   { $hunted[$k] = $extra[$k] }
 
-$readers = @{}
-$scanSeconds = 0
-if ($hunted.Count -gt 0) {
-    $sw = [System.Diagnostics.Stopwatch]::StartNew()
-    foreach ($t in $allTypes) {
-        foreach ($m in (@($t.GetMethods($BFall)) + @($t.GetConstructors($BFall)))) {
-            $body = $null
-            try { $body = $m.GetMethodBody() } catch { }
-            if (-not $body) { continue }
-            $il = $body.GetILAsByteArray()
-            if (-not $il -or $il.Length -lt 5) { continue }
-            for ($i = 0; $i -lt $il.Length - 4; $i++) {
-                if ($il[$i] -ne 0x7B) { continue }      # ldfld
-                $tok = [BitConverter]::ToInt32($il, $i + 1)
-                if (-not $hunted.ContainsKey($tok)) { continue }
-                # The OUTERMOST declaring type: a state machine is <MakeNewToils>d__2, a name two
-                # dozen classes share, and reporting it would name nothing.
-                $owner = $t
-                while ($owner.DeclaringType) { $owner = $owner.DeclaringType }
-                $key = $hunted[$tok]
-                if (-not $readers.ContainsKey($key)) { $readers[$key] = @{} }
-                $readers[$key][$owner.Name] = $true
-            }
-        }
-    }
-    $sw.Stop()
-    $scanSeconds = $sw.Elapsed.TotalSeconds
-}
+$sw = [System.Diagnostics.Stopwatch]::StartNew()
+$readers = Find-FieldReaders -Types $allTypes -Hunted $hunted
+$sw.Stop()
+$scanSeconds = $sw.Elapsed.TotalSeconds
 
-function Get-Readers([string]$field) {
-    if ($readers.ContainsKey($field)) { return @($readers[$field].Keys | Sort-Object) }
-    return @()
-}
-function Show-Readers($names) {
-    $a = @($names)
-    if ($a.Count -eq 0)  { return 'nothing' }
-    if ($a.Count -le 6)  { return ($a -join ', ') }
-    return (($a[0..5] -join ', ') + " and $($a.Count - 6) more")
+# The shared Show-Readers answers an empty string for no reader; the messages below want a word.
+function Show-Names($names) {
+    if (@($names).Count -eq 0) { return 'nothing' }
+    return (Show-Readers $names)
 }
 
 # ---------------------------------------------------------------------------------------------
@@ -459,7 +380,7 @@ It 'the mod reaches for nothing in the game it is not allowed to reach for' {
     # attribute is absent, and anything non-public touched here throws at the first tick.
     $hasAttr = @($modAsm.GetCustomAttributesData() |
                  Where-Object { $_.AttributeType.Name -like 'IgnoresAccessChecksTo*' }).Count -gt 0
-    foreach ($t in (Get-AssemblyTypes $modAsm)) {
+    foreach ($t in (Get-AssemblyTypes $modAsmPath)) {
         $family = Get-Ancestry $t
         foreach ($m in (Get-AllMethods $t $true)) {
             foreach ($r in (Get-Refs $m)) {
@@ -865,7 +786,7 @@ It 'no setting in these defs is one the game stopped reading' {
     # nothing, which is the quietest way for a def to be wrong.
     if ($written.Count -eq 0) { 'no field was resolved at all, which cannot be right'; return }
     foreach ($k in ($written.Values | Sort-Object -Unique)) {
-        if ((Get-Readers $k).Count -eq 0) { "$k : nothing in the game reads it" }
+        if ((Get-Readers $readers $k).Count -eq 0) { "$k : nothing in the game reads it" }
     }
 }
 
@@ -882,11 +803,11 @@ It 'every setting on the joy giver is read by the giver class the def names' {
     $checked = 0
     foreach ($k in ($written.Values | Sort-Object -Unique)) {
         if ($k -notlike 'JoyGiverDef.*') { continue }
-        $rs = Get-Readers $k
+        $rs = Get-Readers $readers $k
         if ($rs.Count -eq 0) { continue }       # the test above owns that case
         $checked++
         if (@($rs | Where-Object { $family.ContainsKey($_) }).Count -eq 0) {
-            "$k is read by $(Show-Readers $rs) - none of them $giverClassName or above it"
+            "$k is read by $(Show-Names $rs) - none of them $giverClassName or above it"
         }
     }
     if ($checked -eq 0) { 'not one setting of the giver was checked, which cannot be right' }
@@ -907,9 +828,9 @@ It 'the recreation gained is credited under the job''s kind, and the map tally c
         'JoyKindDef.needsThing'      = 'JoyUtility'
     }
     foreach ($field in @($mustBeReadBy.Keys)) {
-        $rs = Get-Readers $field
+        $rs = Get-Readers $readers $field
         if ($rs -notcontains $mustBeReadBy[$field]) {
-            "$field is read by $(Show-Readers $rs), no $($mustBeReadBy[$field]) among them"
+            "$field is read by $(Show-Names $rs), no $($mustBeReadBy[$field]) among them"
         }
     }
     # And the three places that name the kind have to name the same one.
@@ -933,9 +854,9 @@ It 'the driver reads how long the watching lasts and how many may share it' {
     foreach ($field in 'JobDef.joyDuration', 'JobDef.joyMaxParticipants') {
         $short = $field.Split('.')[1]
         if (-not (Get-Text $jobNode $short)) { "the job declares no $short"; continue }
-        $rs = Get-Readers $field
+        $rs = Get-Readers $readers $field
         if (@($rs | Where-Object { $family.ContainsKey($_) }).Count -eq 0) {
-            "$field is read by $(Show-Readers $rs) - none of them $($t.Name) or above it"
+            "$field is read by $(Show-Names $rs) - none of them $($t.Name) or above it"
         }
     }
 }
@@ -996,9 +917,5 @@ It 'colonists stand further back than for a television, but not absurdly so' {
 
 # =============================================================================================
 
-Write-Output ''
-if ($script:failed -eq 0) { Write-Output "$($script:ran) tests, all passing." }
-else                      { Write-Output "$($script:ran) tests, $($script:failed) failing." }
-
-[System.AppDomain]::CurrentDomain.remove_AssemblyResolve($script:asmResolver)
-exit ([int]($script:failed -gt 0))
+Remove-GameReflection
+Complete-Tests

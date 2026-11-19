@@ -63,15 +63,15 @@ captures show, which is what a person looks at (a raw key, English left in Frenc
 
 ## Scope: what stays out of Gherkin, and why
 
-Everything provable outside the game is proved outside it, by `Tests/Run-Functional-Tests.ps1`
+Everything provable outside the game is proved outside it, by `Tests/Rule-OwnValues.ps1`
 (32 tests) and the shared `Check-ModBasics.ps1` (protocols repository). None of that is repeated here. **No scenario is `@wip`, no test is left
 for a person to play**: what a person does is validate captures and films.
 
 - **Fireworks absent (TESTING.md scenario 2, negative half): not applicable, and why.** Fireworks is a hard
   dependency declared in `About.xml`, so the game does not activate this mod without it; there is no running game
   in which the stand is loaded and Fireworks is not. What remains true of that case is the guard itself, and it is
-  proved outside the game: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Run-Functional-Tests.ps1` and
-  `Check-DefInjected.ps1`), and the reflection bridge is read off the compiled assembly (`Run-Functional-Tests.ps1`).
+  proved outside the game: the patch is a `PatchOperationConditional` on `FireworkLauncher` (`Rule-OwnValues.ps1` and
+  `Check-DefInjected.ps1`), and the reflection bridge is read off the compiled assembly (`Rule-OwnValues.ps1`).
 - **No line-of-sight test in the audience filter.** Deliberate in the mod, so there is nothing to test; proving its
   absence would need a wall and a pawn behind it and would assert what the mod chose not to do.
 - **The mood tab of a colonist.** The memory is asserted by def, not read off the tab.

@@ -7,7 +7,7 @@ File = list of what to look at, in order that finds problems fastest. Each scena
 One half of testing. Other half needs no colony, runs in fifteen seconds:
 
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-Functional-Tests.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Rule-OwnValues.ps1
 ```
 
 Those 33 tests (2026-10-02, all passing) read off compiled game, and off telardo's assembly, that things mod delegates to still do what it delegates them for - virtual slot job driver grafts onto, `IThingGlower` veto light rests on, method and field bridge reaches for by name. Run first: faster than building stand, and failure there explains scenario below before you see it fail. Cannot tell whether colonist walks over and looks up, which is what everything after this line is for.
@@ -159,7 +159,7 @@ Written 2026-09-21 in `Tests/Pickle/`, so scenarios 1 to 9 can be validated by l
 
 Three passes filed as Pickle tickets (`Submit-PickleRun.ps1`, one each), keep evidence of each run on disk under `Tests/Pickle/runs/` (ignored by git), write text summary in `docs/runs/`. Two scenarios read game to know what to assert in a pass (`04-labels` reads active language, `12-launch-gizmo` whether Ideology active), so each green in every pass, none skipped.
 
-**Nothing left manual.** One case that cannot be played, Fireworks absent, not a missing test: mod declares Fireworks in `modDependencies`, so no game exists where stand loaded without it. Guard proved where it can be: patch is `PatchOperationConditional` on `FireworkLauncher` (`Run-Functional-Tests.ps1`, `Check-DefInjected.ps1`), reflection bridge read off compiled assembly (`Run-Functional-Tests.ps1`). Audience filter has no line-of-sight test on purpose, so nothing to test.
+**Nothing left manual.** One case that cannot be played, Fireworks absent, not a missing test: mod declares Fireworks in `modDependencies`, so no game exists where stand loaded without it. Guard proved where it can be: patch is `PatchOperationConditional` on `FireworkLauncher` (`Rule-OwnValues.ps1`, `Check-DefInjected.ps1`), reflection bridge read off compiled assembly (`Rule-OwnValues.ps1`). Audience filter has no line-of-sight test on purpose, so nothing to test.
 
 **Status (2026-09-25).** Reshaped suite (26 scenarios) passed in English and French on 2026-09-23 and 24, on 0.1.0 build. On 0.1.1 build played in English (26 of 27, one failure a bug of smoke step, fixed), in French (same), in pass without Ideology (feature 12, 1 of 1); smoke scenarios replayed after each smoke tuning, final whole-suite passes on last build still to run. Details and evidence policy: `docs/runs/`. Pickle run only shows path ran: does not replace looking, nothing validated by owner yet.
 
