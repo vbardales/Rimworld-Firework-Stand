@@ -1,7 +1,7 @@
 # Publication sheet
 
-**Updated 2026-09-26. The mod is at `done`. The owner prepublished 0.1.0 by hand on 2026-09-23: the Workshop item exists
-(`3806767445`, private) and `Mod/About/PublishedFileId.txt` is committed. Ahead: `tested`, the 1.0.0 update through the CI,
+**Updated 2026-11-19. The current stage is in `STATUS.md`. The owner prepublished 0.1.0 by hand on 2026-09-23: the Workshop item exists
+(`3806767445`, private) and `Mod/About/PublishedFileId.txt` is committed. Ahead: the tests in game, the 1.0.0 update through the CI,
 the switch to public (by the owner) and the thank-you to telardo.** This sheet holds what the Workshop page asks for and
 the repository holds nowhere else, so that it can be used again at the next update and by whoever picks the mod up.
 
