@@ -84,7 +84,7 @@ Story (criterion k): midsummer eve in `calm-zone` (stand at (200, 183)), a slow 
 
 Series k: ok (one story, rhythm 16h, 19h, 23h, 23h+100, 9h, variety, opening and closing). Plan score by `score-gallery` 2026-11-08: 5 on every scene (a to g and j written concretely; no capture yet). Director's pass (Opus, one call): kept and rejected items listed at the end of the feature header. `Check-ShotlistVsScenario.ps1 -Feature 14-gallery.feature`: OK 2026-11-08 (without `-Feature` it finds no header, the shot lines now sit past line 40). Not verified: that `WoodPlankFloor`, `Brazier`, `Plant_Daylily`, `Kibble` exist in the loaded game (vanilla names, not played here); that `the animal lies at` holds the pose (NOT PLAYED in steps.md). Old captures `Art/Gallery/1-4` deleted at the rewrite (rule 2026-11-06). Subtitles (English, one line, scenes 1 to 4, after acceptance, in `PUBLICATION.md`): as in the table.
 
-## NSB (sync 2026-11-14, `sync-nsb-npt`)
+## NSB (sync 2026-11-19, `sync-nsb-npt`)
 
 Owner rules of 2026-11-05 and 2026-11-07 applied: everything in NSB is free (places, colonists, domestic animals), every outfit is free, a colonist property change or an outside pawn needs her express validation, an included animal must be shown (none here).
 
