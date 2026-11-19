@@ -18,8 +18,8 @@ watch.
 - **Firing driven by the watching.** The stand never fires on a timer, so it wastes nothing at
   night, in the rain, or on an empty field. One rocket is spent per salvo, and only while somebody
   is there.
-- **Two effects the original has no reason to provide**: the fuse smoking at the foot of the
-  stand, and real light thrown across the ground for four seconds as each rocket leaves. The stand
+- **Two effects the original has no reason to provide**: the fuse smoking at the top of the rack
+  and real light thrown across the ground for four seconds as each rocket leaves. The stand
   is dark the rest of the time — it is not a lamp.
 
 Everything else — the bursts, the trails, the sub-emitters, the sounds, the mood memories — is
