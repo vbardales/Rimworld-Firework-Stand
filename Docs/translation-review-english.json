@@ -10,5 +10,7 @@
   "BeautifulFireworks.stages.beautiful_fireworks_celebration.label": "beautiful fireworks celebration",
   "BeautifulFireworks.stages.beautiful_fireworks_celebration.description": "The fireworks celebration was beautiful. A brilliant display of light and sound delights everyone.",
   "UnforgettableFireworks.stages.unforgettable_fireworks_celebration.label": "unforgettable fireworks celebration",
-  "UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description": "The fireworks celebration was unforgettable! Every participant rejoiced at the mesmerizing and harmonious visual feast."
+  "UnforgettableFireworks.stages.unforgettable_fireworks_celebration.description": "The fireworks celebration was unforgettable! Every participant rejoiced at the mesmerizing and harmonious visual feast.",
+  "FS_FireworkStand.comps.CompRefuelable.fuelLabel": "Fireworks loaded",
+  "FS_FireworkStand.comps.CompRefuelable.outOfFuelMessage": "No fireworks loaded"
 }
