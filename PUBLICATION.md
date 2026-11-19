@@ -5,7 +5,7 @@
 the switch to public (by the owner) and the thank-you to telardo.** This sheet holds what the Workshop page asks for and
 the repository holds nowhere else, so that it can be used again at the next update and by whoever picks the mod up.
 
-Rules that apply, and where they are written: `PUBLISHING.md` and `AUDIT.md` (protocols repository, read versions in
+Rules that apply, and where they are written: `PUBLISHING.md` and `AUDIT.md` (protocols repository, read version in
 `docs/PROTOCOLS-READ.md`), `Rimworld-Release-Admin/docs/OPERATIONS.md` for the CI.
 
 ## Before publishing

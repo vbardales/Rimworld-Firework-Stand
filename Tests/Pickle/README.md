@@ -147,7 +147,7 @@ is. The assembly references the game and Pickle only, not the mod under test.
 
 ## Evidence
 
-Runs land in `Tests/Pickle/Inbox/<run>` (the `-EvidenceDir` of each ticket), are studied there, then deleted, parked in `Tests/Pickle/Parked/<folder>/` with a `RELEASE.md`, or minified into `Tests/Pickle/Evidence/` (proofs only, under 2 MB, each with a `RELEASE.md`). All three folders are on disk and ignored by git. `docs/runs/history.md` holds one text line per run. Rules: protocols repository, `AGENTS.md` "Test evidence" and `PICKLE.md`. The old `Tests/Pickle/runs/` and the per-run summaries of `docs/runs/` were retired on 2026-10-20 (the lines are in `history.md`, the files in git history).
+Runs land in `Tests/Pickle/Inbox/<run>` (the `-EvidenceDir` of each ticket), are studied there, then deleted, parked in `Tests/Pickle/Parked/<folder>/` with a `RELEASE.md`, or minified into `Tests/Pickle/Evidence/` (proofs only, under 2 MB, each with a `RELEASE.md`). All three folders are on disk and ignored by git. `Docs/runs/pickle.md` holds one text line per run. Rules: protocols repository, `AGENTS.md` "Test evidence" and `PICKLE.md`. The old `Tests/Pickle/runs/` and the per-run summaries of `docs/runs/` were retired on 2026-10-20 (the lines are in `history.md`, the files in git history).
 
 ## Why the pass without Ideology plays one feature
 
